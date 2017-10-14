@@ -148,7 +148,7 @@ namespace TestesAutomatizados
         }
 
         private UIMap map;
-        private RemoteWebDriver Driver;
+        public RemoteWebDriver Driver;
 
     }
 }

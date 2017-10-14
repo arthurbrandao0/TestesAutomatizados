@@ -8,7 +8,8 @@ using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.VisualStudio.TestTools.UITest.Extension;
 using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
-
+using OpenQA.Selenium.Remote;
+using OpenQA.Selenium;
 
 namespace TestesAutomatizados.CobrancaEBoleto
 {
@@ -16,21 +17,33 @@ namespace TestesAutomatizados.CobrancaEBoleto
     /// Descrição resumida para CodedUITest1
     /// </resumo>
     [CodedUITest]
-    public class CodedUITest1
+    public class DesfazerAcertoDePromotorComCobrancaGerada_8200
     {
-        public CodedUITest1()
+        public DesfazerAcertoDePromotorComCobrancaGerada_8200()
         {
         }
 
         [TestMethod]
         public void DesfazerAcertoDePromotorComCobrancaGerada_8200_Metodo()
         {
-            // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
-            this.UIMap.GerarAcertoDeComissao();
-            this.UIMap.ClicarBotaoOkAcertoDeComissao();
+            var dc = new DesiredCapabilities();
+            dc.SetCapability("app", @"\\tsidev\Triade\Application\Dev\MultiClubes\System\MultiClubes\MultiClubes.UI.application");
+            dc.SetCapability("debugConnectToRunningApp", true);
+            Driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
 
-            this.UIMap.LocalizarHistoricoDeAcertos();
-                
+            // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
+            //this.UIMap.GerarAcertoDeComissao();
+            //this.UIMap.ClicarBotaoOkAcertoDeComissao();
+
+            //this.UIMap.LocalizarHistoricoDeAcertos();
+            Driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
+
+            var list = Driver.FindElement(By.Id("listView")).FindElements(By.Name("Sophie Promotor"));
+            //Arrumar essa gambiarra do click:
+            list[2].Click();
+            list[2].Click();
+            list[2].Click();
+
         }
 
         #region Atributos de teste adicionais
@@ -86,5 +99,6 @@ namespace TestesAutomatizados.CobrancaEBoleto
         }
 
         private UIMap map;
+        private RemoteWebDriver Driver;
     }
 }
