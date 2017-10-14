@@ -1,5 +1,6 @@
 ﻿
 using Microsoft.VisualStudio.TestTools.UITesting;
+using Microsoft.VisualStudio.TestTools.UITesting.WinControls;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
@@ -94,7 +95,11 @@ namespace TestesAutomatizados
             //Process proc = new Process();
             //proc.StartInfo.FileName = @"C:/Triade/MultiClubes/System/MultiClubes/MultiClubes.UI.application";
             //proc.Start();
-            Driver.FindElement(By.Name("MultiClubes")).Click();
+            //Driver.FindElement(By.Name("MultiClubes")).Click();
+            WinWindow winMC = new WinWindow();
+            winMC.SearchProperties[WinWindow.PropertyNames.Name] = "MultiClubes";
+            winMC.WindowTitles.Add("MultiClubes");
+            Mouse.Click(winMC);
         }
 
         #region Atributos de teste adicionais
