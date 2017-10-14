@@ -10,6 +10,7 @@ using Microsoft.VisualStudio.TestTools.UITest.Extension;
 using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium;
+using System.Threading;
 
 namespace TestesAutomatizados.CobrancaEBoleto
 {
@@ -32,10 +33,10 @@ namespace TestesAutomatizados.CobrancaEBoleto
             Driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
 
             // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
-            //this.UIMap.GerarAcertoDeComissao();
-            //this.UIMap.ClicarBotaoOkAcertoDeComissao();
+            this.UIMap.GerarAcertoDeComissao();
+            this.UIMap.ClicarBotaoOkAcertoDeComissao();
 
-            //this.UIMap.LocalizarHistoricoDeAcertos();
+            this.UIMap.LocalizarHistoricoDeAcertos();
             Driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
 
             var list = Driver.FindElement(By.Id("listView")).FindElements(By.Name("Sophie Promotor"));
@@ -44,6 +45,15 @@ namespace TestesAutomatizados.CobrancaEBoleto
             list[2].Click();
             list[2].Click();
 
+            Driver.FindElement(By.Name("Opções")).Click();
+            Thread.Sleep(3000);
+            Driver.FindElement(By.Name("Desfazer acerto")).Click();
+            Thread.Sleep(3000);
+            Driver.FindElement(By.Name("Sim")).Click();
+            Thread.Sleep(3000);
+            Driver.FindElement(By.Name("Fechar")).Click();
+            Thread.Sleep(3000);
+            Driver.FindElement(By.Name("Fechar")).Click();
         }
 
         #region Atributos de teste adicionais

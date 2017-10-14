@@ -94,6 +94,7 @@ namespace TestesAutomatizados
             //Process proc = new Process();
             //proc.StartInfo.FileName = @"C:/Triade/MultiClubes/System/MultiClubes/MultiClubes.UI.application";
             //proc.Start();
+            Driver.FindElement(By.Name("MultiClubes")).Click();
         }
 
         #region Atributos de teste adicionais
@@ -108,12 +109,12 @@ namespace TestesAutomatizados
         //}
 
         ////Use TestCleanup para executar código depois de cada execução de teste
-        [TestCleanup()]
-        public void MyTestCleanup()
-        {
-            //Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
-           Driver.Close();
-        }
+        //[TestCleanup()]
+        //public void MyTestCleanup()
+        //{
+        //    //Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
+        //   //Driver.Close();
+        //}
 
         #endregion
 
