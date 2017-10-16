@@ -30,6 +30,1570 @@ namespace TestesAutomatizados
     {
         
         /// <summary>
+        /// AbrirMultiClubes - Use 'AbrirMultiClubesParams' para passar parâmetros para este método.
+        /// </summary>
+        public void AbrirMultiClubes()
+        {
+            #region Variable Declarations
+            WinComboBox uIAbrirComboBox = this.UIExecutarWindow.UIItemWindow1.UIAbrirComboBox;
+            WinEdit uIAbrirEdit = this.UIExecutarWindow.UIItemWindow.UIAbrirEdit;
+            #endregion
+
+            // Pressionar as teclas de atalho de teclado 'Windows + r'
+            Keyboard.SendKeys(this.AbrirMultiClubesParams.SendKeys, ModifierKeys.Windows);
+
+            // Selecionar 'C:\Users\arthur.gama\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Triade Soluções Inteligentes\MultiClubes\MultiClubes.appref-ms' em 'Abrir:' caixa de combinação
+            uIAbrirComboBox.EditableItem = this.AbrirMultiClubesParams.UIAbrirComboBoxEditableItem;
+
+            // Digitar '{Enter}' em 'Abrir:' caixa de texto
+            Keyboard.SendKeys(uIAbrirEdit, this.AbrirMultiClubesParams.UIAbrirEditSendKeys, ModifierKeys.None);
+        }
+        
+        /// <summary>
+        /// LogarMultiClubes - Use 'LogarMultiClubesParams' para passar parâmetros para este método.
+        /// </summary>
+        public void LogarMultiClubes()
+        {
+            #region Variable Declarations
+            WinEdit uITextBoxUsernameEdit = this.UIMultiClubesWindow.UITextBoxUsernameWindow.UITextBoxUsernameEdit;
+            WinEdit uITextBoxPasswordEdit = this.UIMultiClubesWindow.UITextBoxPasswordWindow.UITextBoxPasswordEdit;
+            #endregion
+
+            // Digitar 'suporte' em 'textBoxUsername' caixa de texto
+            uITextBoxUsernameEdit.Text = this.LogarMultiClubesParams.UITextBoxUsernameEditText;
+
+            // Digitar '{Tab}' em 'textBoxUsername' caixa de texto
+            Keyboard.SendKeys(uITextBoxUsernameEdit, this.LogarMultiClubesParams.UITextBoxUsernameEditSendKeys, ModifierKeys.None);
+
+            // Digitar '********' em 'textBoxPassword' caixa de texto
+            Keyboard.SendKeys(uITextBoxPasswordEdit, this.LogarMultiClubesParams.UITextBoxPasswordEditSendKeys, true);
+        }
+        
+        /// <summary>
+        /// AbrirCentralAtendimento - Use 'AbrirCentralAtendimentoParams' para passar parâmetros para este método.
+        /// </summary>
+        public void AbrirCentralAtendimento()
+        {
+            #region Variable Declarations
+            WinClient uIMultiClubesClient = this.UIMultiClubesWindow.UIMultiClubesWindow1.UIMultiClubesClient;
+            WinMenuItem uICentraldeatendimentoMenuItem = this.UIMultiClubesWindow.UIMenuMainMenuBar.UIOperaçãoMenuItem.UITítuloMenuItem.UICentraldeatendimentoMenuItem;
+            #endregion
+
+            // Digitar 'Alt + o' em 'MultiClubes' cliente
+            Keyboard.SendKeys(uIMultiClubesClient, this.AbrirCentralAtendimentoParams.UIMultiClubesClientSendKeys, ModifierKeys.Alt);
+
+            // Clicar 'Operação' -> 'Título' -> 'Central de atendimento' item de menu
+            Mouse.Click(uICentraldeatendimentoMenuItem, new Point(0, 0));
+        }
+        
+        /// <summary>
+        /// ProcurarTextoCentralDeAtendimento - Use 'ProcurarTextoCentralDeAtendimentoExpectedValues' para passar parâmetros para este método.
+        /// </summary>
+        public void ProcurarTextoCentralDeAtendimento()
+        {
+            #region Variable Declarations
+            WinText uICentraldeatendimentoText = this.UIMultiClubesCentraldeWindow.UICentraldeatendimentoWindow.UICentraldeatendimentoText;
+            #endregion
+
+            // Verificar se a propriedade 'DisplayText' de 'Central de atendimento' rótulo Igual a 'Central de atendimento'
+            Assert.AreEqual(this.ProcurarTextoCentralDeAtendimentoExpectedValues.UICentraldeatendimentoTextDisplayText, uICentraldeatendimentoText.DisplayText);
+        }
+        
+        /// <summary>
+        /// ProcurarTextoLocalizeOSocio - Use 'ProcurarTextoLocalizeOSocioExpectedValues' para passar parâmetros para este método.
+        /// </summary>
+        public void ProcurarTextoLocalizeOSocio()
+        {
+            #region Variable Declarations
+            WinText uILocalizeosócioText = this.UIMultiClubesCentraldeWindow.UILocalizeosócioWindow.UILocalizeosócioText;
+            #endregion
+
+            // Verificar se a propriedade 'DisplayText' de 'Localize o sócio' rótulo Igual a 'Localize o sócio'
+            Assert.AreEqual(this.ProcurarTextoLocalizeOSocioExpectedValues.UILocalizeosócioTextDisplayText, uILocalizeosócioText.DisplayText);
+        }
+        
+        /// <summary>
+        /// FecharCentralDeAtendimento - Use 'FecharCentralDeAtendimentoParams' para passar parâmetros para este método.
+        /// </summary>
+        public void FecharCentralDeAtendimento()
+        {
+            #region Variable Declarations
+            WinEdit uITextBoxKeywordEdit = this.UIMultiClubesCentraldeWindow.UITextBoxKeywordWindow1.UITextBoxKeywordEdit;
+            #endregion
+
+            // Digitar 'Alt + f' em 'textBoxKeyword' caixa de texto
+            Keyboard.SendKeys(uITextBoxKeywordEdit, this.FecharCentralDeAtendimentoParams.UITextBoxKeywordEditSendKeys, ModifierKeys.Alt);
+        }
+        
+        /// <summary>
+        /// AcessarParentesco
+        /// </summary>
+        public void AcessarParentesco()
+        {
+            #region Variable Declarations
+            WinMenuItem uIParentescosMenuItem = this.UIMultiClubesWindow.UIMenuMainMenuBar.UIAdministraçãoMenuItem.UITítuloMenuItem.UIParentescosMenuItem;
+            #endregion
+
+            // Clicar 'Administração' -> 'Título' -> 'Parentescos' item de menu
+            Mouse.Click(uIParentescosMenuItem, new Point(0, 0));
+        }
+        
+        /// <summary>
+        /// ProcurarTextoParentesco - Use 'ProcurarTextoParentescoExpectedValues' para passar parâmetros para este método.
+        /// </summary>
+        public void ProcurarTextoParentesco()
+        {
+            #region Variable Declarations
+            WinText uIParentescosText = this.UIMultiClubesParentescWindow.UIParentescosWindow.UIParentescosText;
+            #endregion
+
+            // Verificar se a propriedade 'DisplayText' de 'Parentescos' rótulo Igual a 'Parentescos'
+            Assert.AreEqual(this.ProcurarTextoParentescoExpectedValues.UIParentescosTextDisplayText, uIParentescosText.DisplayText);
+        }
+        
+        /// <summary>
+        /// FecharParentesco - Use 'FecharParentescoParams' para passar parâmetros para este método.
+        /// </summary>
+        public void FecharParentesco()
+        {
+            #region Variable Declarations
+            WinListItem uIACOMPANHANTEAListItem = this.UIMultiClubesParentescWindow.UIListViewWindow.UIACOMPANHANTEAListItem;
+            #endregion
+
+            // Digitar 'Alt + f' em 'ACOMPANHANTE (A)' item de lista
+            Keyboard.SendKeys(uIACOMPANHANTEAListItem, this.FecharParentescoParams.UIACOMPANHANTEAListItemSendKeys, ModifierKeys.Alt);
+        }
+        
+        /// <summary>
+        /// AbrirCaixa - Use 'AbrirCaixaParams' para passar parâmetros para este método.
+        /// </summary>
+        public void AbrirCaixa()
+        {
+            #region Variable Declarations
+            WinButton uIAbrircaixaButton = this.UIMultiClubesWindow.UIAbrircaixaWindow.UIAbrircaixaButton;
+            WinMenu uIContextoMenu = this.UIItemWindow1.UIContextoMenu;
+            WinMenuItem uINovoMenuItem = this.UIItemWindow1.UIContextoMenu.UINovoMenuItem;
+            #endregion
+
+            // Digitar 'Alt + a' em '&Abrir caixa' botão
+            Keyboard.SendKeys(uIAbrircaixaButton, this.AbrirCaixaParams.UIAbrircaixaButtonSendKeys, ModifierKeys.Alt);
+
+            // Digitar '{Right}{Down}' em 'Contexto' menu pop-up
+            Keyboard.SendKeys(uIContextoMenu, this.AbrirCaixaParams.UIContextoMenuSendKeys, ModifierKeys.None);
+
+            // Clicar 'Novo' item de menu
+            Mouse.Click(uINovoMenuItem, new Point(0, 0));
+        }
+        
+        /// <summary>
+        /// AcessarCadastroDeTitulo
+        /// </summary>
+        public void AcessarCadastroDeTitulo()
+        {
+            #region Variable Declarations
+            WinMenuItem uICadastrodetítuloMenuItem = this.UIMultiClubesWindow.UIMenuMainMenuBar.UIOperaçãoMenuItem.UITítuloMenuItem.UICadastrodetítuloMenuItem;
+            #endregion
+
+            // Clicar 'Operação' -> 'Título' -> 'Cadastro de título' item de menu
+            Mouse.Click(uICadastrodetítuloMenuItem, new Point(0, 0));
+        }
+        
+        /// <summary>
+        /// ProcurarTextoCadastro - Use 'ProcurarTextoCadastroExpectedValues' para passar parâmetros para este método.
+        /// </summary>
+        public void ProcurarTextoCadastro()
+        {
+            #region Variable Declarations
+            WinText uICadastroText = this.UICadastrodetítuloWindow.UICadastroWindow.UICadastroText;
+            #endregion
+
+            // Verificar se a propriedade 'DisplayText' de 'Cadastro' rótulo Igual a 'Cadastro'
+            Assert.AreEqual(this.ProcurarTextoCadastroExpectedValues.UICadastroTextDisplayText, uICadastroText.DisplayText);
+        }
+        
+        /// <summary>
+        /// ProcurarTextoNovoTítulo - Use 'ProcurarTextoNovoTítuloExpectedValues' para passar parâmetros para este método.
+        /// </summary>
+        public void ProcurarTextoNovoTítulo()
+        {
+            #region Variable Declarations
+            WinText uINovotítuloText = this.UICadastrodetítuloWindow.UINovotítuloWindow.UINovotítuloText;
+            #endregion
+
+            // Verificar se a propriedade 'DisplayText' de 'Novo título' rótulo Igual a 'Novo título'
+            Assert.AreEqual(this.ProcurarTextoNovoTítuloExpectedValues.UINovotítuloTextDisplayText, uINovotítuloText.DisplayText);
+        }
+        
+        /// <summary>
+        /// ProcurarBotaoTítulo - Use 'ProcurarBotaoTítuloExpectedValues' para passar parâmetros para este método.
+        /// </summary>
+        public void ProcurarBotaoTítulo()
+        {
+            #region Variable Declarations
+            WinButton uITítuloButton = this.UICadastrodetítuloWindow.UITítuloWindow.UITítuloButton;
+            #endregion
+
+            // Verificar se a propriedade 'DisplayText' de 'Título' botão Igual a 'Título'
+            Assert.AreEqual(this.ProcurarBotaoTítuloExpectedValues.UITítuloButtonDisplayText, uITítuloButton.DisplayText);
+        }
+        
+        /// <summary>
+        /// ProcurarBotaoIncluirDependente - Use 'ProcurarBotaoIncluirDependenteExpectedValues' para passar parâmetros para este método.
+        /// </summary>
+        public void ProcurarBotaoIncluirDependente()
+        {
+            #region Variable Declarations
+            WinButton uIIncluirdependenteButton = this.UICadastrodetítuloWindow.UIIncluirdependenteWindow.UIIncluirdependenteButton;
+            #endregion
+
+            // Verificar se a propriedade 'DisplayText' de 'Incluir dependente' botão Igual a 'Incluir dependente'
+            Assert.AreEqual(this.ProcurarBotaoIncluirDependenteExpectedValues.UIIncluirdependenteButtonDisplayText, uIIncluirdependenteButton.DisplayText);
+        }
+        
+        /// <summary>
+        /// ProcurarGroupBoxVenda - Use 'ProcurarGroupBoxVendaExpectedValues' para passar parâmetros para este método.
+        /// </summary>
+        public void ProcurarGroupBoxVenda()
+        {
+            #region Variable Declarations
+            WinClient uIVendaClient = this.UICadastrodetítuloWindow.UIVendaWindow.UIVendaClient;
+            #endregion
+
+            // Verificar se a propriedade 'FriendlyName' de 'Venda' cliente Igual a 'Venda'
+            Assert.AreEqual(this.ProcurarGroupBoxVendaExpectedValues.UIVendaClientFriendlyName, uIVendaClient.FriendlyName);
+
+            // Verificar se a propriedade 'FriendlyName' de 'Venda' cliente Igual a 'Venda'
+            Assert.AreEqual(this.ProcurarGroupBoxVendaExpectedValues.UIVendaClientFriendlyName1, uIVendaClient.FriendlyName);
+        }
+        
+        /// <summary>
+        /// FecharTelaCadastroTitulo - Use 'FecharTelaCadastroTituloParams' para passar parâmetros para este método.
+        /// </summary>
+        public void FecharTelaCadastroTitulo()
+        {
+            #region Variable Declarations
+            WinButton uICancelarButton = this.UICadastrodetítuloWindow.UICancelarWindow.UICancelarButton;
+            #endregion
+
+            // Digitar '{Enter}' em 'Cancelar' botão
+            Keyboard.SendKeys(uICancelarButton, this.FecharTelaCadastroTituloParams.UICancelarButtonSendKeys, ModifierKeys.None);
+        }
+        
+        /// <summary>
+        /// AcessarSegurancaPermissoes - Use 'AcessarSegurancaPermissoesParams' para passar parâmetros para este método.
+        /// </summary>
+        public void AcessarSegurancaPermissoes()
+        {
+            #region Variable Declarations
+            WinMenuBar uIMenuMainMenuBar = this.UIMultiClubesWindow2.UIMenuMainWindow.UIMenuMainMenuBar;
+            WinMenuItem uIPermissõesMenuItem = this.UIMultiClubesWindow.UIMenuMainMenuBar.UIAdministraçãoMenuItem.UISegurançaMenuItem.UIPermissõesMenuItem;
+            #endregion
+
+            // Digitar 'Alt + d' em 'menuMain' barra de menus
+            Keyboard.SendKeys(uIMenuMainMenuBar, this.AcessarSegurancaPermissoesParams.UIMenuMainMenuBarSendKeys, ModifierKeys.Alt);
+
+            // Clicar 'Administração' -> 'Segurança' -> 'Permissões' item de menu
+            Mouse.Click(uIPermissõesMenuItem, new Point(0, 0));
+        }
+        
+        /// <summary>
+        /// ProcurarTituloPermissoes - Use 'ProcurarTituloPermissoesExpectedValues' para passar parâmetros para este método.
+        /// </summary>
+        public void ProcurarTituloPermissoes()
+        {
+            #region Variable Declarations
+            WinTitleBar uIPermissõesTitleBar = this.UIPermissõesWindow.UIPermissõesTitleBar;
+            #endregion
+
+            // Verificar se a propriedade 'DisplayText' de 'Permissões' barra de título Igual a 'Permissões'
+            Assert.AreEqual(this.ProcurarTituloPermissoesExpectedValues.UIPermissõesTitleBarDisplayText, uIPermissõesTitleBar.DisplayText);
+        }
+        
+        /// <summary>
+        /// ProcurarTextoGruposEPermissoes - Use 'ProcurarTextoGruposEPermissoesExpectedValues' para passar parâmetros para este método.
+        /// </summary>
+        public void ProcurarTextoGruposEPermissoes()
+        {
+            #region Variable Declarations
+            WinText uIGruposepermissõesText = this.UIPermissõesWindow.UIGruposepermissõesWindow.UIGruposepermissõesText;
+            #endregion
+
+            // Verificar se a propriedade 'DisplayText' de 'Grupos e permissões' rótulo Igual a 'Grupos e permissões'
+            Assert.AreEqual(this.ProcurarTextoGruposEPermissoesExpectedValues.UIGruposepermissõesTextDisplayText, uIGruposepermissõesText.DisplayText);
+        }
+        
+        /// <summary>
+        /// ProcurarTextoSeguranca - Use 'ProcurarTextoSegurancaExpectedValues' para passar parâmetros para este método.
+        /// </summary>
+        public void ProcurarTextoSeguranca()
+        {
+            #region Variable Declarations
+            WinText uISegurançaText = this.UIPermissõesWindow.UISegurançaWindow.UISegurançaText;
+            #endregion
+
+            // Verificar se a propriedade 'DisplayText' de 'Segurança' rótulo Igual a 'Segurança'
+            Assert.AreEqual(this.ProcurarTextoSegurancaExpectedValues.UISegurançaTextDisplayText, uISegurançaText.DisplayText);
+
+            // Verificar se a propriedade 'DisplayText' de 'Segurança' rótulo Igual a 'Segurança'
+            Assert.AreEqual(this.ProcurarTextoSegurancaExpectedValues.UISegurançaTextDisplayText1, uISegurançaText.DisplayText);
+        }
+        
+        /// <summary>
+        /// FecharTelaSegurancaPermissoes - Use 'FecharTelaSegurancaPermissoesParams' para passar parâmetros para este método.
+        /// </summary>
+        public void FecharTelaSegurancaPermissoes()
+        {
+            #region Variable Declarations
+            WinButton uICancelarButton = this.UIPermissõesWindow.UICancelarWindow.UICancelarButton;
+            #endregion
+
+            // Digitar '{Enter}' em '&Cancelar' botão
+            Keyboard.SendKeys(uICancelarButton, this.FecharTelaSegurancaPermissoesParams.UICancelarButtonSendKeys, ModifierKeys.None);
+        }
+        
+        /// <summary>
+        /// AcessarSegurancaComputadores
+        /// </summary>
+        public void AcessarSegurancaComputadores()
+        {
+            #region Variable Declarations
+            WinMenuItem uIComputadoresMenuItem = this.UIMultiClubesWindow.UIMenuMainMenuBar.UIAdministraçãoMenuItem.UISegurançaMenuItem.UIComputadoresMenuItem;
+            #endregion
+
+            // Clicar 'Administração' -> 'Segurança' -> 'Computadores' item de menu
+            Mouse.Click(uIComputadoresMenuItem, new Point(0, 0));
+        }
+        
+        /// <summary>
+        /// ProcurarTituloMultiClubesComputadores - Use 'ProcurarTituloMultiClubesComputadoresExpectedValues' para passar parâmetros para este método.
+        /// </summary>
+        public void ProcurarTituloMultiClubesComputadores()
+        {
+            #region Variable Declarations
+            WinTitleBar uIMultiClubesComputadoTitleBar = this.UIMultiClubesComputadoWindow.UIMultiClubesComputadoTitleBar;
+            #endregion
+
+            // Verificar se a propriedade 'DisplayText' de 'MultiClubes - Computadores' barra de título Igual a 'MultiClubes - Computadores'
+            Assert.AreEqual(this.ProcurarTituloMultiClubesComputadoresExpectedValues.UIMultiClubesComputadoTitleBarDisplayText, uIMultiClubesComputadoTitleBar.DisplayText);
+        }
+        
+        /// <summary>
+        /// ProcurarTextoComputadores - Use 'ProcurarTextoComputadoresExpectedValues' para passar parâmetros para este método.
+        /// </summary>
+        public void ProcurarTextoComputadores()
+        {
+            #region Variable Declarations
+            WinText uIComputadoresText = this.UIMultiClubesComputadoWindow.UIComputadoresWindow.UIComputadoresText;
+            #endregion
+
+            // Verificar se a propriedade 'DisplayText' de 'Computadores' rótulo Igual a 'Computadores'
+            Assert.AreEqual(this.ProcurarTextoComputadoresExpectedValues.UIComputadoresTextDisplayText, uIComputadoresText.DisplayText);
+        }
+        
+        /// <summary>
+        /// ProcurarTextoItens - Use 'ProcurarTextoItensExpectedValues' para passar parâmetros para este método.
+        /// </summary>
+        public void ProcurarTextoItens()
+        {
+            #region Variable Declarations
+            WinText uIItem3itensText = this.UIMultiClubesComputadoWindow.UIItem3itensWindow.UIItem3itensText;
+            #endregion
+
+            // Verificar se a propriedade 'FriendlyName' de '3 itens' rótulo contém 'itens'
+            StringAssert.Contains(uIItem3itensText.FriendlyName, this.ProcurarTextoItensExpectedValues.UIItem3itensTextFriendlyName);
+        }
+        
+        /// <summary>
+        /// FecharTelaSegurancaComputadores - Use 'FecharTelaSegurancaComputadoresParams' para passar parâmetros para este método.
+        /// </summary>
+        public void FecharTelaSegurancaComputadores()
+        {
+            #region Variable Declarations
+            WinListItem uITIListItem = this.UIMultiClubesComputadoWindow.UIListViewWindow.UITIListItem;
+            #endregion
+
+            // Digitar 'Alt + f' em 'TI' item de lista
+            Keyboard.SendKeys(uITIListItem, this.FecharTelaSegurancaComputadoresParams.UITIListItemSendKeys, ModifierKeys.Alt);
+        }
+        
+        /// <summary>
+        /// AbrirAdministracaoFinanceiroGruposProduto
+        /// </summary>
+        public void AbrirAdministracaoFinanceiroGruposProduto()
+        {
+            #region Variable Declarations
+            WinMenuItem uIGruposdeprodutoMenuItem = this.UIMultiClubesWindow.UIMenuMainMenuBar.UIAdministraçãoMenuItem.UIFinanceiroMenuItem.UIGruposdeprodutoMenuItem;
+            #endregion
+
+            // Clicar 'Administração' -> 'Financeiro' -> 'Grupos de produto' item de menu
+            Mouse.Click(uIGruposdeprodutoMenuItem, new Point(0, 0));
+        }
+        
+        /// <summary>
+        /// ProcurarTituloMultiClubesGruposDeProduto - Use 'ProcurarTituloMultiClubesGruposDeProdutoExpectedValues' para passar parâmetros para este método.
+        /// </summary>
+        public void ProcurarTituloMultiClubesGruposDeProduto()
+        {
+            #region Variable Declarations
+            WinTitleBar uIMultiClubesGruposdepTitleBar = this.UIMultiClubesGruposdepWindow.UIMultiClubesGruposdepTitleBar;
+            #endregion
+
+            // Verificar se a propriedade 'DisplayText' de 'MultiClubes - Grupos de produto' barra de título Igual a 'MultiClubes - Grupos de produto'
+            Assert.AreEqual(this.ProcurarTituloMultiClubesGruposDeProdutoExpectedValues.UIMultiClubesGruposdepTitleBarDisplayText, uIMultiClubesGruposdepTitleBar.DisplayText);
+        }
+        
+        /// <summary>
+        /// ProcurarTextoGruposDeProduto - Use 'ProcurarTextoGruposDeProdutoExpectedValues' para passar parâmetros para este método.
+        /// </summary>
+        public void ProcurarTextoGruposDeProduto()
+        {
+            #region Variable Declarations
+            WinText uIGruposdeprodutoText = this.UIMultiClubesGruposdepWindow.UIGruposdeprodutoWindow.UIGruposdeprodutoText;
+            #endregion
+
+            // Verificar se a propriedade 'DisplayText' de 'Grupos de produto' rótulo Igual a 'Grupos de produto'
+            Assert.AreEqual(this.ProcurarTextoGruposDeProdutoExpectedValues.UIGruposdeprodutoTextDisplayText, uIGruposdeprodutoText.DisplayText);
+        }
+        
+        /// <summary>
+        /// ProcurarColunaGrupo - Use 'ProcurarColunaGrupoExpectedValues' para passar parâmetros para este método.
+        /// </summary>
+        public void ProcurarColunaGrupo()
+        {
+            #region Variable Declarations
+            WinColumnHeader uIGrupoColumnHeader = this.UIMultiClubesGruposdepWindow.UIListViewWindow.UIListViewList.UIControledeCabeçalhoList.UIGrupoColumnHeader;
+            #endregion
+
+            // Verificar se a propriedade 'FriendlyName' de 'Grupo' cabeçalho da coluna Igual a 'Grupo'
+            Assert.AreEqual(this.ProcurarColunaGrupoExpectedValues.UIGrupoColumnHeaderFriendlyName, uIGrupoColumnHeader.FriendlyName);
+        }
+        
+        /// <summary>
+        /// FecharTelaAcessarGruposDeProduto - Use 'FecharTelaAcessarGruposDeProdutoParams' para passar parâmetros para este método.
+        /// </summary>
+        public void FecharTelaAcessarGruposDeProduto()
+        {
+            #region Variable Declarations
+            WinList uIListViewList = this.UIMultiClubesGruposdepWindow.UIListViewWindow.UIListViewList;
+            #endregion
+
+            // Digitar 'Alt + f' em 'listView' caixa de listagem
+            Keyboard.SendKeys(uIListViewList, this.FecharTelaAcessarGruposDeProdutoParams.UIListViewListSendKeys, ModifierKeys.Alt);
+        }
+        
+        /// <summary>
+        /// AcessarGeracaoDeCobranca
+        /// </summary>
+        public void AcessarGeracaoDeCobranca()
+        {
+            #region Variable Declarations
+            WinMenuItem uIGeraçãodecobrançaMenuItem = this.UIMultiClubesWindow.UIMenuMainMenuBar.UIOperaçãoMenuItem.UIFinanceiroMenuItem.UICobrançaMenuItem.UIGeraçãodecobrançaMenuItem;
+            #endregion
+
+            // Clicar 'Operação' -> 'Financeiro' -> 'Cobrança' -> 'Geração de cobrança' item de menu
+            Mouse.Click(uIGeraçãodecobrançaMenuItem, new Point(0, 0));
+        }
+        
+        /// <summary>
+        /// DesabilitarOpcaoImportarConsumosAte - Use 'DesabilitarOpcaoImportarConsumosAteParams' para passar parâmetros para este método.
+        /// </summary>
+        public void DesabilitarOpcaoImportarConsumosAte()
+        {
+            #region Variable Declarations
+            WinCheckBox uIImportarconsumosatéCheckBox = this.UIGeraçãodecobrançaWindow.UIImportarconsumosatéWindow.UIImportarconsumosatéCheckBox;
+            #endregion
+
+            // Limpar 'Importar consumos até :' caixa de seleção
+            uIImportarconsumosatéCheckBox.Checked = this.DesabilitarOpcaoImportarConsumosAteParams.UIImportarconsumosatéCheckBoxChecked;
+        }
+        
+        /// <summary>
+        /// ClicarBotaoGeracaoCobranca - Use 'ClicarBotaoGeracaoCobrancaParams' para passar parâmetros para este método.
+        /// </summary>
+        public void ClicarBotaoGeracaoCobranca()
+        {
+            #region Variable Declarations
+            WinButton uIGerarButton = this.UIGeraçãodecobrançaWindow.UIGerarWindow.UIGerarButton;
+            WinButton uISimButton = this.UIPerguntaWindow.UIPerguntaPane.UISimButton;
+            #endregion
+
+            // Digitar '{Enter}' em 'Gerar' botão
+            Keyboard.SendKeys(uIGerarButton, this.ClicarBotaoGeracaoCobrancaParams.UIGerarButtonSendKeys, ModifierKeys.None);
+
+            // Digitar '{Enter}' em 'Sim' botão
+            Keyboard.SendKeys(uISimButton, this.ClicarBotaoGeracaoCobrancaParams.UISimButtonSendKeys, ModifierKeys.None);
+        }
+        
+        /// <summary>
+        /// ProcurarTituloGeracaoDeCobranca - Use 'ProcurarTituloGeracaoDeCobrancaExpectedValues' para passar parâmetros para este método.
+        /// </summary>
+        public void ProcurarTituloGeracaoDeCobranca()
+        {
+            #region Variable Declarations
+            WinTitleBar uIGeraçãodecobrançaTitleBar = this.UIGeraçãodecobrançaWindow1.UIGeraçãodecobrançaTitleBar;
+            #endregion
+
+            // Verificar se a propriedade 'DisplayText' de 'Geração de cobrança' barra de título Igual a 'Geração de cobrança'
+            Assert.AreEqual(this.ProcurarTituloGeracaoDeCobrancaExpectedValues.UIGeraçãodecobrançaTitleBarDisplayText, uIGeraçãodecobrançaTitleBar.DisplayText);
+        }
+        
+        /// <summary>
+        /// ProcurarGroupBoxConsumo - Use 'ProcurarGroupBoxConsumoExpectedValues' para passar parâmetros para este método.
+        /// </summary>
+        public void ProcurarGroupBoxConsumo()
+        {
+            #region Variable Declarations
+            WinClient uIConsumoClient = this.UIGeraçãodecobrançaWindow1.UIConsumoWindow.UIConsumoClient;
+            #endregion
+
+            // Verificar se a propriedade 'FriendlyName' de 'Consumo' cliente Igual a 'Consumo'
+            Assert.AreEqual(this.ProcurarGroupBoxConsumoExpectedValues.UIConsumoClientFriendlyName, uIConsumoClient.FriendlyName);
+        }
+        
+        /// <summary>
+        /// ProcurarHoraInicio - Use 'ProcurarHoraInicioExpectedValues' para passar parâmetros para este método.
+        /// </summary>
+        public void ProcurarHoraInicio()
+        {
+            #region Variable Declarations
+            WinText uIItem1518Text = this.UIGeraçãodecobrançaWindow1.UIItem1518Window.UIItem1518Text;
+            #endregion
+
+            // Verificar se a propriedade 'DisplayText' de '15:18' rótulo contém ':'
+            StringAssert.Contains(uIItem1518Text.DisplayText, this.ProcurarHoraInicioExpectedValues.UIItem1518TextDisplayText);
+        }
+        
+        /// <summary>
+        /// ProcurarGroupBoxCobranca - Use 'ProcurarGroupBoxCobrancaExpectedValues' para passar parâmetros para este método.
+        /// </summary>
+        public void ProcurarGroupBoxCobranca()
+        {
+            #region Variable Declarations
+            WinClient uICobrançaClient = this.UIGeraçãodecobrançaWindow1.UICobrançaWindow.UICobrançaClient;
+            #endregion
+
+            // Verificar se a propriedade 'FriendlyName' de 'Cobrança' cliente Igual a 'Cobrança'
+            Assert.AreEqual(this.ProcurarGroupBoxCobrancaExpectedValues.UICobrançaClientFriendlyName, uICobrançaClient.FriendlyName);
+        }
+        
+        /// <summary>
+        /// ProcurarBotaoOk - Use 'ProcurarBotaoOkExpectedValues' para passar parâmetros para este método.
+        /// </summary>
+        public void ProcurarBotaoOk()
+        {
+            #region Variable Declarations
+            WinButton uIOKButton = this.UIGeraçãodecobrançaWindow1.UIOKWindow.UIOKButton;
+            #endregion
+
+            // Verificar se a propriedade 'FriendlyName' de '&OK' botão Igual a '&OK'
+            Assert.AreEqual(this.ProcurarBotaoOkExpectedValues.UIOKButtonFriendlyName, uIOKButton.FriendlyName);
+        }
+        
+        /// <summary>
+        /// FecharTelaGeracaoCobranca - Use 'FecharTelaGeracaoCobrancaParams' para passar parâmetros para este método.
+        /// </summary>
+        public void FecharTelaGeracaoCobranca()
+        {
+            #region Variable Declarations
+            WinButton uIOKButton = this.UIGeraçãodecobrançaWindow1.UIOKWindow.UIOKButton;
+            WinButton uIFecharButton = this.UIGeraçãodecobrançaWindow.UIFecharWindow.UIFecharButton;
+            #endregion
+
+            // Digitar '{Enter}' em '&OK' botão
+            Keyboard.SendKeys(uIOKButton, this.FecharTelaGeracaoCobrancaParams.UIOKButtonSendKeys, ModifierKeys.None);
+
+            // Digitar '{Enter}' em 'Fechar' botão
+            Keyboard.SendKeys(uIFecharButton, this.FecharTelaGeracaoCobrancaParams.UIFecharButtonSendKeys, ModifierKeys.None);
+        }
+        
+        /// <summary>
+        /// ProcurarImagemHora - Use 'ProcurarImagemHoraExpectedValues' para passar parâmetros para este método.
+        /// </summary>
+        public void ProcurarImagemHora()
+        {
+            #region Variable Declarations
+            WinClient uIPictureBoxClient = this.UIGeraçãodecobrançaWindow.UIPictureBoxWindow.UIPictureBoxClient;
+            #endregion
+
+            // Verificar se a propriedade 'ControlName' de 'pictureBox' cliente Igual a 'pictureBox'
+            Assert.AreEqual(this.ProcurarImagemHoraExpectedValues.UIPictureBoxClientControlName, uIPictureBoxClient.ControlName);
+        }
+        
+        /// <summary>
+        /// AbrirOperFinTransBancImpressaoBoleto
+        /// </summary>
+        public void AbrirOperFinTransBancImpressaoBoleto()
+        {
+            #region Variable Declarations
+            WinMenuItem uIImpressãodeboletoMenuItem = this.UIMultiClubesWindow.UIMenuMainMenuBar.UIOperaçãoMenuItem.UIFinanceiroMenuItem.UITransaçõesbancáriasMenuItem.UIImpressãodeboletoMenuItem;
+            #endregion
+
+            // Clicar 'Operação' -> 'Financeiro' -> 'Transações bancárias' -> 'Impressão de boleto' item de menu
+            Mouse.Click(uIImpressãodeboletoMenuItem, new Point(0, 0));
+        }
+        
+        /// <summary>
+        /// AcessarAdmAcesControleDeAcesso
+        /// </summary>
+        public void AcessarAdmAcesControleDeAcesso()
+        {
+            #region Variable Declarations
+            WinMenuItem uIControlesdeacessoMenuItem = this.UIMultiClubesWindow.UIMenuMainMenuBar.UIAdministraçãoMenuItem.UIAcessoMenuItem.UIControlesdeacessoMenuItem;
+            #endregion
+
+            // Clicar 'Administração' -> 'Acesso' -> 'Controles de acesso' item de menu
+            Mouse.Click(uIControlesdeacessoMenuItem, new Point(0, 0));
+        }
+        
+        /// <summary>
+        /// ProcurarTituloMultiClubesControleDeAcesso - Use 'ProcurarTituloMultiClubesControleDeAcessoExpectedValues' para passar parâmetros para este método.
+        /// </summary>
+        public void ProcurarTituloMultiClubesControleDeAcesso()
+        {
+            #region Variable Declarations
+            WinTitleBar uIMultiClubesControlesTitleBar = this.UIMultiClubesControlesWindow.UIMultiClubesControlesTitleBar;
+            #endregion
+
+            // Verificar se a propriedade 'DisplayText' de 'MultiClubes - Controles de acesso' barra de título Igual a 'MultiClubes - Controles de acesso'
+            Assert.AreEqual(this.ProcurarTituloMultiClubesControleDeAcessoExpectedValues.UIMultiClubesControlesTitleBarDisplayText, uIMultiClubesControlesTitleBar.DisplayText);
+        }
+        
+        /// <summary>
+        /// ProcurarColunaNome - Use 'ProcurarColunaNomeExpectedValues' para passar parâmetros para este método.
+        /// </summary>
+        public void ProcurarColunaNome()
+        {
+            #region Variable Declarations
+            WinColumnHeader uINomeColumnHeader = this.UIMultiClubesControlesWindow.UIListViewWindow.UIListViewList.UIControledeCabeçalhoList.UINomeColumnHeader;
+            #endregion
+
+            // Verificar se a propriedade 'FriendlyName' de 'Nome' cabeçalho da coluna Igual a 'Nome'
+            Assert.AreEqual(this.ProcurarColunaNomeExpectedValues.UINomeColumnHeaderFriendlyName, uINomeColumnHeader.FriendlyName);
+        }
+        
+        /// <summary>
+        /// ProcurarColunaUltimaAlteracao - Use 'ProcurarColunaUltimaAlteracaoExpectedValues' para passar parâmetros para este método.
+        /// </summary>
+        public void ProcurarColunaUltimaAlteracao()
+        {
+            #region Variable Declarations
+            WinColumnHeader uIÚltimaalteraçãoColumnHeader = this.UIMultiClubesControlesWindow.UIListViewWindow.UIListViewList.UIControledeCabeçalhoList.UIÚltimaalteraçãoColumnHeader;
+            #endregion
+
+            // Verificar se a propriedade 'FriendlyName' de 'Última alteração' cabeçalho da coluna Igual a 'Última alteração'
+            Assert.AreEqual(this.ProcurarColunaUltimaAlteracaoExpectedValues.UIÚltimaalteraçãoColumnHeaderFriendlyName, uIÚltimaalteraçãoColumnHeader.FriendlyName);
+        }
+        
+        /// <summary>
+        /// ProcurarColunaCriacao - Use 'ProcurarColunaCriacaoExpectedValues' para passar parâmetros para este método.
+        /// </summary>
+        public void ProcurarColunaCriacao()
+        {
+            #region Variable Declarations
+            WinColumnHeader uICriaçãoColumnHeader = this.UIMultiClubesControlesWindow.UIListViewWindow.UIListViewList.UIControledeCabeçalhoList.UICriaçãoColumnHeader;
+            #endregion
+
+            // Verificar se a propriedade 'FriendlyName' de 'Criação' cabeçalho da coluna Igual a 'Criação'
+            Assert.AreEqual(this.ProcurarColunaCriacaoExpectedValues.UICriaçãoColumnHeaderFriendlyName, uICriaçãoColumnHeader.FriendlyName);
+        }
+        
+        /// <summary>
+        /// AbrirTelaIncluirControleAcesso - Use 'AbrirTelaIncluirControleAcessoParams' para passar parâmetros para este método.
+        /// </summary>
+        public void AbrirTelaIncluirControleAcesso()
+        {
+            #region Variable Declarations
+            WinListItem uIControledeEmissãodeCListItem = this.UIMultiClubesControlesWindow.UIListViewWindow.UIControledeEmissãodeCListItem;
+            WinMenu uIContextoMenu = this.UIItemWindow1.UIContextoMenu;
+            WinMenuItem uIIncluirMenuItem = this.UIItemWindow1.UIContextoMenu.UIIncluirMenuItem;
+            #endregion
+
+            // Digitar '{Apps}' em 'Controle de Emissão de Cortesias' item de lista
+            Keyboard.SendKeys(uIControledeEmissãodeCListItem, this.AbrirTelaIncluirControleAcessoParams.UIControledeEmissãodeCListItemSendKeys, ModifierKeys.None);
+
+            // Digitar '{Down}' em 'Contexto' menu pop-up
+            Keyboard.SendKeys(uIContextoMenu, this.AbrirTelaIncluirControleAcessoParams.UIContextoMenuSendKeys, ModifierKeys.None);
+
+            // Clicar 'Incluir' item de menu
+            Mouse.Click(uIIncluirMenuItem, new Point(0, 0));
+
+            // Última ação do mouse não foi gravada.
+        }
+        
+        /// <summary>
+        /// InserirInformacoesNomeEDescricaoControleDeAcesso - Use 'InserirInformacoesNomeEDescricaoControleDeAcessoParams' para passar parâmetros para este método.
+        /// </summary>
+        public void InserirInformacoesNomeEDescricaoControleDeAcesso()
+        {
+            #region Variable Declarations
+            WinEdit uITextBoxNameEdit = this.UIControledeacessoWindow.UITextBoxNameWindow.UITextBoxNameEdit;
+            WinEdit uITextBoxDescriptionEdit = this.UIControledeacessoWindow.UITextBoxDescriptionWindow.UITextBoxDescriptionEdit;
+            #endregion
+
+            // Digitar 'Controle Teste Automatizado' em 'textBoxName' caixa de texto
+            uITextBoxNameEdit.Text = this.InserirInformacoesNomeEDescricaoControleDeAcessoParams.UITextBoxNameEditText;
+
+            // Digitar 'Controle criado através de teste automatizado para checar funcionalidade de cadastro de controle de acesso' em 'textBoxDescription' caixa de texto
+            uITextBoxDescriptionEdit.Text = this.InserirInformacoesNomeEDescricaoControleDeAcessoParams.UITextBoxDescriptionEditText;
+        }
+        
+        /// <summary>
+        /// ConfigurarRegrasControleDeAcesso - Use 'ConfigurarRegrasControleDeAcessoParams' para passar parâmetros para este método.
+        /// </summary>
+        public void ConfigurarRegrasControleDeAcesso()
+        {
+            #region Variable Declarations
+            WinButton uIRegrasButton = this.UIControledeacessoWindow.UIRegrasWindow.UIRegrasButton;
+            WinCheckBoxTreeItem uIAcompanhantesCheckBoxTreeItem = this.UIControledeacessoWindow1.UITreeViewWindow.UIAcompanhantesCheckBoxTreeItem;
+            WinCheckBox uIConvidadoCheckBox = this.UIControledeacessoWindow1.UICheckedListBoxWindow.UIConvidadoCheckBox;
+            WinCheckBox uISócioCheckBox = this.UIControledeacessoWindow1.UICheckedListBoxWindow.UISócioCheckBox;
+            WinCheckBoxTreeItem uICadastroCheckBoxTreeItem = this.UIControledeacessoWindow1.UITreeViewWindow.UICadastroCheckBoxTreeItem;
+            WinCheckBox uIAlertaCheckBox = this.UIControledeacessoWindow1.UIAlertaWindow.UIAlertaCheckBox;
+            WinCheckBox uIAlertaCheckBox1 = this.UIControledeacessoWindow1.UIAlertaWindow1.UIAlertaCheckBox;
+            WinCheckBox uIAlertaCheckBox2 = this.UIControledeacessoWindow1.UIAlertaWindow2.UIAlertaCheckBox;
+            WinCheckBox uIAlertaCheckBox3 = this.UIControledeacessoWindow1.UIAlertaWindow3.UIAlertaCheckBox;
+            WinComboBox uIMensagemdebloqueioComboBox = this.UIControledeacessoWindow1.UIComboBoxMessageWindow1.UIMensagemdebloqueioComboBox;
+            WinButton uIOKButton = this.UIControledeacessoWindow1.UIOKWindow.UIOKButton;
+            #endregion
+
+            // Digitar '{Enter}' em '&Regras' botão
+            Keyboard.SendKeys(uIRegrasButton, this.ConfigurarRegrasControleDeAcessoParams.UIRegrasButtonSendKeys, ModifierKeys.None);
+
+            // Selecionar 'Acompanhantes' caixa de seleção
+            uIAcompanhantesCheckBoxTreeItem.Checked = this.ConfigurarRegrasControleDeAcessoParams.UIAcompanhantesCheckBoxTreeItemChecked;
+
+            // Selecionar 'Convidado' caixa de seleção
+            uIConvidadoCheckBox.Checked = this.ConfigurarRegrasControleDeAcessoParams.UIConvidadoCheckBoxChecked;
+
+            // Selecionar 'Sócio' caixa de seleção
+            uISócioCheckBox.Checked = this.ConfigurarRegrasControleDeAcessoParams.UISócioCheckBoxChecked;
+
+            // Selecionar 'Cadastro' caixa de seleção
+            uICadastroCheckBoxTreeItem.Checked = this.ConfigurarRegrasControleDeAcessoParams.UICadastroCheckBoxTreeItemChecked;
+
+            // Selecionar 'Alerta' caixa de seleção
+            uIAlertaCheckBox.Checked = this.ConfigurarRegrasControleDeAcessoParams.UIAlertaCheckBoxChecked;
+
+            // Selecionar 'Alerta' caixa de seleção
+            uIAlertaCheckBox1.Checked = this.ConfigurarRegrasControleDeAcessoParams.UIAlertaCheckBoxChecked1;
+
+            // Selecionar 'Alerta' caixa de seleção
+            uIAlertaCheckBox2.Checked = this.ConfigurarRegrasControleDeAcessoParams.UIAlertaCheckBoxChecked2;
+
+            // Selecionar 'Alerta' caixa de seleção
+            uIAlertaCheckBox3.Checked = this.ConfigurarRegrasControleDeAcessoParams.UIAlertaCheckBoxChecked3;
+
+            // Selecionar 'Detalhada' em 'Mensagem de bloqueio' caixa de combinação
+            uIMensagemdebloqueioComboBox.SelectedItem = this.ConfigurarRegrasControleDeAcessoParams.UIMensagemdebloqueioComboBoxSelectedItem;
+
+            // Digitar '{Enter}' em '&OK' botão
+            Keyboard.SendKeys(uIOKButton, this.ConfigurarRegrasControleDeAcessoParams.UIOKButtonSendKeys, ModifierKeys.None);
+        }
+        
+        /// <summary>
+        /// IncluirCadastroControleAcesso - Use 'IncluirCadastroControleAcessoParams' para passar parâmetros para este método.
+        /// </summary>
+        public void IncluirCadastroControleAcesso()
+        {
+            #region Variable Declarations
+            WinEdit uITextBoxNameEdit = this.UIControledeacessoWindow.UITextBoxNameWindow.UITextBoxNameEdit;
+            #endregion
+
+            // Digitar '{Enter}' em 'textBoxName' caixa de texto
+            Keyboard.SendKeys(uITextBoxNameEdit, this.IncluirCadastroControleAcessoParams.UITextBoxNameEditSendKeys, ModifierKeys.None);
+        }
+        
+        /// <summary>
+        /// FecharAdmAcesControleDeAcesso - Use 'FecharAdmAcesControleDeAcessoParams' para passar parâmetros para este método.
+        /// </summary>
+        public void FecharAdmAcesControleDeAcesso()
+        {
+            #region Variable Declarations
+            WinListItem uIControledeEmissãodeCListItem = this.UIMultiClubesControlesWindow.UIListViewWindow.UIControledeEmissãodeCListItem;
+            #endregion
+
+            // Digitar 'Alt + f' em 'Controle de Emissão de Cortesias' item de lista
+            Keyboard.SendKeys(uIControledeEmissãodeCListItem, this.FecharAdmAcesControleDeAcessoParams.UIControledeEmissãodeCListItemSendKeys, ModifierKeys.Alt);
+        }
+        
+        /// <summary>
+        /// AcessarAdmMapasDeOcupacao
+        /// </summary>
+        public void AcessarAdmMapasDeOcupacao()
+        {
+            #region Variable Declarations
+            WinMenuItem uIMapasdeocupaçãoMenuItem = this.UIMultiClubesWindow.UIMenuMainMenuBar.UIAdministraçãoMenuItem.UIMapasdeocupaçãoMenuItem;
+            #endregion
+
+            // Clicar 'Administração' -> 'Mapas de ocupação' item de menu
+            Mouse.Click(uIMapasdeocupaçãoMenuItem, new Point(0, 0));
+        }
+        
+        /// <summary>
+        /// AcessarTelaInclusaoMapasdeOcupacao - Use 'AcessarTelaInclusaoMapasdeOcupacaoParams' para passar parâmetros para este método.
+        /// </summary>
+        public void AcessarTelaInclusaoMapasdeOcupacao()
+        {
+            #region Variable Declarations
+            WinListItem uIArmarioAtletaListItem = this.UIMultiClubesMapasdeocWindow.UIListViewWindow.UIArmarioAtletaListItem;
+            WinMenu uIContextoMenu = this.UIItemWindow1.UIContextoMenu;
+            WinMenuItem uIIncluirMenuItem = this.UIItemWindow1.UIContextoMenu.UIIncluirMenuItem;
+            #endregion
+
+            // Digitar '{Apps}' em 'Armario Atleta' item de lista
+            Keyboard.SendKeys(uIArmarioAtletaListItem, this.AcessarTelaInclusaoMapasdeOcupacaoParams.UIArmarioAtletaListItemSendKeys, ModifierKeys.None);
+
+            // Digitar '{Down}' em 'Contexto' menu pop-up
+            Keyboard.SendKeys(uIContextoMenu, this.AcessarTelaInclusaoMapasdeOcupacaoParams.UIContextoMenuSendKeys, ModifierKeys.None);
+
+            // Clicar 'Incluir' item de menu
+            Mouse.Click(uIIncluirMenuItem, new Point(0, 0));
+        }
+        
+        /// <summary>
+        /// ProcurarTextoIncluir - Use 'ProcurarTextoIncluirExpectedValues' para passar parâmetros para este método.
+        /// </summary>
+        public void ProcurarTextoIncluir()
+        {
+            #region Variable Declarations
+            WinText uIIncluirText = this.UIMultiClubesWindow1.UIIncluirWindow.UIIncluirText;
+            #endregion
+
+            // Verificar se a propriedade 'DisplayText' de 'Incluir' rótulo Igual a 'Incluir'
+            Assert.AreEqual(this.ProcurarTextoIncluirExpectedValues.UIIncluirTextDisplayText, uIIncluirText.DisplayText);
+        }
+        
+        /// <summary>
+        /// AbrirTelaIncluirMapaDeOcupacao - Use 'AbrirTelaIncluirMapaDeOcupacaoParams' para passar parâmetros para este método.
+        /// </summary>
+        public void AbrirTelaIncluirMapaDeOcupacao()
+        {
+            #region Variable Declarations
+            WinEdit uITextBoxNameEdit = this.UIMultiClubesWindow3.UITextBoxNameWindow.UITextBoxNameEdit;
+            WinTabPage uIGeralTabPage = this.UIMultiClubesWindow4.UITabControlWindow.UIGeralTabPage;
+            WinTabPage uISetoresTabPage = this.UIMultiClubesWindow4.UITabControlWindow.UISetoresTabPage;
+            WinList uIListViewSectorsList = this.UIMultiClubesWindow5.UIListViewSectorsWindow.UIListViewSectorsList;
+            WinMenu uIContextoMenu = this.UIItemWindow1.UIContextoMenu;
+            WinMenuItem uIIncluirMenuItem = this.UIItemWindow1.UIContextoMenu.UIIncluirMenuItem;
+            #endregion
+
+            // Digitar ' Setor criado por teste automatizado' em 'textBoxName' caixa de texto
+            uITextBoxNameEdit.Text = this.AbrirTelaIncluirMapaDeOcupacaoParams.UITextBoxNameEditText;
+
+            // Digitar '{Right}' em 'Geral' guia
+            Keyboard.SendKeys(uIGeralTabPage, this.AbrirTelaIncluirMapaDeOcupacaoParams.UIGeralTabPageSendKeys, ModifierKeys.None);
+
+            // Digitar '{Tab}' em 'Setores' guia
+            Keyboard.SendKeys(uISetoresTabPage, this.AbrirTelaIncluirMapaDeOcupacaoParams.UISetoresTabPageSendKeys, ModifierKeys.None);
+
+            // Digitar '{Apps}' em 'listViewSectors' caixa de listagem
+            Keyboard.SendKeys(uIListViewSectorsList, this.AbrirTelaIncluirMapaDeOcupacaoParams.UIListViewSectorsListSendKeys, ModifierKeys.None);
+
+            // Digitar '{Down}' em 'Contexto' menu pop-up
+            Keyboard.SendKeys(uIContextoMenu, this.AbrirTelaIncluirMapaDeOcupacaoParams.UIContextoMenuSendKeys, ModifierKeys.None);
+
+            // Clicar 'Incluir' item de menu
+            Mouse.Click(uIIncluirMenuItem, new Point(0, 0));
+
+            // Última ação do mouse não foi gravada.
+
+            // Última ação do mouse não foi gravada.
+        }
+        
+        /// <summary>
+        /// InserirNomeDoMapaEAcessarSetores - Use 'InserirNomeDoMapaEAcessarSetoresParams' para passar parâmetros para este método.
+        /// </summary>
+        public void InserirNomeDoMapaEAcessarSetores()
+        {
+            #region Variable Declarations
+            WinEdit uITextBoxNameEdit = this.UIMultiClubesWindow3.UITextBoxNameWindow.UITextBoxNameEdit;
+            WinTabPage uIGeralTabPage = this.UIMultiClubesWindow4.UITabControlWindow.UIGeralTabPage;
+            #endregion
+
+            // Digitar 'Setor criado por teste automatizado' em 'textBoxName' caixa de texto
+            uITextBoxNameEdit.Text = this.InserirNomeDoMapaEAcessarSetoresParams.UITextBoxNameEditText;
+
+            // Digitar 'Shift + {Tab}' em 'textBoxName' caixa de texto
+            Keyboard.SendKeys(uITextBoxNameEdit, this.InserirNomeDoMapaEAcessarSetoresParams.UITextBoxNameEditSendKeys, ModifierKeys.Shift);
+
+            // Digitar '{Right}' em 'Geral' guia
+            Keyboard.SendKeys(uIGeralTabPage, this.InserirNomeDoMapaEAcessarSetoresParams.UIGeralTabPageSendKeys, ModifierKeys.None);
+        }
+        
+        /// <summary>
+        /// CadastrarSetoresDoMapaDeOcupacao - Use 'CadastrarSetoresDoMapaDeOcupacaoParams' para passar parâmetros para este método.
+        /// </summary>
+        public void CadastrarSetoresDoMapaDeOcupacao()
+        {
+            #region Variable Declarations
+            WinList uIListViewSectorsList = this.UIMultiClubesWindow5.UIListViewSectorsWindow.UIListViewSectorsList;
+            WinMenu uIContextoMenu = this.UIItemWindow1.UIContextoMenu;
+            WinMenuItem uIIncluirMenuItem = this.UIItemWindow1.UIContextoMenu.UIIncluirMenuItem;
+            WinEdit uITextBoxNameEdit = this.UIMapadeocupaçãoWindow.UITextBoxNameWindow.UITextBoxNameEdit;
+            WinEdit uIControledeEdiçãoEdit = this.UIMapadeocupaçãoWindow.UIItemWindow.UIPaineldeEdiçãoClient.UIControledeEdiçãoEdit;
+            WinCell uINuloCell = this.UIMapadeocupaçãoWindow.UIDataGridViewPartsWindow.UIDataGridViewTable.UILinha0Row.UINuloCell;
+            WinCell uINuloCell1 = this.UIMapadeocupaçãoWindow.UIDataGridViewPartsWindow.UIDataGridViewTable.UILinha0Row1.UINuloCell;
+            WinCell uINuloCell2 = this.UIMapadeocupaçãoWindow.UIDataGridViewPartsWindow.UIDataGridViewTable.UILinha0Row2.UINuloCell;
+            WinButton uIOKButton = this.UIMapadeocupaçãoWindow.UIOKWindow.UIOKButton;
+            WinButton uIOKButton1 = this.UIMultiClubesWindow6.UIOKWindow.UIOKButton;
+            #endregion
+
+            // Digitar '{Apps}' em 'listViewSectors' caixa de listagem
+            Keyboard.SendKeys(uIListViewSectorsList, this.CadastrarSetoresDoMapaDeOcupacaoParams.UIListViewSectorsListSendKeys, ModifierKeys.None);
+
+            // Digitar '{Down}' em 'Contexto' menu pop-up
+            Keyboard.SendKeys(uIContextoMenu, this.CadastrarSetoresDoMapaDeOcupacaoParams.UIContextoMenuSendKeys, ModifierKeys.None);
+
+            // Clicar 'Incluir' item de menu
+            Mouse.Click(uIIncluirMenuItem, new Point(0, 0));
+
+            // Digitar 'Setor criado por teste automatizado' em 'textBoxName' caixa de texto
+            uITextBoxNameEdit.Text = this.CadastrarSetoresDoMapaDeOcupacaoParams.UITextBoxNameEditText;
+
+            // Digitar 'Fila1' em 'Controle de Edição' caixa de texto
+            uIControledeEdiçãoEdit.Text = this.CadastrarSetoresDoMapaDeOcupacaoParams.UIControledeEdiçãoEditText;
+
+            // Digitar '150' em '(nulo)' célula
+            uINuloCell.Value = this.CadastrarSetoresDoMapaDeOcupacaoParams.UINuloCellValue;
+
+            // Digitar '350' em '(nulo)' célula
+            uINuloCell1.Value = this.CadastrarSetoresDoMapaDeOcupacaoParams.UINuloCellValue1;
+
+            // Digitar 'Ìmpar' em '(nulo)' célula
+            uINuloCell2.Value = this.CadastrarSetoresDoMapaDeOcupacaoParams.UINuloCellValue2;
+
+            // Digitar '{Enter}' em 'OK' botão
+            Keyboard.SendKeys(uIOKButton, this.CadastrarSetoresDoMapaDeOcupacaoParams.UIOKButtonSendKeys, ModifierKeys.None);
+
+            // Digitar '{Enter}' em '&OK' botão
+            Keyboard.SendKeys(uIOKButton1, this.CadastrarSetoresDoMapaDeOcupacaoParams.UIOKButtonSendKeys1, ModifierKeys.None);
+        }
+        
+        /// <summary>
+        /// FecharTelaMapaDeOcupacao - Use 'FecharTelaMapaDeOcupacaoParams' para passar parâmetros para este método.
+        /// </summary>
+        public void FecharTelaMapaDeOcupacao()
+        {
+            #region Variable Declarations
+            WinListItem uIArmarioAtletaListItem = this.UIMultiClubesMapasdeocWindow.UIListViewWindow.UIArmarioAtletaListItem;
+            #endregion
+
+            // Digitar 'Alt + f' em 'Armario Atleta' item de lista
+            Keyboard.SendKeys(uIArmarioAtletaListItem, this.FecharTelaMapaDeOcupacaoParams.UIArmarioAtletaListItemSendKeys, ModifierKeys.Alt);
+        }
+        
+        /// <summary>
+        /// VerificarSePainelExiste - Use 'VerificarSePainelExisteExpectedValues' para passar parâmetros para este método.
+        /// </summary>
+        public void VerificarSePainelExiste()
+        {
+            #region Variable Declarations
+            WinClient uIContentPanel1Client = this.UIMultiClubesWindow7.UIContentPanel1Window.UIContentPanel1Client;
+            #endregion
+
+            // Verificar se a propriedade 'FriendlyName' de 'contentPanel1' cliente Igual a 'contentPanel1'
+            Assert.AreEqual(this.VerificarSePainelExisteExpectedValues.UIContentPanel1ClientFriendlyName, uIContentPanel1Client.FriendlyName);
+        }
+        
+        /// <summary>
+        /// AbrirGeracaoDeCobranca - Use 'AbrirGeracaoDeCobrancaParams' para passar parâmetros para este método.
+        /// </summary>
+        public void AbrirGeracaoDeCobranca()
+        {
+            #region Variable Declarations
+            WinClient uIDockCashClient = this.UIMultiClubesWindow8.UIDockCashWindow.UIDockCashClient;
+            WinMenuItem uIGeraçãodecobrançaMenuItem = this.UIMultiClubesWindow.UIMenuMainMenuBar.UIOperaçãoMenuItem.UIFinanceiroMenuItem.UICobrançaMenuItem.UIGeraçãodecobrançaMenuItem;
+            #endregion
+
+            // Digitar 'Alt + o' em 'dockCash' cliente
+            Keyboard.SendKeys(uIDockCashClient, this.AbrirGeracaoDeCobrancaParams.UIDockCashClientSendKeys, ModifierKeys.Alt);
+
+            // Clicar 'Operação' -> 'Financeiro' -> 'Cobrança' -> 'Geração de cobrança' item de menu
+            Mouse.Click(uIGeraçãodecobrançaMenuItem, new Point(0, 0));
+        }
+        
+        /// <summary>
+        /// SelecionarTodasCobrancas - Use 'SelecionarTodasCobrancasParams' para passar parâmetros para este método.
+        /// </summary>
+        public void SelecionarTodasCobrancas()
+        {
+            #region Variable Declarations
+            WinComboBox uICobrançaComboBox = this.UIGeraçãodecobrançaWindow.UIComboBoxDunTypeWindow.UICobrançaComboBox;
+            #endregion
+
+            // Selecionar 'Todas' em 'Cobrança :' caixa de combinação
+            uICobrançaComboBox.SelectedItem = this.SelecionarTodasCobrancasParams.UICobrançaComboBoxSelectedItem;
+        }
+        
+        /// <summary>
+        /// DesabilitarGerarComOpcaoPorCiclo - Use 'DesabilitarGerarComOpcaoPorCicloParams' para passar parâmetros para este método.
+        /// </summary>
+        public void DesabilitarGerarComOpcaoPorCiclo()
+        {
+            #region Variable Declarations
+            WinCheckBox uIGerarcomopçãoporciclCheckBox = this.UIGeraçãodecobrançaWindow.UIGerarcomopçãoporciclWindow.UIGerarcomopçãoporciclCheckBox;
+            #endregion
+
+            // Limpar 'Gerar com opção por ciclo' caixa de seleção
+            uIGerarcomopçãoporciclCheckBox.Checked = this.DesabilitarGerarComOpcaoPorCicloParams.UIGerarcomopçãoporciclCheckBoxChecked;
+        }
+        
+        /// <summary>
+        /// VerificarTituloGeracaoCobranca - Use 'VerificarTituloGeracaoCobrancaExpectedValues' para passar parâmetros para este método.
+        /// </summary>
+        public void VerificarTituloGeracaoCobranca()
+        {
+            #region Variable Declarations
+            WinTitleBar uIGeraçãodecobrançaTitleBar = this.UIGeraçãodecobrançaWindow1.UIGeraçãodecobrançaTitleBar;
+            #endregion
+
+            // Verificar se a propriedade 'DisplayText' de 'Geração de cobrança' barra de título Igual a 'Geração de cobrança'
+            Assert.AreEqual(this.VerificarTituloGeracaoCobrancaExpectedValues.UIGeraçãodecobrançaTitleBarDisplayText, uIGeraçãodecobrançaTitleBar.DisplayText);
+        }
+        
+        /// <summary>
+        /// VerificarSeConcluiuCobranca - Use 'VerificarSeConcluiuCobrancaExpectedValues' para passar parâmetros para este método.
+        /// </summary>
+        public void VerificarSeConcluiuCobranca()
+        {
+            #region Variable Declarations
+            WinText uIConcluídaText = this.UIGeraçãodecobrançaWindow1.UIConcluídaWindow.UIConcluídaText;
+            #endregion
+
+            // Verificar se a propriedade 'DisplayText' de 'Concluída' rótulo Igual a 'Concluída'
+            Assert.AreEqual(this.VerificarSeConcluiuCobrancaExpectedValues.UIConcluídaTextDisplayText, uIConcluídaText.DisplayText);
+        }
+        
+        /// <summary>
+        /// VerificarSeGerouCobranca - Use 'VerificarSeGerouCobrancaExpectedValues' para passar parâmetros para este método.
+        /// </summary>
+        public void VerificarSeGerouCobranca()
+        {
+            #region Variable Declarations
+            WinText uIConcluídaText = this.UIGeraçãodecobrançaWindow.UIConcluídaWindow.UIConcluídaText;
+            #endregion
+
+            // Verificar se a propriedade 'Name' de 'Concluída' rótulo Igual a 'Concluída'
+            Assert.AreEqual(this.VerificarSeGerouCobrancaExpectedValues.UIConcluídaTextName, uIConcluídaText.Name, "Geração de cobrança não foi concluída");
+        }
+        
+        /// <summary>
+        /// VerificarSeBotaoOkEiste - Use 'VerificarSeBotaoOkEisteExpectedValues' para passar parâmetros para este método.
+        /// </summary>
+        public void VerificarSeBotaoOkEiste()
+        {
+            #region Variable Declarations
+            WinButton uIOKButton = this.UIGeraçãodecobrançaWindow.UIOKWindow.UIOKButton;
+            #endregion
+
+            // Verificar se a propriedade 'Exists' de '&OK' botão Igual a 'True'
+            Assert.AreEqual(this.VerificarSeBotaoOkEisteExpectedValues.UIOKButtonExists, uIOKButton.Exists, "Verificando existência do botão");
+
+            // Verificar se a propriedade 'Exists' de '&OK' botão Igual a 'True'
+            Assert.AreEqual(this.VerificarSeBotaoOkEisteExpectedValues.UIOKButtonExists1, uIOKButton.Exists);
+        }
+        
+        /// <summary>
+        /// AbrirSimulacaoDeCobranca
+        /// </summary>
+        public void AbrirSimulacaoDeCobranca()
+        {
+            #region Variable Declarations
+            WinMenuItem uISimulaçãodecobrançaMenuItem = this.UIMultiClubesWindow.UIMenuMainMenuBar.UIOperaçãoMenuItem.UIFinanceiroMenuItem.UICobrançaMenuItem.UISimulaçãodecobrançaMenuItem;
+            #endregion
+
+            // Clicar 'Operação' -> 'Financeiro' -> 'Cobrança' -> 'Simulação de cobrança' item de menu
+            Mouse.Click(uISimulaçãodecobrançaMenuItem, new Point(0, 0));
+        }
+        
+        /// <summary>
+        /// SelecionarTodasCobrancasEmSimulacaoCobranca - Use 'SelecionarTodasCobrancasEmSimulacaoCobrancaParams' para passar parâmetros para este método.
+        /// </summary>
+        public void SelecionarTodasCobrancasEmSimulacaoCobranca()
+        {
+            #region Variable Declarations
+            WinComboBox uIComboBoxDunTypeComboBox = this.UISimulaçãodecobrançaWindow.UIComboBoxDunTypeWindow.UIComboBoxDunTypeComboBox;
+            #endregion
+
+            // Selecionar 'Todas' em 'comboBoxDunType' caixa de combinação
+            uIComboBoxDunTypeComboBox.SelectedItem = this.SelecionarTodasCobrancasEmSimulacaoCobrancaParams.UIComboBoxDunTypeComboBoxSelectedItem;
+        }
+        
+        /// <summary>
+        /// InformarQuantidadeMeses1 - Use 'InformarQuantidadeMeses1Params' para passar parâmetros para este método.
+        /// </summary>
+        public void InformarQuantidadeMeses1()
+        {
+            #region Variable Declarations
+            WinComboBox uINumericUpDownMonthsComboBox = this.UISimulaçãodecobrançaWindow.UINumericUpDownMonthsWindow.UINumericUpDownMonthsComboBox;
+            #endregion
+
+            // Selecionar '1' em 'numericUpDownMonths' caixa de combinação
+            uINumericUpDownMonthsComboBox.EditableItem = this.InformarQuantidadeMeses1Params.UINumericUpDownMonthsComboBoxEditableItem;
+        }
+        
+        /// <summary>
+        /// ClicarBotaoSimularGeracaoCobranca - Use 'ClicarBotaoSimularGeracaoCobrancaParams' para passar parâmetros para este método.
+        /// </summary>
+        public void ClicarBotaoSimularGeracaoCobranca()
+        {
+            #region Variable Declarations
+            WinButton uISimularButton = this.UISimulaçãodecobrançaWindow.UISimularWindow.UISimularButton;
+            WinButton uISimButton = this.UIPerguntaWindow.UIPerguntaPane.UISimButton;
+            #endregion
+
+            // Digitar '{Enter}' em 'Simular' botão
+            Keyboard.SendKeys(uISimularButton, this.ClicarBotaoSimularGeracaoCobrancaParams.UISimularButtonSendKeys, ModifierKeys.None);
+
+            // Digitar '{Enter}' em 'Sim' botão
+            Keyboard.SendKeys(uISimButton, this.ClicarBotaoSimularGeracaoCobrancaParams.UISimButtonSendKeys, ModifierKeys.None);
+        }
+        
+        /// <summary>
+        /// ClicarBotaoSimularGeracaoCobrancaEDepoisClicarNao - Use 'ClicarBotaoSimularGeracaoCobrancaEDepoisClicarNaoParams' para passar parâmetros para este método.
+        /// </summary>
+        public void ClicarBotaoSimularGeracaoCobrancaEDepoisClicarNao()
+        {
+            #region Variable Declarations
+            WinButton uISimularButton = this.UISimulaçãodecobrançaWindow.UISimularWindow.UISimularButton;
+            WinButton uINãoButton = this.UIPerguntaWindow.UIPerguntaPane.UINãoButton;
+            #endregion
+
+            // Digitar '{Enter}' em 'Simular' botão
+            Keyboard.SendKeys(uISimularButton, this.ClicarBotaoSimularGeracaoCobrancaEDepoisClicarNaoParams.UISimularButtonSendKeys, ModifierKeys.None);
+
+            // Digitar '{Enter}' em 'Não' botão
+            Keyboard.SendKeys(uINãoButton, this.ClicarBotaoSimularGeracaoCobrancaEDepoisClicarNaoParams.UINãoButtonSendKeys, ModifierKeys.None);
+        }
+        
+        /// <summary>
+        /// VerificarTituloSimulacaoDeCobranca - Use 'VerificarTituloSimulacaoDeCobrancaExpectedValues' para passar parâmetros para este método.
+        /// </summary>
+        public void VerificarTituloSimulacaoDeCobranca()
+        {
+            #region Variable Declarations
+            WinTitleBar uISimulaçãodecobrançaTitleBar = this.UISimulaçãodecobrançaWindow.UISimulaçãodecobrançaTitleBar;
+            #endregion
+
+            // Verificar se a propriedade 'Exists' de 'Simulação de cobrança' barra de título Igual a 'True'
+            Assert.AreEqual(this.VerificarTituloSimulacaoDeCobrancaExpectedValues.UISimulaçãodecobrançaTitleBarExists, uISimulaçãodecobrançaTitleBar.Exists);
+        }
+        
+        /// <summary>
+        /// VerificarSeBotaoFecharExiste - Use 'VerificarSeBotaoFecharExisteExpectedValues' para passar parâmetros para este método.
+        /// </summary>
+        public void VerificarSeBotaoFecharExiste()
+        {
+            #region Variable Declarations
+            WinButton uIFecharButton = this.UISimulaçãodecobrançaWindow.UIFecharWindow.UIFecharButton;
+            #endregion
+
+            // Verificar se a propriedade 'Exists' de 'Fechar' botão Igual a 'True'
+            Assert.AreEqual(this.VerificarSeBotaoFecharExisteExpectedValues.UIFecharButtonExists, uIFecharButton.Exists);
+        }
+        
+        /// <summary>
+        /// FecharTelaSimulacaoCobranca - Use 'FecharTelaSimulacaoCobrancaParams' para passar parâmetros para este método.
+        /// </summary>
+        public void FecharTelaSimulacaoCobranca()
+        {
+            #region Variable Declarations
+            WinButton uIFecharButton = this.UISimulaçãodecobrançaWindow.UIFecharWindow.UIFecharButton;
+            #endregion
+
+            // Digitar '{Enter}' em 'Fechar' botão
+            Keyboard.SendKeys(uIFecharButton, this.FecharTelaSimulacaoCobrancaParams.UIFecharButtonSendKeys, ModifierKeys.None);
+        }
+        
+        /// <summary>
+        /// LocalizarTituloTC6442 - Use 'LocalizarTituloTC6442Params' para passar parâmetros para este método.
+        /// </summary>
+        public void LocalizarTituloTC6442()
+        {
+            #region Variable Declarations
+            WinEdit uITextBoxKeywordEdit = this.UIMultiClubesCentraldeWindow.UITextBoxKeywordWindow1.UITextBoxKeywordEdit;
+            #endregion
+
+            // Digitar 'titulo tc 6442' em 'textBoxKeyword' caixa de texto
+            uITextBoxKeywordEdit.Text = this.LocalizarTituloTC6442Params.UITextBoxKeywordEditText;
+
+            // Digitar '{F1}' em 'textBoxKeyword' caixa de texto
+            Keyboard.SendKeys(uITextBoxKeywordEdit, this.LocalizarTituloTC6442Params.UITextBoxKeywordEditSendKeys, ModifierKeys.None);
+        }
+        
+        /// <summary>
+        /// AbrirTituloTC6442 - Use 'AbrirTituloTC6442Params' para passar parâmetros para este método.
+        /// </summary>
+        public void AbrirTituloTC6442()
+        {
+            #region Variable Declarations
+            WinListItem uITítuloTC6442ListItem = this.UIMultiClubesCentraldeWindow.UIListViewWindow.UIListViewList1.UITítuloTC6442ListItem;
+            #endregion
+
+            // Digitar '{Enter}' em 'Título TC 6442' item de lista
+            Keyboard.SendKeys(uITítuloTC6442ListItem, this.AbrirTituloTC6442Params.UITítuloTC6442ListItemSendKeys, ModifierKeys.None);
+        }
+        
+        /// <summary>
+        /// AbrirTelaEditarCobrancas - Use 'AbrirTelaEditarCobrancasParams' para passar parâmetros para este método.
+        /// </summary>
+        public void AbrirTelaEditarCobrancas()
+        {
+            #region Variable Declarations
+            WinButton uICobrançasButton = this.UIMultiClubesCentraldeWindow.UICobrançasWindow.UICobrançasButton;
+            WinButton uIEditarcobrançasButton = this.UIMultiClubesCentraldeWindow.UIEditarcobrançasWindow.UIEditarcobrançasButton;
+            #endregion
+
+            // Digitar '{Enter}{Down}{Tab}' em 'Cobranças' botão
+            Keyboard.SendKeys(uICobrançasButton, this.AbrirTelaEditarCobrancasParams.UICobrançasButtonSendKeys, ModifierKeys.None);
+
+            // Digitar '{Enter}' em 'Editar cobranças' botão
+            Keyboard.SendKeys(uIEditarcobrançasButton, this.AbrirTelaEditarCobrancasParams.UIEditarcobrançasButtonSendKeys, ModifierKeys.None);
+        }
+        
+        /// <summary>
+        /// ClicarLinkEditar - Use 'ClicarLinkEditarParams' para passar parâmetros para este método.
+        /// </summary>
+        public void ClicarLinkEditar()
+        {
+            #region Variable Declarations
+            WinHyperlink uIEditarHyperlink = this.UICobrançasWindow.UIEditarText.UIEditarHyperlink;
+            #endregion
+
+            // Digitar '{Enter}' em 'Editar' link
+            Keyboard.SendKeys(uIEditarHyperlink, this.ClicarLinkEditarParams.UIEditarHyperlinkSendKeys, ModifierKeys.None);
+        }
+        
+        /// <summary>
+        /// SelecionarDebitoEmConta - Use 'SelecionarDebitoEmContaParams' para passar parâmetros para este método.
+        /// </summary>
+        public void SelecionarDebitoEmConta()
+        {
+            #region Variable Declarations
+            WinComboBox uIComboBoxDunTypeComboBox = this.UIEdiçãodecobrançaWindow1.UIComboBoxDunTypeWindow.UIComboBoxDunTypeComboBox;
+            #endregion
+
+            // Selecionar 'Débito em conta' em 'comboBoxDunType' caixa de combinação
+            uIComboBoxDunTypeComboBox.SelectedItem = this.SelecionarDebitoEmContaParams.UIComboBoxDunTypeComboBoxSelectedItem;
+        }
+        
+        /// <summary>
+        /// AbrirDetalhesFormasDePagamento - Use 'AbrirDetalhesFormasDePagamentoParams' para passar parâmetros para este método.
+        /// </summary>
+        public void AbrirDetalhesFormasDePagamento()
+        {
+            #region Variable Declarations
+            WinButton uIDetalhesButton = this.UIEdiçãodecobrançaWindow1.UIDetalhesWindow.UIDetalhesButton;
+            #endregion
+
+            // Digitar '{Enter}' em '&Detalhes' botão
+            Keyboard.SendKeys(uIDetalhesButton, this.AbrirDetalhesFormasDePagamentoParams.UIDetalhesButtonSendKeys, ModifierKeys.None);
+        }
+        
+        /// <summary>
+        /// InserirDadosInstituicaoDeCobranca - Use 'InserirDadosInstituicaoDeCobrancaParams' para passar parâmetros para este método.
+        /// </summary>
+        public void InserirDadosInstituicaoDeCobranca()
+        {
+            #region Variable Declarations
+            WinComboBox uIComboBoxDunInstitutiComboBox = this.UIFormadepagamentoWindow.UIComboBoxDunInstitutiWindow.UIComboBoxDunInstitutiComboBox;
+            WinEdit uITextBoxCodeEdit = this.UIFormadepagamentoWindow.UITextBoxCodeWindow.UITextBoxCodeEdit;
+            WinEdit uITextBoxDigitEdit = this.UIFormadepagamentoWindow.UITextBoxDigitWindow.UITextBoxDigitEdit;
+            WinEdit uITextBoxCodeEdit1 = this.UIFormadepagamentoWindow.UITextBoxCodeWindow1.UITextBoxCodeEdit;
+            WinEdit uITextBoxDigitEdit1 = this.UIFormadepagamentoWindow.UITextBoxDigitWindow1.UITextBoxDigitEdit;
+            WinButton uIOKButton = this.UIFormadepagamentoWindow.UIOKWindow.UIOKButton;
+            #endregion
+
+            // Selecionar 'Cobrança para teste automatizado' em 'comboBoxDunInstitution' caixa de combinação
+            uIComboBoxDunInstitutiComboBox.SelectedItem = this.InserirDadosInstituicaoDeCobrancaParams.UIComboBoxDunInstitutiComboBoxSelectedItem;
+
+            // Digitar '999' em 'textBoxCode' caixa de texto
+            uITextBoxCodeEdit.Text = this.InserirDadosInstituicaoDeCobrancaParams.UITextBoxCodeEditText;
+
+            // Digitar '1' em 'textBoxDigit' caixa de texto
+            uITextBoxDigitEdit.Text = this.InserirDadosInstituicaoDeCobrancaParams.UITextBoxDigitEditText;
+
+            // Digitar '999' em 'textBoxCode' caixa de texto
+            uITextBoxCodeEdit1.Text = this.InserirDadosInstituicaoDeCobrancaParams.UITextBoxCodeEditText1;
+
+            // Digitar '1' em 'textBoxDigit' caixa de texto
+            uITextBoxDigitEdit1.Text = this.InserirDadosInstituicaoDeCobrancaParams.UITextBoxDigitEditText1;
+
+            // Digitar '{Enter}' em '&OK' botão
+            Keyboard.SendKeys(uIOKButton, this.InserirDadosInstituicaoDeCobrancaParams.UIOKButtonSendKeys, ModifierKeys.None);
+        }
+        
+        /// <summary>
+        /// FecharTelaEdicaoCobranca - Use 'FecharTelaEdicaoCobrancaParams' para passar parâmetros para este método.
+        /// </summary>
+        public void FecharTelaEdicaoCobranca()
+        {
+            #region Variable Declarations
+            WinButton uIOKButton = this.UIEdiçãodecobrançaWindow1.UIOKWindow.UIOKButton;
+            #endregion
+
+            // Digitar '{Enter}' em '&OK' botão
+            Keyboard.SendKeys(uIOKButton, this.FecharTelaEdicaoCobrancaParams.UIOKButtonSendKeys, ModifierKeys.None);
+        }
+        
+        /// <summary>
+        /// VerificarTermoDeAutorizacaoParaDebitoEmConta - Use 'VerificarTermoDeAutorizacaoParaDebitoEmContaExpectedValues' para passar parâmetros para este método.
+        /// </summary>
+        public void VerificarTermoDeAutorizacaoParaDebitoEmConta()
+        {
+            #region Variable Declarations
+            WinTitleBar uITermodeautorizaçãopaTitleBar = this.UITermodeautorizaçãopaWindow.UITermodeautorizaçãopaTitleBar;
+            #endregion
+
+            // Verificar se a propriedade 'Exists' de 'Termo de autorização para débito em conta-corrente...' barra de título Igual a 'True'
+            Assert.AreEqual(this.VerificarTermoDeAutorizacaoParaDebitoEmContaExpectedValues.UITermodeautorizaçãopaTitleBarExists, uITermodeautorizaçãopaTitleBar.Exists);
+        }
+        
+        /// <summary>
+        /// FecharTermoDeAutorizacaoParaDebitoEmConta - Use 'FecharTermoDeAutorizacaoParaDebitoEmContaParams' para passar parâmetros para este método.
+        /// </summary>
+        public void FecharTermoDeAutorizacaoParaDebitoEmConta()
+        {
+            #region Variable Declarations
+            WinClient uIDocumentViewerClient = this.UITermodeautorizaçãopaWindow.UIDocumentViewerWindow.UIDocumentViewerClient;
+            #endregion
+
+            // Digitar 'Alt + {F4}' em 'DocumentViewer' cliente
+            Keyboard.SendKeys(uIDocumentViewerClient, this.FecharTermoDeAutorizacaoParaDebitoEmContaParams.UIDocumentViewerClientSendKeys, ModifierKeys.Alt);
+        }
+        
+        /// <summary>
+        /// FecharTelasEdicaoCobrancaECentralDeAtendimento - Use 'FecharTelasEdicaoCobrancaECentralDeAtendimentoParams' para passar parâmetros para este método.
+        /// </summary>
+        public void FecharTelasEdicaoCobrancaECentralDeAtendimento()
+        {
+            #region Variable Declarations
+            WinButton uIFecharButton = this.UICobrançasWindow.UIFecharWindow.UIFecharButton;
+            WinMenuItem uIFecharMenuItem = this.UIMultiClubesCentraldeWindow.UIMenuMainMenuBar.UIFecharMenuItem;
+            WinButton uIOKButton = this.UIAtendimentoWindow2.UIOKWindow.UIOKButton;
+            #endregion
+
+            // Digitar '{Enter}' em '&Fechar' botão
+            Keyboard.SendKeys(uIFecharButton, this.FecharTelasEdicaoCobrancaECentralDeAtendimentoParams.UIFecharButtonSendKeys, ModifierKeys.None);
+
+            // Clicar 'Fechar' item de menu
+            Mouse.Click(uIFecharMenuItem, new Point(0, 0));
+
+            // Digitar '{Enter}' em '&OK' botão
+            Keyboard.SendKeys(uIOKButton, this.FecharTelasEdicaoCobrancaECentralDeAtendimentoParams.UIOKButtonSendKeys, ModifierKeys.None);
+
+            // Clicar 'Fechar' item de menu
+            Mouse.Click(uIFecharMenuItem, new Point(0, 0));
+        }
+        
+        /// <summary>
+        /// HabilitarOpcaoImportarConsumosAte - Use 'HabilitarOpcaoImportarConsumosAteParams' para passar parâmetros para este método.
+        /// </summary>
+        public void HabilitarOpcaoImportarConsumosAte()
+        {
+            #region Variable Declarations
+            WinCheckBox uIImportarconsumosatéCheckBox = this.UIGeraçãodecobrançaWindow.UIImportarconsumosatéWindow.UIImportarconsumosatéCheckBox;
+            #endregion
+
+            // Selecionar 'Importar consumos até :' caixa de seleção
+            uIImportarconsumosatéCheckBox.Checked = this.HabilitarOpcaoImportarConsumosAteParams.UIImportarconsumosatéCheckBoxChecked;
+        }
+        
+        /// <summary>
+        /// AbrirTelaRemessasAnteriores
+        /// </summary>
+        public void AbrirTelaRemessasAnteriores()
+        {
+            #region Variable Declarations
+            WinMenuItem uIRemessasanterioresMenuItem = this.UIMultiClubesWindow.UIMenuMainMenuBar.UIOperaçãoMenuItem.UIFinanceiroMenuItem.UITransaçõesbancáriasMenuItem.UIRemessasanterioresMenuItem;
+            #endregion
+
+            // Clicar 'Operação' -> 'Financeiro' -> 'Transações bancárias' -> 'Remessas anteriores' item de menu
+            Mouse.Click(uIRemessasanterioresMenuItem, new Point(0, 0));
+        }
+        
+        /// <summary>
+        /// AbrirTelaDiretorioDeSaidaRemessa - Use 'AbrirTelaDiretorioDeSaidaRemessaParams' para passar parâmetros para este método.
+        /// </summary>
+        public void AbrirTelaDiretorioDeSaidaRemessa()
+        {
+            #region Variable Declarations
+            WinList uIListViewList = this.UIRemessasanterioresWindow.UIListViewWindow.UIListViewList;
+            WinButton uIOpçõesButton = this.UIRemessasanterioresWindow.UIOpçõesWindow.UIOpçõesButton;
+            WinMenuItem uIReemitirMenuItem = this.UIItemWindow1.UIContextoMenu.UIReemitirMenuItem;
+            #endregion
+
+            // Selecionar 'REG10102017.rem' em 'listView' caixa de listagem
+            uIListViewList.SelectedItemsAsString = this.AbrirTelaDiretorioDeSaidaRemessaParams.UIListViewListSelectedItemsAsString;
+
+            // Digitar '{Enter}' em 'Opções' botão
+            Keyboard.SendKeys(uIOpçõesButton, this.AbrirTelaDiretorioDeSaidaRemessaParams.UIOpçõesButtonSendKeys, ModifierKeys.None);
+
+            // Clicar 'Reemitir' item de menu
+            Mouse.Click(uIReemitirMenuItem, new Point(0, 0));
+        }
+        
+        /// <summary>
+        /// GerarReemissaoDeRemessa - Use 'GerarReemissaoDeRemessaParams' para passar parâmetros para este método.
+        /// </summary>
+        public void GerarReemissaoDeRemessa()
+        {
+            #region Variable Declarations
+            WinEdit uITextBoxFolderEdit = this.UIMultiClubesWindow9.UITextBoxFolderWindow.UITextBoxFolderEdit;
+            WinButton uIGerarButton = this.UIMultiClubesWindow6.UIOKWindow.UIGerarButton;
+            WinButton uIOKButton = this.UIGeraçãoderemessaWindow1.UIOKWindow.UIOKButton;
+            #endregion
+
+            // Digitar 'C:\TriadeTests' em 'textBoxFolder' caixa de texto
+            uITextBoxFolderEdit.Text = this.GerarReemissaoDeRemessaParams.UITextBoxFolderEditText;
+
+            // Digitar '{Enter}' em '&Gerar' botão
+            Keyboard.SendKeys(uIGerarButton, this.GerarReemissaoDeRemessaParams.UIGerarButtonSendKeys, ModifierKeys.None);
+
+            // Digitar '{Enter}' em '&OK' botão
+            Keyboard.SendKeys(uIOKButton, this.GerarReemissaoDeRemessaParams.UIOKButtonSendKeys, ModifierKeys.None);
+        }
+        
+        /// <summary>
+        /// FecharTelaDiretorioDeSaidaRemessa - Use 'FecharTelaDiretorioDeSaidaRemessaParams' para passar parâmetros para este método.
+        /// </summary>
+        public void FecharTelaDiretorioDeSaidaRemessa()
+        {
+            #region Variable Declarations
+            WinButton uIFecharButton = this.UIMultiClubesWindow10.UIFecharWindow.UIFecharButton;
+            #endregion
+
+            // Digitar '{Enter}' em '&Fechar' botão
+            Keyboard.SendKeys(uIFecharButton, this.FecharTelaDiretorioDeSaidaRemessaParams.UIFecharButtonSendKeys, ModifierKeys.None);
+        }
+        
+        /// <summary>
+        /// FecharTelaRemessasAnteriores - Use 'FecharTelaRemessasAnterioresParams' para passar parâmetros para este método.
+        /// </summary>
+        public void FecharTelaRemessasAnteriores()
+        {
+            #region Variable Declarations
+            WinButton uIFecharButton = this.UIRemessasanterioresWindow.UIFecharWindow.UIFecharButton;
+            #endregion
+
+            // Digitar '{Enter}' em '&Fechar' botão
+            Keyboard.SendKeys(uIFecharButton, this.FecharTelaRemessasAnterioresParams.UIFecharButtonSendKeys, ModifierKeys.None);
+        }
+        
+        /// <summary>
+        /// AbrirGeracoesAnterioresDeCobranca - Use 'AbrirGeracoesAnterioresDeCobrancaParams' para passar parâmetros para este método.
+        /// </summary>
+        public void AbrirGeracoesAnterioresDeCobranca()
+        {
+            #region Variable Declarations
+            WinClient uIMultiClubesClient = this.UIMultiClubesWindow.UIMultiClubesWindow1.UIMultiClubesClient;
+            WinMenuItem uIGeraçõesanterioresMenuItem = this.UIMultiClubesWindow.UIMenuMainMenuBar.UIOperaçãoMenuItem.UIFinanceiroMenuItem.UICobrançaMenuItem.UIGeraçõesanterioresMenuItem;
+            #endregion
+
+            // Digitar 'Alt + o' em 'MultiClubes' cliente
+            Keyboard.SendKeys(uIMultiClubesClient, this.AbrirGeracoesAnterioresDeCobrancaParams.UIMultiClubesClientSendKeys, ModifierKeys.Alt);
+
+            // Clicar 'Operação' -> 'Financeiro' -> 'Cobrança' -> 'Gerações anteriores' item de menu
+            Mouse.Click(uIGeraçõesanterioresMenuItem, new Point(0, 0));
+        }
+        
+        /// <summary>
+        /// Clicar2xDataParaOrdenarPorDataDecrescente
+        /// </summary>
+        public void Clicar2xDataParaOrdenarPorDataDecrescente()
+        {
+            #region Variable Declarations
+            WinColumnHeader uIDataColumnHeader = this.UIGeraçõesanterioresWindow.UIListViewWindow.UIListViewList.UIControledeCabeçalhoList.UIDataColumnHeader;
+            #endregion
+
+            // Clicar 'Data' cabeçalho da coluna
+            Mouse.Click(uIDataColumnHeader, new Point(53, 6));
+
+            // Clicar 'Data' cabeçalho da coluna
+            Mouse.Click(uIDataColumnHeader, new Point(56, 4));
+        }
+        
+        /// <summary>
+        /// AcessarSelecaoDeCobrancasAnteriores - Use 'AcessarSelecaoDeCobrancasAnterioresParams' para passar parâmetros para este método.
+        /// </summary>
+        public void AcessarSelecaoDeCobrancasAnteriores()
+        {
+            #region Variable Declarations
+            WinCheckBox uICheckBoxIndividualCheckBox = this.UIGeraçõesanterioresWindow.UICheckBoxIndividualWindow.UICheckBoxIndividualCheckBox;
+            #endregion
+
+            // Digitar '{Tab}' em 'checkBoxIndividual' caixa de seleção
+            Keyboard.SendKeys(uICheckBoxIndividualCheckBox, this.AcessarSelecaoDeCobrancasAnterioresParams.UICheckBoxIndividualCheckBoxSendKeys, ModifierKeys.None);
+        }
+        
+        /// <summary>
+        /// PressionarTeclaHome - Use 'PressionarTeclaHomeParams' para passar parâmetros para este método.
+        /// </summary>
+        public void PressionarTeclaHome()
+        {
+            #region Variable Declarations
+            WinEdit uIItemEdit = this.UISemtítuloBlocodenotaWindow.UIItemWindow.UIItemEdit;
+            #endregion
+
+            // Tipo '{Home}' em caixa de texto
+            Keyboard.SendKeys(uIItemEdit, this.PressionarTeclaHomeParams.UIItemEditSendKeys, ModifierKeys.None);
+        }
+        
+        /// <summary>
+        /// ClicarOpcaoDesfazerCobranca - Use 'ClicarOpcaoDesfazerCobrancaParams' para passar parâmetros para este método.
+        /// </summary>
+        public void ClicarOpcaoDesfazerCobranca()
+        {
+            #region Variable Declarations
+            WinButton uIOpçõesButton = this.UIGeraçõesanterioresWindow.UIOpçõesWindow.UIOpçõesButton;
+            WinMenuItem uIDesfazerMenuItem = this.UIItemWindow1.UIContextoMenu.UIDesfazerMenuItem;
+            WinButton uISimButton = this.UIPerguntaWindow.UIPerguntaPane.UISimButton;
+            #endregion
+
+            // Digitar '{Enter}' em '&Opções' botão
+            Keyboard.SendKeys(uIOpçõesButton, this.ClicarOpcaoDesfazerCobrancaParams.UIOpçõesButtonSendKeys, ModifierKeys.None);
+
+            // Clicar 'Desfazer' item de menu
+            Mouse.Click(uIDesfazerMenuItem, new Point(0, 0));
+
+            // Digitar '{Enter}' em 'Sim' botão
+            Keyboard.SendKeys(uISimButton, this.ClicarOpcaoDesfazerCobrancaParams.UISimButtonSendKeys, ModifierKeys.None);
+        }
+        
+        /// <summary>
+        /// FecharTelaDesfazerCobrancasAnteriores - Use 'FecharTelaDesfazerCobrancasAnterioresParams' para passar parâmetros para este método.
+        /// </summary>
+        public void FecharTelaDesfazerCobrancasAnteriores()
+        {
+            #region Variable Declarations
+            WinButton uIOKButton = this.UIDesfazercobrançaWindow.UIOKWindow.UIOKButton;
+            WinButton uIFecharButton = this.UIGeraçõesanterioresWindow.UIFecharWindow.UIFecharButton;
+            #endregion
+
+            // Digitar '{Enter}' em '&OK' botão
+            Keyboard.SendKeys(uIOKButton, this.FecharTelaDesfazerCobrancasAnterioresParams.UIOKButtonSendKeys, ModifierKeys.None);
+
+            // Digitar '{Enter}' em 'Fechar' botão
+            Keyboard.SendKeys(uIFecharButton, this.FecharTelaDesfazerCobrancasAnterioresParams.UIFecharButtonSendKeys, ModifierKeys.None);
+        }
+        
+        /// <summary>
+        /// LocalizarTituloA28248 - Use 'LocalizarTituloA28248Params' para passar parâmetros para este método.
+        /// </summary>
+        public void LocalizarTituloA28248()
+        {
+            #region Variable Declarations
+            WinEdit uITextBoxKeywordEdit = this.UIMultiClubesCentraldeWindow.UITextBoxKeywordWindow1.UITextBoxKeywordEdit;
+            #endregion
+
+            // Digitar 'A28248' em 'textBoxKeyword' caixa de texto
+            uITextBoxKeywordEdit.Text = this.LocalizarTituloA28248Params.UITextBoxKeywordEditText;
+
+            // Digitar '{Enter}' em 'textBoxKeyword' caixa de texto
+            Keyboard.SendKeys(uITextBoxKeywordEdit, this.LocalizarTituloA28248Params.UITextBoxKeywordEditSendKeys, ModifierKeys.None);
+        }
+        
+        /// <summary>
         /// InserirUsuarioESenha - Use 'InserirUsuarioESenhaParams' para passar parâmetros para este método.
         /// </summary>
         public void InserirUsuarioESenha()
@@ -37,7 +1601,6 @@ namespace TestesAutomatizados
             #region Variable Declarations
             WinEdit uITextBoxUsernameEdit = this.UIMultiClubesWindow.UITextBoxUsernameWindow.UITextBoxUsernameEdit;
             WinEdit uITextBoxPasswordEdit = this.UIMultiClubesWindow.UITextBoxPasswordWindow.UITextBoxPasswordEdit;
-            WinButton uIEntrarButton = this.UIMultiClubesWindow.UIEntrarWindow.UIEntrarButton;
             #endregion
 
             // Digitar 'qualidade' em 'textBoxUsername' caixa de texto
@@ -45,70 +1608,26 @@ namespace TestesAutomatizados
 
             // Digitar '********' em 'textBoxPassword' caixa de texto
             Keyboard.SendKeys(uITextBoxPasswordEdit, this.InserirUsuarioESenhaParams.UITextBoxPasswordEditSendKeys, true);
-
-            // Digitar '{Enter}' em '&Entrar' botão
-            Keyboard.SendKeys(uIEntrarButton, this.InserirUsuarioESenhaParams.UIEntrarButtonSendKeys, ModifierKeys.None);
         }
         
         /// <summary>
-        /// AltO - Use 'AltOParams' para passar parâmetros para este método.
+        /// AbrirAtendimentoTitulo008Pro - Use 'AbrirAtendimentoTitulo008ProParams' para passar parâmetros para este método.
         /// </summary>
-        public void AltO()
+        public void AbrirAtendimentoTitulo008Pro()
         {
             #region Variable Declarations
-            WinClient uIMultiClubesClient = this.UIMultiClubesWindow.UIMultiClubesWindow1.UIMultiClubesClient;
+            WinEdit uITextBoxKeywordEdit = this.UIMultiClubesCentraldeWindow.UITextBoxKeywordWindow1.UITextBoxKeywordEdit;
+            WinListItem uISophieMariahGabrielaListItem = this.UIMultiClubesCentraldeWindow.UIListViewWindow.UIListViewList2.UISophieMariahGabrielaListItem;
             #endregion
 
-            // Digitar 'Alt + o' em 'MultiClubes' cliente
-            Keyboard.SendKeys(uIMultiClubesClient, this.AltOParams.UIMultiClubesClientSendKeys, ModifierKeys.Alt);
-        }
-        
-        /// <summary>
-        /// GerarAcertoDeComissao - Use 'GerarAcertoDeComissaoParams' para passar parâmetros para este método.
-        /// </summary>
-        public void GerarAcertoDeComissao()
-        {
-            #region Variable Declarations
-            WinMenuItem uIAcertodecomissãoMenuItem = this.UIMultiClubesWindow.UIMenuMainMenuBar.UIOperaçãoMenuItem.UIFinanceiroMenuItem.UIAcertodecomissãoMenuItem;
-            WinButton uILocalizarButton = this.UIMultiClubesAcertodecWindow.UILocalizarWindow.UILocalizarButton;
-            WinList uIListViewList = this.UIMultiClubesAcertodecWindow.UIListViewWindow.UIListViewList;
-            WinListItem uISophiePromotorListItem = this.UIMultiClubesAcertodecWindow.UIListViewWindow.UIListViewList.UISophiePromotorListItem;
-            WinMenuItem uIGeraracertoMenuItem = this.UIItemWindow.UIContextoMenu.UIGeraracertoMenuItem;
-            WinButton uISimButton = this.UIAcertodecomissãoWindow.UISimWindow.UISimButton;
-            #endregion
+            // Digitar '008pro' em 'textBoxKeyword' caixa de texto
+            uITextBoxKeywordEdit.Text = this.AbrirAtendimentoTitulo008ProParams.UITextBoxKeywordEditText;
 
-            // Clicar 'Operação' -> 'Financeiro' -> 'Acerto de comissão' item de menu
-            Mouse.Click(uIAcertodecomissãoMenuItem, new Point(0, 0));
+            // Digitar '{Enter}' em 'textBoxKeyword' caixa de texto
+            Keyboard.SendKeys(uITextBoxKeywordEdit, this.AbrirAtendimentoTitulo008ProParams.UITextBoxKeywordEditSendKeys, ModifierKeys.None);
 
-            // Digitar '{Enter}' em '&Localizar' botão
-            Keyboard.SendKeys(uILocalizarButton, this.GerarAcertoDeComissaoParams.UILocalizarButtonSendKeys, ModifierKeys.None);
-
-            // Selecionar 'Sophie Promotor' em 'listView' caixa de listagem
-            uIListViewList.SelectedItemsAsString = this.GerarAcertoDeComissaoParams.UIListViewListSelectedItemsAsString;
-
-            // Digitar '{Apps}' em 'Sophie Promotor' item de lista
-            Keyboard.SendKeys(uISophiePromotorListItem, this.GerarAcertoDeComissaoParams.UISophiePromotorListItemSendKeys, ModifierKeys.None);
-
-            // Clicar 'Gerar acerto' item de menu
-            Mouse.Click(uIGeraracertoMenuItem, new Point(0, 0));
-
-            // Digitar '{Enter}' em '&Sim' botão
-            Keyboard.SendKeys(uISimButton, this.GerarAcertoDeComissaoParams.UISimButtonSendKeys, ModifierKeys.None);
-        }
-        
-        /// <summary>
-        /// ClicarBotaoOkAcertoDeComissao - Use 'ClicarBotaoOkAcertoDeComissaoParams' para passar parâmetros para este método.
-        /// </summary>
-        public void ClicarBotaoOkAcertoDeComissao()
-        {
-            #region Variable Declarations
-            WinButton uIOKButton = this.UIEmailsWindow.UIOKWindow.UIOKButton;
-            #endregion
-
-            // Última ação do mouse não foi gravada.
-
-            // Digitar '{Tab}{Enter}' em '&OK' botão
-            Keyboard.SendKeys(uIOKButton, this.ClicarBotaoOkAcertoDeComissaoParams.UIOKButtonSendKeys, ModifierKeys.None);
+            // Digitar '{Enter}' em 'Sophie Mariah Gabriela Rocha' item de lista
+            Keyboard.SendKeys(uISophieMariahGabrielaListItem, this.AbrirAtendimentoTitulo008ProParams.UISophieMariahGabrielaListItemSendKeys, ModifierKeys.None);
         }
         
         /// <summary>
@@ -118,37 +1637,1111 @@ namespace TestesAutomatizados
         {
             #region Variable Declarations
             WinButton uIHistóricoButton = this.UIMultiClubesAcertodecWindow.UIHistóricoWindow.UIHistóricoButton;
-            WinButton uILocalizarButton = this.UIMultiClubesWindow.UILocalizarWindow.UILocalizarButton;
+            WinButton uILocalizarButton = this.UIMultiClubesWindow11.UILocalizarWindow.UILocalizarButton;
             #endregion
 
             // Digitar '{Enter}' em 'Histórico' botão
             Keyboard.SendKeys(uIHistóricoButton, this.LocalizarHistoricoDeAcertosParams.UIHistóricoButtonSendKeys, ModifierKeys.None);
 
-            // Digitar '{Enter}' em 'Localizar' botão
+            // Digitar '{Enter}{LMenu}' em 'Localizar' botão
             Keyboard.SendKeys(uILocalizarButton, this.LocalizarHistoricoDeAcertosParams.UILocalizarButtonSendKeys, ModifierKeys.None);
         }
         
         /// <summary>
-        /// AbrirAtendimentoTitulo008Pro - Use 'AbrirAtendimentoTitulo008ProParams' para passar parâmetros para este método.
+        /// AcessarProdutosAReceber - Use 'AcessarProdutosAReceberParams' para passar parâmetros para este método.
         /// </summary>
-        public void AbrirAtendimentoTitulo008Pro()
+        public void AcessarProdutosAReceber()
         {
             #region Variable Declarations
-            WinEdit uITextBoxKeywordEdit = this.UIMultiClubesCentraldeWindow.UITextBoxKeywordWindow.UITextBoxKeywordEdit;
-            WinListItem uISophieMariahGabrielaListItem = this.UIMultiClubesCentraldeWindow.UIListViewWindow.UIListViewList.UISophieMariahGabrielaListItem;
+            WinButton uIAreceberButton = this.UIMultiClubesCentraldeWindow.UIAreceberWindow.UIAreceberButton;
             #endregion
 
-            // Digitar '008pro' em 'textBoxKeyword' caixa de texto
-            uITextBoxKeywordEdit.Text = this.AbrirAtendimentoTitulo008ProParams.UITextBoxKeywordEditText;
+            // Digitar '{Enter}' em 'A receber' botão
+            Keyboard.SendKeys(uIAreceberButton, this.AcessarProdutosAReceberParams.UIAreceberButtonSendKeys, ModifierKeys.None);
+        }
+        
+        /// <summary>
+        /// AcessarOperacaoFinanceiroAcertoDeComissao
+        /// </summary>
+        public void AcessarOperacaoFinanceiroAcertoDeComissao()
+        {
+            #region Variable Declarations
+            WinMenuItem uIAcertodecomissãoMenuItem = this.UIMultiClubesCentraldeWindow.UIMenuMainMenuBar.UIOperaçãoMenuItem.UIFinanceiroMenuItem.UIAcertodecomissãoMenuItem;
+            #endregion
 
-            // Digitar '{F1}' em 'textBoxKeyword' caixa de texto
-            Keyboard.SendKeys(uITextBoxKeywordEdit, this.AbrirAtendimentoTitulo008ProParams.UITextBoxKeywordEditSendKeys, ModifierKeys.None);
-
-            // Digitar '{Enter}' em 'Sophie Mariah Gabriela Rocha' item de lista
-            Keyboard.SendKeys(uISophieMariahGabrielaListItem, this.AbrirAtendimentoTitulo008ProParams.UISophieMariahGabrielaListItemSendKeys, ModifierKeys.None);
+            // Clicar 'Operação' -> 'Financeiro' -> 'Acerto de comissão' item de menu
+            Mouse.Click(uIAcertodecomissãoMenuItem, new Point(0, 0));
         }
         
         #region Properties
+        public virtual AbrirMultiClubesParams AbrirMultiClubesParams
+        {
+            get
+            {
+                if ((this.mAbrirMultiClubesParams == null))
+                {
+                    this.mAbrirMultiClubesParams = new AbrirMultiClubesParams();
+                }
+                return this.mAbrirMultiClubesParams;
+            }
+        }
+        
+        public virtual LogarMultiClubesParams LogarMultiClubesParams
+        {
+            get
+            {
+                if ((this.mLogarMultiClubesParams == null))
+                {
+                    this.mLogarMultiClubesParams = new LogarMultiClubesParams();
+                }
+                return this.mLogarMultiClubesParams;
+            }
+        }
+        
+        public virtual AbrirCentralAtendimentoParams AbrirCentralAtendimentoParams
+        {
+            get
+            {
+                if ((this.mAbrirCentralAtendimentoParams == null))
+                {
+                    this.mAbrirCentralAtendimentoParams = new AbrirCentralAtendimentoParams();
+                }
+                return this.mAbrirCentralAtendimentoParams;
+            }
+        }
+        
+        public virtual ProcurarTextoCentralDeAtendimentoExpectedValues ProcurarTextoCentralDeAtendimentoExpectedValues
+        {
+            get
+            {
+                if ((this.mProcurarTextoCentralDeAtendimentoExpectedValues == null))
+                {
+                    this.mProcurarTextoCentralDeAtendimentoExpectedValues = new ProcurarTextoCentralDeAtendimentoExpectedValues();
+                }
+                return this.mProcurarTextoCentralDeAtendimentoExpectedValues;
+            }
+        }
+        
+        public virtual ProcurarTextoLocalizeOSocioExpectedValues ProcurarTextoLocalizeOSocioExpectedValues
+        {
+            get
+            {
+                if ((this.mProcurarTextoLocalizeOSocioExpectedValues == null))
+                {
+                    this.mProcurarTextoLocalizeOSocioExpectedValues = new ProcurarTextoLocalizeOSocioExpectedValues();
+                }
+                return this.mProcurarTextoLocalizeOSocioExpectedValues;
+            }
+        }
+        
+        public virtual FecharCentralDeAtendimentoParams FecharCentralDeAtendimentoParams
+        {
+            get
+            {
+                if ((this.mFecharCentralDeAtendimentoParams == null))
+                {
+                    this.mFecharCentralDeAtendimentoParams = new FecharCentralDeAtendimentoParams();
+                }
+                return this.mFecharCentralDeAtendimentoParams;
+            }
+        }
+        
+        public virtual ProcurarTextoParentescoExpectedValues ProcurarTextoParentescoExpectedValues
+        {
+            get
+            {
+                if ((this.mProcurarTextoParentescoExpectedValues == null))
+                {
+                    this.mProcurarTextoParentescoExpectedValues = new ProcurarTextoParentescoExpectedValues();
+                }
+                return this.mProcurarTextoParentescoExpectedValues;
+            }
+        }
+        
+        public virtual FecharParentescoParams FecharParentescoParams
+        {
+            get
+            {
+                if ((this.mFecharParentescoParams == null))
+                {
+                    this.mFecharParentescoParams = new FecharParentescoParams();
+                }
+                return this.mFecharParentescoParams;
+            }
+        }
+        
+        public virtual AbrirCaixaParams AbrirCaixaParams
+        {
+            get
+            {
+                if ((this.mAbrirCaixaParams == null))
+                {
+                    this.mAbrirCaixaParams = new AbrirCaixaParams();
+                }
+                return this.mAbrirCaixaParams;
+            }
+        }
+        
+        public virtual ProcurarTextoCadastroExpectedValues ProcurarTextoCadastroExpectedValues
+        {
+            get
+            {
+                if ((this.mProcurarTextoCadastroExpectedValues == null))
+                {
+                    this.mProcurarTextoCadastroExpectedValues = new ProcurarTextoCadastroExpectedValues();
+                }
+                return this.mProcurarTextoCadastroExpectedValues;
+            }
+        }
+        
+        public virtual ProcurarTextoNovoTítuloExpectedValues ProcurarTextoNovoTítuloExpectedValues
+        {
+            get
+            {
+                if ((this.mProcurarTextoNovoTítuloExpectedValues == null))
+                {
+                    this.mProcurarTextoNovoTítuloExpectedValues = new ProcurarTextoNovoTítuloExpectedValues();
+                }
+                return this.mProcurarTextoNovoTítuloExpectedValues;
+            }
+        }
+        
+        public virtual ProcurarBotaoTítuloExpectedValues ProcurarBotaoTítuloExpectedValues
+        {
+            get
+            {
+                if ((this.mProcurarBotaoTítuloExpectedValues == null))
+                {
+                    this.mProcurarBotaoTítuloExpectedValues = new ProcurarBotaoTítuloExpectedValues();
+                }
+                return this.mProcurarBotaoTítuloExpectedValues;
+            }
+        }
+        
+        public virtual ProcurarBotaoIncluirDependenteExpectedValues ProcurarBotaoIncluirDependenteExpectedValues
+        {
+            get
+            {
+                if ((this.mProcurarBotaoIncluirDependenteExpectedValues == null))
+                {
+                    this.mProcurarBotaoIncluirDependenteExpectedValues = new ProcurarBotaoIncluirDependenteExpectedValues();
+                }
+                return this.mProcurarBotaoIncluirDependenteExpectedValues;
+            }
+        }
+        
+        public virtual ProcurarGroupBoxVendaExpectedValues ProcurarGroupBoxVendaExpectedValues
+        {
+            get
+            {
+                if ((this.mProcurarGroupBoxVendaExpectedValues == null))
+                {
+                    this.mProcurarGroupBoxVendaExpectedValues = new ProcurarGroupBoxVendaExpectedValues();
+                }
+                return this.mProcurarGroupBoxVendaExpectedValues;
+            }
+        }
+        
+        public virtual FecharTelaCadastroTituloParams FecharTelaCadastroTituloParams
+        {
+            get
+            {
+                if ((this.mFecharTelaCadastroTituloParams == null))
+                {
+                    this.mFecharTelaCadastroTituloParams = new FecharTelaCadastroTituloParams();
+                }
+                return this.mFecharTelaCadastroTituloParams;
+            }
+        }
+        
+        public virtual AcessarSegurancaPermissoesParams AcessarSegurancaPermissoesParams
+        {
+            get
+            {
+                if ((this.mAcessarSegurancaPermissoesParams == null))
+                {
+                    this.mAcessarSegurancaPermissoesParams = new AcessarSegurancaPermissoesParams();
+                }
+                return this.mAcessarSegurancaPermissoesParams;
+            }
+        }
+        
+        public virtual ProcurarTituloPermissoesExpectedValues ProcurarTituloPermissoesExpectedValues
+        {
+            get
+            {
+                if ((this.mProcurarTituloPermissoesExpectedValues == null))
+                {
+                    this.mProcurarTituloPermissoesExpectedValues = new ProcurarTituloPermissoesExpectedValues();
+                }
+                return this.mProcurarTituloPermissoesExpectedValues;
+            }
+        }
+        
+        public virtual ProcurarTextoGruposEPermissoesExpectedValues ProcurarTextoGruposEPermissoesExpectedValues
+        {
+            get
+            {
+                if ((this.mProcurarTextoGruposEPermissoesExpectedValues == null))
+                {
+                    this.mProcurarTextoGruposEPermissoesExpectedValues = new ProcurarTextoGruposEPermissoesExpectedValues();
+                }
+                return this.mProcurarTextoGruposEPermissoesExpectedValues;
+            }
+        }
+        
+        public virtual ProcurarTextoSegurancaExpectedValues ProcurarTextoSegurancaExpectedValues
+        {
+            get
+            {
+                if ((this.mProcurarTextoSegurancaExpectedValues == null))
+                {
+                    this.mProcurarTextoSegurancaExpectedValues = new ProcurarTextoSegurancaExpectedValues();
+                }
+                return this.mProcurarTextoSegurancaExpectedValues;
+            }
+        }
+        
+        public virtual FecharTelaSegurancaPermissoesParams FecharTelaSegurancaPermissoesParams
+        {
+            get
+            {
+                if ((this.mFecharTelaSegurancaPermissoesParams == null))
+                {
+                    this.mFecharTelaSegurancaPermissoesParams = new FecharTelaSegurancaPermissoesParams();
+                }
+                return this.mFecharTelaSegurancaPermissoesParams;
+            }
+        }
+        
+        public virtual ProcurarTituloMultiClubesComputadoresExpectedValues ProcurarTituloMultiClubesComputadoresExpectedValues
+        {
+            get
+            {
+                if ((this.mProcurarTituloMultiClubesComputadoresExpectedValues == null))
+                {
+                    this.mProcurarTituloMultiClubesComputadoresExpectedValues = new ProcurarTituloMultiClubesComputadoresExpectedValues();
+                }
+                return this.mProcurarTituloMultiClubesComputadoresExpectedValues;
+            }
+        }
+        
+        public virtual ProcurarTextoComputadoresExpectedValues ProcurarTextoComputadoresExpectedValues
+        {
+            get
+            {
+                if ((this.mProcurarTextoComputadoresExpectedValues == null))
+                {
+                    this.mProcurarTextoComputadoresExpectedValues = new ProcurarTextoComputadoresExpectedValues();
+                }
+                return this.mProcurarTextoComputadoresExpectedValues;
+            }
+        }
+        
+        public virtual ProcurarTextoItensExpectedValues ProcurarTextoItensExpectedValues
+        {
+            get
+            {
+                if ((this.mProcurarTextoItensExpectedValues == null))
+                {
+                    this.mProcurarTextoItensExpectedValues = new ProcurarTextoItensExpectedValues();
+                }
+                return this.mProcurarTextoItensExpectedValues;
+            }
+        }
+        
+        public virtual FecharTelaSegurancaComputadoresParams FecharTelaSegurancaComputadoresParams
+        {
+            get
+            {
+                if ((this.mFecharTelaSegurancaComputadoresParams == null))
+                {
+                    this.mFecharTelaSegurancaComputadoresParams = new FecharTelaSegurancaComputadoresParams();
+                }
+                return this.mFecharTelaSegurancaComputadoresParams;
+            }
+        }
+        
+        public virtual ProcurarTituloMultiClubesGruposDeProdutoExpectedValues ProcurarTituloMultiClubesGruposDeProdutoExpectedValues
+        {
+            get
+            {
+                if ((this.mProcurarTituloMultiClubesGruposDeProdutoExpectedValues == null))
+                {
+                    this.mProcurarTituloMultiClubesGruposDeProdutoExpectedValues = new ProcurarTituloMultiClubesGruposDeProdutoExpectedValues();
+                }
+                return this.mProcurarTituloMultiClubesGruposDeProdutoExpectedValues;
+            }
+        }
+        
+        public virtual ProcurarTextoGruposDeProdutoExpectedValues ProcurarTextoGruposDeProdutoExpectedValues
+        {
+            get
+            {
+                if ((this.mProcurarTextoGruposDeProdutoExpectedValues == null))
+                {
+                    this.mProcurarTextoGruposDeProdutoExpectedValues = new ProcurarTextoGruposDeProdutoExpectedValues();
+                }
+                return this.mProcurarTextoGruposDeProdutoExpectedValues;
+            }
+        }
+        
+        public virtual ProcurarColunaGrupoExpectedValues ProcurarColunaGrupoExpectedValues
+        {
+            get
+            {
+                if ((this.mProcurarColunaGrupoExpectedValues == null))
+                {
+                    this.mProcurarColunaGrupoExpectedValues = new ProcurarColunaGrupoExpectedValues();
+                }
+                return this.mProcurarColunaGrupoExpectedValues;
+            }
+        }
+        
+        public virtual FecharTelaAcessarGruposDeProdutoParams FecharTelaAcessarGruposDeProdutoParams
+        {
+            get
+            {
+                if ((this.mFecharTelaAcessarGruposDeProdutoParams == null))
+                {
+                    this.mFecharTelaAcessarGruposDeProdutoParams = new FecharTelaAcessarGruposDeProdutoParams();
+                }
+                return this.mFecharTelaAcessarGruposDeProdutoParams;
+            }
+        }
+        
+        public virtual DesabilitarOpcaoImportarConsumosAteParams DesabilitarOpcaoImportarConsumosAteParams
+        {
+            get
+            {
+                if ((this.mDesabilitarOpcaoImportarConsumosAteParams == null))
+                {
+                    this.mDesabilitarOpcaoImportarConsumosAteParams = new DesabilitarOpcaoImportarConsumosAteParams();
+                }
+                return this.mDesabilitarOpcaoImportarConsumosAteParams;
+            }
+        }
+        
+        public virtual ClicarBotaoGeracaoCobrancaParams ClicarBotaoGeracaoCobrancaParams
+        {
+            get
+            {
+                if ((this.mClicarBotaoGeracaoCobrancaParams == null))
+                {
+                    this.mClicarBotaoGeracaoCobrancaParams = new ClicarBotaoGeracaoCobrancaParams();
+                }
+                return this.mClicarBotaoGeracaoCobrancaParams;
+            }
+        }
+        
+        public virtual ProcurarTituloGeracaoDeCobrancaExpectedValues ProcurarTituloGeracaoDeCobrancaExpectedValues
+        {
+            get
+            {
+                if ((this.mProcurarTituloGeracaoDeCobrancaExpectedValues == null))
+                {
+                    this.mProcurarTituloGeracaoDeCobrancaExpectedValues = new ProcurarTituloGeracaoDeCobrancaExpectedValues();
+                }
+                return this.mProcurarTituloGeracaoDeCobrancaExpectedValues;
+            }
+        }
+        
+        public virtual ProcurarGroupBoxConsumoExpectedValues ProcurarGroupBoxConsumoExpectedValues
+        {
+            get
+            {
+                if ((this.mProcurarGroupBoxConsumoExpectedValues == null))
+                {
+                    this.mProcurarGroupBoxConsumoExpectedValues = new ProcurarGroupBoxConsumoExpectedValues();
+                }
+                return this.mProcurarGroupBoxConsumoExpectedValues;
+            }
+        }
+        
+        public virtual ProcurarHoraInicioExpectedValues ProcurarHoraInicioExpectedValues
+        {
+            get
+            {
+                if ((this.mProcurarHoraInicioExpectedValues == null))
+                {
+                    this.mProcurarHoraInicioExpectedValues = new ProcurarHoraInicioExpectedValues();
+                }
+                return this.mProcurarHoraInicioExpectedValues;
+            }
+        }
+        
+        public virtual ProcurarGroupBoxCobrancaExpectedValues ProcurarGroupBoxCobrancaExpectedValues
+        {
+            get
+            {
+                if ((this.mProcurarGroupBoxCobrancaExpectedValues == null))
+                {
+                    this.mProcurarGroupBoxCobrancaExpectedValues = new ProcurarGroupBoxCobrancaExpectedValues();
+                }
+                return this.mProcurarGroupBoxCobrancaExpectedValues;
+            }
+        }
+        
+        public virtual ProcurarBotaoOkExpectedValues ProcurarBotaoOkExpectedValues
+        {
+            get
+            {
+                if ((this.mProcurarBotaoOkExpectedValues == null))
+                {
+                    this.mProcurarBotaoOkExpectedValues = new ProcurarBotaoOkExpectedValues();
+                }
+                return this.mProcurarBotaoOkExpectedValues;
+            }
+        }
+        
+        public virtual FecharTelaGeracaoCobrancaParams FecharTelaGeracaoCobrancaParams
+        {
+            get
+            {
+                if ((this.mFecharTelaGeracaoCobrancaParams == null))
+                {
+                    this.mFecharTelaGeracaoCobrancaParams = new FecharTelaGeracaoCobrancaParams();
+                }
+                return this.mFecharTelaGeracaoCobrancaParams;
+            }
+        }
+        
+        public virtual ProcurarImagemHoraExpectedValues ProcurarImagemHoraExpectedValues
+        {
+            get
+            {
+                if ((this.mProcurarImagemHoraExpectedValues == null))
+                {
+                    this.mProcurarImagemHoraExpectedValues = new ProcurarImagemHoraExpectedValues();
+                }
+                return this.mProcurarImagemHoraExpectedValues;
+            }
+        }
+        
+        public virtual ProcurarTituloMultiClubesControleDeAcessoExpectedValues ProcurarTituloMultiClubesControleDeAcessoExpectedValues
+        {
+            get
+            {
+                if ((this.mProcurarTituloMultiClubesControleDeAcessoExpectedValues == null))
+                {
+                    this.mProcurarTituloMultiClubesControleDeAcessoExpectedValues = new ProcurarTituloMultiClubesControleDeAcessoExpectedValues();
+                }
+                return this.mProcurarTituloMultiClubesControleDeAcessoExpectedValues;
+            }
+        }
+        
+        public virtual ProcurarColunaNomeExpectedValues ProcurarColunaNomeExpectedValues
+        {
+            get
+            {
+                if ((this.mProcurarColunaNomeExpectedValues == null))
+                {
+                    this.mProcurarColunaNomeExpectedValues = new ProcurarColunaNomeExpectedValues();
+                }
+                return this.mProcurarColunaNomeExpectedValues;
+            }
+        }
+        
+        public virtual ProcurarColunaUltimaAlteracaoExpectedValues ProcurarColunaUltimaAlteracaoExpectedValues
+        {
+            get
+            {
+                if ((this.mProcurarColunaUltimaAlteracaoExpectedValues == null))
+                {
+                    this.mProcurarColunaUltimaAlteracaoExpectedValues = new ProcurarColunaUltimaAlteracaoExpectedValues();
+                }
+                return this.mProcurarColunaUltimaAlteracaoExpectedValues;
+            }
+        }
+        
+        public virtual ProcurarColunaCriacaoExpectedValues ProcurarColunaCriacaoExpectedValues
+        {
+            get
+            {
+                if ((this.mProcurarColunaCriacaoExpectedValues == null))
+                {
+                    this.mProcurarColunaCriacaoExpectedValues = new ProcurarColunaCriacaoExpectedValues();
+                }
+                return this.mProcurarColunaCriacaoExpectedValues;
+            }
+        }
+        
+        public virtual AbrirTelaIncluirControleAcessoParams AbrirTelaIncluirControleAcessoParams
+        {
+            get
+            {
+                if ((this.mAbrirTelaIncluirControleAcessoParams == null))
+                {
+                    this.mAbrirTelaIncluirControleAcessoParams = new AbrirTelaIncluirControleAcessoParams();
+                }
+                return this.mAbrirTelaIncluirControleAcessoParams;
+            }
+        }
+        
+        public virtual InserirInformacoesNomeEDescricaoControleDeAcessoParams InserirInformacoesNomeEDescricaoControleDeAcessoParams
+        {
+            get
+            {
+                if ((this.mInserirInformacoesNomeEDescricaoControleDeAcessoParams == null))
+                {
+                    this.mInserirInformacoesNomeEDescricaoControleDeAcessoParams = new InserirInformacoesNomeEDescricaoControleDeAcessoParams();
+                }
+                return this.mInserirInformacoesNomeEDescricaoControleDeAcessoParams;
+            }
+        }
+        
+        public virtual ConfigurarRegrasControleDeAcessoParams ConfigurarRegrasControleDeAcessoParams
+        {
+            get
+            {
+                if ((this.mConfigurarRegrasControleDeAcessoParams == null))
+                {
+                    this.mConfigurarRegrasControleDeAcessoParams = new ConfigurarRegrasControleDeAcessoParams();
+                }
+                return this.mConfigurarRegrasControleDeAcessoParams;
+            }
+        }
+        
+        public virtual IncluirCadastroControleAcessoParams IncluirCadastroControleAcessoParams
+        {
+            get
+            {
+                if ((this.mIncluirCadastroControleAcessoParams == null))
+                {
+                    this.mIncluirCadastroControleAcessoParams = new IncluirCadastroControleAcessoParams();
+                }
+                return this.mIncluirCadastroControleAcessoParams;
+            }
+        }
+        
+        public virtual FecharAdmAcesControleDeAcessoParams FecharAdmAcesControleDeAcessoParams
+        {
+            get
+            {
+                if ((this.mFecharAdmAcesControleDeAcessoParams == null))
+                {
+                    this.mFecharAdmAcesControleDeAcessoParams = new FecharAdmAcesControleDeAcessoParams();
+                }
+                return this.mFecharAdmAcesControleDeAcessoParams;
+            }
+        }
+        
+        public virtual AcessarTelaInclusaoMapasdeOcupacaoParams AcessarTelaInclusaoMapasdeOcupacaoParams
+        {
+            get
+            {
+                if ((this.mAcessarTelaInclusaoMapasdeOcupacaoParams == null))
+                {
+                    this.mAcessarTelaInclusaoMapasdeOcupacaoParams = new AcessarTelaInclusaoMapasdeOcupacaoParams();
+                }
+                return this.mAcessarTelaInclusaoMapasdeOcupacaoParams;
+            }
+        }
+        
+        public virtual ProcurarTextoIncluirExpectedValues ProcurarTextoIncluirExpectedValues
+        {
+            get
+            {
+                if ((this.mProcurarTextoIncluirExpectedValues == null))
+                {
+                    this.mProcurarTextoIncluirExpectedValues = new ProcurarTextoIncluirExpectedValues();
+                }
+                return this.mProcurarTextoIncluirExpectedValues;
+            }
+        }
+        
+        public virtual AbrirTelaIncluirMapaDeOcupacaoParams AbrirTelaIncluirMapaDeOcupacaoParams
+        {
+            get
+            {
+                if ((this.mAbrirTelaIncluirMapaDeOcupacaoParams == null))
+                {
+                    this.mAbrirTelaIncluirMapaDeOcupacaoParams = new AbrirTelaIncluirMapaDeOcupacaoParams();
+                }
+                return this.mAbrirTelaIncluirMapaDeOcupacaoParams;
+            }
+        }
+        
+        public virtual InserirNomeDoMapaEAcessarSetoresParams InserirNomeDoMapaEAcessarSetoresParams
+        {
+            get
+            {
+                if ((this.mInserirNomeDoMapaEAcessarSetoresParams == null))
+                {
+                    this.mInserirNomeDoMapaEAcessarSetoresParams = new InserirNomeDoMapaEAcessarSetoresParams();
+                }
+                return this.mInserirNomeDoMapaEAcessarSetoresParams;
+            }
+        }
+        
+        public virtual CadastrarSetoresDoMapaDeOcupacaoParams CadastrarSetoresDoMapaDeOcupacaoParams
+        {
+            get
+            {
+                if ((this.mCadastrarSetoresDoMapaDeOcupacaoParams == null))
+                {
+                    this.mCadastrarSetoresDoMapaDeOcupacaoParams = new CadastrarSetoresDoMapaDeOcupacaoParams();
+                }
+                return this.mCadastrarSetoresDoMapaDeOcupacaoParams;
+            }
+        }
+        
+        public virtual FecharTelaMapaDeOcupacaoParams FecharTelaMapaDeOcupacaoParams
+        {
+            get
+            {
+                if ((this.mFecharTelaMapaDeOcupacaoParams == null))
+                {
+                    this.mFecharTelaMapaDeOcupacaoParams = new FecharTelaMapaDeOcupacaoParams();
+                }
+                return this.mFecharTelaMapaDeOcupacaoParams;
+            }
+        }
+        
+        public virtual VerificarSePainelExisteExpectedValues VerificarSePainelExisteExpectedValues
+        {
+            get
+            {
+                if ((this.mVerificarSePainelExisteExpectedValues == null))
+                {
+                    this.mVerificarSePainelExisteExpectedValues = new VerificarSePainelExisteExpectedValues();
+                }
+                return this.mVerificarSePainelExisteExpectedValues;
+            }
+        }
+        
+        public virtual AbrirGeracaoDeCobrancaParams AbrirGeracaoDeCobrancaParams
+        {
+            get
+            {
+                if ((this.mAbrirGeracaoDeCobrancaParams == null))
+                {
+                    this.mAbrirGeracaoDeCobrancaParams = new AbrirGeracaoDeCobrancaParams();
+                }
+                return this.mAbrirGeracaoDeCobrancaParams;
+            }
+        }
+        
+        public virtual SelecionarTodasCobrancasParams SelecionarTodasCobrancasParams
+        {
+            get
+            {
+                if ((this.mSelecionarTodasCobrancasParams == null))
+                {
+                    this.mSelecionarTodasCobrancasParams = new SelecionarTodasCobrancasParams();
+                }
+                return this.mSelecionarTodasCobrancasParams;
+            }
+        }
+        
+        public virtual DesabilitarGerarComOpcaoPorCicloParams DesabilitarGerarComOpcaoPorCicloParams
+        {
+            get
+            {
+                if ((this.mDesabilitarGerarComOpcaoPorCicloParams == null))
+                {
+                    this.mDesabilitarGerarComOpcaoPorCicloParams = new DesabilitarGerarComOpcaoPorCicloParams();
+                }
+                return this.mDesabilitarGerarComOpcaoPorCicloParams;
+            }
+        }
+        
+        public virtual VerificarTituloGeracaoCobrancaExpectedValues VerificarTituloGeracaoCobrancaExpectedValues
+        {
+            get
+            {
+                if ((this.mVerificarTituloGeracaoCobrancaExpectedValues == null))
+                {
+                    this.mVerificarTituloGeracaoCobrancaExpectedValues = new VerificarTituloGeracaoCobrancaExpectedValues();
+                }
+                return this.mVerificarTituloGeracaoCobrancaExpectedValues;
+            }
+        }
+        
+        public virtual VerificarSeConcluiuCobrancaExpectedValues VerificarSeConcluiuCobrancaExpectedValues
+        {
+            get
+            {
+                if ((this.mVerificarSeConcluiuCobrancaExpectedValues == null))
+                {
+                    this.mVerificarSeConcluiuCobrancaExpectedValues = new VerificarSeConcluiuCobrancaExpectedValues();
+                }
+                return this.mVerificarSeConcluiuCobrancaExpectedValues;
+            }
+        }
+        
+        public virtual VerificarSeGerouCobrancaExpectedValues VerificarSeGerouCobrancaExpectedValues
+        {
+            get
+            {
+                if ((this.mVerificarSeGerouCobrancaExpectedValues == null))
+                {
+                    this.mVerificarSeGerouCobrancaExpectedValues = new VerificarSeGerouCobrancaExpectedValues();
+                }
+                return this.mVerificarSeGerouCobrancaExpectedValues;
+            }
+        }
+        
+        public virtual VerificarSeBotaoOkEisteExpectedValues VerificarSeBotaoOkEisteExpectedValues
+        {
+            get
+            {
+                if ((this.mVerificarSeBotaoOkEisteExpectedValues == null))
+                {
+                    this.mVerificarSeBotaoOkEisteExpectedValues = new VerificarSeBotaoOkEisteExpectedValues();
+                }
+                return this.mVerificarSeBotaoOkEisteExpectedValues;
+            }
+        }
+        
+        public virtual SelecionarTodasCobrancasEmSimulacaoCobrancaParams SelecionarTodasCobrancasEmSimulacaoCobrancaParams
+        {
+            get
+            {
+                if ((this.mSelecionarTodasCobrancasEmSimulacaoCobrancaParams == null))
+                {
+                    this.mSelecionarTodasCobrancasEmSimulacaoCobrancaParams = new SelecionarTodasCobrancasEmSimulacaoCobrancaParams();
+                }
+                return this.mSelecionarTodasCobrancasEmSimulacaoCobrancaParams;
+            }
+        }
+        
+        public virtual InformarQuantidadeMeses1Params InformarQuantidadeMeses1Params
+        {
+            get
+            {
+                if ((this.mInformarQuantidadeMeses1Params == null))
+                {
+                    this.mInformarQuantidadeMeses1Params = new InformarQuantidadeMeses1Params();
+                }
+                return this.mInformarQuantidadeMeses1Params;
+            }
+        }
+        
+        public virtual ClicarBotaoSimularGeracaoCobrancaParams ClicarBotaoSimularGeracaoCobrancaParams
+        {
+            get
+            {
+                if ((this.mClicarBotaoSimularGeracaoCobrancaParams == null))
+                {
+                    this.mClicarBotaoSimularGeracaoCobrancaParams = new ClicarBotaoSimularGeracaoCobrancaParams();
+                }
+                return this.mClicarBotaoSimularGeracaoCobrancaParams;
+            }
+        }
+        
+        public virtual ClicarBotaoSimularGeracaoCobrancaEDepoisClicarNaoParams ClicarBotaoSimularGeracaoCobrancaEDepoisClicarNaoParams
+        {
+            get
+            {
+                if ((this.mClicarBotaoSimularGeracaoCobrancaEDepoisClicarNaoParams == null))
+                {
+                    this.mClicarBotaoSimularGeracaoCobrancaEDepoisClicarNaoParams = new ClicarBotaoSimularGeracaoCobrancaEDepoisClicarNaoParams();
+                }
+                return this.mClicarBotaoSimularGeracaoCobrancaEDepoisClicarNaoParams;
+            }
+        }
+        
+        public virtual VerificarTituloSimulacaoDeCobrancaExpectedValues VerificarTituloSimulacaoDeCobrancaExpectedValues
+        {
+            get
+            {
+                if ((this.mVerificarTituloSimulacaoDeCobrancaExpectedValues == null))
+                {
+                    this.mVerificarTituloSimulacaoDeCobrancaExpectedValues = new VerificarTituloSimulacaoDeCobrancaExpectedValues();
+                }
+                return this.mVerificarTituloSimulacaoDeCobrancaExpectedValues;
+            }
+        }
+        
+        public virtual VerificarSeBotaoFecharExisteExpectedValues VerificarSeBotaoFecharExisteExpectedValues
+        {
+            get
+            {
+                if ((this.mVerificarSeBotaoFecharExisteExpectedValues == null))
+                {
+                    this.mVerificarSeBotaoFecharExisteExpectedValues = new VerificarSeBotaoFecharExisteExpectedValues();
+                }
+                return this.mVerificarSeBotaoFecharExisteExpectedValues;
+            }
+        }
+        
+        public virtual FecharTelaSimulacaoCobrancaParams FecharTelaSimulacaoCobrancaParams
+        {
+            get
+            {
+                if ((this.mFecharTelaSimulacaoCobrancaParams == null))
+                {
+                    this.mFecharTelaSimulacaoCobrancaParams = new FecharTelaSimulacaoCobrancaParams();
+                }
+                return this.mFecharTelaSimulacaoCobrancaParams;
+            }
+        }
+        
+        public virtual LocalizarTituloTC6442Params LocalizarTituloTC6442Params
+        {
+            get
+            {
+                if ((this.mLocalizarTituloTC6442Params == null))
+                {
+                    this.mLocalizarTituloTC6442Params = new LocalizarTituloTC6442Params();
+                }
+                return this.mLocalizarTituloTC6442Params;
+            }
+        }
+        
+        public virtual AbrirTituloTC6442Params AbrirTituloTC6442Params
+        {
+            get
+            {
+                if ((this.mAbrirTituloTC6442Params == null))
+                {
+                    this.mAbrirTituloTC6442Params = new AbrirTituloTC6442Params();
+                }
+                return this.mAbrirTituloTC6442Params;
+            }
+        }
+        
+        public virtual AbrirTelaEditarCobrancasParams AbrirTelaEditarCobrancasParams
+        {
+            get
+            {
+                if ((this.mAbrirTelaEditarCobrancasParams == null))
+                {
+                    this.mAbrirTelaEditarCobrancasParams = new AbrirTelaEditarCobrancasParams();
+                }
+                return this.mAbrirTelaEditarCobrancasParams;
+            }
+        }
+        
+        public virtual ClicarLinkEditarParams ClicarLinkEditarParams
+        {
+            get
+            {
+                if ((this.mClicarLinkEditarParams == null))
+                {
+                    this.mClicarLinkEditarParams = new ClicarLinkEditarParams();
+                }
+                return this.mClicarLinkEditarParams;
+            }
+        }
+        
+        public virtual SelecionarDebitoEmContaParams SelecionarDebitoEmContaParams
+        {
+            get
+            {
+                if ((this.mSelecionarDebitoEmContaParams == null))
+                {
+                    this.mSelecionarDebitoEmContaParams = new SelecionarDebitoEmContaParams();
+                }
+                return this.mSelecionarDebitoEmContaParams;
+            }
+        }
+        
+        public virtual AbrirDetalhesFormasDePagamentoParams AbrirDetalhesFormasDePagamentoParams
+        {
+            get
+            {
+                if ((this.mAbrirDetalhesFormasDePagamentoParams == null))
+                {
+                    this.mAbrirDetalhesFormasDePagamentoParams = new AbrirDetalhesFormasDePagamentoParams();
+                }
+                return this.mAbrirDetalhesFormasDePagamentoParams;
+            }
+        }
+        
+        public virtual InserirDadosInstituicaoDeCobrancaParams InserirDadosInstituicaoDeCobrancaParams
+        {
+            get
+            {
+                if ((this.mInserirDadosInstituicaoDeCobrancaParams == null))
+                {
+                    this.mInserirDadosInstituicaoDeCobrancaParams = new InserirDadosInstituicaoDeCobrancaParams();
+                }
+                return this.mInserirDadosInstituicaoDeCobrancaParams;
+            }
+        }
+        
+        public virtual FecharTelaEdicaoCobrancaParams FecharTelaEdicaoCobrancaParams
+        {
+            get
+            {
+                if ((this.mFecharTelaEdicaoCobrancaParams == null))
+                {
+                    this.mFecharTelaEdicaoCobrancaParams = new FecharTelaEdicaoCobrancaParams();
+                }
+                return this.mFecharTelaEdicaoCobrancaParams;
+            }
+        }
+        
+        public virtual VerificarTermoDeAutorizacaoParaDebitoEmContaExpectedValues VerificarTermoDeAutorizacaoParaDebitoEmContaExpectedValues
+        {
+            get
+            {
+                if ((this.mVerificarTermoDeAutorizacaoParaDebitoEmContaExpectedValues == null))
+                {
+                    this.mVerificarTermoDeAutorizacaoParaDebitoEmContaExpectedValues = new VerificarTermoDeAutorizacaoParaDebitoEmContaExpectedValues();
+                }
+                return this.mVerificarTermoDeAutorizacaoParaDebitoEmContaExpectedValues;
+            }
+        }
+        
+        public virtual FecharTermoDeAutorizacaoParaDebitoEmContaParams FecharTermoDeAutorizacaoParaDebitoEmContaParams
+        {
+            get
+            {
+                if ((this.mFecharTermoDeAutorizacaoParaDebitoEmContaParams == null))
+                {
+                    this.mFecharTermoDeAutorizacaoParaDebitoEmContaParams = new FecharTermoDeAutorizacaoParaDebitoEmContaParams();
+                }
+                return this.mFecharTermoDeAutorizacaoParaDebitoEmContaParams;
+            }
+        }
+        
+        public virtual FecharTelasEdicaoCobrancaECentralDeAtendimentoParams FecharTelasEdicaoCobrancaECentralDeAtendimentoParams
+        {
+            get
+            {
+                if ((this.mFecharTelasEdicaoCobrancaECentralDeAtendimentoParams == null))
+                {
+                    this.mFecharTelasEdicaoCobrancaECentralDeAtendimentoParams = new FecharTelasEdicaoCobrancaECentralDeAtendimentoParams();
+                }
+                return this.mFecharTelasEdicaoCobrancaECentralDeAtendimentoParams;
+            }
+        }
+        
+        public virtual HabilitarOpcaoImportarConsumosAteParams HabilitarOpcaoImportarConsumosAteParams
+        {
+            get
+            {
+                if ((this.mHabilitarOpcaoImportarConsumosAteParams == null))
+                {
+                    this.mHabilitarOpcaoImportarConsumosAteParams = new HabilitarOpcaoImportarConsumosAteParams();
+                }
+                return this.mHabilitarOpcaoImportarConsumosAteParams;
+            }
+        }
+        
+        public virtual AbrirTelaDiretorioDeSaidaRemessaParams AbrirTelaDiretorioDeSaidaRemessaParams
+        {
+            get
+            {
+                if ((this.mAbrirTelaDiretorioDeSaidaRemessaParams == null))
+                {
+                    this.mAbrirTelaDiretorioDeSaidaRemessaParams = new AbrirTelaDiretorioDeSaidaRemessaParams();
+                }
+                return this.mAbrirTelaDiretorioDeSaidaRemessaParams;
+            }
+        }
+        
+        public virtual GerarReemissaoDeRemessaParams GerarReemissaoDeRemessaParams
+        {
+            get
+            {
+                if ((this.mGerarReemissaoDeRemessaParams == null))
+                {
+                    this.mGerarReemissaoDeRemessaParams = new GerarReemissaoDeRemessaParams();
+                }
+                return this.mGerarReemissaoDeRemessaParams;
+            }
+        }
+        
+        public virtual FecharTelaDiretorioDeSaidaRemessaParams FecharTelaDiretorioDeSaidaRemessaParams
+        {
+            get
+            {
+                if ((this.mFecharTelaDiretorioDeSaidaRemessaParams == null))
+                {
+                    this.mFecharTelaDiretorioDeSaidaRemessaParams = new FecharTelaDiretorioDeSaidaRemessaParams();
+                }
+                return this.mFecharTelaDiretorioDeSaidaRemessaParams;
+            }
+        }
+        
+        public virtual FecharTelaRemessasAnterioresParams FecharTelaRemessasAnterioresParams
+        {
+            get
+            {
+                if ((this.mFecharTelaRemessasAnterioresParams == null))
+                {
+                    this.mFecharTelaRemessasAnterioresParams = new FecharTelaRemessasAnterioresParams();
+                }
+                return this.mFecharTelaRemessasAnterioresParams;
+            }
+        }
+        
+        public virtual AbrirGeracoesAnterioresDeCobrancaParams AbrirGeracoesAnterioresDeCobrancaParams
+        {
+            get
+            {
+                if ((this.mAbrirGeracoesAnterioresDeCobrancaParams == null))
+                {
+                    this.mAbrirGeracoesAnterioresDeCobrancaParams = new AbrirGeracoesAnterioresDeCobrancaParams();
+                }
+                return this.mAbrirGeracoesAnterioresDeCobrancaParams;
+            }
+        }
+        
+        public virtual AcessarSelecaoDeCobrancasAnterioresParams AcessarSelecaoDeCobrancasAnterioresParams
+        {
+            get
+            {
+                if ((this.mAcessarSelecaoDeCobrancasAnterioresParams == null))
+                {
+                    this.mAcessarSelecaoDeCobrancasAnterioresParams = new AcessarSelecaoDeCobrancasAnterioresParams();
+                }
+                return this.mAcessarSelecaoDeCobrancasAnterioresParams;
+            }
+        }
+        
+        public virtual PressionarTeclaHomeParams PressionarTeclaHomeParams
+        {
+            get
+            {
+                if ((this.mPressionarTeclaHomeParams == null))
+                {
+                    this.mPressionarTeclaHomeParams = new PressionarTeclaHomeParams();
+                }
+                return this.mPressionarTeclaHomeParams;
+            }
+        }
+        
+        public virtual ClicarOpcaoDesfazerCobrancaParams ClicarOpcaoDesfazerCobrancaParams
+        {
+            get
+            {
+                if ((this.mClicarOpcaoDesfazerCobrancaParams == null))
+                {
+                    this.mClicarOpcaoDesfazerCobrancaParams = new ClicarOpcaoDesfazerCobrancaParams();
+                }
+                return this.mClicarOpcaoDesfazerCobrancaParams;
+            }
+        }
+        
+        public virtual FecharTelaDesfazerCobrancasAnterioresParams FecharTelaDesfazerCobrancasAnterioresParams
+        {
+            get
+            {
+                if ((this.mFecharTelaDesfazerCobrancasAnterioresParams == null))
+                {
+                    this.mFecharTelaDesfazerCobrancasAnterioresParams = new FecharTelaDesfazerCobrancasAnterioresParams();
+                }
+                return this.mFecharTelaDesfazerCobrancasAnterioresParams;
+            }
+        }
+        
+        public virtual LocalizarTituloA28248Params LocalizarTituloA28248Params
+        {
+            get
+            {
+                if ((this.mLocalizarTituloA28248Params == null))
+                {
+                    this.mLocalizarTituloA28248Params = new LocalizarTituloA28248Params();
+                }
+                return this.mLocalizarTituloA28248Params;
+            }
+        }
+        
         public virtual InserirUsuarioESenhaParams InserirUsuarioESenhaParams
         {
             get
@@ -158,54 +2751,6 @@ namespace TestesAutomatizados
                     this.mInserirUsuarioESenhaParams = new InserirUsuarioESenhaParams();
                 }
                 return this.mInserirUsuarioESenhaParams;
-            }
-        }
-        
-        public virtual AltOParams AltOParams
-        {
-            get
-            {
-                if ((this.mAltOParams == null))
-                {
-                    this.mAltOParams = new AltOParams();
-                }
-                return this.mAltOParams;
-            }
-        }
-        
-        public virtual GerarAcertoDeComissaoParams GerarAcertoDeComissaoParams
-        {
-            get
-            {
-                if ((this.mGerarAcertoDeComissaoParams == null))
-                {
-                    this.mGerarAcertoDeComissaoParams = new GerarAcertoDeComissaoParams();
-                }
-                return this.mGerarAcertoDeComissaoParams;
-            }
-        }
-        
-        public virtual ClicarBotaoOkAcertoDeComissaoParams ClicarBotaoOkAcertoDeComissaoParams
-        {
-            get
-            {
-                if ((this.mClicarBotaoOkAcertoDeComissaoParams == null))
-                {
-                    this.mClicarBotaoOkAcertoDeComissaoParams = new ClicarBotaoOkAcertoDeComissaoParams();
-                }
-                return this.mClicarBotaoOkAcertoDeComissaoParams;
-            }
-        }
-        
-        public virtual LocalizarHistoricoDeAcertosParams LocalizarHistoricoDeAcertosParams
-        {
-            get
-            {
-                if ((this.mLocalizarHistoricoDeAcertosParams == null))
-                {
-                    this.mLocalizarHistoricoDeAcertosParams = new LocalizarHistoricoDeAcertosParams();
-                }
-                return this.mLocalizarHistoricoDeAcertosParams;
             }
         }
         
@@ -221,27 +2766,27 @@ namespace TestesAutomatizados
             }
         }
         
-        public UIMultiClubesWindow UIMultiClubesWindow
+        public virtual LocalizarHistoricoDeAcertosParams LocalizarHistoricoDeAcertosParams
         {
             get
             {
-                if ((this.mUIMultiClubesWindow == null))
+                if ((this.mLocalizarHistoricoDeAcertosParams == null))
                 {
-                    this.mUIMultiClubesWindow = new UIMultiClubesWindow();
+                    this.mLocalizarHistoricoDeAcertosParams = new LocalizarHistoricoDeAcertosParams();
                 }
-                return this.mUIMultiClubesWindow;
+                return this.mLocalizarHistoricoDeAcertosParams;
             }
         }
         
-        public UIMultiClubesAcertodecWindow UIMultiClubesAcertodecWindow
+        public virtual AcessarProdutosAReceberParams AcessarProdutosAReceberParams
         {
             get
             {
-                if ((this.mUIMultiClubesAcertodecWindow == null))
+                if ((this.mAcessarProdutosAReceberParams == null))
                 {
-                    this.mUIMultiClubesAcertodecWindow = new UIMultiClubesAcertodecWindow();
+                    this.mAcessarProdutosAReceberParams = new AcessarProdutosAReceberParams();
                 }
-                return this.mUIMultiClubesAcertodecWindow;
+                return this.mAcessarProdutosAReceberParams;
             }
         }
         
@@ -257,27 +2802,15 @@ namespace TestesAutomatizados
             }
         }
         
-        public UIAcertodecomissãoWindow UIAcertodecomissãoWindow
+        public UIMultiClubesWindow UIMultiClubesWindow
         {
             get
             {
-                if ((this.mUIAcertodecomissãoWindow == null))
+                if ((this.mUIMultiClubesWindow == null))
                 {
-                    this.mUIAcertodecomissãoWindow = new UIAcertodecomissãoWindow();
+                    this.mUIMultiClubesWindow = new UIMultiClubesWindow();
                 }
-                return this.mUIAcertodecomissãoWindow;
-            }
-        }
-        
-        public UIEmailsWindow UIEmailsWindow
-        {
-            get
-            {
-                if ((this.mUIEmailsWindow == null))
-                {
-                    this.mUIEmailsWindow = new UIEmailsWindow();
-                }
-                return this.mUIEmailsWindow;
+                return this.mUIMultiClubesWindow;
             }
         }
         
@@ -292,32 +2825,2334 @@ namespace TestesAutomatizados
                 return this.mUIMultiClubesCentraldeWindow;
             }
         }
+        
+        public UIMultiClubesParentescWindow UIMultiClubesParentescWindow
+        {
+            get
+            {
+                if ((this.mUIMultiClubesParentescWindow == null))
+                {
+                    this.mUIMultiClubesParentescWindow = new UIMultiClubesParentescWindow();
+                }
+                return this.mUIMultiClubesParentescWindow;
+            }
+        }
+        
+        public UIItemWindow1 UIItemWindow1
+        {
+            get
+            {
+                if ((this.mUIItemWindow1 == null))
+                {
+                    this.mUIItemWindow1 = new UIItemWindow1();
+                }
+                return this.mUIItemWindow1;
+            }
+        }
+        
+        public UICadastrodetítuloWindow UICadastrodetítuloWindow
+        {
+            get
+            {
+                if ((this.mUICadastrodetítuloWindow == null))
+                {
+                    this.mUICadastrodetítuloWindow = new UICadastrodetítuloWindow();
+                }
+                return this.mUICadastrodetítuloWindow;
+            }
+        }
+        
+        public UIMultiClubesWindow2 UIMultiClubesWindow2
+        {
+            get
+            {
+                if ((this.mUIMultiClubesWindow2 == null))
+                {
+                    this.mUIMultiClubesWindow2 = new UIMultiClubesWindow2();
+                }
+                return this.mUIMultiClubesWindow2;
+            }
+        }
+        
+        public UIPermissõesWindow UIPermissõesWindow
+        {
+            get
+            {
+                if ((this.mUIPermissõesWindow == null))
+                {
+                    this.mUIPermissõesWindow = new UIPermissõesWindow();
+                }
+                return this.mUIPermissõesWindow;
+            }
+        }
+        
+        public UIMultiClubesComputadoWindow UIMultiClubesComputadoWindow
+        {
+            get
+            {
+                if ((this.mUIMultiClubesComputadoWindow == null))
+                {
+                    this.mUIMultiClubesComputadoWindow = new UIMultiClubesComputadoWindow();
+                }
+                return this.mUIMultiClubesComputadoWindow;
+            }
+        }
+        
+        public UIMultiClubesGruposdepWindow UIMultiClubesGruposdepWindow
+        {
+            get
+            {
+                if ((this.mUIMultiClubesGruposdepWindow == null))
+                {
+                    this.mUIMultiClubesGruposdepWindow = new UIMultiClubesGruposdepWindow();
+                }
+                return this.mUIMultiClubesGruposdepWindow;
+            }
+        }
+        
+        public UIGeraçãodecobrançaWindow UIGeraçãodecobrançaWindow
+        {
+            get
+            {
+                if ((this.mUIGeraçãodecobrançaWindow == null))
+                {
+                    this.mUIGeraçãodecobrançaWindow = new UIGeraçãodecobrançaWindow();
+                }
+                return this.mUIGeraçãodecobrançaWindow;
+            }
+        }
+        
+        public UIPerguntaWindow UIPerguntaWindow
+        {
+            get
+            {
+                if ((this.mUIPerguntaWindow == null))
+                {
+                    this.mUIPerguntaWindow = new UIPerguntaWindow();
+                }
+                return this.mUIPerguntaWindow;
+            }
+        }
+        
+        public UIGeraçãodecobrançaWindow1 UIGeraçãodecobrançaWindow1
+        {
+            get
+            {
+                if ((this.mUIGeraçãodecobrançaWindow1 == null))
+                {
+                    this.mUIGeraçãodecobrançaWindow1 = new UIGeraçãodecobrançaWindow1();
+                }
+                return this.mUIGeraçãodecobrançaWindow1;
+            }
+        }
+        
+        public UIMultiClubesControlesWindow UIMultiClubesControlesWindow
+        {
+            get
+            {
+                if ((this.mUIMultiClubesControlesWindow == null))
+                {
+                    this.mUIMultiClubesControlesWindow = new UIMultiClubesControlesWindow();
+                }
+                return this.mUIMultiClubesControlesWindow;
+            }
+        }
+        
+        public UIControledeacessoWindow UIControledeacessoWindow
+        {
+            get
+            {
+                if ((this.mUIControledeacessoWindow == null))
+                {
+                    this.mUIControledeacessoWindow = new UIControledeacessoWindow();
+                }
+                return this.mUIControledeacessoWindow;
+            }
+        }
+        
+        public UIControledeacessoWindow1 UIControledeacessoWindow1
+        {
+            get
+            {
+                if ((this.mUIControledeacessoWindow1 == null))
+                {
+                    this.mUIControledeacessoWindow1 = new UIControledeacessoWindow1();
+                }
+                return this.mUIControledeacessoWindow1;
+            }
+        }
+        
+        public UIMultiClubesMapasdeocWindow UIMultiClubesMapasdeocWindow
+        {
+            get
+            {
+                if ((this.mUIMultiClubesMapasdeocWindow == null))
+                {
+                    this.mUIMultiClubesMapasdeocWindow = new UIMultiClubesMapasdeocWindow();
+                }
+                return this.mUIMultiClubesMapasdeocWindow;
+            }
+        }
+        
+        public UIMultiClubesWindow11 UIMultiClubesWindow1
+        {
+            get
+            {
+                if ((this.mUIMultiClubesWindow1 == null))
+                {
+                    this.mUIMultiClubesWindow1 = new UIMultiClubesWindow11();
+                }
+                return this.mUIMultiClubesWindow1;
+            }
+        }
+        
+        public UIMultiClubesWindow3 UIMultiClubesWindow3
+        {
+            get
+            {
+                if ((this.mUIMultiClubesWindow3 == null))
+                {
+                    this.mUIMultiClubesWindow3 = new UIMultiClubesWindow3();
+                }
+                return this.mUIMultiClubesWindow3;
+            }
+        }
+        
+        public UIMultiClubesWindow4 UIMultiClubesWindow4
+        {
+            get
+            {
+                if ((this.mUIMultiClubesWindow4 == null))
+                {
+                    this.mUIMultiClubesWindow4 = new UIMultiClubesWindow4();
+                }
+                return this.mUIMultiClubesWindow4;
+            }
+        }
+        
+        public UIMultiClubesWindow5 UIMultiClubesWindow5
+        {
+            get
+            {
+                if ((this.mUIMultiClubesWindow5 == null))
+                {
+                    this.mUIMultiClubesWindow5 = new UIMultiClubesWindow5();
+                }
+                return this.mUIMultiClubesWindow5;
+            }
+        }
+        
+        public UIMapadeocupaçãoWindow UIMapadeocupaçãoWindow
+        {
+            get
+            {
+                if ((this.mUIMapadeocupaçãoWindow == null))
+                {
+                    this.mUIMapadeocupaçãoWindow = new UIMapadeocupaçãoWindow();
+                }
+                return this.mUIMapadeocupaçãoWindow;
+            }
+        }
+        
+        public UIMultiClubesWindow6 UIMultiClubesWindow6
+        {
+            get
+            {
+                if ((this.mUIMultiClubesWindow6 == null))
+                {
+                    this.mUIMultiClubesWindow6 = new UIMultiClubesWindow6();
+                }
+                return this.mUIMultiClubesWindow6;
+            }
+        }
+        
+        public UIExecutarWindow UIExecutarWindow
+        {
+            get
+            {
+                if ((this.mUIExecutarWindow == null))
+                {
+                    this.mUIExecutarWindow = new UIExecutarWindow();
+                }
+                return this.mUIExecutarWindow;
+            }
+        }
+        
+        public UIMultiClubesWindow7 UIMultiClubesWindow7
+        {
+            get
+            {
+                if ((this.mUIMultiClubesWindow7 == null))
+                {
+                    this.mUIMultiClubesWindow7 = new UIMultiClubesWindow7();
+                }
+                return this.mUIMultiClubesWindow7;
+            }
+        }
+        
+        public UIMultiClubesWindow8 UIMultiClubesWindow8
+        {
+            get
+            {
+                if ((this.mUIMultiClubesWindow8 == null))
+                {
+                    this.mUIMultiClubesWindow8 = new UIMultiClubesWindow8();
+                }
+                return this.mUIMultiClubesWindow8;
+            }
+        }
+        
+        public UISimulaçãodecobrançaWindow UISimulaçãodecobrançaWindow
+        {
+            get
+            {
+                if ((this.mUISimulaçãodecobrançaWindow == null))
+                {
+                    this.mUISimulaçãodecobrançaWindow = new UISimulaçãodecobrançaWindow();
+                }
+                return this.mUISimulaçãodecobrançaWindow;
+            }
+        }
+        
+        public UICobrançasWindow1 UICobrançasWindow
+        {
+            get
+            {
+                if ((this.mUICobrançasWindow == null))
+                {
+                    this.mUICobrançasWindow = new UICobrançasWindow1();
+                }
+                return this.mUICobrançasWindow;
+            }
+        }
+        
+        public UIEdiçãodecobrançaWindow1 UIEdiçãodecobrançaWindow1
+        {
+            get
+            {
+                if ((this.mUIEdiçãodecobrançaWindow1 == null))
+                {
+                    this.mUIEdiçãodecobrançaWindow1 = new UIEdiçãodecobrançaWindow1();
+                }
+                return this.mUIEdiçãodecobrançaWindow1;
+            }
+        }
+        
+        public UIFormadepagamentoWindow UIFormadepagamentoWindow
+        {
+            get
+            {
+                if ((this.mUIFormadepagamentoWindow == null))
+                {
+                    this.mUIFormadepagamentoWindow = new UIFormadepagamentoWindow();
+                }
+                return this.mUIFormadepagamentoWindow;
+            }
+        }
+        
+        public UITermodeautorizaçãopaWindow UITermodeautorizaçãopaWindow
+        {
+            get
+            {
+                if ((this.mUITermodeautorizaçãopaWindow == null))
+                {
+                    this.mUITermodeautorizaçãopaWindow = new UITermodeautorizaçãopaWindow();
+                }
+                return this.mUITermodeautorizaçãopaWindow;
+            }
+        }
+        
+        public UIAtendimentoWindow2 UIAtendimentoWindow2
+        {
+            get
+            {
+                if ((this.mUIAtendimentoWindow2 == null))
+                {
+                    this.mUIAtendimentoWindow2 = new UIAtendimentoWindow2();
+                }
+                return this.mUIAtendimentoWindow2;
+            }
+        }
+        
+        public UIRemessasanterioresWindow UIRemessasanterioresWindow
+        {
+            get
+            {
+                if ((this.mUIRemessasanterioresWindow == null))
+                {
+                    this.mUIRemessasanterioresWindow = new UIRemessasanterioresWindow();
+                }
+                return this.mUIRemessasanterioresWindow;
+            }
+        }
+        
+        public UIMultiClubesWindow9 UIMultiClubesWindow9
+        {
+            get
+            {
+                if ((this.mUIMultiClubesWindow9 == null))
+                {
+                    this.mUIMultiClubesWindow9 = new UIMultiClubesWindow9();
+                }
+                return this.mUIMultiClubesWindow9;
+            }
+        }
+        
+        public UIGeraçãoderemessaWindow1 UIGeraçãoderemessaWindow1
+        {
+            get
+            {
+                if ((this.mUIGeraçãoderemessaWindow1 == null))
+                {
+                    this.mUIGeraçãoderemessaWindow1 = new UIGeraçãoderemessaWindow1();
+                }
+                return this.mUIGeraçãoderemessaWindow1;
+            }
+        }
+        
+        public UIMultiClubesWindow10 UIMultiClubesWindow10
+        {
+            get
+            {
+                if ((this.mUIMultiClubesWindow10 == null))
+                {
+                    this.mUIMultiClubesWindow10 = new UIMultiClubesWindow10();
+                }
+                return this.mUIMultiClubesWindow10;
+            }
+        }
+        
+        public UIGeraçõesanterioresWindow UIGeraçõesanterioresWindow
+        {
+            get
+            {
+                if ((this.mUIGeraçõesanterioresWindow == null))
+                {
+                    this.mUIGeraçõesanterioresWindow = new UIGeraçõesanterioresWindow();
+                }
+                return this.mUIGeraçõesanterioresWindow;
+            }
+        }
+        
+        public UISemtítuloBlocodenotaWindow UISemtítuloBlocodenotaWindow
+        {
+            get
+            {
+                if ((this.mUISemtítuloBlocodenotaWindow == null))
+                {
+                    this.mUISemtítuloBlocodenotaWindow = new UISemtítuloBlocodenotaWindow();
+                }
+                return this.mUISemtítuloBlocodenotaWindow;
+            }
+        }
+        
+        public UIDesfazercobrançaWindow UIDesfazercobrançaWindow
+        {
+            get
+            {
+                if ((this.mUIDesfazercobrançaWindow == null))
+                {
+                    this.mUIDesfazercobrançaWindow = new UIDesfazercobrançaWindow();
+                }
+                return this.mUIDesfazercobrançaWindow;
+            }
+        }
+        
+        public UIMultiClubesAcertodecWindow UIMultiClubesAcertodecWindow
+        {
+            get
+            {
+                if ((this.mUIMultiClubesAcertodecWindow == null))
+                {
+                    this.mUIMultiClubesAcertodecWindow = new UIMultiClubesAcertodecWindow();
+                }
+                return this.mUIMultiClubesAcertodecWindow;
+            }
+        }
+        
+        public UIMultiClubesWindow111 UIMultiClubesWindow11
+        {
+            get
+            {
+                if ((this.mUIMultiClubesWindow11 == null))
+                {
+                    this.mUIMultiClubesWindow11 = new UIMultiClubesWindow111();
+                }
+                return this.mUIMultiClubesWindow11;
+            }
+        }
         #endregion
         
         #region Fields
+        private AbrirMultiClubesParams mAbrirMultiClubesParams;
+        
+        private LogarMultiClubesParams mLogarMultiClubesParams;
+        
+        private AbrirCentralAtendimentoParams mAbrirCentralAtendimentoParams;
+        
+        private ProcurarTextoCentralDeAtendimentoExpectedValues mProcurarTextoCentralDeAtendimentoExpectedValues;
+        
+        private ProcurarTextoLocalizeOSocioExpectedValues mProcurarTextoLocalizeOSocioExpectedValues;
+        
+        private FecharCentralDeAtendimentoParams mFecharCentralDeAtendimentoParams;
+        
+        private ProcurarTextoParentescoExpectedValues mProcurarTextoParentescoExpectedValues;
+        
+        private FecharParentescoParams mFecharParentescoParams;
+        
+        private AbrirCaixaParams mAbrirCaixaParams;
+        
+        private ProcurarTextoCadastroExpectedValues mProcurarTextoCadastroExpectedValues;
+        
+        private ProcurarTextoNovoTítuloExpectedValues mProcurarTextoNovoTítuloExpectedValues;
+        
+        private ProcurarBotaoTítuloExpectedValues mProcurarBotaoTítuloExpectedValues;
+        
+        private ProcurarBotaoIncluirDependenteExpectedValues mProcurarBotaoIncluirDependenteExpectedValues;
+        
+        private ProcurarGroupBoxVendaExpectedValues mProcurarGroupBoxVendaExpectedValues;
+        
+        private FecharTelaCadastroTituloParams mFecharTelaCadastroTituloParams;
+        
+        private AcessarSegurancaPermissoesParams mAcessarSegurancaPermissoesParams;
+        
+        private ProcurarTituloPermissoesExpectedValues mProcurarTituloPermissoesExpectedValues;
+        
+        private ProcurarTextoGruposEPermissoesExpectedValues mProcurarTextoGruposEPermissoesExpectedValues;
+        
+        private ProcurarTextoSegurancaExpectedValues mProcurarTextoSegurancaExpectedValues;
+        
+        private FecharTelaSegurancaPermissoesParams mFecharTelaSegurancaPermissoesParams;
+        
+        private ProcurarTituloMultiClubesComputadoresExpectedValues mProcurarTituloMultiClubesComputadoresExpectedValues;
+        
+        private ProcurarTextoComputadoresExpectedValues mProcurarTextoComputadoresExpectedValues;
+        
+        private ProcurarTextoItensExpectedValues mProcurarTextoItensExpectedValues;
+        
+        private FecharTelaSegurancaComputadoresParams mFecharTelaSegurancaComputadoresParams;
+        
+        private ProcurarTituloMultiClubesGruposDeProdutoExpectedValues mProcurarTituloMultiClubesGruposDeProdutoExpectedValues;
+        
+        private ProcurarTextoGruposDeProdutoExpectedValues mProcurarTextoGruposDeProdutoExpectedValues;
+        
+        private ProcurarColunaGrupoExpectedValues mProcurarColunaGrupoExpectedValues;
+        
+        private FecharTelaAcessarGruposDeProdutoParams mFecharTelaAcessarGruposDeProdutoParams;
+        
+        private DesabilitarOpcaoImportarConsumosAteParams mDesabilitarOpcaoImportarConsumosAteParams;
+        
+        private ClicarBotaoGeracaoCobrancaParams mClicarBotaoGeracaoCobrancaParams;
+        
+        private ProcurarTituloGeracaoDeCobrancaExpectedValues mProcurarTituloGeracaoDeCobrancaExpectedValues;
+        
+        private ProcurarGroupBoxConsumoExpectedValues mProcurarGroupBoxConsumoExpectedValues;
+        
+        private ProcurarHoraInicioExpectedValues mProcurarHoraInicioExpectedValues;
+        
+        private ProcurarGroupBoxCobrancaExpectedValues mProcurarGroupBoxCobrancaExpectedValues;
+        
+        private ProcurarBotaoOkExpectedValues mProcurarBotaoOkExpectedValues;
+        
+        private FecharTelaGeracaoCobrancaParams mFecharTelaGeracaoCobrancaParams;
+        
+        private ProcurarImagemHoraExpectedValues mProcurarImagemHoraExpectedValues;
+        
+        private ProcurarTituloMultiClubesControleDeAcessoExpectedValues mProcurarTituloMultiClubesControleDeAcessoExpectedValues;
+        
+        private ProcurarColunaNomeExpectedValues mProcurarColunaNomeExpectedValues;
+        
+        private ProcurarColunaUltimaAlteracaoExpectedValues mProcurarColunaUltimaAlteracaoExpectedValues;
+        
+        private ProcurarColunaCriacaoExpectedValues mProcurarColunaCriacaoExpectedValues;
+        
+        private AbrirTelaIncluirControleAcessoParams mAbrirTelaIncluirControleAcessoParams;
+        
+        private InserirInformacoesNomeEDescricaoControleDeAcessoParams mInserirInformacoesNomeEDescricaoControleDeAcessoParams;
+        
+        private ConfigurarRegrasControleDeAcessoParams mConfigurarRegrasControleDeAcessoParams;
+        
+        private IncluirCadastroControleAcessoParams mIncluirCadastroControleAcessoParams;
+        
+        private FecharAdmAcesControleDeAcessoParams mFecharAdmAcesControleDeAcessoParams;
+        
+        private AcessarTelaInclusaoMapasdeOcupacaoParams mAcessarTelaInclusaoMapasdeOcupacaoParams;
+        
+        private ProcurarTextoIncluirExpectedValues mProcurarTextoIncluirExpectedValues;
+        
+        private AbrirTelaIncluirMapaDeOcupacaoParams mAbrirTelaIncluirMapaDeOcupacaoParams;
+        
+        private InserirNomeDoMapaEAcessarSetoresParams mInserirNomeDoMapaEAcessarSetoresParams;
+        
+        private CadastrarSetoresDoMapaDeOcupacaoParams mCadastrarSetoresDoMapaDeOcupacaoParams;
+        
+        private FecharTelaMapaDeOcupacaoParams mFecharTelaMapaDeOcupacaoParams;
+        
+        private VerificarSePainelExisteExpectedValues mVerificarSePainelExisteExpectedValues;
+        
+        private AbrirGeracaoDeCobrancaParams mAbrirGeracaoDeCobrancaParams;
+        
+        private SelecionarTodasCobrancasParams mSelecionarTodasCobrancasParams;
+        
+        private DesabilitarGerarComOpcaoPorCicloParams mDesabilitarGerarComOpcaoPorCicloParams;
+        
+        private VerificarTituloGeracaoCobrancaExpectedValues mVerificarTituloGeracaoCobrancaExpectedValues;
+        
+        private VerificarSeConcluiuCobrancaExpectedValues mVerificarSeConcluiuCobrancaExpectedValues;
+        
+        private VerificarSeGerouCobrancaExpectedValues mVerificarSeGerouCobrancaExpectedValues;
+        
+        private VerificarSeBotaoOkEisteExpectedValues mVerificarSeBotaoOkEisteExpectedValues;
+        
+        private SelecionarTodasCobrancasEmSimulacaoCobrancaParams mSelecionarTodasCobrancasEmSimulacaoCobrancaParams;
+        
+        private InformarQuantidadeMeses1Params mInformarQuantidadeMeses1Params;
+        
+        private ClicarBotaoSimularGeracaoCobrancaParams mClicarBotaoSimularGeracaoCobrancaParams;
+        
+        private ClicarBotaoSimularGeracaoCobrancaEDepoisClicarNaoParams mClicarBotaoSimularGeracaoCobrancaEDepoisClicarNaoParams;
+        
+        private VerificarTituloSimulacaoDeCobrancaExpectedValues mVerificarTituloSimulacaoDeCobrancaExpectedValues;
+        
+        private VerificarSeBotaoFecharExisteExpectedValues mVerificarSeBotaoFecharExisteExpectedValues;
+        
+        private FecharTelaSimulacaoCobrancaParams mFecharTelaSimulacaoCobrancaParams;
+        
+        private LocalizarTituloTC6442Params mLocalizarTituloTC6442Params;
+        
+        private AbrirTituloTC6442Params mAbrirTituloTC6442Params;
+        
+        private AbrirTelaEditarCobrancasParams mAbrirTelaEditarCobrancasParams;
+        
+        private ClicarLinkEditarParams mClicarLinkEditarParams;
+        
+        private SelecionarDebitoEmContaParams mSelecionarDebitoEmContaParams;
+        
+        private AbrirDetalhesFormasDePagamentoParams mAbrirDetalhesFormasDePagamentoParams;
+        
+        private InserirDadosInstituicaoDeCobrancaParams mInserirDadosInstituicaoDeCobrancaParams;
+        
+        private FecharTelaEdicaoCobrancaParams mFecharTelaEdicaoCobrancaParams;
+        
+        private VerificarTermoDeAutorizacaoParaDebitoEmContaExpectedValues mVerificarTermoDeAutorizacaoParaDebitoEmContaExpectedValues;
+        
+        private FecharTermoDeAutorizacaoParaDebitoEmContaParams mFecharTermoDeAutorizacaoParaDebitoEmContaParams;
+        
+        private FecharTelasEdicaoCobrancaECentralDeAtendimentoParams mFecharTelasEdicaoCobrancaECentralDeAtendimentoParams;
+        
+        private HabilitarOpcaoImportarConsumosAteParams mHabilitarOpcaoImportarConsumosAteParams;
+        
+        private AbrirTelaDiretorioDeSaidaRemessaParams mAbrirTelaDiretorioDeSaidaRemessaParams;
+        
+        private GerarReemissaoDeRemessaParams mGerarReemissaoDeRemessaParams;
+        
+        private FecharTelaDiretorioDeSaidaRemessaParams mFecharTelaDiretorioDeSaidaRemessaParams;
+        
+        private FecharTelaRemessasAnterioresParams mFecharTelaRemessasAnterioresParams;
+        
+        private AbrirGeracoesAnterioresDeCobrancaParams mAbrirGeracoesAnterioresDeCobrancaParams;
+        
+        private AcessarSelecaoDeCobrancasAnterioresParams mAcessarSelecaoDeCobrancasAnterioresParams;
+        
+        private PressionarTeclaHomeParams mPressionarTeclaHomeParams;
+        
+        private ClicarOpcaoDesfazerCobrancaParams mClicarOpcaoDesfazerCobrancaParams;
+        
+        private FecharTelaDesfazerCobrancasAnterioresParams mFecharTelaDesfazerCobrancasAnterioresParams;
+        
+        private LocalizarTituloA28248Params mLocalizarTituloA28248Params;
+        
         private InserirUsuarioESenhaParams mInserirUsuarioESenhaParams;
-        
-        private AltOParams mAltOParams;
-        
-        private GerarAcertoDeComissaoParams mGerarAcertoDeComissaoParams;
-        
-        private ClicarBotaoOkAcertoDeComissaoParams mClicarBotaoOkAcertoDeComissaoParams;
-        
-        private LocalizarHistoricoDeAcertosParams mLocalizarHistoricoDeAcertosParams;
         
         private AbrirAtendimentoTitulo008ProParams mAbrirAtendimentoTitulo008ProParams;
         
-        private UIMultiClubesWindow mUIMultiClubesWindow;
+        private LocalizarHistoricoDeAcertosParams mLocalizarHistoricoDeAcertosParams;
         
-        private UIMultiClubesAcertodecWindow mUIMultiClubesAcertodecWindow;
+        private AcessarProdutosAReceberParams mAcessarProdutosAReceberParams;
         
         private UIItemWindow mUIItemWindow;
         
-        private UIAcertodecomissãoWindow mUIAcertodecomissãoWindow;
-        
-        private UIEmailsWindow mUIEmailsWindow;
+        private UIMultiClubesWindow mUIMultiClubesWindow;
         
         private UIMultiClubesCentraldeWindow mUIMultiClubesCentraldeWindow;
+        
+        private UIMultiClubesParentescWindow mUIMultiClubesParentescWindow;
+        
+        private UIItemWindow1 mUIItemWindow1;
+        
+        private UICadastrodetítuloWindow mUICadastrodetítuloWindow;
+        
+        private UIMultiClubesWindow2 mUIMultiClubesWindow2;
+        
+        private UIPermissõesWindow mUIPermissõesWindow;
+        
+        private UIMultiClubesComputadoWindow mUIMultiClubesComputadoWindow;
+        
+        private UIMultiClubesGruposdepWindow mUIMultiClubesGruposdepWindow;
+        
+        private UIGeraçãodecobrançaWindow mUIGeraçãodecobrançaWindow;
+        
+        private UIPerguntaWindow mUIPerguntaWindow;
+        
+        private UIGeraçãodecobrançaWindow1 mUIGeraçãodecobrançaWindow1;
+        
+        private UIMultiClubesControlesWindow mUIMultiClubesControlesWindow;
+        
+        private UIControledeacessoWindow mUIControledeacessoWindow;
+        
+        private UIControledeacessoWindow1 mUIControledeacessoWindow1;
+        
+        private UIMultiClubesMapasdeocWindow mUIMultiClubesMapasdeocWindow;
+        
+        private UIMultiClubesWindow11 mUIMultiClubesWindow1;
+        
+        private UIMultiClubesWindow3 mUIMultiClubesWindow3;
+        
+        private UIMultiClubesWindow4 mUIMultiClubesWindow4;
+        
+        private UIMultiClubesWindow5 mUIMultiClubesWindow5;
+        
+        private UIMapadeocupaçãoWindow mUIMapadeocupaçãoWindow;
+        
+        private UIMultiClubesWindow6 mUIMultiClubesWindow6;
+        
+        private UIExecutarWindow mUIExecutarWindow;
+        
+        private UIMultiClubesWindow7 mUIMultiClubesWindow7;
+        
+        private UIMultiClubesWindow8 mUIMultiClubesWindow8;
+        
+        private UISimulaçãodecobrançaWindow mUISimulaçãodecobrançaWindow;
+        
+        private UICobrançasWindow1 mUICobrançasWindow;
+        
+        private UIEdiçãodecobrançaWindow1 mUIEdiçãodecobrançaWindow1;
+        
+        private UIFormadepagamentoWindow mUIFormadepagamentoWindow;
+        
+        private UITermodeautorizaçãopaWindow mUITermodeautorizaçãopaWindow;
+        
+        private UIAtendimentoWindow2 mUIAtendimentoWindow2;
+        
+        private UIRemessasanterioresWindow mUIRemessasanterioresWindow;
+        
+        private UIMultiClubesWindow9 mUIMultiClubesWindow9;
+        
+        private UIGeraçãoderemessaWindow1 mUIGeraçãoderemessaWindow1;
+        
+        private UIMultiClubesWindow10 mUIMultiClubesWindow10;
+        
+        private UIGeraçõesanterioresWindow mUIGeraçõesanterioresWindow;
+        
+        private UISemtítuloBlocodenotaWindow mUISemtítuloBlocodenotaWindow;
+        
+        private UIDesfazercobrançaWindow mUIDesfazercobrançaWindow;
+        
+        private UIMultiClubesAcertodecWindow mUIMultiClubesAcertodecWindow;
+        
+        private UIMultiClubesWindow111 mUIMultiClubesWindow11;
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'AbrirMultiClubes'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class AbrirMultiClubesParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Pressionar as teclas de atalho de teclado 'Windows + r'
+        /// </summary>
+        public string SendKeys = "r";
+        
+        /// <summary>
+        /// Selecionar 'C:\Users\arthur.gama\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Triade Soluções Inteligentes\MultiClubes\MultiClubes.appref-ms' em 'Abrir:' caixa de combinação
+        /// </summary>
+        public string UIAbrirComboBoxEditableItem = "C:\\Users\\arthur.gama\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Triade" +
+            " Soluções Inteligentes\\MultiClubes\\MultiClubes.appref-ms";
+        
+        /// <summary>
+        /// Digitar '{Enter}' em 'Abrir:' caixa de texto
+        /// </summary>
+        public string UIAbrirEditSendKeys = "{Enter}";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'LogarMultiClubes'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class LogarMultiClubesParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar 'suporte' em 'textBoxUsername' caixa de texto
+        /// </summary>
+        public string UITextBoxUsernameEditText = "suporte";
+        
+        /// <summary>
+        /// Digitar '{Tab}' em 'textBoxUsername' caixa de texto
+        /// </summary>
+        public string UITextBoxUsernameEditSendKeys = "{Tab}";
+        
+        /// <summary>
+        /// Digitar '********' em 'textBoxPassword' caixa de texto
+        /// </summary>
+        public string UITextBoxPasswordEditSendKeys = "EwKH4AR/i+efPGIZvLkbbxuhIiidiMHRBw0kCMO4UEoApLA2vtXg1qvtsOPCSlJZOEPifLjTaow=";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'AbrirCentralAtendimento'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class AbrirCentralAtendimentoParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar 'Alt + o' em 'MultiClubes' cliente
+        /// </summary>
+        public string UIMultiClubesClientSendKeys = "o";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'ProcurarTextoCentralDeAtendimento'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class ProcurarTextoCentralDeAtendimentoExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verificar se a propriedade 'DisplayText' de 'Central de atendimento' rótulo Igual a 'Central de atendimento'
+        /// </summary>
+        public string UICentraldeatendimentoTextDisplayText = "Central de atendimento";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'ProcurarTextoLocalizeOSocio'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class ProcurarTextoLocalizeOSocioExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verificar se a propriedade 'DisplayText' de 'Localize o sócio' rótulo Igual a 'Localize o sócio'
+        /// </summary>
+        public string UILocalizeosócioTextDisplayText = "Localize o sócio";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'FecharCentralDeAtendimento'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class FecharCentralDeAtendimentoParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar 'Alt + f' em 'textBoxKeyword' caixa de texto
+        /// </summary>
+        public string UITextBoxKeywordEditSendKeys = "f";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'ProcurarTextoParentesco'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class ProcurarTextoParentescoExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verificar se a propriedade 'DisplayText' de 'Parentescos' rótulo Igual a 'Parentescos'
+        /// </summary>
+        public string UIParentescosTextDisplayText = "Parentescos";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'FecharParentesco'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class FecharParentescoParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar 'Alt + f' em 'ACOMPANHANTE (A)' item de lista
+        /// </summary>
+        public string UIACOMPANHANTEAListItemSendKeys = "f";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'AbrirCaixa'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class AbrirCaixaParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar 'Alt + a' em '&Abrir caixa' botão
+        /// </summary>
+        public string UIAbrircaixaButtonSendKeys = "a";
+        
+        /// <summary>
+        /// Digitar '{Right}{Down}' em 'Contexto' menu pop-up
+        /// </summary>
+        public string UIContextoMenuSendKeys = "{Right}{Down}";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'ProcurarTextoCadastro'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class ProcurarTextoCadastroExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verificar se a propriedade 'DisplayText' de 'Cadastro' rótulo Igual a 'Cadastro'
+        /// </summary>
+        public string UICadastroTextDisplayText = "Cadastro";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'ProcurarTextoNovoTítulo'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class ProcurarTextoNovoTítuloExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verificar se a propriedade 'DisplayText' de 'Novo título' rótulo Igual a 'Novo título'
+        /// </summary>
+        public string UINovotítuloTextDisplayText = "Novo título";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'ProcurarBotaoTítulo'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class ProcurarBotaoTítuloExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verificar se a propriedade 'DisplayText' de 'Título' botão Igual a 'Título'
+        /// </summary>
+        public string UITítuloButtonDisplayText = "Título";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'ProcurarBotaoIncluirDependente'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class ProcurarBotaoIncluirDependenteExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verificar se a propriedade 'DisplayText' de 'Incluir dependente' botão Igual a 'Incluir dependente'
+        /// </summary>
+        public string UIIncluirdependenteButtonDisplayText = "Incluir dependente";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'ProcurarGroupBoxVenda'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class ProcurarGroupBoxVendaExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verificar se a propriedade 'FriendlyName' de 'Venda' cliente Igual a 'Venda'
+        /// </summary>
+        public string UIVendaClientFriendlyName = "Venda";
+        
+        /// <summary>
+        /// Verificar se a propriedade 'FriendlyName' de 'Venda' cliente Igual a 'Venda'
+        /// </summary>
+        public string UIVendaClientFriendlyName1 = "Venda";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'FecharTelaCadastroTitulo'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class FecharTelaCadastroTituloParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar '{Enter}' em 'Cancelar' botão
+        /// </summary>
+        public string UICancelarButtonSendKeys = "{Enter}";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'AcessarSegurancaPermissoes'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class AcessarSegurancaPermissoesParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar 'Alt + d' em 'menuMain' barra de menus
+        /// </summary>
+        public string UIMenuMainMenuBarSendKeys = "d";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'ProcurarTituloPermissoes'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class ProcurarTituloPermissoesExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verificar se a propriedade 'DisplayText' de 'Permissões' barra de título Igual a 'Permissões'
+        /// </summary>
+        public string UIPermissõesTitleBarDisplayText = "Permissões";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'ProcurarTextoGruposEPermissoes'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class ProcurarTextoGruposEPermissoesExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verificar se a propriedade 'DisplayText' de 'Grupos e permissões' rótulo Igual a 'Grupos e permissões'
+        /// </summary>
+        public string UIGruposepermissõesTextDisplayText = "Grupos e permissões";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'ProcurarTextoSeguranca'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class ProcurarTextoSegurancaExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verificar se a propriedade 'DisplayText' de 'Segurança' rótulo Igual a 'Segurança'
+        /// </summary>
+        public string UISegurançaTextDisplayText = "Segurança";
+        
+        /// <summary>
+        /// Verificar se a propriedade 'DisplayText' de 'Segurança' rótulo Igual a 'Segurança'
+        /// </summary>
+        public string UISegurançaTextDisplayText1 = "Segurança";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'FecharTelaSegurancaPermissoes'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class FecharTelaSegurancaPermissoesParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar '{Enter}' em '&Cancelar' botão
+        /// </summary>
+        public string UICancelarButtonSendKeys = "{Enter}";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'ProcurarTituloMultiClubesComputadores'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class ProcurarTituloMultiClubesComputadoresExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verificar se a propriedade 'DisplayText' de 'MultiClubes - Computadores' barra de título Igual a 'MultiClubes - Computadores'
+        /// </summary>
+        public string UIMultiClubesComputadoTitleBarDisplayText = "MultiClubes - Computadores";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'ProcurarTextoComputadores'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class ProcurarTextoComputadoresExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verificar se a propriedade 'DisplayText' de 'Computadores' rótulo Igual a 'Computadores'
+        /// </summary>
+        public string UIComputadoresTextDisplayText = "Computadores";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'ProcurarTextoItens'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class ProcurarTextoItensExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verificar se a propriedade 'FriendlyName' de '3 itens' rótulo contém 'itens'
+        /// </summary>
+        public string UIItem3itensTextFriendlyName = "itens";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'FecharTelaSegurancaComputadores'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class FecharTelaSegurancaComputadoresParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar 'Alt + f' em 'TI' item de lista
+        /// </summary>
+        public string UITIListItemSendKeys = "f";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'ProcurarTituloMultiClubesGruposDeProduto'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class ProcurarTituloMultiClubesGruposDeProdutoExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verificar se a propriedade 'DisplayText' de 'MultiClubes - Grupos de produto' barra de título Igual a 'MultiClubes - Grupos de produto'
+        /// </summary>
+        public string UIMultiClubesGruposdepTitleBarDisplayText = "MultiClubes - Grupos de produto";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'ProcurarTextoGruposDeProduto'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class ProcurarTextoGruposDeProdutoExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verificar se a propriedade 'DisplayText' de 'Grupos de produto' rótulo Igual a 'Grupos de produto'
+        /// </summary>
+        public string UIGruposdeprodutoTextDisplayText = "Grupos de produto";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'ProcurarColunaGrupo'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class ProcurarColunaGrupoExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verificar se a propriedade 'FriendlyName' de 'Grupo' cabeçalho da coluna Igual a 'Grupo'
+        /// </summary>
+        public string UIGrupoColumnHeaderFriendlyName = "Grupo";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'FecharTelaAcessarGruposDeProduto'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class FecharTelaAcessarGruposDeProdutoParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar 'Alt + f' em 'listView' caixa de listagem
+        /// </summary>
+        public string UIListViewListSendKeys = "f";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'DesabilitarOpcaoImportarConsumosAte'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class DesabilitarOpcaoImportarConsumosAteParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Limpar 'Importar consumos até :' caixa de seleção
+        /// </summary>
+        public bool UIImportarconsumosatéCheckBoxChecked = false;
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'ClicarBotaoGeracaoCobranca'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class ClicarBotaoGeracaoCobrancaParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar '{Enter}' em 'Gerar' botão
+        /// </summary>
+        public string UIGerarButtonSendKeys = "{Enter}";
+        
+        /// <summary>
+        /// Digitar '{Enter}' em 'Sim' botão
+        /// </summary>
+        public string UISimButtonSendKeys = "{Enter}";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'ProcurarTituloGeracaoDeCobranca'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class ProcurarTituloGeracaoDeCobrancaExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verificar se a propriedade 'DisplayText' de 'Geração de cobrança' barra de título Igual a 'Geração de cobrança'
+        /// </summary>
+        public string UIGeraçãodecobrançaTitleBarDisplayText = "Geração de cobrança";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'ProcurarGroupBoxConsumo'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class ProcurarGroupBoxConsumoExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verificar se a propriedade 'FriendlyName' de 'Consumo' cliente Igual a 'Consumo'
+        /// </summary>
+        public string UIConsumoClientFriendlyName = "Consumo";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'ProcurarHoraInicio'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class ProcurarHoraInicioExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verificar se a propriedade 'DisplayText' de '15:18' rótulo contém ':'
+        /// </summary>
+        public string UIItem1518TextDisplayText = ":";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'ProcurarGroupBoxCobranca'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class ProcurarGroupBoxCobrancaExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verificar se a propriedade 'FriendlyName' de 'Cobrança' cliente Igual a 'Cobrança'
+        /// </summary>
+        public string UICobrançaClientFriendlyName = "Cobrança";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'ProcurarBotaoOk'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class ProcurarBotaoOkExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verificar se a propriedade 'FriendlyName' de '&OK' botão Igual a '&OK'
+        /// </summary>
+        public string UIOKButtonFriendlyName = "&OK";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'FecharTelaGeracaoCobranca'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class FecharTelaGeracaoCobrancaParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar '{Enter}' em '&OK' botão
+        /// </summary>
+        public string UIOKButtonSendKeys = "{Enter}";
+        
+        /// <summary>
+        /// Digitar '{Enter}' em 'Fechar' botão
+        /// </summary>
+        public string UIFecharButtonSendKeys = "{Enter}";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'ProcurarImagemHora'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class ProcurarImagemHoraExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verificar se a propriedade 'ControlName' de 'pictureBox' cliente Igual a 'pictureBox'
+        /// </summary>
+        public string UIPictureBoxClientControlName = "pictureBox";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'ProcurarTituloMultiClubesControleDeAcesso'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class ProcurarTituloMultiClubesControleDeAcessoExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verificar se a propriedade 'DisplayText' de 'MultiClubes - Controles de acesso' barra de título Igual a 'MultiClubes - Controles de acesso'
+        /// </summary>
+        public string UIMultiClubesControlesTitleBarDisplayText = "MultiClubes - Controles de acesso";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'ProcurarColunaNome'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class ProcurarColunaNomeExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verificar se a propriedade 'FriendlyName' de 'Nome' cabeçalho da coluna Igual a 'Nome'
+        /// </summary>
+        public string UINomeColumnHeaderFriendlyName = "Nome";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'ProcurarColunaUltimaAlteracao'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class ProcurarColunaUltimaAlteracaoExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verificar se a propriedade 'FriendlyName' de 'Última alteração' cabeçalho da coluna Igual a 'Última alteração'
+        /// </summary>
+        public string UIÚltimaalteraçãoColumnHeaderFriendlyName = "Última alteração";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'ProcurarColunaCriacao'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class ProcurarColunaCriacaoExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verificar se a propriedade 'FriendlyName' de 'Criação' cabeçalho da coluna Igual a 'Criação'
+        /// </summary>
+        public string UICriaçãoColumnHeaderFriendlyName = "Criação";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'AbrirTelaIncluirControleAcesso'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class AbrirTelaIncluirControleAcessoParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar '{Apps}' em 'Controle de Emissão de Cortesias' item de lista
+        /// </summary>
+        public string UIControledeEmissãodeCListItemSendKeys = "{Apps}";
+        
+        /// <summary>
+        /// Digitar '{Down}' em 'Contexto' menu pop-up
+        /// </summary>
+        public string UIContextoMenuSendKeys = "{Down}";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'InserirInformacoesNomeEDescricaoControleDeAcesso'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class InserirInformacoesNomeEDescricaoControleDeAcessoParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar 'Controle Teste Automatizado' em 'textBoxName' caixa de texto
+        /// </summary>
+        public string UITextBoxNameEditText = "Controle Teste Automatizado";
+        
+        /// <summary>
+        /// Digitar 'Controle criado através de teste automatizado para checar funcionalidade de cadastro de controle de acesso' em 'textBoxDescription' caixa de texto
+        /// </summary>
+        public string UITextBoxDescriptionEditText = "Controle criado através de teste automatizado para checar funcionalidade de cadas" +
+            "tro de controle de acesso";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'ConfigurarRegrasControleDeAcesso'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class ConfigurarRegrasControleDeAcessoParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar '{Enter}' em '&Regras' botão
+        /// </summary>
+        public string UIRegrasButtonSendKeys = "{Enter}";
+        
+        /// <summary>
+        /// Selecionar 'Acompanhantes' caixa de seleção
+        /// </summary>
+        public bool UIAcompanhantesCheckBoxTreeItemChecked = true;
+        
+        /// <summary>
+        /// Selecionar 'Convidado' caixa de seleção
+        /// </summary>
+        public bool UIConvidadoCheckBoxChecked = true;
+        
+        /// <summary>
+        /// Selecionar 'Sócio' caixa de seleção
+        /// </summary>
+        public bool UISócioCheckBoxChecked = true;
+        
+        /// <summary>
+        /// Selecionar 'Cadastro' caixa de seleção
+        /// </summary>
+        public bool UICadastroCheckBoxTreeItemChecked = true;
+        
+        /// <summary>
+        /// Selecionar 'Alerta' caixa de seleção
+        /// </summary>
+        public bool UIAlertaCheckBoxChecked = true;
+        
+        /// <summary>
+        /// Selecionar 'Alerta' caixa de seleção
+        /// </summary>
+        public bool UIAlertaCheckBoxChecked1 = true;
+        
+        /// <summary>
+        /// Selecionar 'Alerta' caixa de seleção
+        /// </summary>
+        public bool UIAlertaCheckBoxChecked2 = true;
+        
+        /// <summary>
+        /// Selecionar 'Alerta' caixa de seleção
+        /// </summary>
+        public bool UIAlertaCheckBoxChecked3 = true;
+        
+        /// <summary>
+        /// Selecionar 'Detalhada' em 'Mensagem de bloqueio' caixa de combinação
+        /// </summary>
+        public string UIMensagemdebloqueioComboBoxSelectedItem = "Detalhada";
+        
+        /// <summary>
+        /// Digitar '{Enter}' em '&OK' botão
+        /// </summary>
+        public string UIOKButtonSendKeys = "{Enter}";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'IncluirCadastroControleAcesso'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class IncluirCadastroControleAcessoParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar '{Enter}' em 'textBoxName' caixa de texto
+        /// </summary>
+        public string UITextBoxNameEditSendKeys = "{Enter}";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'FecharAdmAcesControleDeAcesso'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class FecharAdmAcesControleDeAcessoParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar 'Alt + f' em 'Controle de Emissão de Cortesias' item de lista
+        /// </summary>
+        public string UIControledeEmissãodeCListItemSendKeys = "f";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'AcessarTelaInclusaoMapasdeOcupacao'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class AcessarTelaInclusaoMapasdeOcupacaoParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar '{Apps}' em 'Armario Atleta' item de lista
+        /// </summary>
+        public string UIArmarioAtletaListItemSendKeys = "{Apps}";
+        
+        /// <summary>
+        /// Digitar '{Down}' em 'Contexto' menu pop-up
+        /// </summary>
+        public string UIContextoMenuSendKeys = "{Down}";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'ProcurarTextoIncluir'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class ProcurarTextoIncluirExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verificar se a propriedade 'DisplayText' de 'Incluir' rótulo Igual a 'Incluir'
+        /// </summary>
+        public string UIIncluirTextDisplayText = "Incluir";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'AbrirTelaIncluirMapaDeOcupacao'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class AbrirTelaIncluirMapaDeOcupacaoParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar ' Setor criado por teste automatizado' em 'textBoxName' caixa de texto
+        /// </summary>
+        public string UITextBoxNameEditText = " Setor criado por teste automatizado";
+        
+        /// <summary>
+        /// Digitar '{Right}' em 'Geral' guia
+        /// </summary>
+        public string UIGeralTabPageSendKeys = "{Right}";
+        
+        /// <summary>
+        /// Digitar '{Tab}' em 'Setores' guia
+        /// </summary>
+        public string UISetoresTabPageSendKeys = "{Tab}";
+        
+        /// <summary>
+        /// Digitar '{Apps}' em 'listViewSectors' caixa de listagem
+        /// </summary>
+        public string UIListViewSectorsListSendKeys = "{Apps}";
+        
+        /// <summary>
+        /// Digitar '{Down}' em 'Contexto' menu pop-up
+        /// </summary>
+        public string UIContextoMenuSendKeys = "{Down}";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'InserirNomeDoMapaEAcessarSetores'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class InserirNomeDoMapaEAcessarSetoresParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar 'Setor criado por teste automatizado' em 'textBoxName' caixa de texto
+        /// </summary>
+        public string UITextBoxNameEditText = "Setor criado por teste automatizado";
+        
+        /// <summary>
+        /// Digitar 'Shift + {Tab}' em 'textBoxName' caixa de texto
+        /// </summary>
+        public string UITextBoxNameEditSendKeys = "{Tab}";
+        
+        /// <summary>
+        /// Digitar '{Right}' em 'Geral' guia
+        /// </summary>
+        public string UIGeralTabPageSendKeys = "{Right}";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'CadastrarSetoresDoMapaDeOcupacao'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class CadastrarSetoresDoMapaDeOcupacaoParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar '{Apps}' em 'listViewSectors' caixa de listagem
+        /// </summary>
+        public string UIListViewSectorsListSendKeys = "{Apps}";
+        
+        /// <summary>
+        /// Digitar '{Down}' em 'Contexto' menu pop-up
+        /// </summary>
+        public string UIContextoMenuSendKeys = "{Down}";
+        
+        /// <summary>
+        /// Digitar 'Setor criado por teste automatizado' em 'textBoxName' caixa de texto
+        /// </summary>
+        public string UITextBoxNameEditText = "Setor criado por teste automatizado";
+        
+        /// <summary>
+        /// Digitar 'Fila1' em 'Controle de Edição' caixa de texto
+        /// </summary>
+        public string UIControledeEdiçãoEditText = "Fila1";
+        
+        /// <summary>
+        /// Digitar '150' em '(nulo)' célula
+        /// </summary>
+        public string UINuloCellValue = "150";
+        
+        /// <summary>
+        /// Digitar '350' em '(nulo)' célula
+        /// </summary>
+        public string UINuloCellValue1 = "350";
+        
+        /// <summary>
+        /// Digitar 'Ìmpar' em '(nulo)' célula
+        /// </summary>
+        public string UINuloCellValue2 = "Ìmpar";
+        
+        /// <summary>
+        /// Digitar '{Enter}' em 'OK' botão
+        /// </summary>
+        public string UIOKButtonSendKeys = "{Enter}";
+        
+        /// <summary>
+        /// Digitar '{Enter}' em '&OK' botão
+        /// </summary>
+        public string UIOKButtonSendKeys1 = "{Enter}";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'FecharTelaMapaDeOcupacao'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class FecharTelaMapaDeOcupacaoParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar 'Alt + f' em 'Armario Atleta' item de lista
+        /// </summary>
+        public string UIArmarioAtletaListItemSendKeys = "f";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'VerificarSePainelExiste'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class VerificarSePainelExisteExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verificar se a propriedade 'FriendlyName' de 'contentPanel1' cliente Igual a 'contentPanel1'
+        /// </summary>
+        public string UIContentPanel1ClientFriendlyName = "contentPanel1";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'AbrirGeracaoDeCobranca'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class AbrirGeracaoDeCobrancaParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar 'Alt + o' em 'dockCash' cliente
+        /// </summary>
+        public string UIDockCashClientSendKeys = "o";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'SelecionarTodasCobrancas'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class SelecionarTodasCobrancasParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Selecionar 'Todas' em 'Cobrança :' caixa de combinação
+        /// </summary>
+        public string UICobrançaComboBoxSelectedItem = "Todas";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'DesabilitarGerarComOpcaoPorCiclo'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class DesabilitarGerarComOpcaoPorCicloParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Limpar 'Gerar com opção por ciclo' caixa de seleção
+        /// </summary>
+        public bool UIGerarcomopçãoporciclCheckBoxChecked = false;
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'VerificarTituloGeracaoCobranca'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class VerificarTituloGeracaoCobrancaExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verificar se a propriedade 'DisplayText' de 'Geração de cobrança' barra de título Igual a 'Geração de cobrança'
+        /// </summary>
+        public string UIGeraçãodecobrançaTitleBarDisplayText = "Geração de cobrança";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'VerificarSeConcluiuCobranca'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class VerificarSeConcluiuCobrancaExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verificar se a propriedade 'DisplayText' de 'Concluída' rótulo Igual a 'Concluída'
+        /// </summary>
+        public string UIConcluídaTextDisplayText = "Concluída";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'VerificarSeGerouCobranca'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class VerificarSeGerouCobrancaExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verificar se a propriedade 'Name' de 'Concluída' rótulo Igual a 'Concluída'
+        /// </summary>
+        public string UIConcluídaTextName = "Concluída";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'VerificarSeBotaoOkEiste'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class VerificarSeBotaoOkEisteExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verificar se a propriedade 'Exists' de '&OK' botão Igual a 'True'
+        /// </summary>
+        public bool UIOKButtonExists = true;
+        
+        /// <summary>
+        /// Verificar se a propriedade 'Exists' de '&OK' botão Igual a 'True'
+        /// </summary>
+        public bool UIOKButtonExists1 = true;
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'SelecionarTodasCobrancasEmSimulacaoCobranca'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class SelecionarTodasCobrancasEmSimulacaoCobrancaParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Selecionar 'Todas' em 'comboBoxDunType' caixa de combinação
+        /// </summary>
+        public string UIComboBoxDunTypeComboBoxSelectedItem = "Todas";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'InformarQuantidadeMeses1'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class InformarQuantidadeMeses1Params
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Selecionar '1' em 'numericUpDownMonths' caixa de combinação
+        /// </summary>
+        public string UINumericUpDownMonthsComboBoxEditableItem = "1";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'ClicarBotaoSimularGeracaoCobranca'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class ClicarBotaoSimularGeracaoCobrancaParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar '{Enter}' em 'Simular' botão
+        /// </summary>
+        public string UISimularButtonSendKeys = "{Enter}";
+        
+        /// <summary>
+        /// Digitar '{Enter}' em 'Sim' botão
+        /// </summary>
+        public string UISimButtonSendKeys = "{Enter}";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'ClicarBotaoSimularGeracaoCobrancaEDepoisClicarNao'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class ClicarBotaoSimularGeracaoCobrancaEDepoisClicarNaoParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar '{Enter}' em 'Simular' botão
+        /// </summary>
+        public string UISimularButtonSendKeys = "{Enter}";
+        
+        /// <summary>
+        /// Digitar '{Enter}' em 'Não' botão
+        /// </summary>
+        public string UINãoButtonSendKeys = "{Enter}";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'VerificarTituloSimulacaoDeCobranca'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class VerificarTituloSimulacaoDeCobrancaExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verificar se a propriedade 'Exists' de 'Simulação de cobrança' barra de título Igual a 'True'
+        /// </summary>
+        public bool UISimulaçãodecobrançaTitleBarExists = true;
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'VerificarSeBotaoFecharExiste'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class VerificarSeBotaoFecharExisteExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verificar se a propriedade 'Exists' de 'Fechar' botão Igual a 'True'
+        /// </summary>
+        public bool UIFecharButtonExists = true;
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'FecharTelaSimulacaoCobranca'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class FecharTelaSimulacaoCobrancaParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar '{Enter}' em 'Fechar' botão
+        /// </summary>
+        public string UIFecharButtonSendKeys = "{Enter}";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'LocalizarTituloTC6442'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class LocalizarTituloTC6442Params
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar 'titulo tc 6442' em 'textBoxKeyword' caixa de texto
+        /// </summary>
+        public string UITextBoxKeywordEditText = "titulo tc 6442";
+        
+        /// <summary>
+        /// Digitar '{F1}' em 'textBoxKeyword' caixa de texto
+        /// </summary>
+        public string UITextBoxKeywordEditSendKeys = "{F1}";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'AbrirTituloTC6442'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class AbrirTituloTC6442Params
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar '{Enter}' em 'Título TC 6442' item de lista
+        /// </summary>
+        public string UITítuloTC6442ListItemSendKeys = "{Enter}";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'AbrirTelaEditarCobrancas'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class AbrirTelaEditarCobrancasParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar '{Enter}{Down}{Tab}' em 'Cobranças' botão
+        /// </summary>
+        public string UICobrançasButtonSendKeys = "{Enter}{Down}{Tab}";
+        
+        /// <summary>
+        /// Digitar '{Enter}' em 'Editar cobranças' botão
+        /// </summary>
+        public string UIEditarcobrançasButtonSendKeys = "{Enter}";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'ClicarLinkEditar'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class ClicarLinkEditarParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar '{Enter}' em 'Editar' link
+        /// </summary>
+        public string UIEditarHyperlinkSendKeys = "{Enter}";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'SelecionarDebitoEmConta'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class SelecionarDebitoEmContaParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Selecionar 'Débito em conta' em 'comboBoxDunType' caixa de combinação
+        /// </summary>
+        public string UIComboBoxDunTypeComboBoxSelectedItem = "Débito em conta";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'AbrirDetalhesFormasDePagamento'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class AbrirDetalhesFormasDePagamentoParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar '{Enter}' em '&Detalhes' botão
+        /// </summary>
+        public string UIDetalhesButtonSendKeys = "{Enter}";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'InserirDadosInstituicaoDeCobranca'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class InserirDadosInstituicaoDeCobrancaParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Selecionar 'Cobrança para teste automatizado' em 'comboBoxDunInstitution' caixa de combinação
+        /// </summary>
+        public string UIComboBoxDunInstitutiComboBoxSelectedItem = "Cobrança para teste automatizado";
+        
+        /// <summary>
+        /// Digitar '999' em 'textBoxCode' caixa de texto
+        /// </summary>
+        public string UITextBoxCodeEditText = "999";
+        
+        /// <summary>
+        /// Digitar '1' em 'textBoxDigit' caixa de texto
+        /// </summary>
+        public string UITextBoxDigitEditText = "1";
+        
+        /// <summary>
+        /// Digitar '999' em 'textBoxCode' caixa de texto
+        /// </summary>
+        public string UITextBoxCodeEditText1 = "999";
+        
+        /// <summary>
+        /// Digitar '1' em 'textBoxDigit' caixa de texto
+        /// </summary>
+        public string UITextBoxDigitEditText1 = "1";
+        
+        /// <summary>
+        /// Digitar '{Enter}' em '&OK' botão
+        /// </summary>
+        public string UIOKButtonSendKeys = "{Enter}";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'FecharTelaEdicaoCobranca'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class FecharTelaEdicaoCobrancaParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar '{Enter}' em '&OK' botão
+        /// </summary>
+        public string UIOKButtonSendKeys = "{Enter}";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'VerificarTermoDeAutorizacaoParaDebitoEmConta'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class VerificarTermoDeAutorizacaoParaDebitoEmContaExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verificar se a propriedade 'Exists' de 'Termo de autorização para débito em conta-corrente...' barra de título Igual a 'True'
+        /// </summary>
+        public bool UITermodeautorizaçãopaTitleBarExists = true;
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'FecharTermoDeAutorizacaoParaDebitoEmConta'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class FecharTermoDeAutorizacaoParaDebitoEmContaParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar 'Alt + {F4}' em 'DocumentViewer' cliente
+        /// </summary>
+        public string UIDocumentViewerClientSendKeys = "{F4}";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'FecharTelasEdicaoCobrancaECentralDeAtendimento'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class FecharTelasEdicaoCobrancaECentralDeAtendimentoParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar '{Enter}' em '&Fechar' botão
+        /// </summary>
+        public string UIFecharButtonSendKeys = "{Enter}";
+        
+        /// <summary>
+        /// Digitar '{Enter}' em '&OK' botão
+        /// </summary>
+        public string UIOKButtonSendKeys = "{Enter}";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'HabilitarOpcaoImportarConsumosAte'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class HabilitarOpcaoImportarConsumosAteParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Selecionar 'Importar consumos até :' caixa de seleção
+        /// </summary>
+        public bool UIImportarconsumosatéCheckBoxChecked = true;
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'AbrirTelaDiretorioDeSaidaRemessa'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class AbrirTelaDiretorioDeSaidaRemessaParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Selecionar 'REG10102017.rem' em 'listView' caixa de listagem
+        /// </summary>
+        public string UIListViewListSelectedItemsAsString = "REG10102017.rem";
+        
+        /// <summary>
+        /// Digitar '{Enter}' em 'Opções' botão
+        /// </summary>
+        public string UIOpçõesButtonSendKeys = "{Enter}";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'GerarReemissaoDeRemessa'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class GerarReemissaoDeRemessaParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar 'C:\TriadeTests' em 'textBoxFolder' caixa de texto
+        /// </summary>
+        public string UITextBoxFolderEditText = "C:\\TriadeTests";
+        
+        /// <summary>
+        /// Digitar '{Enter}' em '&Gerar' botão
+        /// </summary>
+        public string UIGerarButtonSendKeys = "{Enter}";
+        
+        /// <summary>
+        /// Digitar '{Enter}' em '&OK' botão
+        /// </summary>
+        public string UIOKButtonSendKeys = "{Enter}";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'FecharTelaDiretorioDeSaidaRemessa'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class FecharTelaDiretorioDeSaidaRemessaParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar '{Enter}' em '&Fechar' botão
+        /// </summary>
+        public string UIFecharButtonSendKeys = "{Enter}";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'FecharTelaRemessasAnteriores'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class FecharTelaRemessasAnterioresParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar '{Enter}' em '&Fechar' botão
+        /// </summary>
+        public string UIFecharButtonSendKeys = "{Enter}";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'AbrirGeracoesAnterioresDeCobranca'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class AbrirGeracoesAnterioresDeCobrancaParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar 'Alt + o' em 'MultiClubes' cliente
+        /// </summary>
+        public string UIMultiClubesClientSendKeys = "o";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'AcessarSelecaoDeCobrancasAnteriores'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class AcessarSelecaoDeCobrancasAnterioresParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar '{Tab}' em 'checkBoxIndividual' caixa de seleção
+        /// </summary>
+        public string UICheckBoxIndividualCheckBoxSendKeys = "{Tab}";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'PressionarTeclaHome'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class PressionarTeclaHomeParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Tipo '{Home}' em caixa de texto
+        /// </summary>
+        public string UIItemEditSendKeys = "{Home}";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'ClicarOpcaoDesfazerCobranca'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class ClicarOpcaoDesfazerCobrancaParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar '{Enter}' em '&Opções' botão
+        /// </summary>
+        public string UIOpçõesButtonSendKeys = "{Enter}";
+        
+        /// <summary>
+        /// Digitar '{Enter}' em 'Sim' botão
+        /// </summary>
+        public string UISimButtonSendKeys = "{Enter}";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'FecharTelaDesfazerCobrancasAnteriores'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class FecharTelaDesfazerCobrancasAnterioresParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar '{Enter}' em '&OK' botão
+        /// </summary>
+        public string UIOKButtonSendKeys = "{Enter}";
+        
+        /// <summary>
+        /// Digitar '{Enter}' em 'Fechar' botão
+        /// </summary>
+        public string UIFecharButtonSendKeys = "{Enter}";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'LocalizarTituloA28248'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class LocalizarTituloA28248Params
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar 'A28248' em 'textBoxKeyword' caixa de texto
+        /// </summary>
+        public string UITextBoxKeywordEditText = "A28248";
+        
+        /// <summary>
+        /// Digitar '{Enter}' em 'textBoxKeyword' caixa de texto
+        /// </summary>
+        public string UITextBoxKeywordEditSendKeys = "{Enter}";
         #endregion
     }
     
@@ -337,92 +5172,7 @@ namespace TestesAutomatizados
         /// <summary>
         /// Digitar '********' em 'textBoxPassword' caixa de texto
         /// </summary>
-        public string UITextBoxPasswordEditSendKeys = "EwKH4AR/i+efPGIZvLkbbxuhIiidiMHRBw0kCMO4UErzCmSWBycOwxwfFbjAR92KTKI+W3n1HTA=";
-        
-        /// <summary>
-        /// Digitar '{Enter}' em '&Entrar' botão
-        /// </summary>
-        public string UIEntrarButtonSendKeys = "{Enter}";
-        #endregion
-    }
-    
-    /// <summary>
-    /// Parâmetros a serem passados para 'AltO'
-    /// </summary>
-    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
-    public class AltOParams
-    {
-        
-        #region Fields
-        /// <summary>
-        /// Digitar 'Alt + o' em 'MultiClubes' cliente
-        /// </summary>
-        public string UIMultiClubesClientSendKeys = "o";
-        #endregion
-    }
-    
-    /// <summary>
-    /// Parâmetros a serem passados para 'GerarAcertoDeComissao'
-    /// </summary>
-    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
-    public class GerarAcertoDeComissaoParams
-    {
-        
-        #region Fields
-        /// <summary>
-        /// Digitar '{Enter}' em '&Localizar' botão
-        /// </summary>
-        public string UILocalizarButtonSendKeys = "{Enter}";
-        
-        /// <summary>
-        /// Selecionar 'Sophie Promotor' em 'listView' caixa de listagem
-        /// </summary>
-        public string UIListViewListSelectedItemsAsString = "Sophie Promotor";
-        
-        /// <summary>
-        /// Digitar '{Apps}' em 'Sophie Promotor' item de lista
-        /// </summary>
-        public string UISophiePromotorListItemSendKeys = "{Apps}";
-        
-        /// <summary>
-        /// Digitar '{Enter}' em '&Sim' botão
-        /// </summary>
-        public string UISimButtonSendKeys = "{Enter}";
-        #endregion
-    }
-    
-    /// <summary>
-    /// Parâmetros a serem passados para 'ClicarBotaoOkAcertoDeComissao'
-    /// </summary>
-    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
-    public class ClicarBotaoOkAcertoDeComissaoParams
-    {
-        
-        #region Fields
-        /// <summary>
-        /// Digitar '{Tab}{Enter}' em '&OK' botão
-        /// </summary>
-        public string UIOKButtonSendKeys = "{Tab}{Enter}";
-        #endregion
-    }
-    
-    /// <summary>
-    /// Parâmetros a serem passados para 'LocalizarHistoricoDeAcertos'
-    /// </summary>
-    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
-    public class LocalizarHistoricoDeAcertosParams
-    {
-        
-        #region Fields
-        /// <summary>
-        /// Digitar '{Enter}' em 'Histórico' botão
-        /// </summary>
-        public string UIHistóricoButtonSendKeys = "{Enter}";
-        
-        /// <summary>
-        /// Digitar '{Enter}' em 'Localizar' botão
-        /// </summary>
-        public string UILocalizarButtonSendKeys = "{Enter}";
+        public string UITextBoxPasswordEditSendKeys = "EwKH4AR/i+efPGIZvLkbbxuhIiidiMHRBw0kCMO4UEoApLA2vtXg1qvtsOPCSlJZOEPifLjTaow=";
         #endregion
     }
     
@@ -440,14 +5190,114 @@ namespace TestesAutomatizados
         public string UITextBoxKeywordEditText = "008pro";
         
         /// <summary>
-        /// Digitar '{F1}' em 'textBoxKeyword' caixa de texto
+        /// Digitar '{Enter}' em 'textBoxKeyword' caixa de texto
         /// </summary>
-        public string UITextBoxKeywordEditSendKeys = "{F1}";
+        public string UITextBoxKeywordEditSendKeys = "{Enter}";
         
         /// <summary>
         /// Digitar '{Enter}' em 'Sophie Mariah Gabriela Rocha' item de lista
         /// </summary>
         public string UISophieMariahGabrielaListItemSendKeys = "{Enter}";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'LocalizarHistoricoDeAcertos'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class LocalizarHistoricoDeAcertosParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar '{Enter}' em 'Histórico' botão
+        /// </summary>
+        public string UIHistóricoButtonSendKeys = "{Enter}";
+        
+        /// <summary>
+        /// Digitar '{Enter}{LMenu}' em 'Localizar' botão
+        /// </summary>
+        public string UILocalizarButtonSendKeys = "{Enter}{LMenu}";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'AcessarProdutosAReceber'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class AcessarProdutosAReceberParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar '{Enter}' em 'A receber' botão
+        /// </summary>
+        public string UIAreceberButtonSendKeys = "{Enter}";
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIItemWindow : WinWindow
+    {
+        
+        public UIItemWindow()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.AccessibleName] = "Área de Trabalho 1";
+            this.SearchProperties[WinWindow.PropertyNames.ClassName] = "#32769";
+            #endregion
+        }
+        
+        #region Properties
+        public UIFolderViewWindow UIFolderViewWindow
+        {
+            get
+            {
+                if ((this.mUIFolderViewWindow == null))
+                {
+                    this.mUIFolderViewWindow = new UIFolderViewWindow(this);
+                }
+                return this.mUIFolderViewWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIFolderViewWindow mUIFolderViewWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIFolderViewWindow : WinWindow
+    {
+        
+        public UIFolderViewWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "1";
+            #endregion
+        }
+        
+        #region Properties
+        public WinListItem UIMultiClubesListItem
+        {
+            get
+            {
+                if ((this.mUIMultiClubesListItem == null))
+                {
+                    this.mUIMultiClubesListItem = new WinListItem(this);
+                    #region Critérios de pesquisa
+                    this.mUIMultiClubesListItem.SearchProperties[WinListItem.PropertyNames.Name] = "MultiClubes";
+                    #endregion
+                }
+                return this.mUIMultiClubesListItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinListItem mUIMultiClubesListItem;
         #endregion
     }
     
@@ -525,15 +5375,15 @@ namespace TestesAutomatizados
             }
         }
         
-        public UILocalizarWindow UILocalizarWindow
+        public UIAbrircaixaWindow UIAbrircaixaWindow
         {
             get
             {
-                if ((this.mUILocalizarWindow == null))
+                if ((this.mUIAbrircaixaWindow == null))
                 {
-                    this.mUILocalizarWindow = new UILocalizarWindow(this);
+                    this.mUIAbrircaixaWindow = new UIAbrircaixaWindow(this);
                 }
-                return this.mUILocalizarWindow;
+                return this.mUIAbrircaixaWindow;
             }
         }
         #endregion
@@ -549,7 +5399,7 @@ namespace TestesAutomatizados
         
         private UIMenuMainMenuBar mUIMenuMainMenuBar;
         
-        private UILocalizarWindow mUILocalizarWindow;
+        private UIAbrircaixaWindow mUIAbrircaixaWindow;
         #endregion
     }
     
@@ -719,10 +5569,24 @@ namespace TestesAutomatizados
                 return this.mUIOperaçãoMenuItem;
             }
         }
+        
+        public UIAdministraçãoMenuItem UIAdministraçãoMenuItem
+        {
+            get
+            {
+                if ((this.mUIAdministraçãoMenuItem == null))
+                {
+                    this.mUIAdministraçãoMenuItem = new UIAdministraçãoMenuItem(this);
+                }
+                return this.mUIAdministraçãoMenuItem;
+            }
+        }
         #endregion
         
         #region Fields
         private UIOperaçãoMenuItem mUIOperaçãoMenuItem;
+        
+        private UIAdministraçãoMenuItem mUIAdministraçãoMenuItem;
         #endregion
     }
     
@@ -740,6 +5604,18 @@ namespace TestesAutomatizados
         }
         
         #region Properties
+        public UITítuloMenuItem UITítuloMenuItem
+        {
+            get
+            {
+                if ((this.mUITítuloMenuItem == null))
+                {
+                    this.mUITítuloMenuItem = new UITítuloMenuItem(this);
+                }
+                return this.mUITítuloMenuItem;
+            }
+        }
+        
         public UIFinanceiroMenuItem UIFinanceiroMenuItem
         {
             get
@@ -754,7 +5630,66 @@ namespace TestesAutomatizados
         #endregion
         
         #region Fields
+        private UITítuloMenuItem mUITítuloMenuItem;
+        
         private UIFinanceiroMenuItem mUIFinanceiroMenuItem;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UITítuloMenuItem : WinMenuItem
+    {
+        
+        public UITítuloMenuItem(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinMenuItem.PropertyNames.Name] = "Título";
+            this.SearchConfigurations.Add(SearchConfiguration.ExpandWhileSearching);
+            this.WindowTitles.Add("MultiClubes");
+            #endregion
+        }
+        
+        #region Properties
+        public WinMenuItem UICentraldeatendimentoMenuItem
+        {
+            get
+            {
+                if ((this.mUICentraldeatendimentoMenuItem == null))
+                {
+                    this.mUICentraldeatendimentoMenuItem = new WinMenuItem(this);
+                    #region Critérios de pesquisa
+                    this.mUICentraldeatendimentoMenuItem.SearchProperties[WinMenuItem.PropertyNames.Name] = "Central de atendimento";
+                    this.mUICentraldeatendimentoMenuItem.SearchConfigurations.Add(SearchConfiguration.ExpandWhileSearching);
+                    this.mUICentraldeatendimentoMenuItem.WindowTitles.Add("MultiClubes");
+                    #endregion
+                }
+                return this.mUICentraldeatendimentoMenuItem;
+            }
+        }
+        
+        public WinMenuItem UICadastrodetítuloMenuItem
+        {
+            get
+            {
+                if ((this.mUICadastrodetítuloMenuItem == null))
+                {
+                    this.mUICadastrodetítuloMenuItem = new WinMenuItem(this);
+                    #region Critérios de pesquisa
+                    this.mUICadastrodetítuloMenuItem.SearchProperties[WinMenuItem.PropertyNames.Name] = "Cadastro de título";
+                    this.mUICadastrodetítuloMenuItem.SearchConfigurations.Add(SearchConfiguration.ExpandWhileSearching);
+                    this.mUICadastrodetítuloMenuItem.WindowTitles.Add("MultiClubes");
+                    #endregion
+                }
+                return this.mUICadastrodetítuloMenuItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinMenuItem mUICentraldeatendimentoMenuItem;
+        
+        private WinMenuItem mUICadastrodetítuloMenuItem;
         #endregion
     }
     
@@ -773,88 +5708,494 @@ namespace TestesAutomatizados
         }
         
         #region Properties
-        public WinMenuItem UIAcertodecomissãoMenuItem
+        public UICobrançaMenuItem UICobrançaMenuItem
         {
             get
             {
-                if ((this.mUIAcertodecomissãoMenuItem == null))
+                if ((this.mUICobrançaMenuItem == null))
                 {
-                    this.mUIAcertodecomissãoMenuItem = new WinMenuItem(this);
-                    #region Critérios de pesquisa
-                    this.mUIAcertodecomissãoMenuItem.SearchProperties[WinMenuItem.PropertyNames.Name] = "Acerto de comissão";
-                    this.mUIAcertodecomissãoMenuItem.SearchConfigurations.Add(SearchConfiguration.ExpandWhileSearching);
-                    this.mUIAcertodecomissãoMenuItem.WindowTitles.Add("MultiClubes");
-                    #endregion
+                    this.mUICobrançaMenuItem = new UICobrançaMenuItem(this);
                 }
-                return this.mUIAcertodecomissãoMenuItem;
+                return this.mUICobrançaMenuItem;
+            }
+        }
+        
+        public UITransaçõesbancáriasMenuItem UITransaçõesbancáriasMenuItem
+        {
+            get
+            {
+                if ((this.mUITransaçõesbancáriasMenuItem == null))
+                {
+                    this.mUITransaçõesbancáriasMenuItem = new UITransaçõesbancáriasMenuItem(this);
+                }
+                return this.mUITransaçõesbancáriasMenuItem;
             }
         }
         #endregion
         
         #region Fields
-        private WinMenuItem mUIAcertodecomissãoMenuItem;
+        private UICobrançaMenuItem mUICobrançaMenuItem;
+        
+        private UITransaçõesbancáriasMenuItem mUITransaçõesbancáriasMenuItem;
         #endregion
     }
     
     [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
-    public class UILocalizarWindow : WinWindow
+    public class UICobrançaMenuItem : WinMenuItem
     {
         
-        public UILocalizarWindow(UITestControl searchLimitContainer) : 
+        public UICobrançaMenuItem(UITestControl searchLimitContainer) : 
                 base(searchLimitContainer)
         {
             #region Critérios de pesquisa
-            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "buttonFilter";
+            this.SearchProperties[WinMenuItem.PropertyNames.Name] = "Cobrança";
+            this.SearchConfigurations.Add(SearchConfiguration.ExpandWhileSearching);
             this.WindowTitles.Add("MultiClubes");
             #endregion
         }
         
         #region Properties
-        public WinButton UILocalizarButton
+        public WinMenuItem UIGeraçãodecobrançaMenuItem
         {
             get
             {
-                if ((this.mUILocalizarButton == null))
+                if ((this.mUIGeraçãodecobrançaMenuItem == null))
                 {
-                    this.mUILocalizarButton = new WinButton(this);
+                    this.mUIGeraçãodecobrançaMenuItem = new WinMenuItem(this);
                     #region Critérios de pesquisa
-                    this.mUILocalizarButton.SearchProperties[WinButton.PropertyNames.Name] = "Localizar";
-                    this.mUILocalizarButton.WindowTitles.Add("MultiClubes");
+                    this.mUIGeraçãodecobrançaMenuItem.SearchProperties[WinMenuItem.PropertyNames.Name] = "Geração de cobrança";
+                    this.mUIGeraçãodecobrançaMenuItem.SearchConfigurations.Add(SearchConfiguration.ExpandWhileSearching);
+                    this.mUIGeraçãodecobrançaMenuItem.WindowTitles.Add("MultiClubes");
                     #endregion
                 }
-                return this.mUILocalizarButton;
+                return this.mUIGeraçãodecobrançaMenuItem;
+            }
+        }
+        
+        public WinMenuItem UISimulaçãodecobrançaMenuItem
+        {
+            get
+            {
+                if ((this.mUISimulaçãodecobrançaMenuItem == null))
+                {
+                    this.mUISimulaçãodecobrançaMenuItem = new WinMenuItem(this);
+                    #region Critérios de pesquisa
+                    this.mUISimulaçãodecobrançaMenuItem.SearchProperties[WinMenuItem.PropertyNames.Name] = "Simulação de cobrança";
+                    this.mUISimulaçãodecobrançaMenuItem.SearchConfigurations.Add(SearchConfiguration.ExpandWhileSearching);
+                    this.mUISimulaçãodecobrançaMenuItem.WindowTitles.Add("MultiClubes");
+                    #endregion
+                }
+                return this.mUISimulaçãodecobrançaMenuItem;
+            }
+        }
+        
+        public WinMenuItem UIGeraçõesanterioresMenuItem
+        {
+            get
+            {
+                if ((this.mUIGeraçõesanterioresMenuItem == null))
+                {
+                    this.mUIGeraçõesanterioresMenuItem = new WinMenuItem(this);
+                    #region Critérios de pesquisa
+                    this.mUIGeraçõesanterioresMenuItem.SearchProperties[WinMenuItem.PropertyNames.Name] = "Gerações anteriores";
+                    this.mUIGeraçõesanterioresMenuItem.SearchConfigurations.Add(SearchConfiguration.ExpandWhileSearching);
+                    this.mUIGeraçõesanterioresMenuItem.WindowTitles.Add("MultiClubes");
+                    #endregion
+                }
+                return this.mUIGeraçõesanterioresMenuItem;
             }
         }
         #endregion
         
         #region Fields
-        private WinButton mUILocalizarButton;
+        private WinMenuItem mUIGeraçãodecobrançaMenuItem;
+        
+        private WinMenuItem mUISimulaçãodecobrançaMenuItem;
+        
+        private WinMenuItem mUIGeraçõesanterioresMenuItem;
         #endregion
     }
     
     [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
-    public class UIMultiClubesAcertodecWindow : WinWindow
+    public class UITransaçõesbancáriasMenuItem : WinMenuItem
     {
         
-        public UIMultiClubesAcertodecWindow()
+        public UITransaçõesbancáriasMenuItem(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
         {
             #region Critérios de pesquisa
-            this.SearchProperties[WinWindow.PropertyNames.Name] = "MultiClubes - Acerto de comissão";
-            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
-            this.WindowTitles.Add("MultiClubes - Acerto de comissão");
+            this.SearchProperties[WinMenuItem.PropertyNames.Name] = "Transações bancárias";
+            this.SearchConfigurations.Add(SearchConfiguration.ExpandWhileSearching);
+            this.WindowTitles.Add("MultiClubes");
             #endregion
         }
         
         #region Properties
-        public UILocalizarWindow1 UILocalizarWindow
+        public WinMenuItem UIImpressãodeboletoMenuItem
         {
             get
             {
-                if ((this.mUILocalizarWindow == null))
+                if ((this.mUIImpressãodeboletoMenuItem == null))
                 {
-                    this.mUILocalizarWindow = new UILocalizarWindow1(this);
+                    this.mUIImpressãodeboletoMenuItem = new WinMenuItem(this);
+                    #region Critérios de pesquisa
+                    this.mUIImpressãodeboletoMenuItem.SearchProperties[WinMenuItem.PropertyNames.Name] = "Impressão de boleto";
+                    this.mUIImpressãodeboletoMenuItem.SearchConfigurations.Add(SearchConfiguration.ExpandWhileSearching);
+                    this.mUIImpressãodeboletoMenuItem.WindowTitles.Add("MultiClubes");
+                    #endregion
                 }
-                return this.mUILocalizarWindow;
+                return this.mUIImpressãodeboletoMenuItem;
+            }
+        }
+        
+        public WinMenuItem UIRemessasanterioresMenuItem
+        {
+            get
+            {
+                if ((this.mUIRemessasanterioresMenuItem == null))
+                {
+                    this.mUIRemessasanterioresMenuItem = new WinMenuItem(this);
+                    #region Critérios de pesquisa
+                    this.mUIRemessasanterioresMenuItem.SearchProperties[WinMenuItem.PropertyNames.Name] = "Remessas anteriores";
+                    this.mUIRemessasanterioresMenuItem.SearchConfigurations.Add(SearchConfiguration.ExpandWhileSearching);
+                    this.mUIRemessasanterioresMenuItem.WindowTitles.Add("MultiClubes");
+                    #endregion
+                }
+                return this.mUIRemessasanterioresMenuItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinMenuItem mUIImpressãodeboletoMenuItem;
+        
+        private WinMenuItem mUIRemessasanterioresMenuItem;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIAdministraçãoMenuItem : WinMenuItem
+    {
+        
+        public UIAdministraçãoMenuItem(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinMenuItem.PropertyNames.Name] = "Administração";
+            this.WindowTitles.Add("MultiClubes");
+            #endregion
+        }
+        
+        #region Properties
+        public UITítuloMenuItem1 UITítuloMenuItem
+        {
+            get
+            {
+                if ((this.mUITítuloMenuItem == null))
+                {
+                    this.mUITítuloMenuItem = new UITítuloMenuItem1(this);
+                }
+                return this.mUITítuloMenuItem;
+            }
+        }
+        
+        public UISegurançaMenuItem UISegurançaMenuItem
+        {
+            get
+            {
+                if ((this.mUISegurançaMenuItem == null))
+                {
+                    this.mUISegurançaMenuItem = new UISegurançaMenuItem(this);
+                }
+                return this.mUISegurançaMenuItem;
+            }
+        }
+        
+        public UIFinanceiroMenuItem1 UIFinanceiroMenuItem
+        {
+            get
+            {
+                if ((this.mUIFinanceiroMenuItem == null))
+                {
+                    this.mUIFinanceiroMenuItem = new UIFinanceiroMenuItem1(this);
+                }
+                return this.mUIFinanceiroMenuItem;
+            }
+        }
+        
+        public UIAcessoMenuItem UIAcessoMenuItem
+        {
+            get
+            {
+                if ((this.mUIAcessoMenuItem == null))
+                {
+                    this.mUIAcessoMenuItem = new UIAcessoMenuItem(this);
+                }
+                return this.mUIAcessoMenuItem;
+            }
+        }
+        
+        public WinMenuItem UIMapasdeocupaçãoMenuItem
+        {
+            get
+            {
+                if ((this.mUIMapasdeocupaçãoMenuItem == null))
+                {
+                    this.mUIMapasdeocupaçãoMenuItem = new WinMenuItem(this);
+                    #region Critérios de pesquisa
+                    this.mUIMapasdeocupaçãoMenuItem.SearchProperties[WinMenuItem.PropertyNames.Name] = "Mapas de ocupação";
+                    this.mUIMapasdeocupaçãoMenuItem.SearchConfigurations.Add(SearchConfiguration.ExpandWhileSearching);
+                    this.mUIMapasdeocupaçãoMenuItem.WindowTitles.Add("MultiClubes");
+                    #endregion
+                }
+                return this.mUIMapasdeocupaçãoMenuItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UITítuloMenuItem1 mUITítuloMenuItem;
+        
+        private UISegurançaMenuItem mUISegurançaMenuItem;
+        
+        private UIFinanceiroMenuItem1 mUIFinanceiroMenuItem;
+        
+        private UIAcessoMenuItem mUIAcessoMenuItem;
+        
+        private WinMenuItem mUIMapasdeocupaçãoMenuItem;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UITítuloMenuItem1 : WinMenuItem
+    {
+        
+        public UITítuloMenuItem1(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinMenuItem.PropertyNames.Name] = "Título";
+            this.SearchConfigurations.Add(SearchConfiguration.ExpandWhileSearching);
+            this.WindowTitles.Add("MultiClubes");
+            #endregion
+        }
+        
+        #region Properties
+        public WinMenuItem UIParentescosMenuItem
+        {
+            get
+            {
+                if ((this.mUIParentescosMenuItem == null))
+                {
+                    this.mUIParentescosMenuItem = new WinMenuItem(this);
+                    #region Critérios de pesquisa
+                    this.mUIParentescosMenuItem.SearchProperties[WinMenuItem.PropertyNames.Name] = "Parentescos";
+                    this.mUIParentescosMenuItem.SearchConfigurations.Add(SearchConfiguration.ExpandWhileSearching);
+                    this.mUIParentescosMenuItem.WindowTitles.Add("MultiClubes");
+                    #endregion
+                }
+                return this.mUIParentescosMenuItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinMenuItem mUIParentescosMenuItem;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UISegurançaMenuItem : WinMenuItem
+    {
+        
+        public UISegurançaMenuItem(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinMenuItem.PropertyNames.Name] = "Segurança";
+            this.SearchConfigurations.Add(SearchConfiguration.ExpandWhileSearching);
+            this.WindowTitles.Add("MultiClubes");
+            #endregion
+        }
+        
+        #region Properties
+        public WinMenuItem UIPermissõesMenuItem
+        {
+            get
+            {
+                if ((this.mUIPermissõesMenuItem == null))
+                {
+                    this.mUIPermissõesMenuItem = new WinMenuItem(this);
+                    #region Critérios de pesquisa
+                    this.mUIPermissõesMenuItem.SearchProperties[WinMenuItem.PropertyNames.Name] = "Permissões";
+                    this.mUIPermissõesMenuItem.SearchConfigurations.Add(SearchConfiguration.ExpandWhileSearching);
+                    this.mUIPermissõesMenuItem.WindowTitles.Add("MultiClubes");
+                    #endregion
+                }
+                return this.mUIPermissõesMenuItem;
+            }
+        }
+        
+        public WinMenuItem UIComputadoresMenuItem
+        {
+            get
+            {
+                if ((this.mUIComputadoresMenuItem == null))
+                {
+                    this.mUIComputadoresMenuItem = new WinMenuItem(this);
+                    #region Critérios de pesquisa
+                    this.mUIComputadoresMenuItem.SearchProperties[WinMenuItem.PropertyNames.Name] = "Computadores";
+                    this.mUIComputadoresMenuItem.SearchConfigurations.Add(SearchConfiguration.ExpandWhileSearching);
+                    this.mUIComputadoresMenuItem.WindowTitles.Add("MultiClubes");
+                    #endregion
+                }
+                return this.mUIComputadoresMenuItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinMenuItem mUIPermissõesMenuItem;
+        
+        private WinMenuItem mUIComputadoresMenuItem;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIFinanceiroMenuItem1 : WinMenuItem
+    {
+        
+        public UIFinanceiroMenuItem1(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinMenuItem.PropertyNames.Name] = "Financeiro";
+            this.SearchConfigurations.Add(SearchConfiguration.ExpandWhileSearching);
+            this.WindowTitles.Add("MultiClubes");
+            #endregion
+        }
+        
+        #region Properties
+        public WinMenuItem UIGruposdeprodutoMenuItem
+        {
+            get
+            {
+                if ((this.mUIGruposdeprodutoMenuItem == null))
+                {
+                    this.mUIGruposdeprodutoMenuItem = new WinMenuItem(this);
+                    #region Critérios de pesquisa
+                    this.mUIGruposdeprodutoMenuItem.SearchProperties[WinMenuItem.PropertyNames.Name] = "Grupos de produto";
+                    this.mUIGruposdeprodutoMenuItem.SearchConfigurations.Add(SearchConfiguration.ExpandWhileSearching);
+                    this.mUIGruposdeprodutoMenuItem.WindowTitles.Add("MultiClubes");
+                    #endregion
+                }
+                return this.mUIGruposdeprodutoMenuItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinMenuItem mUIGruposdeprodutoMenuItem;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIAcessoMenuItem : WinMenuItem
+    {
+        
+        public UIAcessoMenuItem(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinMenuItem.PropertyNames.Name] = "Acesso";
+            this.SearchConfigurations.Add(SearchConfiguration.ExpandWhileSearching);
+            this.WindowTitles.Add("MultiClubes");
+            #endregion
+        }
+        
+        #region Properties
+        public WinMenuItem UIControlesdeacessoMenuItem
+        {
+            get
+            {
+                if ((this.mUIControlesdeacessoMenuItem == null))
+                {
+                    this.mUIControlesdeacessoMenuItem = new WinMenuItem(this);
+                    #region Critérios de pesquisa
+                    this.mUIControlesdeacessoMenuItem.SearchProperties[WinMenuItem.PropertyNames.Name] = "Controles de acesso";
+                    this.mUIControlesdeacessoMenuItem.SearchConfigurations.Add(SearchConfiguration.ExpandWhileSearching);
+                    this.mUIControlesdeacessoMenuItem.WindowTitles.Add("MultiClubes");
+                    #endregion
+                }
+                return this.mUIControlesdeacessoMenuItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinMenuItem mUIControlesdeacessoMenuItem;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIAbrircaixaWindow : WinWindow
+    {
+        
+        public UIAbrircaixaWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "buttonOpen";
+            this.WindowTitles.Add("MultiClubes");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIAbrircaixaButton
+        {
+            get
+            {
+                if ((this.mUIAbrircaixaButton == null))
+                {
+                    this.mUIAbrircaixaButton = new WinButton(this);
+                    #region Critérios de pesquisa
+                    this.mUIAbrircaixaButton.SearchProperties[WinButton.PropertyNames.Name] = "Abrir caixa";
+                    this.mUIAbrircaixaButton.WindowTitles.Add("MultiClubes");
+                    #endregion
+                }
+                return this.mUIAbrircaixaButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIAbrircaixaButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIMultiClubesCentraldeWindow : WinWindow
+    {
+        
+        public UIMultiClubesCentraldeWindow()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "MultiClubes - Central de atendimento";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("MultiClubes - Central de atendimento");
+            #endregion
+        }
+        
+        #region Properties
+        public UICentraldeatendimentoWindow UICentraldeatendimentoWindow
+        {
+            get
+            {
+                if ((this.mUICentraldeatendimentoWindow == null))
+                {
+                    this.mUICentraldeatendimentoWindow = new UICentraldeatendimentoWindow(this);
+                }
+                return this.mUICentraldeatendimentoWindow;
             }
         }
         
@@ -870,61 +6211,145 @@ namespace TestesAutomatizados
             }
         }
         
-        public UIHistóricoWindow UIHistóricoWindow
+        public UILocalizeosócioWindow UILocalizeosócioWindow
         {
             get
             {
-                if ((this.mUIHistóricoWindow == null))
+                if ((this.mUILocalizeosócioWindow == null))
                 {
-                    this.mUIHistóricoWindow = new UIHistóricoWindow(this);
+                    this.mUILocalizeosócioWindow = new UILocalizeosócioWindow(this);
                 }
-                return this.mUIHistóricoWindow;
+                return this.mUILocalizeosócioWindow;
+            }
+        }
+        
+        public UITextBoxKeywordWindow1 UITextBoxKeywordWindow1
+        {
+            get
+            {
+                if ((this.mUITextBoxKeywordWindow1 == null))
+                {
+                    this.mUITextBoxKeywordWindow1 = new UITextBoxKeywordWindow1(this);
+                }
+                return this.mUITextBoxKeywordWindow1;
+            }
+        }
+        
+        public UICobrançasWindow UICobrançasWindow
+        {
+            get
+            {
+                if ((this.mUICobrançasWindow == null))
+                {
+                    this.mUICobrançasWindow = new UICobrançasWindow(this);
+                }
+                return this.mUICobrançasWindow;
+            }
+        }
+        
+        public UIEditarcobrançasWindow UIEditarcobrançasWindow
+        {
+            get
+            {
+                if ((this.mUIEditarcobrançasWindow == null))
+                {
+                    this.mUIEditarcobrançasWindow = new UIEditarcobrançasWindow(this);
+                }
+                return this.mUIEditarcobrançasWindow;
+            }
+        }
+        
+        public UIListViewMembersWindow UIListViewMembersWindow
+        {
+            get
+            {
+                if ((this.mUIListViewMembersWindow == null))
+                {
+                    this.mUIListViewMembersWindow = new UIListViewMembersWindow(this);
+                }
+                return this.mUIListViewMembersWindow;
+            }
+        }
+        
+        public UIMenuMainMenuBar1 UIMenuMainMenuBar
+        {
+            get
+            {
+                if ((this.mUIMenuMainMenuBar == null))
+                {
+                    this.mUIMenuMainMenuBar = new UIMenuMainMenuBar1(this);
+                }
+                return this.mUIMenuMainMenuBar;
+            }
+        }
+        
+        public UIAreceberWindow UIAreceberWindow
+        {
+            get
+            {
+                if ((this.mUIAreceberWindow == null))
+                {
+                    this.mUIAreceberWindow = new UIAreceberWindow(this);
+                }
+                return this.mUIAreceberWindow;
             }
         }
         #endregion
         
         #region Fields
-        private UILocalizarWindow1 mUILocalizarWindow;
+        private UICentraldeatendimentoWindow mUICentraldeatendimentoWindow;
         
         private UIListViewWindow mUIListViewWindow;
         
-        private UIHistóricoWindow mUIHistóricoWindow;
+        private UILocalizeosócioWindow mUILocalizeosócioWindow;
+        
+        private UITextBoxKeywordWindow1 mUITextBoxKeywordWindow1;
+        
+        private UICobrançasWindow mUICobrançasWindow;
+        
+        private UIEditarcobrançasWindow mUIEditarcobrançasWindow;
+        
+        private UIListViewMembersWindow mUIListViewMembersWindow;
+        
+        private UIMenuMainMenuBar1 mUIMenuMainMenuBar;
+        
+        private UIAreceberWindow mUIAreceberWindow;
         #endregion
     }
     
     [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
-    public class UILocalizarWindow1 : WinWindow
+    public class UICentraldeatendimentoWindow : WinWindow
     {
         
-        public UILocalizarWindow1(UITestControl searchLimitContainer) : 
+        public UICentraldeatendimentoWindow(UITestControl searchLimitContainer) : 
                 base(searchLimitContainer)
         {
             #region Critérios de pesquisa
-            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "buttonSearch";
-            this.WindowTitles.Add("MultiClubes - Acerto de comissão");
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "labelTitle";
+            this.WindowTitles.Add("MultiClubes - Central de atendimento");
             #endregion
         }
         
         #region Properties
-        public WinButton UILocalizarButton
+        public WinText UICentraldeatendimentoText
         {
             get
             {
-                if ((this.mUILocalizarButton == null))
+                if ((this.mUICentraldeatendimentoText == null))
                 {
-                    this.mUILocalizarButton = new WinButton(this);
+                    this.mUICentraldeatendimentoText = new WinText(this);
                     #region Critérios de pesquisa
-                    this.mUILocalizarButton.SearchProperties[WinButton.PropertyNames.Name] = "Localizar";
-                    this.mUILocalizarButton.WindowTitles.Add("MultiClubes - Acerto de comissão");
+                    this.mUICentraldeatendimentoText.SearchProperties[WinText.PropertyNames.Name] = "Central de atendimento";
+                    this.mUICentraldeatendimentoText.WindowTitles.Add("MultiClubes - Central de atendimento");
                     #endregion
                 }
-                return this.mUILocalizarButton;
+                return this.mUICentraldeatendimentoText;
             }
         }
         #endregion
         
         #region Fields
-        private WinButton mUILocalizarButton;
+        private WinText mUICentraldeatendimentoText;
         #endregion
     }
     
@@ -937,7 +6362,1647 @@ namespace TestesAutomatizados
         {
             #region Critérios de pesquisa
             this.SearchProperties[WinWindow.PropertyNames.ControlName] = "listView";
-            this.WindowTitles.Add("MultiClubes - Acerto de comissão");
+            this.WindowTitles.Add("MultiClubes - Central de atendimento");
+            #endregion
+        }
+        
+        #region Properties
+        public WinList UIListViewList
+        {
+            get
+            {
+                if ((this.mUIListViewList == null))
+                {
+                    this.mUIListViewList = new WinList(this);
+                    #region Critérios de pesquisa
+                    this.mUIListViewList.WindowTitles.Add("MultiClubes - Central de atendimento");
+                    #endregion
+                }
+                return this.mUIListViewList;
+            }
+        }
+        
+        public UIListViewList1 UIListViewList1
+        {
+            get
+            {
+                if ((this.mUIListViewList1 == null))
+                {
+                    this.mUIListViewList1 = new UIListViewList1(this);
+                }
+                return this.mUIListViewList1;
+            }
+        }
+        
+        public UIListViewList2 UIListViewList2
+        {
+            get
+            {
+                if ((this.mUIListViewList2 == null))
+                {
+                    this.mUIListViewList2 = new UIListViewList2(this);
+                }
+                return this.mUIListViewList2;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinList mUIListViewList;
+        
+        private UIListViewList1 mUIListViewList1;
+        
+        private UIListViewList2 mUIListViewList2;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIListViewList1 : WinList
+    {
+        
+        public UIListViewList1(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinList.PropertyNames.Name] = "Localizado por nome";
+            this.WindowTitles.Add("MultiClubes - Central de atendimento");
+            #endregion
+        }
+        
+        #region Properties
+        public WinListItem UITítuloTC6442ListItem
+        {
+            get
+            {
+                if ((this.mUITítuloTC6442ListItem == null))
+                {
+                    this.mUITítuloTC6442ListItem = new WinListItem(this);
+                    #region Critérios de pesquisa
+                    this.mUITítuloTC6442ListItem.SearchProperties[WinListItem.PropertyNames.Name] = "Título TC 6442";
+                    this.mUITítuloTC6442ListItem.WindowTitles.Add("MultiClubes - Central de atendimento");
+                    #endregion
+                }
+                return this.mUITítuloTC6442ListItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinListItem mUITítuloTC6442ListItem;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIListViewList2 : WinList
+    {
+        
+        public UIListViewList2(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinList.PropertyNames.Name] = "Localizado por título";
+            this.WindowTitles.Add("MultiClubes - Central de atendimento");
+            #endregion
+        }
+        
+        #region Properties
+        public WinListItem UISophieMariahGabrielaListItem
+        {
+            get
+            {
+                if ((this.mUISophieMariahGabrielaListItem == null))
+                {
+                    this.mUISophieMariahGabrielaListItem = new WinListItem(this);
+                    #region Critérios de pesquisa
+                    this.mUISophieMariahGabrielaListItem.SearchProperties[WinListItem.PropertyNames.Name] = "Sophie Mariah Gabriela Rocha";
+                    this.mUISophieMariahGabrielaListItem.WindowTitles.Add("MultiClubes - Central de atendimento");
+                    #endregion
+                }
+                return this.mUISophieMariahGabrielaListItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinListItem mUISophieMariahGabrielaListItem;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UILocalizeosócioWindow : WinWindow
+    {
+        
+        public UILocalizeosócioWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "labelMessage";
+            this.WindowTitles.Add("MultiClubes - Central de atendimento");
+            #endregion
+        }
+        
+        #region Properties
+        public WinText UILocalizeosócioText
+        {
+            get
+            {
+                if ((this.mUILocalizeosócioText == null))
+                {
+                    this.mUILocalizeosócioText = new WinText(this);
+                    #region Critérios de pesquisa
+                    this.mUILocalizeosócioText.SearchProperties[WinText.PropertyNames.Name] = "Localize o sócio";
+                    this.mUILocalizeosócioText.WindowTitles.Add("MultiClubes - Central de atendimento");
+                    #endregion
+                }
+                return this.mUILocalizeosócioText;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinText mUILocalizeosócioText;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UITextBoxKeywordWindow1 : WinWindow
+    {
+        
+        public UITextBoxKeywordWindow1(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "textBoxKeyword";
+            this.WindowTitles.Add("MultiClubes - Central de atendimento");
+            #endregion
+        }
+        
+        #region Properties
+        public WinEdit UITextBoxKeywordEdit
+        {
+            get
+            {
+                if ((this.mUITextBoxKeywordEdit == null))
+                {
+                    this.mUITextBoxKeywordEdit = new WinEdit(this);
+                    #region Critérios de pesquisa
+                    this.mUITextBoxKeywordEdit.WindowTitles.Add("MultiClubes - Central de atendimento");
+                    #endregion
+                }
+                return this.mUITextBoxKeywordEdit;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinEdit mUITextBoxKeywordEdit;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UICobrançasWindow : WinWindow
+    {
+        
+        public UICobrançasWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "headerButton";
+            this.SearchProperties[WinWindow.PropertyNames.Instance] = "2";
+            this.WindowTitles.Add("MultiClubes - Central de atendimento");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UICobrançasButton
+        {
+            get
+            {
+                if ((this.mUICobrançasButton == null))
+                {
+                    this.mUICobrançasButton = new WinButton(this);
+                    #region Critérios de pesquisa
+                    this.mUICobrançasButton.SearchProperties[WinButton.PropertyNames.Name] = "Cobranças";
+                    this.mUICobrançasButton.WindowTitles.Add("MultiClubes - Central de atendimento");
+                    #endregion
+                }
+                return this.mUICobrançasButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUICobrançasButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIEditarcobrançasWindow : WinWindow
+    {
+        
+        public UIEditarcobrançasWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "sideButtonDunModes";
+            this.WindowTitles.Add("MultiClubes - Central de atendimento");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIEditarcobrançasButton
+        {
+            get
+            {
+                if ((this.mUIEditarcobrançasButton == null))
+                {
+                    this.mUIEditarcobrançasButton = new WinButton(this);
+                    #region Critérios de pesquisa
+                    this.mUIEditarcobrançasButton.SearchProperties[WinButton.PropertyNames.Name] = "Editar cobranças";
+                    this.mUIEditarcobrançasButton.WindowTitles.Add("MultiClubes - Central de atendimento");
+                    #endregion
+                }
+                return this.mUIEditarcobrançasButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIEditarcobrançasButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIListViewMembersWindow : WinWindow
+    {
+        
+        public UIListViewMembersWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "listViewMembers";
+            this.WindowTitles.Add("MultiClubes - Central de atendimento");
+            #endregion
+        }
+        
+        #region Properties
+        public UIListViewMembersList UIListViewMembersList
+        {
+            get
+            {
+                if ((this.mUIListViewMembersList == null))
+                {
+                    this.mUIListViewMembersList = new UIListViewMembersList(this);
+                }
+                return this.mUIListViewMembersList;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIListViewMembersList mUIListViewMembersList;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIListViewMembersList : WinList
+    {
+        
+        public UIListViewMembersList(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinList.PropertyNames.Name] = "-";
+            this.WindowTitles.Add("MultiClubes - Central de atendimento");
+            #endregion
+        }
+        
+        #region Properties
+        public WinListItem UITítuloTC6442ListItem
+        {
+            get
+            {
+                if ((this.mUITítuloTC6442ListItem == null))
+                {
+                    this.mUITítuloTC6442ListItem = new WinListItem(this);
+                    #region Critérios de pesquisa
+                    this.mUITítuloTC6442ListItem.SearchProperties[WinListItem.PropertyNames.Name] = "Título TC 6442";
+                    this.mUITítuloTC6442ListItem.WindowTitles.Add("MultiClubes - Central de atendimento");
+                    #endregion
+                }
+                return this.mUITítuloTC6442ListItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinListItem mUITítuloTC6442ListItem;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIMenuMainMenuBar1 : WinMenuBar
+    {
+        
+        public UIMenuMainMenuBar1(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.WindowTitles.Add("MultiClubes - Central de atendimento");
+            #endregion
+        }
+        
+        #region Properties
+        public WinMenuItem UIFecharMenuItem
+        {
+            get
+            {
+                if ((this.mUIFecharMenuItem == null))
+                {
+                    this.mUIFecharMenuItem = new WinMenuItem(this);
+                    #region Critérios de pesquisa
+                    this.mUIFecharMenuItem.SearchProperties[WinMenuItem.PropertyNames.Name] = "Fechar";
+                    this.mUIFecharMenuItem.WindowTitles.Add("MultiClubes - Central de atendimento");
+                    #endregion
+                }
+                return this.mUIFecharMenuItem;
+            }
+        }
+        
+        public UIOperaçãoMenuItem1 UIOperaçãoMenuItem
+        {
+            get
+            {
+                if ((this.mUIOperaçãoMenuItem == null))
+                {
+                    this.mUIOperaçãoMenuItem = new UIOperaçãoMenuItem1(this);
+                }
+                return this.mUIOperaçãoMenuItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinMenuItem mUIFecharMenuItem;
+        
+        private UIOperaçãoMenuItem1 mUIOperaçãoMenuItem;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIOperaçãoMenuItem1 : WinMenuItem
+    {
+        
+        public UIOperaçãoMenuItem1(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinMenuItem.PropertyNames.Name] = "Operação";
+            this.WindowTitles.Add("MultiClubes - Central de atendimento");
+            #endregion
+        }
+        
+        #region Properties
+        public UIFinanceiroMenuItem2 UIFinanceiroMenuItem
+        {
+            get
+            {
+                if ((this.mUIFinanceiroMenuItem == null))
+                {
+                    this.mUIFinanceiroMenuItem = new UIFinanceiroMenuItem2(this);
+                }
+                return this.mUIFinanceiroMenuItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIFinanceiroMenuItem2 mUIFinanceiroMenuItem;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIFinanceiroMenuItem2 : WinMenuItem
+    {
+        
+        public UIFinanceiroMenuItem2(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinMenuItem.PropertyNames.Name] = "Financeiro";
+            this.SearchConfigurations.Add(SearchConfiguration.ExpandWhileSearching);
+            this.WindowTitles.Add("MultiClubes - Central de atendimento");
+            #endregion
+        }
+        
+        #region Properties
+        public WinMenuItem UIAcertodecomissãoMenuItem
+        {
+            get
+            {
+                if ((this.mUIAcertodecomissãoMenuItem == null))
+                {
+                    this.mUIAcertodecomissãoMenuItem = new WinMenuItem(this);
+                    #region Critérios de pesquisa
+                    this.mUIAcertodecomissãoMenuItem.SearchProperties[WinMenuItem.PropertyNames.Name] = "Acerto de comissão";
+                    this.mUIAcertodecomissãoMenuItem.SearchConfigurations.Add(SearchConfiguration.ExpandWhileSearching);
+                    this.mUIAcertodecomissãoMenuItem.WindowTitles.Add("MultiClubes - Central de atendimento");
+                    #endregion
+                }
+                return this.mUIAcertodecomissãoMenuItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinMenuItem mUIAcertodecomissãoMenuItem;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIAreceberWindow : WinWindow
+    {
+        
+        public UIAreceberWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "sideButtonParcelReceiving";
+            this.WindowTitles.Add("MultiClubes - Central de atendimento");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIAreceberButton
+        {
+            get
+            {
+                if ((this.mUIAreceberButton == null))
+                {
+                    this.mUIAreceberButton = new WinButton(this);
+                    #region Critérios de pesquisa
+                    this.mUIAreceberButton.SearchProperties[WinButton.PropertyNames.Name] = "A receber";
+                    this.mUIAreceberButton.WindowTitles.Add("MultiClubes - Central de atendimento");
+                    #endregion
+                }
+                return this.mUIAreceberButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIAreceberButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIMultiClubesParentescWindow : WinWindow
+    {
+        
+        public UIMultiClubesParentescWindow()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "MultiClubes - Parentescos";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("MultiClubes - Parentescos");
+            #endregion
+        }
+        
+        #region Properties
+        public UIParentescosWindow UIParentescosWindow
+        {
+            get
+            {
+                if ((this.mUIParentescosWindow == null))
+                {
+                    this.mUIParentescosWindow = new UIParentescosWindow(this);
+                }
+                return this.mUIParentescosWindow;
+            }
+        }
+        
+        public UIItem19itensWindow UIItem19itensWindow
+        {
+            get
+            {
+                if ((this.mUIItem19itensWindow == null))
+                {
+                    this.mUIItem19itensWindow = new UIItem19itensWindow(this);
+                }
+                return this.mUIItem19itensWindow;
+            }
+        }
+        
+        public UIListViewWindow1 UIListViewWindow
+        {
+            get
+            {
+                if ((this.mUIListViewWindow == null))
+                {
+                    this.mUIListViewWindow = new UIListViewWindow1(this);
+                }
+                return this.mUIListViewWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIParentescosWindow mUIParentescosWindow;
+        
+        private UIItem19itensWindow mUIItem19itensWindow;
+        
+        private UIListViewWindow1 mUIListViewWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIParentescosWindow : WinWindow
+    {
+        
+        public UIParentescosWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "labelTitle";
+            this.WindowTitles.Add("MultiClubes - Parentescos");
+            #endregion
+        }
+        
+        #region Properties
+        public WinText UIParentescosText
+        {
+            get
+            {
+                if ((this.mUIParentescosText == null))
+                {
+                    this.mUIParentescosText = new WinText(this);
+                    #region Critérios de pesquisa
+                    this.mUIParentescosText.SearchProperties[WinText.PropertyNames.Name] = "Parentescos";
+                    this.mUIParentescosText.WindowTitles.Add("MultiClubes - Parentescos");
+                    #endregion
+                }
+                return this.mUIParentescosText;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinText mUIParentescosText;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIItem19itensWindow : WinWindow
+    {
+        
+        public UIItem19itensWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "labelMessage";
+            this.WindowTitles.Add("MultiClubes - Parentescos");
+            #endregion
+        }
+        
+        #region Properties
+        public WinText UIItem19itensText
+        {
+            get
+            {
+                if ((this.mUIItem19itensText == null))
+                {
+                    this.mUIItem19itensText = new WinText(this);
+                    #region Critérios de pesquisa
+                    this.mUIItem19itensText.SearchProperties[WinText.PropertyNames.Name] = "19 itens";
+                    this.mUIItem19itensText.WindowTitles.Add("MultiClubes - Parentescos");
+                    #endregion
+                }
+                return this.mUIItem19itensText;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinText mUIItem19itensText;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIListViewWindow1 : WinWindow
+    {
+        
+        public UIListViewWindow1(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "listView";
+            this.WindowTitles.Add("MultiClubes - Parentescos");
+            #endregion
+        }
+        
+        #region Properties
+        public WinListItem UIACOMPANHANTEAListItem
+        {
+            get
+            {
+                if ((this.mUIACOMPANHANTEAListItem == null))
+                {
+                    this.mUIACOMPANHANTEAListItem = new WinListItem(this);
+                    #region Critérios de pesquisa
+                    this.mUIACOMPANHANTEAListItem.SearchProperties[WinListItem.PropertyNames.Name] = "ACOMPANHANTE (A)";
+                    this.mUIACOMPANHANTEAListItem.WindowTitles.Add("MultiClubes - Parentescos");
+                    #endregion
+                }
+                return this.mUIACOMPANHANTEAListItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinListItem mUIACOMPANHANTEAListItem;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIItemWindow1 : WinWindow
+    {
+        
+        public UIItemWindow1()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.AccessibleName] = "Contexto";
+            this.SearchProperties[WinWindow.PropertyNames.ClassName] = "#32768";
+            #endregion
+        }
+        
+        #region Properties
+        public UIContextoMenu UIContextoMenu
+        {
+            get
+            {
+                if ((this.mUIContextoMenu == null))
+                {
+                    this.mUIContextoMenu = new UIContextoMenu(this);
+                }
+                return this.mUIContextoMenu;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIContextoMenu mUIContextoMenu;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIContextoMenu : WinMenu
+    {
+        
+        public UIContextoMenu(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinMenu.PropertyNames.Name] = "Contexto";
+            #endregion
+        }
+        
+        #region Properties
+        public WinMenuItem UINovoMenuItem
+        {
+            get
+            {
+                if ((this.mUINovoMenuItem == null))
+                {
+                    this.mUINovoMenuItem = new WinMenuItem(this);
+                    #region Critérios de pesquisa
+                    this.mUINovoMenuItem.SearchProperties[WinMenuItem.PropertyNames.Name] = "Novo";
+                    #endregion
+                }
+                return this.mUINovoMenuItem;
+            }
+        }
+        
+        public WinMenuItem UIIncluirMenuItem
+        {
+            get
+            {
+                if ((this.mUIIncluirMenuItem == null))
+                {
+                    this.mUIIncluirMenuItem = new WinMenuItem(this);
+                    #region Critérios de pesquisa
+                    this.mUIIncluirMenuItem.SearchProperties[WinMenuItem.PropertyNames.Name] = "Incluir";
+                    #endregion
+                }
+                return this.mUIIncluirMenuItem;
+            }
+        }
+        
+        public WinMenuItem UIReemitirMenuItem
+        {
+            get
+            {
+                if ((this.mUIReemitirMenuItem == null))
+                {
+                    this.mUIReemitirMenuItem = new WinMenuItem(this);
+                    #region Critérios de pesquisa
+                    this.mUIReemitirMenuItem.SearchProperties[WinMenuItem.PropertyNames.Name] = "Reemitir";
+                    #endregion
+                }
+                return this.mUIReemitirMenuItem;
+            }
+        }
+        
+        public WinMenuItem UIDesfazerMenuItem
+        {
+            get
+            {
+                if ((this.mUIDesfazerMenuItem == null))
+                {
+                    this.mUIDesfazerMenuItem = new WinMenuItem(this);
+                    #region Critérios de pesquisa
+                    this.mUIDesfazerMenuItem.SearchProperties[WinMenuItem.PropertyNames.Name] = "Desfazer";
+                    #endregion
+                }
+                return this.mUIDesfazerMenuItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinMenuItem mUINovoMenuItem;
+        
+        private WinMenuItem mUIIncluirMenuItem;
+        
+        private WinMenuItem mUIReemitirMenuItem;
+        
+        private WinMenuItem mUIDesfazerMenuItem;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UICadastrodetítuloWindow : WinWindow
+    {
+        
+        public UICadastrodetítuloWindow()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "Cadastro de título";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("Cadastro de título");
+            #endregion
+        }
+        
+        #region Properties
+        public UICadastroWindow UICadastroWindow
+        {
+            get
+            {
+                if ((this.mUICadastroWindow == null))
+                {
+                    this.mUICadastroWindow = new UICadastroWindow(this);
+                }
+                return this.mUICadastroWindow;
+            }
+        }
+        
+        public UINovotítuloWindow UINovotítuloWindow
+        {
+            get
+            {
+                if ((this.mUINovotítuloWindow == null))
+                {
+                    this.mUINovotítuloWindow = new UINovotítuloWindow(this);
+                }
+                return this.mUINovotítuloWindow;
+            }
+        }
+        
+        public UITítuloWindow UITítuloWindow
+        {
+            get
+            {
+                if ((this.mUITítuloWindow == null))
+                {
+                    this.mUITítuloWindow = new UITítuloWindow(this);
+                }
+                return this.mUITítuloWindow;
+            }
+        }
+        
+        public UIIncluirdependenteWindow UIIncluirdependenteWindow
+        {
+            get
+            {
+                if ((this.mUIIncluirdependenteWindow == null))
+                {
+                    this.mUIIncluirdependenteWindow = new UIIncluirdependenteWindow(this);
+                }
+                return this.mUIIncluirdependenteWindow;
+            }
+        }
+        
+        public UIVendaWindow UIVendaWindow
+        {
+            get
+            {
+                if ((this.mUIVendaWindow == null))
+                {
+                    this.mUIVendaWindow = new UIVendaWindow(this);
+                }
+                return this.mUIVendaWindow;
+            }
+        }
+        
+        public UICancelarWindow UICancelarWindow
+        {
+            get
+            {
+                if ((this.mUICancelarWindow == null))
+                {
+                    this.mUICancelarWindow = new UICancelarWindow(this);
+                }
+                return this.mUICancelarWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UICadastroWindow mUICadastroWindow;
+        
+        private UINovotítuloWindow mUINovotítuloWindow;
+        
+        private UITítuloWindow mUITítuloWindow;
+        
+        private UIIncluirdependenteWindow mUIIncluirdependenteWindow;
+        
+        private UIVendaWindow mUIVendaWindow;
+        
+        private UICancelarWindow mUICancelarWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UICadastroWindow : WinWindow
+    {
+        
+        public UICadastroWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "labelTitle";
+            this.WindowTitles.Add("Cadastro de título");
+            #endregion
+        }
+        
+        #region Properties
+        public WinText UICadastroText
+        {
+            get
+            {
+                if ((this.mUICadastroText == null))
+                {
+                    this.mUICadastroText = new WinText(this);
+                    #region Critérios de pesquisa
+                    this.mUICadastroText.SearchProperties[WinText.PropertyNames.Name] = "Cadastro";
+                    this.mUICadastroText.WindowTitles.Add("Cadastro de título");
+                    #endregion
+                }
+                return this.mUICadastroText;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinText mUICadastroText;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UINovotítuloWindow : WinWindow
+    {
+        
+        public UINovotítuloWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "labelMessage";
+            this.WindowTitles.Add("Cadastro de título");
+            #endregion
+        }
+        
+        #region Properties
+        public WinText UINovotítuloText
+        {
+            get
+            {
+                if ((this.mUINovotítuloText == null))
+                {
+                    this.mUINovotítuloText = new WinText(this);
+                    #region Critérios de pesquisa
+                    this.mUINovotítuloText.SearchProperties[WinText.PropertyNames.Name] = "Novo título";
+                    this.mUINovotítuloText.WindowTitles.Add("Cadastro de título");
+                    #endregion
+                }
+                return this.mUINovotítuloText;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinText mUINovotítuloText;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UITítuloWindow : WinWindow
+    {
+        
+        public UITítuloWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "buttonOpenTitle";
+            this.WindowTitles.Add("Cadastro de título");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UITítuloButton
+        {
+            get
+            {
+                if ((this.mUITítuloButton == null))
+                {
+                    this.mUITítuloButton = new WinButton(this);
+                    #region Critérios de pesquisa
+                    this.mUITítuloButton.SearchProperties[WinButton.PropertyNames.Name] = "Título";
+                    this.mUITítuloButton.WindowTitles.Add("Cadastro de título");
+                    #endregion
+                }
+                return this.mUITítuloButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUITítuloButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIIncluirdependenteWindow : WinWindow
+    {
+        
+        public UIIncluirdependenteWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "buttonAddMember";
+            this.WindowTitles.Add("Cadastro de título");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIIncluirdependenteButton
+        {
+            get
+            {
+                if ((this.mUIIncluirdependenteButton == null))
+                {
+                    this.mUIIncluirdependenteButton = new WinButton(this);
+                    #region Critérios de pesquisa
+                    this.mUIIncluirdependenteButton.SearchProperties[WinButton.PropertyNames.Name] = "Incluir dependente";
+                    this.mUIIncluirdependenteButton.WindowTitles.Add("Cadastro de título");
+                    #endregion
+                }
+                return this.mUIIncluirdependenteButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIIncluirdependenteButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIVendaWindow : WinWindow
+    {
+        
+        public UIVendaWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "groupBoxTitleSale";
+            this.WindowTitles.Add("Cadastro de título");
+            #endregion
+        }
+        
+        #region Properties
+        public WinClient UIVendaClient
+        {
+            get
+            {
+                if ((this.mUIVendaClient == null))
+                {
+                    this.mUIVendaClient = new WinClient(this);
+                    #region Critérios de pesquisa
+                    this.mUIVendaClient.SearchProperties[WinControl.PropertyNames.Name] = "Venda";
+                    this.mUIVendaClient.WindowTitles.Add("Cadastro de título");
+                    #endregion
+                }
+                return this.mUIVendaClient;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinClient mUIVendaClient;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UICancelarWindow : WinWindow
+    {
+        
+        public UICancelarWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "buttonCancel";
+            this.WindowTitles.Add("Cadastro de título");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UICancelarButton
+        {
+            get
+            {
+                if ((this.mUICancelarButton == null))
+                {
+                    this.mUICancelarButton = new WinButton(this);
+                    #region Critérios de pesquisa
+                    this.mUICancelarButton.SearchProperties[WinButton.PropertyNames.Name] = "Cancelar";
+                    this.mUICancelarButton.WindowTitles.Add("Cadastro de título");
+                    #endregion
+                }
+                return this.mUICancelarButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUICancelarButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIMultiClubesWindow2 : WinWindow
+    {
+        
+        public UIMultiClubesWindow2()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "MultiClubes";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("MultiClubes");
+            #endregion
+        }
+        
+        #region Properties
+        public UIMenuMainWindow UIMenuMainWindow
+        {
+            get
+            {
+                if ((this.mUIMenuMainWindow == null))
+                {
+                    this.mUIMenuMainWindow = new UIMenuMainWindow(this);
+                }
+                return this.mUIMenuMainWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIMenuMainWindow mUIMenuMainWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIMenuMainWindow : WinWindow
+    {
+        
+        public UIMenuMainWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "menuMain";
+            this.WindowTitles.Add("MultiClubes");
+            #endregion
+        }
+        
+        #region Properties
+        public WinMenuBar UIMenuMainMenuBar
+        {
+            get
+            {
+                if ((this.mUIMenuMainMenuBar == null))
+                {
+                    this.mUIMenuMainMenuBar = new WinMenuBar(this);
+                    #region Critérios de pesquisa
+                    this.mUIMenuMainMenuBar.WindowTitles.Add("MultiClubes");
+                    #endregion
+                }
+                return this.mUIMenuMainMenuBar;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinMenuBar mUIMenuMainMenuBar;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIPermissõesWindow : WinWindow
+    {
+        
+        public UIPermissõesWindow()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "Permissões";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("Permissões");
+            #endregion
+        }
+        
+        #region Properties
+        public WinTitleBar UIPermissõesTitleBar
+        {
+            get
+            {
+                if ((this.mUIPermissõesTitleBar == null))
+                {
+                    this.mUIPermissõesTitleBar = new WinTitleBar(this);
+                    #region Critérios de pesquisa
+                    this.mUIPermissõesTitleBar.WindowTitles.Add("Permissões");
+                    #endregion
+                }
+                return this.mUIPermissõesTitleBar;
+            }
+        }
+        
+        public UIGruposepermissõesWindow UIGruposepermissõesWindow
+        {
+            get
+            {
+                if ((this.mUIGruposepermissõesWindow == null))
+                {
+                    this.mUIGruposepermissõesWindow = new UIGruposepermissõesWindow(this);
+                }
+                return this.mUIGruposepermissõesWindow;
+            }
+        }
+        
+        public UISegurançaWindow UISegurançaWindow
+        {
+            get
+            {
+                if ((this.mUISegurançaWindow == null))
+                {
+                    this.mUISegurançaWindow = new UISegurançaWindow(this);
+                }
+                return this.mUISegurançaWindow;
+            }
+        }
+        
+        public UICancelarWindow1 UICancelarWindow
+        {
+            get
+            {
+                if ((this.mUICancelarWindow == null))
+                {
+                    this.mUICancelarWindow = new UICancelarWindow1(this);
+                }
+                return this.mUICancelarWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinTitleBar mUIPermissõesTitleBar;
+        
+        private UIGruposepermissõesWindow mUIGruposepermissõesWindow;
+        
+        private UISegurançaWindow mUISegurançaWindow;
+        
+        private UICancelarWindow1 mUICancelarWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIGruposepermissõesWindow : WinWindow
+    {
+        
+        public UIGruposepermissõesWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "labelTitle";
+            this.WindowTitles.Add("Permissões");
+            #endregion
+        }
+        
+        #region Properties
+        public WinText UIGruposepermissõesText
+        {
+            get
+            {
+                if ((this.mUIGruposepermissõesText == null))
+                {
+                    this.mUIGruposepermissõesText = new WinText(this);
+                    #region Critérios de pesquisa
+                    this.mUIGruposepermissõesText.SearchProperties[WinText.PropertyNames.Name] = "Grupos e permissões";
+                    this.mUIGruposepermissõesText.WindowTitles.Add("Permissões");
+                    #endregion
+                }
+                return this.mUIGruposepermissõesText;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinText mUIGruposepermissõesText;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UISegurançaWindow : WinWindow
+    {
+        
+        public UISegurançaWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "labelMessage";
+            this.WindowTitles.Add("Permissões");
+            #endregion
+        }
+        
+        #region Properties
+        public WinText UISegurançaText
+        {
+            get
+            {
+                if ((this.mUISegurançaText == null))
+                {
+                    this.mUISegurançaText = new WinText(this);
+                    #region Critérios de pesquisa
+                    this.mUISegurançaText.SearchProperties[WinText.PropertyNames.Name] = "Segurança";
+                    this.mUISegurançaText.WindowTitles.Add("Permissões");
+                    #endregion
+                }
+                return this.mUISegurançaText;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinText mUISegurançaText;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UICancelarWindow1 : WinWindow
+    {
+        
+        public UICancelarWindow1(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "buttonCancel";
+            this.WindowTitles.Add("Permissões");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UICancelarButton
+        {
+            get
+            {
+                if ((this.mUICancelarButton == null))
+                {
+                    this.mUICancelarButton = new WinButton(this);
+                    #region Critérios de pesquisa
+                    this.mUICancelarButton.SearchProperties[WinButton.PropertyNames.Name] = "Cancelar";
+                    this.mUICancelarButton.WindowTitles.Add("Permissões");
+                    #endregion
+                }
+                return this.mUICancelarButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUICancelarButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIMultiClubesComputadoWindow : WinWindow
+    {
+        
+        public UIMultiClubesComputadoWindow()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "MultiClubes - Computadores";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("MultiClubes - Computadores");
+            #endregion
+        }
+        
+        #region Properties
+        public WinTitleBar UIMultiClubesComputadoTitleBar
+        {
+            get
+            {
+                if ((this.mUIMultiClubesComputadoTitleBar == null))
+                {
+                    this.mUIMultiClubesComputadoTitleBar = new WinTitleBar(this);
+                    #region Critérios de pesquisa
+                    this.mUIMultiClubesComputadoTitleBar.WindowTitles.Add("MultiClubes - Computadores");
+                    #endregion
+                }
+                return this.mUIMultiClubesComputadoTitleBar;
+            }
+        }
+        
+        public UIComputadoresWindow UIComputadoresWindow
+        {
+            get
+            {
+                if ((this.mUIComputadoresWindow == null))
+                {
+                    this.mUIComputadoresWindow = new UIComputadoresWindow(this);
+                }
+                return this.mUIComputadoresWindow;
+            }
+        }
+        
+        public UIItem3itensWindow UIItem3itensWindow
+        {
+            get
+            {
+                if ((this.mUIItem3itensWindow == null))
+                {
+                    this.mUIItem3itensWindow = new UIItem3itensWindow(this);
+                }
+                return this.mUIItem3itensWindow;
+            }
+        }
+        
+        public UIListViewWindow2 UIListViewWindow
+        {
+            get
+            {
+                if ((this.mUIListViewWindow == null))
+                {
+                    this.mUIListViewWindow = new UIListViewWindow2(this);
+                }
+                return this.mUIListViewWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinTitleBar mUIMultiClubesComputadoTitleBar;
+        
+        private UIComputadoresWindow mUIComputadoresWindow;
+        
+        private UIItem3itensWindow mUIItem3itensWindow;
+        
+        private UIListViewWindow2 mUIListViewWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIComputadoresWindow : WinWindow
+    {
+        
+        public UIComputadoresWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "labelMessage";
+            this.WindowTitles.Add("MultiClubes - Computadores");
+            #endregion
+        }
+        
+        #region Properties
+        public WinText UIComputadoresText
+        {
+            get
+            {
+                if ((this.mUIComputadoresText == null))
+                {
+                    this.mUIComputadoresText = new WinText(this);
+                    #region Critérios de pesquisa
+                    this.mUIComputadoresText.SearchProperties[WinText.PropertyNames.Name] = "Computadores";
+                    this.mUIComputadoresText.WindowTitles.Add("MultiClubes - Computadores");
+                    #endregion
+                }
+                return this.mUIComputadoresText;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinText mUIComputadoresText;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIItem3itensWindow : WinWindow
+    {
+        
+        public UIItem3itensWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "labelInstruction";
+            this.WindowTitles.Add("MultiClubes - Computadores");
+            #endregion
+        }
+        
+        #region Properties
+        public WinText UIItem3itensText
+        {
+            get
+            {
+                if ((this.mUIItem3itensText == null))
+                {
+                    this.mUIItem3itensText = new WinText(this);
+                    #region Critérios de pesquisa
+                    this.mUIItem3itensText.SearchProperties[WinText.PropertyNames.Name] = "3 itens";
+                    this.mUIItem3itensText.WindowTitles.Add("MultiClubes - Computadores");
+                    #endregion
+                }
+                return this.mUIItem3itensText;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinText mUIItem3itensText;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIListViewWindow2 : WinWindow
+    {
+        
+        public UIListViewWindow2(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "listView";
+            this.WindowTitles.Add("MultiClubes - Computadores");
+            #endregion
+        }
+        
+        #region Properties
+        public WinListItem UITIListItem
+        {
+            get
+            {
+                if ((this.mUITIListItem == null))
+                {
+                    this.mUITIListItem = new WinListItem(this);
+                    #region Critérios de pesquisa
+                    this.mUITIListItem.SearchProperties[WinListItem.PropertyNames.Name] = "TI";
+                    this.mUITIListItem.WindowTitles.Add("MultiClubes - Computadores");
+                    #endregion
+                }
+                return this.mUITIListItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinListItem mUITIListItem;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIMultiClubesGruposdepWindow : WinWindow
+    {
+        
+        public UIMultiClubesGruposdepWindow()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "MultiClubes - Grupos de produto";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("MultiClubes - Grupos de produto");
+            #endregion
+        }
+        
+        #region Properties
+        public WinTitleBar UIMultiClubesGruposdepTitleBar
+        {
+            get
+            {
+                if ((this.mUIMultiClubesGruposdepTitleBar == null))
+                {
+                    this.mUIMultiClubesGruposdepTitleBar = new WinTitleBar(this);
+                    #region Critérios de pesquisa
+                    this.mUIMultiClubesGruposdepTitleBar.WindowTitles.Add("MultiClubes - Grupos de produto");
+                    #endregion
+                }
+                return this.mUIMultiClubesGruposdepTitleBar;
+            }
+        }
+        
+        public UIGruposdeprodutoWindow UIGruposdeprodutoWindow
+        {
+            get
+            {
+                if ((this.mUIGruposdeprodutoWindow == null))
+                {
+                    this.mUIGruposdeprodutoWindow = new UIGruposdeprodutoWindow(this);
+                }
+                return this.mUIGruposdeprodutoWindow;
+            }
+        }
+        
+        public UIListViewWindow3 UIListViewWindow
+        {
+            get
+            {
+                if ((this.mUIListViewWindow == null))
+                {
+                    this.mUIListViewWindow = new UIListViewWindow3(this);
+                }
+                return this.mUIListViewWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinTitleBar mUIMultiClubesGruposdepTitleBar;
+        
+        private UIGruposdeprodutoWindow mUIGruposdeprodutoWindow;
+        
+        private UIListViewWindow3 mUIListViewWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIGruposdeprodutoWindow : WinWindow
+    {
+        
+        public UIGruposdeprodutoWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "labelMessage";
+            this.WindowTitles.Add("MultiClubes - Grupos de produto");
+            #endregion
+        }
+        
+        #region Properties
+        public WinText UIGruposdeprodutoText
+        {
+            get
+            {
+                if ((this.mUIGruposdeprodutoText == null))
+                {
+                    this.mUIGruposdeprodutoText = new WinText(this);
+                    #region Critérios de pesquisa
+                    this.mUIGruposdeprodutoText.SearchProperties[WinText.PropertyNames.Name] = "Grupos de produto";
+                    this.mUIGruposdeprodutoText.WindowTitles.Add("MultiClubes - Grupos de produto");
+                    #endregion
+                }
+                return this.mUIGruposdeprodutoText;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinText mUIGruposdeprodutoText;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIListViewWindow3 : WinWindow
+    {
+        
+        public UIListViewWindow3(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "listView";
+            this.WindowTitles.Add("MultiClubes - Grupos de produto");
             #endregion
         }
         
@@ -968,31 +8033,4595 @@ namespace TestesAutomatizados
                 base(searchLimitContainer)
         {
             #region Critérios de pesquisa
-            this.SearchProperties[WinList.PropertyNames.Name] = "Filtre os acertos utilizando os filtros acima";
-            this.WindowTitles.Add("MultiClubes - Acerto de comissão");
+            this.WindowTitles.Add("MultiClubes - Grupos de produto");
             #endregion
         }
         
         #region Properties
-        public WinListItem UISophiePromotorListItem
+        public UIControledeCabeçalhoList UIControledeCabeçalhoList
         {
             get
             {
-                if ((this.mUISophiePromotorListItem == null))
+                if ((this.mUIControledeCabeçalhoList == null))
                 {
-                    this.mUISophiePromotorListItem = new WinListItem(this);
-                    #region Critérios de pesquisa
-                    this.mUISophiePromotorListItem.SearchProperties[WinListItem.PropertyNames.Name] = "Sophie Promotor";
-                    this.mUISophiePromotorListItem.WindowTitles.Add("MultiClubes - Acerto de comissão");
-                    #endregion
+                    this.mUIControledeCabeçalhoList = new UIControledeCabeçalhoList(this);
                 }
-                return this.mUISophiePromotorListItem;
+                return this.mUIControledeCabeçalhoList;
             }
         }
         #endregion
         
         #region Fields
-        private WinListItem mUISophiePromotorListItem;
+        private UIControledeCabeçalhoList mUIControledeCabeçalhoList;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIControledeCabeçalhoList : WinList
+    {
+        
+        public UIControledeCabeçalhoList(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinList.PropertyNames.Name] = "Controle de Cabeçalho";
+            this.WindowTitles.Add("MultiClubes - Grupos de produto");
+            #endregion
+        }
+        
+        #region Properties
+        public WinColumnHeader UIGrupoColumnHeader
+        {
+            get
+            {
+                if ((this.mUIGrupoColumnHeader == null))
+                {
+                    this.mUIGrupoColumnHeader = new WinColumnHeader(this);
+                    #region Critérios de pesquisa
+                    this.mUIGrupoColumnHeader.SearchProperties[WinControl.PropertyNames.Name] = "Grupo";
+                    this.mUIGrupoColumnHeader.WindowTitles.Add("MultiClubes - Grupos de produto");
+                    #endregion
+                }
+                return this.mUIGrupoColumnHeader;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinColumnHeader mUIGrupoColumnHeader;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIGeraçãodecobrançaWindow : WinWindow
+    {
+        
+        public UIGeraçãodecobrançaWindow()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "Geração de cobrança";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("Geração de cobrança");
+            #endregion
+        }
+        
+        #region Properties
+        public UIImportarconsumosatéWindow UIImportarconsumosatéWindow
+        {
+            get
+            {
+                if ((this.mUIImportarconsumosatéWindow == null))
+                {
+                    this.mUIImportarconsumosatéWindow = new UIImportarconsumosatéWindow(this);
+                }
+                return this.mUIImportarconsumosatéWindow;
+            }
+        }
+        
+        public UIGerarWindow UIGerarWindow
+        {
+            get
+            {
+                if ((this.mUIGerarWindow == null))
+                {
+                    this.mUIGerarWindow = new UIGerarWindow(this);
+                }
+                return this.mUIGerarWindow;
+            }
+        }
+        
+        public UIFecharWindow UIFecharWindow
+        {
+            get
+            {
+                if ((this.mUIFecharWindow == null))
+                {
+                    this.mUIFecharWindow = new UIFecharWindow(this);
+                }
+                return this.mUIFecharWindow;
+            }
+        }
+        
+        public UIPictureBoxWindow UIPictureBoxWindow
+        {
+            get
+            {
+                if ((this.mUIPictureBoxWindow == null))
+                {
+                    this.mUIPictureBoxWindow = new UIPictureBoxWindow(this);
+                }
+                return this.mUIPictureBoxWindow;
+            }
+        }
+        
+        public UIComboBoxDunTypeWindow UIComboBoxDunTypeWindow
+        {
+            get
+            {
+                if ((this.mUIComboBoxDunTypeWindow == null))
+                {
+                    this.mUIComboBoxDunTypeWindow = new UIComboBoxDunTypeWindow(this);
+                }
+                return this.mUIComboBoxDunTypeWindow;
+            }
+        }
+        
+        public UIGerarcomopçãoporciclWindow UIGerarcomopçãoporciclWindow
+        {
+            get
+            {
+                if ((this.mUIGerarcomopçãoporciclWindow == null))
+                {
+                    this.mUIGerarcomopçãoporciclWindow = new UIGerarcomopçãoporciclWindow(this);
+                }
+                return this.mUIGerarcomopçãoporciclWindow;
+            }
+        }
+        
+        public UIConcluídaWindow UIConcluídaWindow
+        {
+            get
+            {
+                if ((this.mUIConcluídaWindow == null))
+                {
+                    this.mUIConcluídaWindow = new UIConcluídaWindow(this);
+                }
+                return this.mUIConcluídaWindow;
+            }
+        }
+        
+        public UIOKWindow UIOKWindow
+        {
+            get
+            {
+                if ((this.mUIOKWindow == null))
+                {
+                    this.mUIOKWindow = new UIOKWindow(this);
+                }
+                return this.mUIOKWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIImportarconsumosatéWindow mUIImportarconsumosatéWindow;
+        
+        private UIGerarWindow mUIGerarWindow;
+        
+        private UIFecharWindow mUIFecharWindow;
+        
+        private UIPictureBoxWindow mUIPictureBoxWindow;
+        
+        private UIComboBoxDunTypeWindow mUIComboBoxDunTypeWindow;
+        
+        private UIGerarcomopçãoporciclWindow mUIGerarcomopçãoporciclWindow;
+        
+        private UIConcluídaWindow mUIConcluídaWindow;
+        
+        private UIOKWindow mUIOKWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIImportarconsumosatéWindow : WinWindow
+    {
+        
+        public UIImportarconsumosatéWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "checkBoxConsumption";
+            this.WindowTitles.Add("Geração de cobrança");
+            #endregion
+        }
+        
+        #region Properties
+        public WinCheckBox UIImportarconsumosatéCheckBox
+        {
+            get
+            {
+                if ((this.mUIImportarconsumosatéCheckBox == null))
+                {
+                    this.mUIImportarconsumosatéCheckBox = new WinCheckBox(this);
+                    #region Critérios de pesquisa
+                    this.mUIImportarconsumosatéCheckBox.SearchProperties[WinCheckBox.PropertyNames.Name] = "Importar consumos até :";
+                    this.mUIImportarconsumosatéCheckBox.WindowTitles.Add("Geração de cobrança");
+                    #endregion
+                }
+                return this.mUIImportarconsumosatéCheckBox;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinCheckBox mUIImportarconsumosatéCheckBox;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIGerarWindow : WinWindow
+    {
+        
+        public UIGerarWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "buttonGenerate";
+            this.WindowTitles.Add("Geração de cobrança");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIGerarButton
+        {
+            get
+            {
+                if ((this.mUIGerarButton == null))
+                {
+                    this.mUIGerarButton = new WinButton(this);
+                    #region Critérios de pesquisa
+                    this.mUIGerarButton.SearchProperties[WinButton.PropertyNames.Name] = "Gerar";
+                    this.mUIGerarButton.WindowTitles.Add("Geração de cobrança");
+                    #endregion
+                }
+                return this.mUIGerarButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIGerarButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIFecharWindow : WinWindow
+    {
+        
+        public UIFecharWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "buttonClose";
+            this.WindowTitles.Add("Geração de cobrança");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIFecharButton
+        {
+            get
+            {
+                if ((this.mUIFecharButton == null))
+                {
+                    this.mUIFecharButton = new WinButton(this);
+                    #region Critérios de pesquisa
+                    this.mUIFecharButton.SearchProperties[WinButton.PropertyNames.Name] = "Fechar";
+                    this.mUIFecharButton.WindowTitles.Add("Geração de cobrança");
+                    #endregion
+                }
+                return this.mUIFecharButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIFecharButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIPictureBoxWindow : WinWindow
+    {
+        
+        public UIPictureBoxWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "pictureBox";
+            this.WindowTitles.Add("Geração de cobrança");
+            #endregion
+        }
+        
+        #region Properties
+        public WinClient UIPictureBoxClient
+        {
+            get
+            {
+                if ((this.mUIPictureBoxClient == null))
+                {
+                    this.mUIPictureBoxClient = new WinClient(this);
+                    #region Critérios de pesquisa
+                    this.mUIPictureBoxClient.WindowTitles.Add("Geração de cobrança");
+                    #endregion
+                }
+                return this.mUIPictureBoxClient;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinClient mUIPictureBoxClient;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIComboBoxDunTypeWindow : WinWindow
+    {
+        
+        public UIComboBoxDunTypeWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "comboBoxDunType";
+            this.WindowTitles.Add("Geração de cobrança");
+            #endregion
+        }
+        
+        #region Properties
+        public WinComboBox UICobrançaComboBox
+        {
+            get
+            {
+                if ((this.mUICobrançaComboBox == null))
+                {
+                    this.mUICobrançaComboBox = new WinComboBox(this);
+                    #region Critérios de pesquisa
+                    this.mUICobrançaComboBox.SearchProperties[WinComboBox.PropertyNames.Name] = "Cobrança :";
+                    this.mUICobrançaComboBox.WindowTitles.Add("Geração de cobrança");
+                    #endregion
+                }
+                return this.mUICobrançaComboBox;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinComboBox mUICobrançaComboBox;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIGerarcomopçãoporciclWindow : WinWindow
+    {
+        
+        public UIGerarcomopçãoporciclWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "checkBoxCycles";
+            this.WindowTitles.Add("Geração de cobrança");
+            #endregion
+        }
+        
+        #region Properties
+        public WinCheckBox UIGerarcomopçãoporciclCheckBox
+        {
+            get
+            {
+                if ((this.mUIGerarcomopçãoporciclCheckBox == null))
+                {
+                    this.mUIGerarcomopçãoporciclCheckBox = new WinCheckBox(this);
+                    #region Critérios de pesquisa
+                    this.mUIGerarcomopçãoporciclCheckBox.SearchProperties[WinCheckBox.PropertyNames.Name] = "Gerar com opção por ciclo";
+                    this.mUIGerarcomopçãoporciclCheckBox.WindowTitles.Add("Geração de cobrança");
+                    #endregion
+                }
+                return this.mUIGerarcomopçãoporciclCheckBox;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinCheckBox mUIGerarcomopçãoporciclCheckBox;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIConcluídaWindow : WinWindow
+    {
+        
+        public UIConcluídaWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "labelMessage";
+            this.WindowTitles.Add("Geração de cobrança");
+            #endregion
+        }
+        
+        #region Properties
+        public WinText UIConcluídaText
+        {
+            get
+            {
+                if ((this.mUIConcluídaText == null))
+                {
+                    this.mUIConcluídaText = new WinText(this);
+                    #region Critérios de pesquisa
+                    this.mUIConcluídaText.SearchProperties[WinText.PropertyNames.Name] = "Concluída";
+                    this.mUIConcluídaText.WindowTitles.Add("Geração de cobrança");
+                    #endregion
+                }
+                return this.mUIConcluídaText;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinText mUIConcluídaText;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIOKWindow : WinWindow
+    {
+        
+        public UIOKWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "buttonAction";
+            this.WindowTitles.Add("Geração de cobrança");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIOKButton
+        {
+            get
+            {
+                if ((this.mUIOKButton == null))
+                {
+                    this.mUIOKButton = new WinButton(this);
+                    #region Critérios de pesquisa
+                    this.mUIOKButton.SearchProperties[WinButton.PropertyNames.Name] = "OK";
+                    this.mUIOKButton.WindowTitles.Add("Geração de cobrança");
+                    #endregion
+                }
+                return this.mUIOKButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIOKButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIPerguntaWindow : WinWindow
+    {
+        
+        public UIPerguntaWindow()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "Pergunta";
+            this.SearchProperties[WinWindow.PropertyNames.ClassName] = "#32770";
+            this.WindowTitles.Add("Pergunta");
+            #endregion
+        }
+        
+        #region Properties
+        public UIPerguntaPane UIPerguntaPane
+        {
+            get
+            {
+                if ((this.mUIPerguntaPane == null))
+                {
+                    this.mUIPerguntaPane = new UIPerguntaPane(this);
+                }
+                return this.mUIPerguntaPane;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIPerguntaPane mUIPerguntaPane;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIPerguntaPane : WinPane
+    {
+        
+        public UIPerguntaPane(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinControl.PropertyNames.Name] = "Pergunta";
+            this.WindowTitles.Add("Pergunta");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UISimButton
+        {
+            get
+            {
+                if ((this.mUISimButton == null))
+                {
+                    this.mUISimButton = new WinButton(this);
+                    #region Critérios de pesquisa
+                    this.mUISimButton.SearchProperties[WinButton.PropertyNames.Name] = "Sim";
+                    this.mUISimButton.WindowTitles.Add("Pergunta");
+                    #endregion
+                }
+                return this.mUISimButton;
+            }
+        }
+        
+        public WinButton UINãoButton
+        {
+            get
+            {
+                if ((this.mUINãoButton == null))
+                {
+                    this.mUINãoButton = new WinButton(this);
+                    #region Critérios de pesquisa
+                    this.mUINãoButton.SearchProperties[WinButton.PropertyNames.Name] = "Não";
+                    this.mUINãoButton.WindowTitles.Add("Pergunta");
+                    #endregion
+                }
+                return this.mUINãoButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUISimButton;
+        
+        private WinButton mUINãoButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIGeraçãodecobrançaWindow1 : WinWindow
+    {
+        
+        public UIGeraçãodecobrançaWindow1()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "Geração de cobrança";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.FilterProperties[WinWindow.PropertyNames.OrderOfInvocation] = "2";
+            this.WindowTitles.Add("Geração de cobrança");
+            #endregion
+        }
+        
+        #region Properties
+        public WinTitleBar UIGeraçãodecobrançaTitleBar
+        {
+            get
+            {
+                if ((this.mUIGeraçãodecobrançaTitleBar == null))
+                {
+                    this.mUIGeraçãodecobrançaTitleBar = new WinTitleBar(this);
+                    #region Critérios de pesquisa
+                    this.mUIGeraçãodecobrançaTitleBar.WindowTitles.Add("Geração de cobrança");
+                    #endregion
+                }
+                return this.mUIGeraçãodecobrançaTitleBar;
+            }
+        }
+        
+        public UIConsumoWindow UIConsumoWindow
+        {
+            get
+            {
+                if ((this.mUIConsumoWindow == null))
+                {
+                    this.mUIConsumoWindow = new UIConsumoWindow(this);
+                }
+                return this.mUIConsumoWindow;
+            }
+        }
+        
+        public UIItem1518Window UIItem1518Window
+        {
+            get
+            {
+                if ((this.mUIItem1518Window == null))
+                {
+                    this.mUIItem1518Window = new UIItem1518Window(this);
+                }
+                return this.mUIItem1518Window;
+            }
+        }
+        
+        public UICobrançaWindow UICobrançaWindow
+        {
+            get
+            {
+                if ((this.mUICobrançaWindow == null))
+                {
+                    this.mUICobrançaWindow = new UICobrançaWindow(this);
+                }
+                return this.mUICobrançaWindow;
+            }
+        }
+        
+        public UIOKWindow1 UIOKWindow
+        {
+            get
+            {
+                if ((this.mUIOKWindow == null))
+                {
+                    this.mUIOKWindow = new UIOKWindow1(this);
+                }
+                return this.mUIOKWindow;
+            }
+        }
+        
+        public UIConcluídaWindow1 UIConcluídaWindow
+        {
+            get
+            {
+                if ((this.mUIConcluídaWindow == null))
+                {
+                    this.mUIConcluídaWindow = new UIConcluídaWindow1(this);
+                }
+                return this.mUIConcluídaWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinTitleBar mUIGeraçãodecobrançaTitleBar;
+        
+        private UIConsumoWindow mUIConsumoWindow;
+        
+        private UIItem1518Window mUIItem1518Window;
+        
+        private UICobrançaWindow mUICobrançaWindow;
+        
+        private UIOKWindow1 mUIOKWindow;
+        
+        private UIConcluídaWindow1 mUIConcluídaWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIConsumoWindow : WinWindow
+    {
+        
+        public UIConsumoWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "groupBoxConsumption";
+            this.WindowTitles.Add("Geração de cobrança");
+            #endregion
+        }
+        
+        #region Properties
+        public WinClient UIConsumoClient
+        {
+            get
+            {
+                if ((this.mUIConsumoClient == null))
+                {
+                    this.mUIConsumoClient = new WinClient(this);
+                    #region Critérios de pesquisa
+                    this.mUIConsumoClient.SearchProperties[WinControl.PropertyNames.Name] = "Consumo";
+                    this.mUIConsumoClient.WindowTitles.Add("Geração de cobrança");
+                    #endregion
+                }
+                return this.mUIConsumoClient;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinClient mUIConsumoClient;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIItem1518Window : WinWindow
+    {
+        
+        public UIItem1518Window(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "label";
+            this.WindowTitles.Add("Geração de cobrança");
+            #endregion
+        }
+        
+        #region Properties
+        public WinText UIItem1518Text
+        {
+            get
+            {
+                if ((this.mUIItem1518Text == null))
+                {
+                    this.mUIItem1518Text = new WinText(this);
+                    #region Critérios de pesquisa
+                    this.mUIItem1518Text.SearchProperties[WinText.PropertyNames.Name] = "15:18";
+                    this.mUIItem1518Text.WindowTitles.Add("Geração de cobrança");
+                    #endregion
+                }
+                return this.mUIItem1518Text;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinText mUIItem1518Text;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UICobrançaWindow : WinWindow
+    {
+        
+        public UICobrançaWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "groupBoxDun";
+            this.WindowTitles.Add("Geração de cobrança");
+            #endregion
+        }
+        
+        #region Properties
+        public WinClient UICobrançaClient
+        {
+            get
+            {
+                if ((this.mUICobrançaClient == null))
+                {
+                    this.mUICobrançaClient = new WinClient(this);
+                    #region Critérios de pesquisa
+                    this.mUICobrançaClient.SearchProperties[WinControl.PropertyNames.Name] = "Cobrança";
+                    this.mUICobrançaClient.WindowTitles.Add("Geração de cobrança");
+                    #endregion
+                }
+                return this.mUICobrançaClient;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinClient mUICobrançaClient;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIOKWindow1 : WinWindow
+    {
+        
+        public UIOKWindow1(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "buttonAction";
+            this.WindowTitles.Add("Geração de cobrança");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIOKButton
+        {
+            get
+            {
+                if ((this.mUIOKButton == null))
+                {
+                    this.mUIOKButton = new WinButton(this);
+                    #region Critérios de pesquisa
+                    this.mUIOKButton.SearchProperties[WinButton.PropertyNames.Name] = "OK";
+                    this.mUIOKButton.WindowTitles.Add("Geração de cobrança");
+                    #endregion
+                }
+                return this.mUIOKButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIOKButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIConcluídaWindow1 : WinWindow
+    {
+        
+        public UIConcluídaWindow1(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "labelMessage";
+            this.WindowTitles.Add("Geração de cobrança");
+            #endregion
+        }
+        
+        #region Properties
+        public WinText UIConcluídaText
+        {
+            get
+            {
+                if ((this.mUIConcluídaText == null))
+                {
+                    this.mUIConcluídaText = new WinText(this);
+                    #region Critérios de pesquisa
+                    this.mUIConcluídaText.SearchProperties[WinText.PropertyNames.Name] = "Concluída";
+                    this.mUIConcluídaText.WindowTitles.Add("Geração de cobrança");
+                    #endregion
+                }
+                return this.mUIConcluídaText;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinText mUIConcluídaText;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIMultiClubesControlesWindow : WinWindow
+    {
+        
+        public UIMultiClubesControlesWindow()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "MultiClubes - Controles de acesso";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("MultiClubes - Controles de acesso");
+            #endregion
+        }
+        
+        #region Properties
+        public WinTitleBar UIMultiClubesControlesTitleBar
+        {
+            get
+            {
+                if ((this.mUIMultiClubesControlesTitleBar == null))
+                {
+                    this.mUIMultiClubesControlesTitleBar = new WinTitleBar(this);
+                    #region Critérios de pesquisa
+                    this.mUIMultiClubesControlesTitleBar.WindowTitles.Add("MultiClubes - Controles de acesso");
+                    #endregion
+                }
+                return this.mUIMultiClubesControlesTitleBar;
+            }
+        }
+        
+        public UIListViewWindow4 UIListViewWindow
+        {
+            get
+            {
+                if ((this.mUIListViewWindow == null))
+                {
+                    this.mUIListViewWindow = new UIListViewWindow4(this);
+                }
+                return this.mUIListViewWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinTitleBar mUIMultiClubesControlesTitleBar;
+        
+        private UIListViewWindow4 mUIListViewWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIListViewWindow4 : WinWindow
+    {
+        
+        public UIListViewWindow4(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "listView";
+            this.WindowTitles.Add("MultiClubes - Controles de acesso");
+            #endregion
+        }
+        
+        #region Properties
+        public UIListViewList3 UIListViewList
+        {
+            get
+            {
+                if ((this.mUIListViewList == null))
+                {
+                    this.mUIListViewList = new UIListViewList3(this);
+                }
+                return this.mUIListViewList;
+            }
+        }
+        
+        public WinListItem UIControledeEmissãodeCListItem
+        {
+            get
+            {
+                if ((this.mUIControledeEmissãodeCListItem == null))
+                {
+                    this.mUIControledeEmissãodeCListItem = new WinListItem(this);
+                    #region Critérios de pesquisa
+                    this.mUIControledeEmissãodeCListItem.SearchProperties[WinListItem.PropertyNames.Name] = "Controle de Emissão de Cortesias";
+                    this.mUIControledeEmissãodeCListItem.WindowTitles.Add("MultiClubes - Controles de acesso");
+                    #endregion
+                }
+                return this.mUIControledeEmissãodeCListItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIListViewList3 mUIListViewList;
+        
+        private WinListItem mUIControledeEmissãodeCListItem;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIListViewList3 : WinList
+    {
+        
+        public UIListViewList3(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.WindowTitles.Add("MultiClubes - Controles de acesso");
+            #endregion
+        }
+        
+        #region Properties
+        public UIControledeCabeçalhoList1 UIControledeCabeçalhoList
+        {
+            get
+            {
+                if ((this.mUIControledeCabeçalhoList == null))
+                {
+                    this.mUIControledeCabeçalhoList = new UIControledeCabeçalhoList1(this);
+                }
+                return this.mUIControledeCabeçalhoList;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIControledeCabeçalhoList1 mUIControledeCabeçalhoList;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIControledeCabeçalhoList1 : WinList
+    {
+        
+        public UIControledeCabeçalhoList1(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinList.PropertyNames.Name] = "Controle de Cabeçalho";
+            this.WindowTitles.Add("MultiClubes - Controles de acesso");
+            #endregion
+        }
+        
+        #region Properties
+        public WinColumnHeader UINomeColumnHeader
+        {
+            get
+            {
+                if ((this.mUINomeColumnHeader == null))
+                {
+                    this.mUINomeColumnHeader = new WinColumnHeader(this);
+                    #region Critérios de pesquisa
+                    this.mUINomeColumnHeader.SearchProperties[WinControl.PropertyNames.Name] = "Nome";
+                    this.mUINomeColumnHeader.WindowTitles.Add("MultiClubes - Controles de acesso");
+                    #endregion
+                }
+                return this.mUINomeColumnHeader;
+            }
+        }
+        
+        public WinColumnHeader UIÚltimaalteraçãoColumnHeader
+        {
+            get
+            {
+                if ((this.mUIÚltimaalteraçãoColumnHeader == null))
+                {
+                    this.mUIÚltimaalteraçãoColumnHeader = new WinColumnHeader(this);
+                    #region Critérios de pesquisa
+                    this.mUIÚltimaalteraçãoColumnHeader.SearchProperties[WinControl.PropertyNames.Name] = "Última alteração";
+                    this.mUIÚltimaalteraçãoColumnHeader.WindowTitles.Add("MultiClubes - Controles de acesso");
+                    #endregion
+                }
+                return this.mUIÚltimaalteraçãoColumnHeader;
+            }
+        }
+        
+        public WinColumnHeader UICriaçãoColumnHeader
+        {
+            get
+            {
+                if ((this.mUICriaçãoColumnHeader == null))
+                {
+                    this.mUICriaçãoColumnHeader = new WinColumnHeader(this);
+                    #region Critérios de pesquisa
+                    this.mUICriaçãoColumnHeader.SearchProperties[WinControl.PropertyNames.Name] = "Criação";
+                    this.mUICriaçãoColumnHeader.WindowTitles.Add("MultiClubes - Controles de acesso");
+                    #endregion
+                }
+                return this.mUICriaçãoColumnHeader;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinColumnHeader mUINomeColumnHeader;
+        
+        private WinColumnHeader mUIÚltimaalteraçãoColumnHeader;
+        
+        private WinColumnHeader mUICriaçãoColumnHeader;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIControledeacessoWindow : WinWindow
+    {
+        
+        public UIControledeacessoWindow()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "Controle de acesso";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("Controle de acesso");
+            #endregion
+        }
+        
+        #region Properties
+        public UITextBoxNameWindow UITextBoxNameWindow
+        {
+            get
+            {
+                if ((this.mUITextBoxNameWindow == null))
+                {
+                    this.mUITextBoxNameWindow = new UITextBoxNameWindow(this);
+                }
+                return this.mUITextBoxNameWindow;
+            }
+        }
+        
+        public UITextBoxDescriptionWindow UITextBoxDescriptionWindow
+        {
+            get
+            {
+                if ((this.mUITextBoxDescriptionWindow == null))
+                {
+                    this.mUITextBoxDescriptionWindow = new UITextBoxDescriptionWindow(this);
+                }
+                return this.mUITextBoxDescriptionWindow;
+            }
+        }
+        
+        public UIRegrasWindow UIRegrasWindow
+        {
+            get
+            {
+                if ((this.mUIRegrasWindow == null))
+                {
+                    this.mUIRegrasWindow = new UIRegrasWindow(this);
+                }
+                return this.mUIRegrasWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UITextBoxNameWindow mUITextBoxNameWindow;
+        
+        private UITextBoxDescriptionWindow mUITextBoxDescriptionWindow;
+        
+        private UIRegrasWindow mUIRegrasWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UITextBoxNameWindow : WinWindow
+    {
+        
+        public UITextBoxNameWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "textBoxName";
+            this.WindowTitles.Add("Controle de acesso");
+            #endregion
+        }
+        
+        #region Properties
+        public WinEdit UITextBoxNameEdit
+        {
+            get
+            {
+                if ((this.mUITextBoxNameEdit == null))
+                {
+                    this.mUITextBoxNameEdit = new WinEdit(this);
+                    #region Critérios de pesquisa
+                    this.mUITextBoxNameEdit.WindowTitles.Add("Controle de acesso");
+                    #endregion
+                }
+                return this.mUITextBoxNameEdit;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinEdit mUITextBoxNameEdit;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UITextBoxDescriptionWindow : WinWindow
+    {
+        
+        public UITextBoxDescriptionWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "textBoxDescription";
+            this.WindowTitles.Add("Controle de acesso");
+            #endregion
+        }
+        
+        #region Properties
+        public WinEdit UITextBoxDescriptionEdit
+        {
+            get
+            {
+                if ((this.mUITextBoxDescriptionEdit == null))
+                {
+                    this.mUITextBoxDescriptionEdit = new WinEdit(this);
+                    #region Critérios de pesquisa
+                    this.mUITextBoxDescriptionEdit.WindowTitles.Add("Controle de acesso");
+                    #endregion
+                }
+                return this.mUITextBoxDescriptionEdit;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinEdit mUITextBoxDescriptionEdit;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIRegrasWindow : WinWindow
+    {
+        
+        public UIRegrasWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "buttonRules";
+            this.WindowTitles.Add("Controle de acesso");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIRegrasButton
+        {
+            get
+            {
+                if ((this.mUIRegrasButton == null))
+                {
+                    this.mUIRegrasButton = new WinButton(this);
+                    #region Critérios de pesquisa
+                    this.mUIRegrasButton.SearchProperties[WinButton.PropertyNames.Name] = "Regras";
+                    this.mUIRegrasButton.WindowTitles.Add("Controle de acesso");
+                    #endregion
+                }
+                return this.mUIRegrasButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIRegrasButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIControledeacessoWindow1 : WinWindow
+    {
+        
+        public UIControledeacessoWindow1()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "Controle de acesso";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.FilterProperties[WinWindow.PropertyNames.OrderOfInvocation] = "2";
+            this.WindowTitles.Add("Controle de acesso");
+            #endregion
+        }
+        
+        #region Properties
+        public UITreeViewWindow UITreeViewWindow
+        {
+            get
+            {
+                if ((this.mUITreeViewWindow == null))
+                {
+                    this.mUITreeViewWindow = new UITreeViewWindow(this);
+                }
+                return this.mUITreeViewWindow;
+            }
+        }
+        
+        public UICheckedListBoxWindow UICheckedListBoxWindow
+        {
+            get
+            {
+                if ((this.mUICheckedListBoxWindow == null))
+                {
+                    this.mUICheckedListBoxWindow = new UICheckedListBoxWindow(this);
+                }
+                return this.mUICheckedListBoxWindow;
+            }
+        }
+        
+        public UIAlertaWindow UIAlertaWindow
+        {
+            get
+            {
+                if ((this.mUIAlertaWindow == null))
+                {
+                    this.mUIAlertaWindow = new UIAlertaWindow(this);
+                }
+                return this.mUIAlertaWindow;
+            }
+        }
+        
+        public UIAlertaWindow1 UIAlertaWindow1
+        {
+            get
+            {
+                if ((this.mUIAlertaWindow1 == null))
+                {
+                    this.mUIAlertaWindow1 = new UIAlertaWindow1(this);
+                }
+                return this.mUIAlertaWindow1;
+            }
+        }
+        
+        public UIAlertaWindow2 UIAlertaWindow2
+        {
+            get
+            {
+                if ((this.mUIAlertaWindow2 == null))
+                {
+                    this.mUIAlertaWindow2 = new UIAlertaWindow2(this);
+                }
+                return this.mUIAlertaWindow2;
+            }
+        }
+        
+        public UIAlertaWindow3 UIAlertaWindow3
+        {
+            get
+            {
+                if ((this.mUIAlertaWindow3 == null))
+                {
+                    this.mUIAlertaWindow3 = new UIAlertaWindow3(this);
+                }
+                return this.mUIAlertaWindow3;
+            }
+        }
+        
+        public UIComboBoxMessageWindow1 UIComboBoxMessageWindow1
+        {
+            get
+            {
+                if ((this.mUIComboBoxMessageWindow1 == null))
+                {
+                    this.mUIComboBoxMessageWindow1 = new UIComboBoxMessageWindow1(this);
+                }
+                return this.mUIComboBoxMessageWindow1;
+            }
+        }
+        
+        public UIOKWindow2 UIOKWindow
+        {
+            get
+            {
+                if ((this.mUIOKWindow == null))
+                {
+                    this.mUIOKWindow = new UIOKWindow2(this);
+                }
+                return this.mUIOKWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UITreeViewWindow mUITreeViewWindow;
+        
+        private UICheckedListBoxWindow mUICheckedListBoxWindow;
+        
+        private UIAlertaWindow mUIAlertaWindow;
+        
+        private UIAlertaWindow1 mUIAlertaWindow1;
+        
+        private UIAlertaWindow2 mUIAlertaWindow2;
+        
+        private UIAlertaWindow3 mUIAlertaWindow3;
+        
+        private UIComboBoxMessageWindow1 mUIComboBoxMessageWindow1;
+        
+        private UIOKWindow2 mUIOKWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UITreeViewWindow : WinWindow
+    {
+        
+        public UITreeViewWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "treeView";
+            this.WindowTitles.Add("Controle de acesso");
+            #endregion
+        }
+        
+        #region Properties
+        public WinCheckBoxTreeItem UIAcompanhantesCheckBoxTreeItem
+        {
+            get
+            {
+                if ((this.mUIAcompanhantesCheckBoxTreeItem == null))
+                {
+                    this.mUIAcompanhantesCheckBoxTreeItem = new WinCheckBoxTreeItem(this);
+                    #region Critérios de pesquisa
+                    this.mUIAcompanhantesCheckBoxTreeItem.SearchProperties[WinCheckBoxTreeItem.PropertyNames.Name] = "Acompanhantes";
+                    this.mUIAcompanhantesCheckBoxTreeItem.SearchProperties["Value"] = "0";
+                    this.mUIAcompanhantesCheckBoxTreeItem.WindowTitles.Add("Controle de acesso");
+                    #endregion
+                }
+                return this.mUIAcompanhantesCheckBoxTreeItem;
+            }
+        }
+        
+        public WinCheckBoxTreeItem UICadastroCheckBoxTreeItem
+        {
+            get
+            {
+                if ((this.mUICadastroCheckBoxTreeItem == null))
+                {
+                    this.mUICadastroCheckBoxTreeItem = new WinCheckBoxTreeItem(this);
+                    #region Critérios de pesquisa
+                    this.mUICadastroCheckBoxTreeItem.SearchProperties[WinCheckBoxTreeItem.PropertyNames.Name] = "Cadastro";
+                    this.mUICadastroCheckBoxTreeItem.SearchProperties["Value"] = "0";
+                    this.mUICadastroCheckBoxTreeItem.WindowTitles.Add("Controle de acesso");
+                    #endregion
+                }
+                return this.mUICadastroCheckBoxTreeItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinCheckBoxTreeItem mUIAcompanhantesCheckBoxTreeItem;
+        
+        private WinCheckBoxTreeItem mUICadastroCheckBoxTreeItem;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UICheckedListBoxWindow : WinWindow
+    {
+        
+        public UICheckedListBoxWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "checkedListBox";
+            this.WindowTitles.Add("Controle de acesso");
+            #endregion
+        }
+        
+        #region Properties
+        public WinCheckBox UIConvidadoCheckBox
+        {
+            get
+            {
+                if ((this.mUIConvidadoCheckBox == null))
+                {
+                    this.mUIConvidadoCheckBox = new WinCheckBox(this);
+                    #region Critérios de pesquisa
+                    this.mUIConvidadoCheckBox.SearchProperties[WinCheckBox.PropertyNames.Name] = "Convidado";
+                    this.mUIConvidadoCheckBox.WindowTitles.Add("Controle de acesso");
+                    #endregion
+                }
+                return this.mUIConvidadoCheckBox;
+            }
+        }
+        
+        public WinCheckBox UISócioCheckBox
+        {
+            get
+            {
+                if ((this.mUISócioCheckBox == null))
+                {
+                    this.mUISócioCheckBox = new WinCheckBox(this);
+                    #region Critérios de pesquisa
+                    this.mUISócioCheckBox.SearchProperties[WinCheckBox.PropertyNames.Name] = "Sócio";
+                    this.mUISócioCheckBox.WindowTitles.Add("Controle de acesso");
+                    #endregion
+                }
+                return this.mUISócioCheckBox;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinCheckBox mUIConvidadoCheckBox;
+        
+        private WinCheckBox mUISócioCheckBox;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIAlertaWindow : WinWindow
+    {
+        
+        public UIAlertaWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "checkBoxShowWarning";
+            this.WindowTitles.Add("Controle de acesso");
+            #endregion
+        }
+        
+        #region Properties
+        public WinCheckBox UIAlertaCheckBox
+        {
+            get
+            {
+                if ((this.mUIAlertaCheckBox == null))
+                {
+                    this.mUIAlertaCheckBox = new WinCheckBox(this);
+                    #region Critérios de pesquisa
+                    this.mUIAlertaCheckBox.SearchProperties[WinCheckBox.PropertyNames.Name] = "Alerta";
+                    this.mUIAlertaCheckBox.WindowTitles.Add("Controle de acesso");
+                    #endregion
+                }
+                return this.mUIAlertaCheckBox;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinCheckBox mUIAlertaCheckBox;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIAlertaWindow1 : WinWindow
+    {
+        
+        public UIAlertaWindow1(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "checkBoxShowWarning";
+            this.SearchProperties[WinWindow.PropertyNames.Instance] = "2";
+            this.WindowTitles.Add("Controle de acesso");
+            #endregion
+        }
+        
+        #region Properties
+        public WinCheckBox UIAlertaCheckBox
+        {
+            get
+            {
+                if ((this.mUIAlertaCheckBox == null))
+                {
+                    this.mUIAlertaCheckBox = new WinCheckBox(this);
+                    #region Critérios de pesquisa
+                    this.mUIAlertaCheckBox.SearchProperties[WinCheckBox.PropertyNames.Name] = "Alerta";
+                    this.mUIAlertaCheckBox.WindowTitles.Add("Controle de acesso");
+                    #endregion
+                }
+                return this.mUIAlertaCheckBox;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinCheckBox mUIAlertaCheckBox;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIAlertaWindow2 : WinWindow
+    {
+        
+        public UIAlertaWindow2(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "checkBoxShowWarning";
+            this.SearchProperties[WinWindow.PropertyNames.Instance] = "3";
+            this.WindowTitles.Add("Controle de acesso");
+            #endregion
+        }
+        
+        #region Properties
+        public WinCheckBox UIAlertaCheckBox
+        {
+            get
+            {
+                if ((this.mUIAlertaCheckBox == null))
+                {
+                    this.mUIAlertaCheckBox = new WinCheckBox(this);
+                    #region Critérios de pesquisa
+                    this.mUIAlertaCheckBox.SearchProperties[WinCheckBox.PropertyNames.Name] = "Alerta";
+                    this.mUIAlertaCheckBox.WindowTitles.Add("Controle de acesso");
+                    #endregion
+                }
+                return this.mUIAlertaCheckBox;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinCheckBox mUIAlertaCheckBox;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIAlertaWindow3 : WinWindow
+    {
+        
+        public UIAlertaWindow3(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "checkBoxShowWarning";
+            this.SearchProperties[WinWindow.PropertyNames.Instance] = "4";
+            this.WindowTitles.Add("Controle de acesso");
+            #endregion
+        }
+        
+        #region Properties
+        public WinCheckBox UIAlertaCheckBox
+        {
+            get
+            {
+                if ((this.mUIAlertaCheckBox == null))
+                {
+                    this.mUIAlertaCheckBox = new WinCheckBox(this);
+                    #region Critérios de pesquisa
+                    this.mUIAlertaCheckBox.SearchProperties[WinCheckBox.PropertyNames.Name] = "Alerta";
+                    this.mUIAlertaCheckBox.WindowTitles.Add("Controle de acesso");
+                    #endregion
+                }
+                return this.mUIAlertaCheckBox;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinCheckBox mUIAlertaCheckBox;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIComboBoxMessageWindow1 : WinWindow
+    {
+        
+        public UIComboBoxMessageWindow1(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "comboBoxMessage";
+            this.WindowTitles.Add("Controle de acesso");
+            #endregion
+        }
+        
+        #region Properties
+        public WinComboBox UIMensagemdebloqueioComboBox
+        {
+            get
+            {
+                if ((this.mUIMensagemdebloqueioComboBox == null))
+                {
+                    this.mUIMensagemdebloqueioComboBox = new WinComboBox(this);
+                    #region Critérios de pesquisa
+                    this.mUIMensagemdebloqueioComboBox.SearchProperties[WinComboBox.PropertyNames.Name] = "Mensagem de bloqueio";
+                    this.mUIMensagemdebloqueioComboBox.WindowTitles.Add("Controle de acesso");
+                    #endregion
+                }
+                return this.mUIMensagemdebloqueioComboBox;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinComboBox mUIMensagemdebloqueioComboBox;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIOKWindow2 : WinWindow
+    {
+        
+        public UIOKWindow2(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "buttonOK";
+            this.WindowTitles.Add("Controle de acesso");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIOKButton
+        {
+            get
+            {
+                if ((this.mUIOKButton == null))
+                {
+                    this.mUIOKButton = new WinButton(this);
+                    #region Critérios de pesquisa
+                    this.mUIOKButton.SearchProperties[WinButton.PropertyNames.Name] = "OK";
+                    this.mUIOKButton.WindowTitles.Add("Controle de acesso");
+                    #endregion
+                }
+                return this.mUIOKButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIOKButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIMultiClubesMapasdeocWindow : WinWindow
+    {
+        
+        public UIMultiClubesMapasdeocWindow()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "MultiClubes - Mapas de ocupação";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("MultiClubes - Mapas de ocupação");
+            #endregion
+        }
+        
+        #region Properties
+        public UIListViewWindow5 UIListViewWindow
+        {
+            get
+            {
+                if ((this.mUIListViewWindow == null))
+                {
+                    this.mUIListViewWindow = new UIListViewWindow5(this);
+                }
+                return this.mUIListViewWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIListViewWindow5 mUIListViewWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIListViewWindow5 : WinWindow
+    {
+        
+        public UIListViewWindow5(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "listView";
+            this.WindowTitles.Add("MultiClubes - Mapas de ocupação");
+            #endregion
+        }
+        
+        #region Properties
+        public WinListItem UIArmarioAtletaListItem
+        {
+            get
+            {
+                if ((this.mUIArmarioAtletaListItem == null))
+                {
+                    this.mUIArmarioAtletaListItem = new WinListItem(this);
+                    #region Critérios de pesquisa
+                    this.mUIArmarioAtletaListItem.SearchProperties[WinListItem.PropertyNames.Name] = "Armario Atleta";
+                    this.mUIArmarioAtletaListItem.WindowTitles.Add("MultiClubes - Mapas de ocupação");
+                    #endregion
+                }
+                return this.mUIArmarioAtletaListItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinListItem mUIArmarioAtletaListItem;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIMultiClubesWindow11 : WinWindow
+    {
+        
+        public UIMultiClubesWindow11()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "MultiClubes";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("MultiClubes");
+            #endregion
+        }
+        
+        #region Properties
+        public UIIncluirWindow UIIncluirWindow
+        {
+            get
+            {
+                if ((this.mUIIncluirWindow == null))
+                {
+                    this.mUIIncluirWindow = new UIIncluirWindow(this);
+                }
+                return this.mUIIncluirWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIIncluirWindow mUIIncluirWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIIncluirWindow : WinWindow
+    {
+        
+        public UIIncluirWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "labelInstruction";
+            this.WindowTitles.Add("MultiClubes");
+            #endregion
+        }
+        
+        #region Properties
+        public WinText UIIncluirText
+        {
+            get
+            {
+                if ((this.mUIIncluirText == null))
+                {
+                    this.mUIIncluirText = new WinText(this);
+                    #region Critérios de pesquisa
+                    this.mUIIncluirText.SearchProperties[WinText.PropertyNames.Name] = "Incluir";
+                    this.mUIIncluirText.WindowTitles.Add("MultiClubes");
+                    #endregion
+                }
+                return this.mUIIncluirText;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinText mUIIncluirText;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIMultiClubesWindow3 : WinWindow
+    {
+        
+        public UIMultiClubesWindow3()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "MultiClubes";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("MultiClubes");
+            #endregion
+        }
+        
+        #region Properties
+        public UITextBoxNameWindow1 UITextBoxNameWindow
+        {
+            get
+            {
+                if ((this.mUITextBoxNameWindow == null))
+                {
+                    this.mUITextBoxNameWindow = new UITextBoxNameWindow1(this);
+                }
+                return this.mUITextBoxNameWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UITextBoxNameWindow1 mUITextBoxNameWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UITextBoxNameWindow1 : WinWindow
+    {
+        
+        public UITextBoxNameWindow1(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "textBoxName";
+            this.WindowTitles.Add("MultiClubes");
+            #endregion
+        }
+        
+        #region Properties
+        public WinEdit UITextBoxNameEdit
+        {
+            get
+            {
+                if ((this.mUITextBoxNameEdit == null))
+                {
+                    this.mUITextBoxNameEdit = new WinEdit(this);
+                    #region Critérios de pesquisa
+                    this.mUITextBoxNameEdit.WindowTitles.Add("MultiClubes");
+                    #endregion
+                }
+                return this.mUITextBoxNameEdit;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinEdit mUITextBoxNameEdit;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIMultiClubesWindow4 : WinWindow
+    {
+        
+        public UIMultiClubesWindow4()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "MultiClubes";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("MultiClubes");
+            #endregion
+        }
+        
+        #region Properties
+        public UITabControlWindow UITabControlWindow
+        {
+            get
+            {
+                if ((this.mUITabControlWindow == null))
+                {
+                    this.mUITabControlWindow = new UITabControlWindow(this);
+                }
+                return this.mUITabControlWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UITabControlWindow mUITabControlWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UITabControlWindow : WinWindow
+    {
+        
+        public UITabControlWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "tabControl";
+            this.WindowTitles.Add("MultiClubes");
+            #endregion
+        }
+        
+        #region Properties
+        public WinTabPage UIGeralTabPage
+        {
+            get
+            {
+                if ((this.mUIGeralTabPage == null))
+                {
+                    this.mUIGeralTabPage = new WinTabPage(this);
+                    #region Critérios de pesquisa
+                    this.mUIGeralTabPage.SearchProperties[WinTabPage.PropertyNames.Name] = "Geral";
+                    this.mUIGeralTabPage.WindowTitles.Add("MultiClubes");
+                    #endregion
+                }
+                return this.mUIGeralTabPage;
+            }
+        }
+        
+        public WinTabPage UISetoresTabPage
+        {
+            get
+            {
+                if ((this.mUISetoresTabPage == null))
+                {
+                    this.mUISetoresTabPage = new WinTabPage(this);
+                    #region Critérios de pesquisa
+                    this.mUISetoresTabPage.SearchProperties[WinTabPage.PropertyNames.Name] = "Setores";
+                    this.mUISetoresTabPage.WindowTitles.Add("MultiClubes");
+                    #endregion
+                }
+                return this.mUISetoresTabPage;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinTabPage mUIGeralTabPage;
+        
+        private WinTabPage mUISetoresTabPage;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIMultiClubesWindow5 : WinWindow
+    {
+        
+        public UIMultiClubesWindow5()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "MultiClubes";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("MultiClubes");
+            #endregion
+        }
+        
+        #region Properties
+        public UIListViewSectorsWindow UIListViewSectorsWindow
+        {
+            get
+            {
+                if ((this.mUIListViewSectorsWindow == null))
+                {
+                    this.mUIListViewSectorsWindow = new UIListViewSectorsWindow(this);
+                }
+                return this.mUIListViewSectorsWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIListViewSectorsWindow mUIListViewSectorsWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIListViewSectorsWindow : WinWindow
+    {
+        
+        public UIListViewSectorsWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "listViewSectors";
+            this.WindowTitles.Add("MultiClubes");
+            #endregion
+        }
+        
+        #region Properties
+        public WinList UIListViewSectorsList
+        {
+            get
+            {
+                if ((this.mUIListViewSectorsList == null))
+                {
+                    this.mUIListViewSectorsList = new WinList(this);
+                    #region Critérios de pesquisa
+                    this.mUIListViewSectorsList.SearchProperties[WinList.PropertyNames.Name] = "Nome :";
+                    this.mUIListViewSectorsList.WindowTitles.Add("MultiClubes");
+                    #endregion
+                }
+                return this.mUIListViewSectorsList;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinList mUIListViewSectorsList;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIMapadeocupaçãoWindow : WinWindow
+    {
+        
+        public UIMapadeocupaçãoWindow()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "Mapa de ocupação";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("Mapa de ocupação");
+            #endregion
+        }
+        
+        #region Properties
+        public UITextBoxNameWindow2 UITextBoxNameWindow
+        {
+            get
+            {
+                if ((this.mUITextBoxNameWindow == null))
+                {
+                    this.mUITextBoxNameWindow = new UITextBoxNameWindow2(this);
+                }
+                return this.mUITextBoxNameWindow;
+            }
+        }
+        
+        public UIItemWindow2 UIItemWindow
+        {
+            get
+            {
+                if ((this.mUIItemWindow == null))
+                {
+                    this.mUIItemWindow = new UIItemWindow2(this);
+                }
+                return this.mUIItemWindow;
+            }
+        }
+        
+        public UIDataGridViewPartsWindow UIDataGridViewPartsWindow
+        {
+            get
+            {
+                if ((this.mUIDataGridViewPartsWindow == null))
+                {
+                    this.mUIDataGridViewPartsWindow = new UIDataGridViewPartsWindow(this);
+                }
+                return this.mUIDataGridViewPartsWindow;
+            }
+        }
+        
+        public UIOKWindow3 UIOKWindow
+        {
+            get
+            {
+                if ((this.mUIOKWindow == null))
+                {
+                    this.mUIOKWindow = new UIOKWindow3(this);
+                }
+                return this.mUIOKWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UITextBoxNameWindow2 mUITextBoxNameWindow;
+        
+        private UIItemWindow2 mUIItemWindow;
+        
+        private UIDataGridViewPartsWindow mUIDataGridViewPartsWindow;
+        
+        private UIOKWindow3 mUIOKWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UITextBoxNameWindow2 : WinWindow
+    {
+        
+        public UITextBoxNameWindow2(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "textBoxName";
+            this.WindowTitles.Add("Mapa de ocupação");
+            #endregion
+        }
+        
+        #region Properties
+        public WinEdit UITextBoxNameEdit
+        {
+            get
+            {
+                if ((this.mUITextBoxNameEdit == null))
+                {
+                    this.mUITextBoxNameEdit = new WinEdit(this);
+                    #region Critérios de pesquisa
+                    this.mUITextBoxNameEdit.WindowTitles.Add("Mapa de ocupação");
+                    #endregion
+                }
+                return this.mUITextBoxNameEdit;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinEdit mUITextBoxNameEdit;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIItemWindow2 : WinWindow
+    {
+        
+        public UIItemWindow2(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.AccessibleName] = "Painel de Edição";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("Mapa de ocupação");
+            #endregion
+        }
+        
+        #region Properties
+        public UIPaineldeEdiçãoClient UIPaineldeEdiçãoClient
+        {
+            get
+            {
+                if ((this.mUIPaineldeEdiçãoClient == null))
+                {
+                    this.mUIPaineldeEdiçãoClient = new UIPaineldeEdiçãoClient(this);
+                }
+                return this.mUIPaineldeEdiçãoClient;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIPaineldeEdiçãoClient mUIPaineldeEdiçãoClient;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIPaineldeEdiçãoClient : WinClient
+    {
+        
+        public UIPaineldeEdiçãoClient(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinControl.PropertyNames.Name] = "Painel de Edição";
+            this.WindowTitles.Add("Mapa de ocupação");
+            #endregion
+        }
+        
+        #region Properties
+        public WinEdit UIControledeEdiçãoEdit
+        {
+            get
+            {
+                if ((this.mUIControledeEdiçãoEdit == null))
+                {
+                    this.mUIControledeEdiçãoEdit = new WinEdit(this);
+                    #region Critérios de pesquisa
+                    this.mUIControledeEdiçãoEdit.SearchProperties[WinEdit.PropertyNames.Name] = "Controle de Edição";
+                    this.mUIControledeEdiçãoEdit.WindowTitles.Add("Mapa de ocupação");
+                    #endregion
+                }
+                return this.mUIControledeEdiçãoEdit;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinEdit mUIControledeEdiçãoEdit;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIDataGridViewPartsWindow : WinWindow
+    {
+        
+        public UIDataGridViewPartsWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "dataGridViewParts";
+            this.WindowTitles.Add("Mapa de ocupação");
+            #endregion
+        }
+        
+        #region Properties
+        public UIDataGridViewTable UIDataGridViewTable
+        {
+            get
+            {
+                if ((this.mUIDataGridViewTable == null))
+                {
+                    this.mUIDataGridViewTable = new UIDataGridViewTable(this);
+                }
+                return this.mUIDataGridViewTable;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIDataGridViewTable mUIDataGridViewTable;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIDataGridViewTable : WinTable
+    {
+        
+        public UIDataGridViewTable(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinTable.PropertyNames.Name] = "DataGridView";
+            this.WindowTitles.Add("Mapa de ocupação");
+            #endregion
+        }
+        
+        #region Properties
+        public UILinha0Row UILinha0Row
+        {
+            get
+            {
+                if ((this.mUILinha0Row == null))
+                {
+                    this.mUILinha0Row = new UILinha0Row(this);
+                }
+                return this.mUILinha0Row;
+            }
+        }
+        
+        public UILinha0Row1 UILinha0Row1
+        {
+            get
+            {
+                if ((this.mUILinha0Row1 == null))
+                {
+                    this.mUILinha0Row1 = new UILinha0Row1(this);
+                }
+                return this.mUILinha0Row1;
+            }
+        }
+        
+        public UILinha0Row2 UILinha0Row2
+        {
+            get
+            {
+                if ((this.mUILinha0Row2 == null))
+                {
+                    this.mUILinha0Row2 = new UILinha0Row2(this);
+                }
+                return this.mUILinha0Row2;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UILinha0Row mUILinha0Row;
+        
+        private UILinha0Row1 mUILinha0Row1;
+        
+        private UILinha0Row2 mUILinha0Row2;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UILinha0Row : WinRow
+    {
+        
+        public UILinha0Row(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinRow.PropertyNames.Value] = "Fila1;(nulo);(nulo);(nulo)";
+            this.SearchConfigurations.Add(SearchConfiguration.AlwaysSearch);
+            this.WindowTitles.Add("Mapa de ocupação");
+            #endregion
+        }
+        
+        #region Properties
+        public WinCell UINuloCell
+        {
+            get
+            {
+                if ((this.mUINuloCell == null))
+                {
+                    this.mUINuloCell = new WinCell(this);
+                    #region Critérios de pesquisa
+                    this.mUINuloCell.SearchProperties[WinCell.PropertyNames.Value] = "(nulo)";
+                    this.mUINuloCell.WindowTitles.Add("Mapa de ocupação");
+                    #endregion
+                }
+                return this.mUINuloCell;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinCell mUINuloCell;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UILinha0Row1 : WinRow
+    {
+        
+        public UILinha0Row1(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinRow.PropertyNames.Value] = "Fila1;150;(nulo);(nulo)";
+            this.SearchConfigurations.Add(SearchConfiguration.AlwaysSearch);
+            this.WindowTitles.Add("Mapa de ocupação");
+            #endregion
+        }
+        
+        #region Properties
+        public WinCell UINuloCell
+        {
+            get
+            {
+                if ((this.mUINuloCell == null))
+                {
+                    this.mUINuloCell = new WinCell(this);
+                    #region Critérios de pesquisa
+                    this.mUINuloCell.SearchProperties[WinCell.PropertyNames.Value] = "(nulo)";
+                    this.mUINuloCell.WindowTitles.Add("Mapa de ocupação");
+                    #endregion
+                }
+                return this.mUINuloCell;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinCell mUINuloCell;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UILinha0Row2 : WinRow
+    {
+        
+        public UILinha0Row2(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinRow.PropertyNames.Value] = "Fila1;150;350;(nulo)";
+            this.SearchConfigurations.Add(SearchConfiguration.AlwaysSearch);
+            this.WindowTitles.Add("Mapa de ocupação");
+            #endregion
+        }
+        
+        #region Properties
+        public WinCell UINuloCell
+        {
+            get
+            {
+                if ((this.mUINuloCell == null))
+                {
+                    this.mUINuloCell = new WinCell(this);
+                    #region Critérios de pesquisa
+                    this.mUINuloCell.SearchProperties[WinCell.PropertyNames.Value] = "(nulo)";
+                    this.mUINuloCell.WindowTitles.Add("Mapa de ocupação");
+                    #endregion
+                }
+                return this.mUINuloCell;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinCell mUINuloCell;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIOKWindow3 : WinWindow
+    {
+        
+        public UIOKWindow3(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "buttonOK";
+            this.WindowTitles.Add("Mapa de ocupação");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIOKButton
+        {
+            get
+            {
+                if ((this.mUIOKButton == null))
+                {
+                    this.mUIOKButton = new WinButton(this);
+                    #region Critérios de pesquisa
+                    this.mUIOKButton.SearchProperties[WinButton.PropertyNames.Name] = "OK";
+                    this.mUIOKButton.WindowTitles.Add("Mapa de ocupação");
+                    #endregion
+                }
+                return this.mUIOKButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIOKButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIMultiClubesWindow6 : WinWindow
+    {
+        
+        public UIMultiClubesWindow6()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "MultiClubes";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("MultiClubes");
+            #endregion
+        }
+        
+        #region Properties
+        public UIOKWindow4 UIOKWindow
+        {
+            get
+            {
+                if ((this.mUIOKWindow == null))
+                {
+                    this.mUIOKWindow = new UIOKWindow4(this);
+                }
+                return this.mUIOKWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIOKWindow4 mUIOKWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIOKWindow4 : WinWindow
+    {
+        
+        public UIOKWindow4(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "buttonOK";
+            this.WindowTitles.Add("MultiClubes");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIOKButton
+        {
+            get
+            {
+                if ((this.mUIOKButton == null))
+                {
+                    this.mUIOKButton = new WinButton(this);
+                    #region Critérios de pesquisa
+                    this.mUIOKButton.SearchProperties[WinButton.PropertyNames.Name] = "OK";
+                    this.mUIOKButton.WindowTitles.Add("MultiClubes");
+                    #endregion
+                }
+                return this.mUIOKButton;
+            }
+        }
+        
+        public WinButton UIGerarButton
+        {
+            get
+            {
+                if ((this.mUIGerarButton == null))
+                {
+                    this.mUIGerarButton = new WinButton(this);
+                    #region Critérios de pesquisa
+                    this.mUIGerarButton.SearchProperties[WinButton.PropertyNames.Name] = "Gerar";
+                    this.mUIGerarButton.WindowTitles.Add("MultiClubes");
+                    #endregion
+                }
+                return this.mUIGerarButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIOKButton;
+        
+        private WinButton mUIGerarButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIExecutarWindow : WinWindow
+    {
+        
+        public UIExecutarWindow()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "Executar";
+            this.SearchProperties[WinWindow.PropertyNames.ClassName] = "#32770";
+            this.WindowTitles.Add("Executar");
+            #endregion
+        }
+        
+        #region Properties
+        public UIItemWindow11 UIItemWindow1
+        {
+            get
+            {
+                if ((this.mUIItemWindow1 == null))
+                {
+                    this.mUIItemWindow1 = new UIItemWindow11(this);
+                }
+                return this.mUIItemWindow1;
+            }
+        }
+        
+        public UIItemWindow3 UIItemWindow
+        {
+            get
+            {
+                if ((this.mUIItemWindow == null))
+                {
+                    this.mUIItemWindow = new UIItemWindow3(this);
+                }
+                return this.mUIItemWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIItemWindow11 mUIItemWindow1;
+        
+        private UIItemWindow3 mUIItemWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIItemWindow11 : WinWindow
+    {
+        
+        public UIItemWindow11(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "12298";
+            this.WindowTitles.Add("Executar");
+            #endregion
+        }
+        
+        #region Properties
+        public WinComboBox UIAbrirComboBox
+        {
+            get
+            {
+                if ((this.mUIAbrirComboBox == null))
+                {
+                    this.mUIAbrirComboBox = new WinComboBox(this);
+                    #region Critérios de pesquisa
+                    this.mUIAbrirComboBox.SearchProperties[WinComboBox.PropertyNames.Name] = "Abrir:";
+                    this.mUIAbrirComboBox.WindowTitles.Add("Executar");
+                    #endregion
+                }
+                return this.mUIAbrirComboBox;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinComboBox mUIAbrirComboBox;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIItemWindow3 : WinWindow
+    {
+        
+        public UIItemWindow3(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "1001";
+            this.WindowTitles.Add("Executar");
+            #endregion
+        }
+        
+        #region Properties
+        public WinEdit UIAbrirEdit
+        {
+            get
+            {
+                if ((this.mUIAbrirEdit == null))
+                {
+                    this.mUIAbrirEdit = new WinEdit(this);
+                    #region Critérios de pesquisa
+                    this.mUIAbrirEdit.SearchProperties[WinEdit.PropertyNames.Name] = "Abrir:";
+                    this.mUIAbrirEdit.WindowTitles.Add("Executar");
+                    #endregion
+                }
+                return this.mUIAbrirEdit;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinEdit mUIAbrirEdit;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIMultiClubesWindow7 : WinWindow
+    {
+        
+        public UIMultiClubesWindow7()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "MultiClubes";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("MultiClubes");
+            #endregion
+        }
+        
+        #region Properties
+        public UIContentPanel1Window UIContentPanel1Window
+        {
+            get
+            {
+                if ((this.mUIContentPanel1Window == null))
+                {
+                    this.mUIContentPanel1Window = new UIContentPanel1Window(this);
+                }
+                return this.mUIContentPanel1Window;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIContentPanel1Window mUIContentPanel1Window;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIContentPanel1Window : WinWindow
+    {
+        
+        public UIContentPanel1Window(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "panelFooter";
+            this.WindowTitles.Add("MultiClubes");
+            #endregion
+        }
+        
+        #region Properties
+        public WinClient UIContentPanel1Client
+        {
+            get
+            {
+                if ((this.mUIContentPanel1Client == null))
+                {
+                    this.mUIContentPanel1Client = new WinClient(this);
+                    #region Critérios de pesquisa
+                    this.mUIContentPanel1Client.SearchProperties[WinControl.PropertyNames.Name] = "contentPanel1";
+                    this.mUIContentPanel1Client.WindowTitles.Add("MultiClubes");
+                    #endregion
+                }
+                return this.mUIContentPanel1Client;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinClient mUIContentPanel1Client;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIMultiClubesWindow8 : WinWindow
+    {
+        
+        public UIMultiClubesWindow8()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "MultiClubes";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("MultiClubes");
+            #endregion
+        }
+        
+        #region Properties
+        public UIDockCashWindow UIDockCashWindow
+        {
+            get
+            {
+                if ((this.mUIDockCashWindow == null))
+                {
+                    this.mUIDockCashWindow = new UIDockCashWindow(this);
+                }
+                return this.mUIDockCashWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIDockCashWindow mUIDockCashWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIDockCashWindow : WinWindow
+    {
+        
+        public UIDockCashWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "dockCash";
+            this.WindowTitles.Add("MultiClubes");
+            #endregion
+        }
+        
+        #region Properties
+        public WinClient UIDockCashClient
+        {
+            get
+            {
+                if ((this.mUIDockCashClient == null))
+                {
+                    this.mUIDockCashClient = new WinClient(this);
+                    #region Critérios de pesquisa
+                    this.mUIDockCashClient.WindowTitles.Add("MultiClubes");
+                    #endregion
+                }
+                return this.mUIDockCashClient;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinClient mUIDockCashClient;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UISimulaçãodecobrançaWindow : WinWindow
+    {
+        
+        public UISimulaçãodecobrançaWindow()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "Simulação de cobrança";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("Simulação de cobrança");
+            #endregion
+        }
+        
+        #region Properties
+        public UIComboBoxDunTypeWindow1 UIComboBoxDunTypeWindow
+        {
+            get
+            {
+                if ((this.mUIComboBoxDunTypeWindow == null))
+                {
+                    this.mUIComboBoxDunTypeWindow = new UIComboBoxDunTypeWindow1(this);
+                }
+                return this.mUIComboBoxDunTypeWindow;
+            }
+        }
+        
+        public UINumericUpDownMonthsWindow UINumericUpDownMonthsWindow
+        {
+            get
+            {
+                if ((this.mUINumericUpDownMonthsWindow == null))
+                {
+                    this.mUINumericUpDownMonthsWindow = new UINumericUpDownMonthsWindow(this);
+                }
+                return this.mUINumericUpDownMonthsWindow;
+            }
+        }
+        
+        public UISimularWindow UISimularWindow
+        {
+            get
+            {
+                if ((this.mUISimularWindow == null))
+                {
+                    this.mUISimularWindow = new UISimularWindow(this);
+                }
+                return this.mUISimularWindow;
+            }
+        }
+        
+        public WinTitleBar UISimulaçãodecobrançaTitleBar
+        {
+            get
+            {
+                if ((this.mUISimulaçãodecobrançaTitleBar == null))
+                {
+                    this.mUISimulaçãodecobrançaTitleBar = new WinTitleBar(this);
+                    #region Critérios de pesquisa
+                    this.mUISimulaçãodecobrançaTitleBar.WindowTitles.Add("Simulação de cobrança");
+                    #endregion
+                }
+                return this.mUISimulaçãodecobrançaTitleBar;
+            }
+        }
+        
+        public UIFecharWindow1 UIFecharWindow
+        {
+            get
+            {
+                if ((this.mUIFecharWindow == null))
+                {
+                    this.mUIFecharWindow = new UIFecharWindow1(this);
+                }
+                return this.mUIFecharWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIComboBoxDunTypeWindow1 mUIComboBoxDunTypeWindow;
+        
+        private UINumericUpDownMonthsWindow mUINumericUpDownMonthsWindow;
+        
+        private UISimularWindow mUISimularWindow;
+        
+        private WinTitleBar mUISimulaçãodecobrançaTitleBar;
+        
+        private UIFecharWindow1 mUIFecharWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIComboBoxDunTypeWindow1 : WinWindow
+    {
+        
+        public UIComboBoxDunTypeWindow1(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "comboBoxDunType";
+            this.WindowTitles.Add("Simulação de cobrança");
+            #endregion
+        }
+        
+        #region Properties
+        public WinComboBox UIComboBoxDunTypeComboBox
+        {
+            get
+            {
+                if ((this.mUIComboBoxDunTypeComboBox == null))
+                {
+                    this.mUIComboBoxDunTypeComboBox = new WinComboBox(this);
+                    #region Critérios de pesquisa
+                    this.mUIComboBoxDunTypeComboBox.WindowTitles.Add("Simulação de cobrança");
+                    #endregion
+                }
+                return this.mUIComboBoxDunTypeComboBox;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinComboBox mUIComboBoxDunTypeComboBox;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UINumericUpDownMonthsWindow : WinWindow
+    {
+        
+        public UINumericUpDownMonthsWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "numericUpDownMonths";
+            this.WindowTitles.Add("Simulação de cobrança");
+            #endregion
+        }
+        
+        #region Properties
+        public WinComboBox UINumericUpDownMonthsComboBox
+        {
+            get
+            {
+                if ((this.mUINumericUpDownMonthsComboBox == null))
+                {
+                    this.mUINumericUpDownMonthsComboBox = new WinComboBox(this);
+                    #region Critérios de pesquisa
+                    this.mUINumericUpDownMonthsComboBox.WindowTitles.Add("Simulação de cobrança");
+                    #endregion
+                }
+                return this.mUINumericUpDownMonthsComboBox;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinComboBox mUINumericUpDownMonthsComboBox;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UISimularWindow : WinWindow
+    {
+        
+        public UISimularWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "buttonSimulate";
+            this.WindowTitles.Add("Simulação de cobrança");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UISimularButton
+        {
+            get
+            {
+                if ((this.mUISimularButton == null))
+                {
+                    this.mUISimularButton = new WinButton(this);
+                    #region Critérios de pesquisa
+                    this.mUISimularButton.SearchProperties[WinButton.PropertyNames.Name] = "Simular";
+                    this.mUISimularButton.WindowTitles.Add("Simulação de cobrança");
+                    #endregion
+                }
+                return this.mUISimularButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUISimularButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIFecharWindow1 : WinWindow
+    {
+        
+        public UIFecharWindow1(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "buttonClose";
+            this.WindowTitles.Add("Simulação de cobrança");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIFecharButton
+        {
+            get
+            {
+                if ((this.mUIFecharButton == null))
+                {
+                    this.mUIFecharButton = new WinButton(this);
+                    #region Critérios de pesquisa
+                    this.mUIFecharButton.SearchProperties[WinButton.PropertyNames.Name] = "Fechar";
+                    this.mUIFecharButton.WindowTitles.Add("Simulação de cobrança");
+                    #endregion
+                }
+                return this.mUIFecharButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIFecharButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UICobrançasWindow1 : WinWindow
+    {
+        
+        public UICobrançasWindow1()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "Cobranças";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("Cobranças");
+            #endregion
+        }
+        
+        #region Properties
+        public UIEditarText UIEditarText
+        {
+            get
+            {
+                if ((this.mUIEditarText == null))
+                {
+                    this.mUIEditarText = new UIEditarText(this);
+                }
+                return this.mUIEditarText;
+            }
+        }
+        
+        public UIFecharWindow2 UIFecharWindow
+        {
+            get
+            {
+                if ((this.mUIFecharWindow == null))
+                {
+                    this.mUIFecharWindow = new UIFecharWindow2(this);
+                }
+                return this.mUIFecharWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIEditarText mUIEditarText;
+        
+        private UIFecharWindow2 mUIFecharWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIEditarText : WinText
+    {
+        
+        public UIEditarText(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinText.PropertyNames.Name] = "Editar";
+            this.WindowTitles.Add("Cobranças");
+            #endregion
+        }
+        
+        #region Properties
+        public WinHyperlink UIEditarHyperlink
+        {
+            get
+            {
+                if ((this.mUIEditarHyperlink == null))
+                {
+                    this.mUIEditarHyperlink = new WinHyperlink(this);
+                    #region Critérios de pesquisa
+                    this.mUIEditarHyperlink.SearchProperties[WinHyperlink.PropertyNames.Name] = "Editar";
+                    this.mUIEditarHyperlink.WindowTitles.Add("Cobranças");
+                    #endregion
+                }
+                return this.mUIEditarHyperlink;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinHyperlink mUIEditarHyperlink;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIFecharWindow2 : WinWindow
+    {
+        
+        public UIFecharWindow2(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "buttonClose";
+            this.WindowTitles.Add("Cobranças");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIFecharButton
+        {
+            get
+            {
+                if ((this.mUIFecharButton == null))
+                {
+                    this.mUIFecharButton = new WinButton(this);
+                    #region Critérios de pesquisa
+                    this.mUIFecharButton.SearchProperties[WinButton.PropertyNames.Name] = "Fechar";
+                    this.mUIFecharButton.WindowTitles.Add("Cobranças");
+                    #endregion
+                }
+                return this.mUIFecharButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIFecharButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIEdiçãodecobrançaWindow1 : WinWindow
+    {
+        
+        public UIEdiçãodecobrançaWindow1()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "Edição de cobrança";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("Edição de cobrança");
+            #endregion
+        }
+        
+        #region Properties
+        public UIComboBoxDunTypeWindow2 UIComboBoxDunTypeWindow
+        {
+            get
+            {
+                if ((this.mUIComboBoxDunTypeWindow == null))
+                {
+                    this.mUIComboBoxDunTypeWindow = new UIComboBoxDunTypeWindow2(this);
+                }
+                return this.mUIComboBoxDunTypeWindow;
+            }
+        }
+        
+        public UIDetalhesWindow UIDetalhesWindow
+        {
+            get
+            {
+                if ((this.mUIDetalhesWindow == null))
+                {
+                    this.mUIDetalhesWindow = new UIDetalhesWindow(this);
+                }
+                return this.mUIDetalhesWindow;
+            }
+        }
+        
+        public UIOKWindow5 UIOKWindow
+        {
+            get
+            {
+                if ((this.mUIOKWindow == null))
+                {
+                    this.mUIOKWindow = new UIOKWindow5(this);
+                }
+                return this.mUIOKWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIComboBoxDunTypeWindow2 mUIComboBoxDunTypeWindow;
+        
+        private UIDetalhesWindow mUIDetalhesWindow;
+        
+        private UIOKWindow5 mUIOKWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIComboBoxDunTypeWindow2 : WinWindow
+    {
+        
+        public UIComboBoxDunTypeWindow2(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "comboBoxDunType";
+            this.WindowTitles.Add("Edição de cobrança");
+            #endregion
+        }
+        
+        #region Properties
+        public WinComboBox UIComboBoxDunTypeComboBox
+        {
+            get
+            {
+                if ((this.mUIComboBoxDunTypeComboBox == null))
+                {
+                    this.mUIComboBoxDunTypeComboBox = new WinComboBox(this);
+                    #region Critérios de pesquisa
+                    this.mUIComboBoxDunTypeComboBox.WindowTitles.Add("Edição de cobrança");
+                    #endregion
+                }
+                return this.mUIComboBoxDunTypeComboBox;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinComboBox mUIComboBoxDunTypeComboBox;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIDetalhesWindow : WinWindow
+    {
+        
+        public UIDetalhesWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "buttonDetail";
+            this.WindowTitles.Add("Edição de cobrança");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIDetalhesButton
+        {
+            get
+            {
+                if ((this.mUIDetalhesButton == null))
+                {
+                    this.mUIDetalhesButton = new WinButton(this);
+                    #region Critérios de pesquisa
+                    this.mUIDetalhesButton.SearchProperties[WinButton.PropertyNames.Name] = "Detalhes";
+                    this.mUIDetalhesButton.WindowTitles.Add("Edição de cobrança");
+                    #endregion
+                }
+                return this.mUIDetalhesButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIDetalhesButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIOKWindow5 : WinWindow
+    {
+        
+        public UIOKWindow5(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "buttonOK";
+            this.WindowTitles.Add("Edição de cobrança");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIOKButton
+        {
+            get
+            {
+                if ((this.mUIOKButton == null))
+                {
+                    this.mUIOKButton = new WinButton(this);
+                    #region Critérios de pesquisa
+                    this.mUIOKButton.SearchProperties[WinButton.PropertyNames.Name] = "OK";
+                    this.mUIOKButton.WindowTitles.Add("Edição de cobrança");
+                    #endregion
+                }
+                return this.mUIOKButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIOKButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIFormadepagamentoWindow : WinWindow
+    {
+        
+        public UIFormadepagamentoWindow()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "Forma de pagamento";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("Forma de pagamento");
+            #endregion
+        }
+        
+        #region Properties
+        public UIComboBoxDunInstitutiWindow UIComboBoxDunInstitutiWindow
+        {
+            get
+            {
+                if ((this.mUIComboBoxDunInstitutiWindow == null))
+                {
+                    this.mUIComboBoxDunInstitutiWindow = new UIComboBoxDunInstitutiWindow(this);
+                }
+                return this.mUIComboBoxDunInstitutiWindow;
+            }
+        }
+        
+        public UITextBoxCodeWindow UITextBoxCodeWindow
+        {
+            get
+            {
+                if ((this.mUITextBoxCodeWindow == null))
+                {
+                    this.mUITextBoxCodeWindow = new UITextBoxCodeWindow(this);
+                }
+                return this.mUITextBoxCodeWindow;
+            }
+        }
+        
+        public UITextBoxDigitWindow UITextBoxDigitWindow
+        {
+            get
+            {
+                if ((this.mUITextBoxDigitWindow == null))
+                {
+                    this.mUITextBoxDigitWindow = new UITextBoxDigitWindow(this);
+                }
+                return this.mUITextBoxDigitWindow;
+            }
+        }
+        
+        public UITextBoxCodeWindow1 UITextBoxCodeWindow1
+        {
+            get
+            {
+                if ((this.mUITextBoxCodeWindow1 == null))
+                {
+                    this.mUITextBoxCodeWindow1 = new UITextBoxCodeWindow1(this);
+                }
+                return this.mUITextBoxCodeWindow1;
+            }
+        }
+        
+        public UITextBoxDigitWindow1 UITextBoxDigitWindow1
+        {
+            get
+            {
+                if ((this.mUITextBoxDigitWindow1 == null))
+                {
+                    this.mUITextBoxDigitWindow1 = new UITextBoxDigitWindow1(this);
+                }
+                return this.mUITextBoxDigitWindow1;
+            }
+        }
+        
+        public UIOKWindow6 UIOKWindow
+        {
+            get
+            {
+                if ((this.mUIOKWindow == null))
+                {
+                    this.mUIOKWindow = new UIOKWindow6(this);
+                }
+                return this.mUIOKWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIComboBoxDunInstitutiWindow mUIComboBoxDunInstitutiWindow;
+        
+        private UITextBoxCodeWindow mUITextBoxCodeWindow;
+        
+        private UITextBoxDigitWindow mUITextBoxDigitWindow;
+        
+        private UITextBoxCodeWindow1 mUITextBoxCodeWindow1;
+        
+        private UITextBoxDigitWindow1 mUITextBoxDigitWindow1;
+        
+        private UIOKWindow6 mUIOKWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIComboBoxDunInstitutiWindow : WinWindow
+    {
+        
+        public UIComboBoxDunInstitutiWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "comboBoxDunInstitution";
+            this.WindowTitles.Add("Forma de pagamento");
+            #endregion
+        }
+        
+        #region Properties
+        public WinComboBox UIComboBoxDunInstitutiComboBox
+        {
+            get
+            {
+                if ((this.mUIComboBoxDunInstitutiComboBox == null))
+                {
+                    this.mUIComboBoxDunInstitutiComboBox = new WinComboBox(this);
+                    #region Critérios de pesquisa
+                    this.mUIComboBoxDunInstitutiComboBox.WindowTitles.Add("Forma de pagamento");
+                    #endregion
+                }
+                return this.mUIComboBoxDunInstitutiComboBox;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinComboBox mUIComboBoxDunInstitutiComboBox;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UITextBoxCodeWindow : WinWindow
+    {
+        
+        public UITextBoxCodeWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "textBoxCode";
+            this.SearchProperties[WinWindow.PropertyNames.Instance] = "2";
+            this.WindowTitles.Add("Forma de pagamento");
+            #endregion
+        }
+        
+        #region Properties
+        public WinEdit UITextBoxCodeEdit
+        {
+            get
+            {
+                if ((this.mUITextBoxCodeEdit == null))
+                {
+                    this.mUITextBoxCodeEdit = new WinEdit(this);
+                    #region Critérios de pesquisa
+                    this.mUITextBoxCodeEdit.WindowTitles.Add("Forma de pagamento");
+                    #endregion
+                }
+                return this.mUITextBoxCodeEdit;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinEdit mUITextBoxCodeEdit;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UITextBoxDigitWindow : WinWindow
+    {
+        
+        public UITextBoxDigitWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "textBoxDigit";
+            this.SearchProperties[WinWindow.PropertyNames.Instance] = "2";
+            this.WindowTitles.Add("Forma de pagamento");
+            #endregion
+        }
+        
+        #region Properties
+        public WinEdit UITextBoxDigitEdit
+        {
+            get
+            {
+                if ((this.mUITextBoxDigitEdit == null))
+                {
+                    this.mUITextBoxDigitEdit = new WinEdit(this);
+                    #region Critérios de pesquisa
+                    this.mUITextBoxDigitEdit.WindowTitles.Add("Forma de pagamento");
+                    #endregion
+                }
+                return this.mUITextBoxDigitEdit;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinEdit mUITextBoxDigitEdit;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UITextBoxCodeWindow1 : WinWindow
+    {
+        
+        public UITextBoxCodeWindow1(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "textBoxCode";
+            this.WindowTitles.Add("Forma de pagamento");
+            #endregion
+        }
+        
+        #region Properties
+        public WinEdit UITextBoxCodeEdit
+        {
+            get
+            {
+                if ((this.mUITextBoxCodeEdit == null))
+                {
+                    this.mUITextBoxCodeEdit = new WinEdit(this);
+                    #region Critérios de pesquisa
+                    this.mUITextBoxCodeEdit.WindowTitles.Add("Forma de pagamento");
+                    #endregion
+                }
+                return this.mUITextBoxCodeEdit;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinEdit mUITextBoxCodeEdit;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UITextBoxDigitWindow1 : WinWindow
+    {
+        
+        public UITextBoxDigitWindow1(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "textBoxDigit";
+            this.WindowTitles.Add("Forma de pagamento");
+            #endregion
+        }
+        
+        #region Properties
+        public WinEdit UITextBoxDigitEdit
+        {
+            get
+            {
+                if ((this.mUITextBoxDigitEdit == null))
+                {
+                    this.mUITextBoxDigitEdit = new WinEdit(this);
+                    #region Critérios de pesquisa
+                    this.mUITextBoxDigitEdit.WindowTitles.Add("Forma de pagamento");
+                    #endregion
+                }
+                return this.mUITextBoxDigitEdit;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinEdit mUITextBoxDigitEdit;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIOKWindow6 : WinWindow
+    {
+        
+        public UIOKWindow6(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "buttonOK";
+            this.WindowTitles.Add("Forma de pagamento");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIOKButton
+        {
+            get
+            {
+                if ((this.mUIOKButton == null))
+                {
+                    this.mUIOKButton = new WinButton(this);
+                    #region Critérios de pesquisa
+                    this.mUIOKButton.SearchProperties[WinButton.PropertyNames.Name] = "OK";
+                    this.mUIOKButton.WindowTitles.Add("Forma de pagamento");
+                    #endregion
+                }
+                return this.mUIOKButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIOKButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UITermodeautorizaçãopaWindow : WinWindow
+    {
+        
+        public UITermodeautorizaçãopaWindow()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "Termo de autorização para débito em conta-corrente ou uso do cartão de crédito";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("Termo de autorização para débito em conta-corrente ou uso do cartão de crédito");
+            #endregion
+        }
+        
+        #region Properties
+        public WinTitleBar UITermodeautorizaçãopaTitleBar
+        {
+            get
+            {
+                if ((this.mUITermodeautorizaçãopaTitleBar == null))
+                {
+                    this.mUITermodeautorizaçãopaTitleBar = new WinTitleBar(this);
+                    #region Critérios de pesquisa
+                    this.mUITermodeautorizaçãopaTitleBar.WindowTitles.Add("Termo de autorização para débito em conta-corrente ou uso do cartão de crédito");
+                    #endregion
+                }
+                return this.mUITermodeautorizaçãopaTitleBar;
+            }
+        }
+        
+        public UIDocumentViewerWindow UIDocumentViewerWindow
+        {
+            get
+            {
+                if ((this.mUIDocumentViewerWindow == null))
+                {
+                    this.mUIDocumentViewerWindow = new UIDocumentViewerWindow(this);
+                }
+                return this.mUIDocumentViewerWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinTitleBar mUITermodeautorizaçãopaTitleBar;
+        
+        private UIDocumentViewerWindow mUIDocumentViewerWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIDocumentViewerWindow : WinWindow
+    {
+        
+        public UIDocumentViewerWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "DocumentViewer";
+            this.WindowTitles.Add("Termo de autorização para débito em conta-corrente ou uso do cartão de crédito");
+            #endregion
+        }
+        
+        #region Properties
+        public WinClient UIDocumentViewerClient
+        {
+            get
+            {
+                if ((this.mUIDocumentViewerClient == null))
+                {
+                    this.mUIDocumentViewerClient = new WinClient(this);
+                    #region Critérios de pesquisa
+                    this.mUIDocumentViewerClient.WindowTitles.Add("Termo de autorização para débito em conta-corrente ou uso do cartão de crédito");
+                    #endregion
+                }
+                return this.mUIDocumentViewerClient;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinClient mUIDocumentViewerClient;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIAtendimentoWindow2 : WinWindow
+    {
+        
+        public UIAtendimentoWindow2()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "Atendimento";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("Atendimento");
+            #endregion
+        }
+        
+        #region Properties
+        public UIOKWindow7 UIOKWindow
+        {
+            get
+            {
+                if ((this.mUIOKWindow == null))
+                {
+                    this.mUIOKWindow = new UIOKWindow7(this);
+                }
+                return this.mUIOKWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIOKWindow7 mUIOKWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIOKWindow7 : WinWindow
+    {
+        
+        public UIOKWindow7(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "buttonOK";
+            this.WindowTitles.Add("Atendimento");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIOKButton
+        {
+            get
+            {
+                if ((this.mUIOKButton == null))
+                {
+                    this.mUIOKButton = new WinButton(this);
+                    #region Critérios de pesquisa
+                    this.mUIOKButton.SearchProperties[WinButton.PropertyNames.Name] = "OK";
+                    this.mUIOKButton.WindowTitles.Add("Atendimento");
+                    #endregion
+                }
+                return this.mUIOKButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIOKButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIRemessasanterioresWindow : WinWindow
+    {
+        
+        public UIRemessasanterioresWindow()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "Remessas anteriores";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("Remessas anteriores");
+            #endregion
+        }
+        
+        #region Properties
+        public UIListViewWindow6 UIListViewWindow
+        {
+            get
+            {
+                if ((this.mUIListViewWindow == null))
+                {
+                    this.mUIListViewWindow = new UIListViewWindow6(this);
+                }
+                return this.mUIListViewWindow;
+            }
+        }
+        
+        public UIOpçõesWindow UIOpçõesWindow
+        {
+            get
+            {
+                if ((this.mUIOpçõesWindow == null))
+                {
+                    this.mUIOpçõesWindow = new UIOpçõesWindow(this);
+                }
+                return this.mUIOpçõesWindow;
+            }
+        }
+        
+        public UIFecharWindow3 UIFecharWindow
+        {
+            get
+            {
+                if ((this.mUIFecharWindow == null))
+                {
+                    this.mUIFecharWindow = new UIFecharWindow3(this);
+                }
+                return this.mUIFecharWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIListViewWindow6 mUIListViewWindow;
+        
+        private UIOpçõesWindow mUIOpçõesWindow;
+        
+        private UIFecharWindow3 mUIFecharWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIListViewWindow6 : WinWindow
+    {
+        
+        public UIListViewWindow6(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "listView";
+            this.WindowTitles.Add("Remessas anteriores");
+            #endregion
+        }
+        
+        #region Properties
+        public WinList UIListViewList
+        {
+            get
+            {
+                if ((this.mUIListViewList == null))
+                {
+                    this.mUIListViewList = new WinList(this);
+                    #region Critérios de pesquisa
+                    this.mUIListViewList.WindowTitles.Add("Remessas anteriores");
+                    #endregion
+                }
+                return this.mUIListViewList;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinList mUIListViewList;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIOpçõesWindow : WinWindow
+    {
+        
+        public UIOpçõesWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "buttonOptions";
+            this.WindowTitles.Add("Remessas anteriores");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIOpçõesButton
+        {
+            get
+            {
+                if ((this.mUIOpçõesButton == null))
+                {
+                    this.mUIOpçõesButton = new WinButton(this);
+                    #region Critérios de pesquisa
+                    this.mUIOpçõesButton.SearchProperties[WinButton.PropertyNames.Name] = "Opções";
+                    this.mUIOpçõesButton.WindowTitles.Add("Remessas anteriores");
+                    #endregion
+                }
+                return this.mUIOpçõesButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIOpçõesButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIFecharWindow3 : WinWindow
+    {
+        
+        public UIFecharWindow3(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "buttonClose";
+            this.WindowTitles.Add("Remessas anteriores");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIFecharButton
+        {
+            get
+            {
+                if ((this.mUIFecharButton == null))
+                {
+                    this.mUIFecharButton = new WinButton(this);
+                    #region Critérios de pesquisa
+                    this.mUIFecharButton.SearchProperties[WinButton.PropertyNames.Name] = "Fechar";
+                    this.mUIFecharButton.WindowTitles.Add("Remessas anteriores");
+                    #endregion
+                }
+                return this.mUIFecharButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIFecharButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIMultiClubesWindow9 : WinWindow
+    {
+        
+        public UIMultiClubesWindow9()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "MultiClubes";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("MultiClubes");
+            #endregion
+        }
+        
+        #region Properties
+        public UITextBoxFolderWindow UITextBoxFolderWindow
+        {
+            get
+            {
+                if ((this.mUITextBoxFolderWindow == null))
+                {
+                    this.mUITextBoxFolderWindow = new UITextBoxFolderWindow(this);
+                }
+                return this.mUITextBoxFolderWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UITextBoxFolderWindow mUITextBoxFolderWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UITextBoxFolderWindow : WinWindow
+    {
+        
+        public UITextBoxFolderWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "textBoxFolder";
+            this.WindowTitles.Add("MultiClubes");
+            #endregion
+        }
+        
+        #region Properties
+        public WinEdit UITextBoxFolderEdit
+        {
+            get
+            {
+                if ((this.mUITextBoxFolderEdit == null))
+                {
+                    this.mUITextBoxFolderEdit = new WinEdit(this);
+                    #region Critérios de pesquisa
+                    this.mUITextBoxFolderEdit.WindowTitles.Add("MultiClubes");
+                    #endregion
+                }
+                return this.mUITextBoxFolderEdit;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinEdit mUITextBoxFolderEdit;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIGeraçãoderemessaWindow1 : WinWindow
+    {
+        
+        public UIGeraçãoderemessaWindow1()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "Geração de remessa";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("Geração de remessa");
+            #endregion
+        }
+        
+        #region Properties
+        public UIOKWindow8 UIOKWindow
+        {
+            get
+            {
+                if ((this.mUIOKWindow == null))
+                {
+                    this.mUIOKWindow = new UIOKWindow8(this);
+                }
+                return this.mUIOKWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIOKWindow8 mUIOKWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIOKWindow8 : WinWindow
+    {
+        
+        public UIOKWindow8(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "buttonOK";
+            this.WindowTitles.Add("Geração de remessa");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIOKButton
+        {
+            get
+            {
+                if ((this.mUIOKButton == null))
+                {
+                    this.mUIOKButton = new WinButton(this);
+                    #region Critérios de pesquisa
+                    this.mUIOKButton.SearchProperties[WinButton.PropertyNames.Name] = "OK";
+                    this.mUIOKButton.WindowTitles.Add("Geração de remessa");
+                    #endregion
+                }
+                return this.mUIOKButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIOKButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIMultiClubesWindow10 : WinWindow
+    {
+        
+        public UIMultiClubesWindow10()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "MultiClubes";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("MultiClubes");
+            #endregion
+        }
+        
+        #region Properties
+        public UIFecharWindow4 UIFecharWindow
+        {
+            get
+            {
+                if ((this.mUIFecharWindow == null))
+                {
+                    this.mUIFecharWindow = new UIFecharWindow4(this);
+                }
+                return this.mUIFecharWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIFecharWindow4 mUIFecharWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIFecharWindow4 : WinWindow
+    {
+        
+        public UIFecharWindow4(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "buttonClose";
+            this.WindowTitles.Add("MultiClubes");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIFecharButton
+        {
+            get
+            {
+                if ((this.mUIFecharButton == null))
+                {
+                    this.mUIFecharButton = new WinButton(this);
+                    #region Critérios de pesquisa
+                    this.mUIFecharButton.SearchProperties[WinButton.PropertyNames.Name] = "Fechar";
+                    this.mUIFecharButton.WindowTitles.Add("MultiClubes");
+                    #endregion
+                }
+                return this.mUIFecharButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIFecharButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIGeraçõesanterioresWindow : WinWindow
+    {
+        
+        public UIGeraçõesanterioresWindow()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "Gerações anteriores";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("Gerações anteriores");
+            #endregion
+        }
+        
+        #region Properties
+        public UIListViewWindow7 UIListViewWindow
+        {
+            get
+            {
+                if ((this.mUIListViewWindow == null))
+                {
+                    this.mUIListViewWindow = new UIListViewWindow7(this);
+                }
+                return this.mUIListViewWindow;
+            }
+        }
+        
+        public UICheckBoxIndividualWindow UICheckBoxIndividualWindow
+        {
+            get
+            {
+                if ((this.mUICheckBoxIndividualWindow == null))
+                {
+                    this.mUICheckBoxIndividualWindow = new UICheckBoxIndividualWindow(this);
+                }
+                return this.mUICheckBoxIndividualWindow;
+            }
+        }
+        
+        public UIOpçõesWindow1 UIOpçõesWindow
+        {
+            get
+            {
+                if ((this.mUIOpçõesWindow == null))
+                {
+                    this.mUIOpçõesWindow = new UIOpçõesWindow1(this);
+                }
+                return this.mUIOpçõesWindow;
+            }
+        }
+        
+        public UIFecharWindow5 UIFecharWindow
+        {
+            get
+            {
+                if ((this.mUIFecharWindow == null))
+                {
+                    this.mUIFecharWindow = new UIFecharWindow5(this);
+                }
+                return this.mUIFecharWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIListViewWindow7 mUIListViewWindow;
+        
+        private UICheckBoxIndividualWindow mUICheckBoxIndividualWindow;
+        
+        private UIOpçõesWindow1 mUIOpçõesWindow;
+        
+        private UIFecharWindow5 mUIFecharWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIListViewWindow7 : WinWindow
+    {
+        
+        public UIListViewWindow7(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "listView";
+            this.WindowTitles.Add("Gerações anteriores");
+            #endregion
+        }
+        
+        #region Properties
+        public UIListViewList4 UIListViewList
+        {
+            get
+            {
+                if ((this.mUIListViewList == null))
+                {
+                    this.mUIListViewList = new UIListViewList4(this);
+                }
+                return this.mUIListViewList;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIListViewList4 mUIListViewList;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIListViewList4 : WinList
+    {
+        
+        public UIListViewList4(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinList.PropertyNames.Name] = "Não há gerações de cobrança para o filtro selecionado";
+            this.WindowTitles.Add("Gerações anteriores");
+            #endregion
+        }
+        
+        #region Properties
+        public UIControledeCabeçalhoList2 UIControledeCabeçalhoList
+        {
+            get
+            {
+                if ((this.mUIControledeCabeçalhoList == null))
+                {
+                    this.mUIControledeCabeçalhoList = new UIControledeCabeçalhoList2(this);
+                }
+                return this.mUIControledeCabeçalhoList;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIControledeCabeçalhoList2 mUIControledeCabeçalhoList;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIControledeCabeçalhoList2 : WinList
+    {
+        
+        public UIControledeCabeçalhoList2(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinList.PropertyNames.Name] = "Controle de Cabeçalho";
+            this.WindowTitles.Add("Gerações anteriores");
+            #endregion
+        }
+        
+        #region Properties
+        public WinColumnHeader UIDataColumnHeader
+        {
+            get
+            {
+                if ((this.mUIDataColumnHeader == null))
+                {
+                    this.mUIDataColumnHeader = new WinColumnHeader(this);
+                    #region Critérios de pesquisa
+                    this.mUIDataColumnHeader.SearchProperties[WinControl.PropertyNames.Name] = "Data";
+                    this.mUIDataColumnHeader.WindowTitles.Add("Gerações anteriores");
+                    #endregion
+                }
+                return this.mUIDataColumnHeader;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinColumnHeader mUIDataColumnHeader;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UICheckBoxIndividualWindow : WinWindow
+    {
+        
+        public UICheckBoxIndividualWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "checkBoxIndividual";
+            this.WindowTitles.Add("Gerações anteriores");
+            #endregion
+        }
+        
+        #region Properties
+        public WinCheckBox UICheckBoxIndividualCheckBox
+        {
+            get
+            {
+                if ((this.mUICheckBoxIndividualCheckBox == null))
+                {
+                    this.mUICheckBoxIndividualCheckBox = new WinCheckBox(this);
+                    #region Critérios de pesquisa
+                    this.mUICheckBoxIndividualCheckBox.WindowTitles.Add("Gerações anteriores");
+                    #endregion
+                }
+                return this.mUICheckBoxIndividualCheckBox;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinCheckBox mUICheckBoxIndividualCheckBox;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIOpçõesWindow1 : WinWindow
+    {
+        
+        public UIOpçõesWindow1(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "buttonReport";
+            this.WindowTitles.Add("Gerações anteriores");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIOpçõesButton
+        {
+            get
+            {
+                if ((this.mUIOpçõesButton == null))
+                {
+                    this.mUIOpçõesButton = new WinButton(this);
+                    #region Critérios de pesquisa
+                    this.mUIOpçõesButton.SearchProperties[WinButton.PropertyNames.Name] = "Opções";
+                    this.mUIOpçõesButton.WindowTitles.Add("Gerações anteriores");
+                    #endregion
+                }
+                return this.mUIOpçõesButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIOpçõesButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIFecharWindow5 : WinWindow
+    {
+        
+        public UIFecharWindow5(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "buttonCancel";
+            this.WindowTitles.Add("Gerações anteriores");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIFecharButton
+        {
+            get
+            {
+                if ((this.mUIFecharButton == null))
+                {
+                    this.mUIFecharButton = new WinButton(this);
+                    #region Critérios de pesquisa
+                    this.mUIFecharButton.SearchProperties[WinButton.PropertyNames.Name] = "Fechar";
+                    this.mUIFecharButton.WindowTitles.Add("Gerações anteriores");
+                    #endregion
+                }
+                return this.mUIFecharButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIFecharButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UISemtítuloBlocodenotaWindow : WinWindow
+    {
+        
+        public UISemtítuloBlocodenotaWindow()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "Sem título - Bloco de notas";
+            this.SearchProperties[WinWindow.PropertyNames.ClassName] = "Notepad";
+            this.WindowTitles.Add("Sem título - Bloco de notas");
+            #endregion
+        }
+        
+        #region Properties
+        public UIItemWindow4 UIItemWindow
+        {
+            get
+            {
+                if ((this.mUIItemWindow == null))
+                {
+                    this.mUIItemWindow = new UIItemWindow4(this);
+                }
+                return this.mUIItemWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIItemWindow4 mUIItemWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIItemWindow4 : WinWindow
+    {
+        
+        public UIItemWindow4(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "15";
+            this.WindowTitles.Add("Sem título - Bloco de notas");
+            #endregion
+        }
+        
+        #region Properties
+        public WinEdit UIItemEdit
+        {
+            get
+            {
+                if ((this.mUIItemEdit == null))
+                {
+                    this.mUIItemEdit = new WinEdit(this);
+                    #region Critérios de pesquisa
+                    this.mUIItemEdit.WindowTitles.Add("Sem título - Bloco de notas");
+                    #endregion
+                }
+                return this.mUIItemEdit;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinEdit mUIItemEdit;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIDesfazercobrançaWindow : WinWindow
+    {
+        
+        public UIDesfazercobrançaWindow()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "Desfazer cobrança";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("Desfazer cobrança");
+            #endregion
+        }
+        
+        #region Properties
+        public UIOKWindow9 UIOKWindow
+        {
+            get
+            {
+                if ((this.mUIOKWindow == null))
+                {
+                    this.mUIOKWindow = new UIOKWindow9(this);
+                }
+                return this.mUIOKWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIOKWindow9 mUIOKWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIOKWindow9 : WinWindow
+    {
+        
+        public UIOKWindow9(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "buttonAction";
+            this.WindowTitles.Add("Desfazer cobrança");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIOKButton
+        {
+            get
+            {
+                if ((this.mUIOKButton == null))
+                {
+                    this.mUIOKButton = new WinButton(this);
+                    #region Critérios de pesquisa
+                    this.mUIOKButton.SearchProperties[WinButton.PropertyNames.Name] = "OK";
+                    this.mUIOKButton.WindowTitles.Add("Desfazer cobrança");
+                    #endregion
+                }
+                return this.mUIOKButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIOKButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIMultiClubesAcertodecWindow : WinWindow
+    {
+        
+        public UIMultiClubesAcertodecWindow()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "MultiClubes - Acerto de comissão";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("MultiClubes - Acerto de comissão");
+            #endregion
+        }
+        
+        #region Properties
+        public UIHistóricoWindow UIHistóricoWindow
+        {
+            get
+            {
+                if ((this.mUIHistóricoWindow == null))
+                {
+                    this.mUIHistóricoWindow = new UIHistóricoWindow(this);
+                }
+                return this.mUIHistóricoWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIHistóricoWindow mUIHistóricoWindow;
         #endregion
     }
     
@@ -1033,352 +12662,70 @@ namespace TestesAutomatizados
     }
     
     [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
-    public class UIItemWindow : WinWindow
+    public class UIMultiClubesWindow111 : WinWindow
     {
         
-        public UIItemWindow()
+        public UIMultiClubesWindow111()
         {
             #region Critérios de pesquisa
-            this.SearchProperties[WinWindow.PropertyNames.AccessibleName] = "Contexto";
-            this.SearchProperties[WinWindow.PropertyNames.ClassName] = "#32768";
-            #endregion
-        }
-        
-        #region Properties
-        public UIContextoMenu UIContextoMenu
-        {
-            get
-            {
-                if ((this.mUIContextoMenu == null))
-                {
-                    this.mUIContextoMenu = new UIContextoMenu(this);
-                }
-                return this.mUIContextoMenu;
-            }
-        }
-        #endregion
-        
-        #region Fields
-        private UIContextoMenu mUIContextoMenu;
-        #endregion
-    }
-    
-    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
-    public class UIContextoMenu : WinMenu
-    {
-        
-        public UIContextoMenu(UITestControl searchLimitContainer) : 
-                base(searchLimitContainer)
-        {
-            #region Critérios de pesquisa
-            this.SearchProperties[WinMenu.PropertyNames.Name] = "Contexto";
-            #endregion
-        }
-        
-        #region Properties
-        public WinMenuItem UIGeraracertoMenuItem
-        {
-            get
-            {
-                if ((this.mUIGeraracertoMenuItem == null))
-                {
-                    this.mUIGeraracertoMenuItem = new WinMenuItem(this);
-                    #region Critérios de pesquisa
-                    this.mUIGeraracertoMenuItem.SearchProperties[WinMenuItem.PropertyNames.Name] = "Gerar acerto";
-                    #endregion
-                }
-                return this.mUIGeraracertoMenuItem;
-            }
-        }
-        #endregion
-        
-        #region Fields
-        private WinMenuItem mUIGeraracertoMenuItem;
-        #endregion
-    }
-    
-    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
-    public class UIAcertodecomissãoWindow : WinWindow
-    {
-        
-        public UIAcertodecomissãoWindow()
-        {
-            #region Critérios de pesquisa
-            this.SearchProperties[WinWindow.PropertyNames.Name] = "Acerto de comissão";
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "MultiClubes";
             this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
-            this.WindowTitles.Add("Acerto de comissão");
+            this.WindowTitles.Add("MultiClubes");
             #endregion
         }
         
         #region Properties
-        public UISimWindow UISimWindow
+        public UILocalizarWindow UILocalizarWindow
         {
             get
             {
-                if ((this.mUISimWindow == null))
+                if ((this.mUILocalizarWindow == null))
                 {
-                    this.mUISimWindow = new UISimWindow(this);
+                    this.mUILocalizarWindow = new UILocalizarWindow(this);
                 }
-                return this.mUISimWindow;
+                return this.mUILocalizarWindow;
             }
         }
         #endregion
         
         #region Fields
-        private UISimWindow mUISimWindow;
+        private UILocalizarWindow mUILocalizarWindow;
         #endregion
     }
     
     [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
-    public class UISimWindow : WinWindow
+    public class UILocalizarWindow : WinWindow
     {
         
-        public UISimWindow(UITestControl searchLimitContainer) : 
+        public UILocalizarWindow(UITestControl searchLimitContainer) : 
                 base(searchLimitContainer)
         {
             #region Critérios de pesquisa
-            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "buttonOK";
-            this.WindowTitles.Add("Acerto de comissão");
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "buttonFilter";
+            this.WindowTitles.Add("MultiClubes");
             #endregion
         }
         
         #region Properties
-        public WinButton UISimButton
+        public WinButton UILocalizarButton
         {
             get
             {
-                if ((this.mUISimButton == null))
+                if ((this.mUILocalizarButton == null))
                 {
-                    this.mUISimButton = new WinButton(this);
+                    this.mUILocalizarButton = new WinButton(this);
                     #region Critérios de pesquisa
-                    this.mUISimButton.SearchProperties[WinButton.PropertyNames.Name] = "Sim";
-                    this.mUISimButton.WindowTitles.Add("Acerto de comissão");
+                    this.mUILocalizarButton.SearchProperties[WinButton.PropertyNames.Name] = "Localizar";
+                    this.mUILocalizarButton.WindowTitles.Add("MultiClubes");
                     #endregion
                 }
-                return this.mUISimButton;
+                return this.mUILocalizarButton;
             }
         }
         #endregion
         
         #region Fields
-        private WinButton mUISimButton;
-        #endregion
-    }
-    
-    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
-    public class UIEmailsWindow : WinWindow
-    {
-        
-        public UIEmailsWindow()
-        {
-            #region Critérios de pesquisa
-            this.SearchProperties[WinWindow.PropertyNames.Name] = "E-mails";
-            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
-            this.WindowTitles.Add("E-mails");
-            #endregion
-        }
-        
-        #region Properties
-        public UIOKWindow UIOKWindow
-        {
-            get
-            {
-                if ((this.mUIOKWindow == null))
-                {
-                    this.mUIOKWindow = new UIOKWindow(this);
-                }
-                return this.mUIOKWindow;
-            }
-        }
-        #endregion
-        
-        #region Fields
-        private UIOKWindow mUIOKWindow;
-        #endregion
-    }
-    
-    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
-    public class UIOKWindow : WinWindow
-    {
-        
-        public UIOKWindow(UITestControl searchLimitContainer) : 
-                base(searchLimitContainer)
-        {
-            #region Critérios de pesquisa
-            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "buttonCancel";
-            this.WindowTitles.Add("E-mails");
-            #endregion
-        }
-        
-        #region Properties
-        public WinButton UIOKButton
-        {
-            get
-            {
-                if ((this.mUIOKButton == null))
-                {
-                    this.mUIOKButton = new WinButton(this);
-                    #region Critérios de pesquisa
-                    this.mUIOKButton.SearchProperties[WinButton.PropertyNames.Name] = "OK";
-                    this.mUIOKButton.WindowTitles.Add("E-mails");
-                    #endregion
-                }
-                return this.mUIOKButton;
-            }
-        }
-        #endregion
-        
-        #region Fields
-        private WinButton mUIOKButton;
-        #endregion
-    }
-    
-    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
-    public class UIMultiClubesCentraldeWindow : WinWindow
-    {
-        
-        public UIMultiClubesCentraldeWindow()
-        {
-            #region Critérios de pesquisa
-            this.SearchProperties[WinWindow.PropertyNames.Name] = "MultiClubes - Central de atendimento";
-            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
-            this.WindowTitles.Add("MultiClubes - Central de atendimento");
-            #endregion
-        }
-        
-        #region Properties
-        public UITextBoxKeywordWindow UITextBoxKeywordWindow
-        {
-            get
-            {
-                if ((this.mUITextBoxKeywordWindow == null))
-                {
-                    this.mUITextBoxKeywordWindow = new UITextBoxKeywordWindow(this);
-                }
-                return this.mUITextBoxKeywordWindow;
-            }
-        }
-        
-        public UIListViewWindow1 UIListViewWindow
-        {
-            get
-            {
-                if ((this.mUIListViewWindow == null))
-                {
-                    this.mUIListViewWindow = new UIListViewWindow1(this);
-                }
-                return this.mUIListViewWindow;
-            }
-        }
-        #endregion
-        
-        #region Fields
-        private UITextBoxKeywordWindow mUITextBoxKeywordWindow;
-        
-        private UIListViewWindow1 mUIListViewWindow;
-        #endregion
-    }
-    
-    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
-    public class UITextBoxKeywordWindow : WinWindow
-    {
-        
-        public UITextBoxKeywordWindow(UITestControl searchLimitContainer) : 
-                base(searchLimitContainer)
-        {
-            #region Critérios de pesquisa
-            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "textBoxKeyword";
-            this.WindowTitles.Add("MultiClubes - Central de atendimento");
-            #endregion
-        }
-        
-        #region Properties
-        public WinEdit UITextBoxKeywordEdit
-        {
-            get
-            {
-                if ((this.mUITextBoxKeywordEdit == null))
-                {
-                    this.mUITextBoxKeywordEdit = new WinEdit(this);
-                    #region Critérios de pesquisa
-                    this.mUITextBoxKeywordEdit.WindowTitles.Add("MultiClubes - Central de atendimento");
-                    #endregion
-                }
-                return this.mUITextBoxKeywordEdit;
-            }
-        }
-        #endregion
-        
-        #region Fields
-        private WinEdit mUITextBoxKeywordEdit;
-        #endregion
-    }
-    
-    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
-    public class UIListViewWindow1 : WinWindow
-    {
-        
-        public UIListViewWindow1(UITestControl searchLimitContainer) : 
-                base(searchLimitContainer)
-        {
-            #region Critérios de pesquisa
-            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "listView";
-            this.WindowTitles.Add("MultiClubes - Central de atendimento");
-            #endregion
-        }
-        
-        #region Properties
-        public UIListViewList1 UIListViewList
-        {
-            get
-            {
-                if ((this.mUIListViewList == null))
-                {
-                    this.mUIListViewList = new UIListViewList1(this);
-                }
-                return this.mUIListViewList;
-            }
-        }
-        #endregion
-        
-        #region Fields
-        private UIListViewList1 mUIListViewList;
-        #endregion
-    }
-    
-    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
-    public class UIListViewList1 : WinList
-    {
-        
-        public UIListViewList1(UITestControl searchLimitContainer) : 
-                base(searchLimitContainer)
-        {
-            #region Critérios de pesquisa
-            this.SearchProperties[WinList.PropertyNames.Name] = "Localizado por título";
-            this.WindowTitles.Add("MultiClubes - Central de atendimento");
-            #endregion
-        }
-        
-        #region Properties
-        public WinListItem UISophieMariahGabrielaListItem
-        {
-            get
-            {
-                if ((this.mUISophieMariahGabrielaListItem == null))
-                {
-                    this.mUISophieMariahGabrielaListItem = new WinListItem(this);
-                    #region Critérios de pesquisa
-                    this.mUISophieMariahGabrielaListItem.SearchProperties[WinListItem.PropertyNames.Name] = "Sophie Mariah Gabriela Rocha";
-                    this.mUISophieMariahGabrielaListItem.WindowTitles.Add("MultiClubes - Central de atendimento");
-                    #endregion
-                }
-                return this.mUISophieMariahGabrielaListItem;
-            }
-        }
-        #endregion
-        
-        #region Fields
-        private WinListItem mUISophieMariahGabrielaListItem;
+        private WinButton mUILocalizarButton;
         #endregion
     }
 }

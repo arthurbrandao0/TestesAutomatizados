@@ -10,6 +10,7 @@ using Microsoft.VisualStudio.TestTools.UITest.Extension;
 using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium;
+using System.Threading;
 
 namespace TestesAutomatizados
 {
@@ -17,10 +18,10 @@ namespace TestesAutomatizados
     /// Descrição resumida para CodedUITest1
     /// </resumo>
     [CodedUITest]
-    public class MenuAccess
+    public class MenusAndFunctions
     {
 
-        public MenuAccess()
+        public MenusAndFunctions()
         {
 
             var dc = new DesiredCapabilities();
@@ -38,6 +39,22 @@ namespace TestesAutomatizados
             //Driver.FindElement(By.Name("Título")).Click();
             //Driver.FindElement(By.Name("Central de atendimento")).Click();
 
+        }
+
+        public void TratarTelaAguarde()
+        {
+            int counter = 0;
+            while ((Driver.FindElements(By.Id("progressBar")).Count > 0) && counter < 60)
+            {
+                Thread.Sleep(1000);
+                Console.WriteLine("passando pelo loop de tratamento da tela aguarde");
+                counter++;
+            }
+        }
+
+        public void ClicarBotaoFechar()
+        {
+            Driver.FindElement(By.Id("buttonClose")).Click();
         }
 
         #region Atributos de teste adicionais

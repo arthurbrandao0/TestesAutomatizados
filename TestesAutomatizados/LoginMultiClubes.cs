@@ -73,7 +73,7 @@ namespace TestesAutomatizados
                     Thread.Sleep(5000);
                 }
 
-               Driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
+                Driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
 
                 //Driver.FindElement(By.XPath("*[starts-with(@Name, 'MultiClubes')]")).Click();
                 //Driver.FindElement(By.Name("MultiClubes")).Click();
@@ -95,8 +95,9 @@ namespace TestesAutomatizados
                     Driver.FindElements(OpenQA.Selenium.By.Id("textBoxPassword")).Count > 0)
                 {
                     this.UIMap.InserirUsuarioESenha();
+
                 }
-                
+
                 //Assert.AreEqual(Driver.FindElements(OpenQA.Selenium.By.Id("panelFooter")).Count, 1);
 
 
@@ -126,7 +127,7 @@ namespace TestesAutomatizados
                 Console.WriteLine("IOException source: {0}", e.Source);
             }
 
-            
+
         }
 
         public void CheckMCWindow()
