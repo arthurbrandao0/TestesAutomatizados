@@ -128,6 +128,26 @@ namespace TestesAutomatizados
             Keyboard.SendKeys(uILocalizarButton, this.LocalizarHistoricoDeAcertosParams.UILocalizarButtonSendKeys, ModifierKeys.None);
         }
         
+        /// <summary>
+        /// AbrirAtendimentoTitulo008Pro - Use 'AbrirAtendimentoTitulo008ProParams' para passar parâmetros para este método.
+        /// </summary>
+        public void AbrirAtendimentoTitulo008Pro()
+        {
+            #region Variable Declarations
+            WinEdit uITextBoxKeywordEdit = this.UIMultiClubesCentraldeWindow.UITextBoxKeywordWindow.UITextBoxKeywordEdit;
+            WinListItem uISophieMariahGabrielaListItem = this.UIMultiClubesCentraldeWindow.UIListViewWindow.UIListViewList.UISophieMariahGabrielaListItem;
+            #endregion
+
+            // Digitar '008pro' em 'textBoxKeyword' caixa de texto
+            uITextBoxKeywordEdit.Text = this.AbrirAtendimentoTitulo008ProParams.UITextBoxKeywordEditText;
+
+            // Digitar '{F1}' em 'textBoxKeyword' caixa de texto
+            Keyboard.SendKeys(uITextBoxKeywordEdit, this.AbrirAtendimentoTitulo008ProParams.UITextBoxKeywordEditSendKeys, ModifierKeys.None);
+
+            // Digitar '{Enter}' em 'Sophie Mariah Gabriela Rocha' item de lista
+            Keyboard.SendKeys(uISophieMariahGabrielaListItem, this.AbrirAtendimentoTitulo008ProParams.UISophieMariahGabrielaListItemSendKeys, ModifierKeys.None);
+        }
+        
         #region Properties
         public virtual InserirUsuarioESenhaParams InserirUsuarioESenhaParams
         {
@@ -186,6 +206,18 @@ namespace TestesAutomatizados
                     this.mLocalizarHistoricoDeAcertosParams = new LocalizarHistoricoDeAcertosParams();
                 }
                 return this.mLocalizarHistoricoDeAcertosParams;
+            }
+        }
+        
+        public virtual AbrirAtendimentoTitulo008ProParams AbrirAtendimentoTitulo008ProParams
+        {
+            get
+            {
+                if ((this.mAbrirAtendimentoTitulo008ProParams == null))
+                {
+                    this.mAbrirAtendimentoTitulo008ProParams = new AbrirAtendimentoTitulo008ProParams();
+                }
+                return this.mAbrirAtendimentoTitulo008ProParams;
             }
         }
         
@@ -248,6 +280,18 @@ namespace TestesAutomatizados
                 return this.mUIEmailsWindow;
             }
         }
+        
+        public UIMultiClubesCentraldeWindow UIMultiClubesCentraldeWindow
+        {
+            get
+            {
+                if ((this.mUIMultiClubesCentraldeWindow == null))
+                {
+                    this.mUIMultiClubesCentraldeWindow = new UIMultiClubesCentraldeWindow();
+                }
+                return this.mUIMultiClubesCentraldeWindow;
+            }
+        }
         #endregion
         
         #region Fields
@@ -261,6 +305,8 @@ namespace TestesAutomatizados
         
         private LocalizarHistoricoDeAcertosParams mLocalizarHistoricoDeAcertosParams;
         
+        private AbrirAtendimentoTitulo008ProParams mAbrirAtendimentoTitulo008ProParams;
+        
         private UIMultiClubesWindow mUIMultiClubesWindow;
         
         private UIMultiClubesAcertodecWindow mUIMultiClubesAcertodecWindow;
@@ -270,6 +316,8 @@ namespace TestesAutomatizados
         private UIAcertodecomissãoWindow mUIAcertodecomissãoWindow;
         
         private UIEmailsWindow mUIEmailsWindow;
+        
+        private UIMultiClubesCentraldeWindow mUIMultiClubesCentraldeWindow;
         #endregion
     }
     
@@ -375,6 +423,31 @@ namespace TestesAutomatizados
         /// Digitar '{Enter}' em 'Localizar' botão
         /// </summary>
         public string UILocalizarButtonSendKeys = "{Enter}";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'AbrirAtendimentoTitulo008Pro'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class AbrirAtendimentoTitulo008ProParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar '008pro' em 'textBoxKeyword' caixa de texto
+        /// </summary>
+        public string UITextBoxKeywordEditText = "008pro";
+        
+        /// <summary>
+        /// Digitar '{F1}' em 'textBoxKeyword' caixa de texto
+        /// </summary>
+        public string UITextBoxKeywordEditSendKeys = "{F1}";
+        
+        /// <summary>
+        /// Digitar '{Enter}' em 'Sophie Mariah Gabriela Rocha' item de lista
+        /// </summary>
+        public string UISophieMariahGabrielaListItemSendKeys = "{Enter}";
         #endregion
     }
     
@@ -1157,6 +1230,155 @@ namespace TestesAutomatizados
         
         #region Fields
         private WinButton mUIOKButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIMultiClubesCentraldeWindow : WinWindow
+    {
+        
+        public UIMultiClubesCentraldeWindow()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "MultiClubes - Central de atendimento";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("MultiClubes - Central de atendimento");
+            #endregion
+        }
+        
+        #region Properties
+        public UITextBoxKeywordWindow UITextBoxKeywordWindow
+        {
+            get
+            {
+                if ((this.mUITextBoxKeywordWindow == null))
+                {
+                    this.mUITextBoxKeywordWindow = new UITextBoxKeywordWindow(this);
+                }
+                return this.mUITextBoxKeywordWindow;
+            }
+        }
+        
+        public UIListViewWindow1 UIListViewWindow
+        {
+            get
+            {
+                if ((this.mUIListViewWindow == null))
+                {
+                    this.mUIListViewWindow = new UIListViewWindow1(this);
+                }
+                return this.mUIListViewWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UITextBoxKeywordWindow mUITextBoxKeywordWindow;
+        
+        private UIListViewWindow1 mUIListViewWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UITextBoxKeywordWindow : WinWindow
+    {
+        
+        public UITextBoxKeywordWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "textBoxKeyword";
+            this.WindowTitles.Add("MultiClubes - Central de atendimento");
+            #endregion
+        }
+        
+        #region Properties
+        public WinEdit UITextBoxKeywordEdit
+        {
+            get
+            {
+                if ((this.mUITextBoxKeywordEdit == null))
+                {
+                    this.mUITextBoxKeywordEdit = new WinEdit(this);
+                    #region Critérios de pesquisa
+                    this.mUITextBoxKeywordEdit.WindowTitles.Add("MultiClubes - Central de atendimento");
+                    #endregion
+                }
+                return this.mUITextBoxKeywordEdit;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinEdit mUITextBoxKeywordEdit;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIListViewWindow1 : WinWindow
+    {
+        
+        public UIListViewWindow1(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "listView";
+            this.WindowTitles.Add("MultiClubes - Central de atendimento");
+            #endregion
+        }
+        
+        #region Properties
+        public UIListViewList1 UIListViewList
+        {
+            get
+            {
+                if ((this.mUIListViewList == null))
+                {
+                    this.mUIListViewList = new UIListViewList1(this);
+                }
+                return this.mUIListViewList;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIListViewList1 mUIListViewList;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIListViewList1 : WinList
+    {
+        
+        public UIListViewList1(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinList.PropertyNames.Name] = "Localizado por título";
+            this.WindowTitles.Add("MultiClubes - Central de atendimento");
+            #endregion
+        }
+        
+        #region Properties
+        public WinListItem UISophieMariahGabrielaListItem
+        {
+            get
+            {
+                if ((this.mUISophieMariahGabrielaListItem == null))
+                {
+                    this.mUISophieMariahGabrielaListItem = new WinListItem(this);
+                    #region Critérios de pesquisa
+                    this.mUISophieMariahGabrielaListItem.SearchProperties[WinListItem.PropertyNames.Name] = "Sophie Mariah Gabriela Rocha";
+                    this.mUISophieMariahGabrielaListItem.WindowTitles.Add("MultiClubes - Central de atendimento");
+                    #endregion
+                }
+                return this.mUISophieMariahGabrielaListItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinListItem mUISophieMariahGabrielaListItem;
         #endregion
     }
 }

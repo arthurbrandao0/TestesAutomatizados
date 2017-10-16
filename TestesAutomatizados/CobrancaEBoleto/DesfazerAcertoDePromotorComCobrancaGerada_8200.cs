@@ -37,13 +37,13 @@ namespace TestesAutomatizados.CobrancaEBoleto
             Driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
 
             // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
-            
+
             // 1. Pré-requisito: Acerto de comissão gerada para o promotor @NomePromotor, associado ao título  @IdTitulo 
             //this.UIMap.GerarAcertoDeComissao();
             //this.UIMap.ClicarBotaoOkAcertoDeComissao();
 
             //2. Pré - requisito: Cobrança gerada contendo o acerto do promotor @NomePromotor
-            
+
             //3.Logar no MultiClubes
             // Presente no TestInitialize
 
@@ -51,8 +51,10 @@ namespace TestesAutomatizados.CobrancaEBoleto
 
             AcessarMenu.AcessarCentraldeAtendimento();
 
-
             //5.Localizar e Acessar Título
+
+            this.UIMap.AbrirAtendimentoTitulo008Pro();
+            
             //6.Acessar o menu Produtos
             //Serem apresentadas as opções A receber, Recebido, Desativados, Créditos, Resgate, Parcelamento e Mudar promotor
             //7.Clicar na opção A receber
