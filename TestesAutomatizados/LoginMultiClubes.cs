@@ -87,15 +87,16 @@ namespace TestesAutomatizados
                 //Driver.FindElement(By.Id("textBoxUsername")).SendKeys("suporte");
                 //Driver.FindElement(OpenQA.Selenium.By.Id("textBoxPassword")).SendKeys("DeZer0@100");
                 //Driver.FindElement(OpenQA.Selenium.By.Id("button")).Click();
-                
 
-               
+                CheckMCWindow();
+
 
                 if (Driver.FindElements(OpenQA.Selenium.By.Id("textBoxUsername")).Count > 0 &&
                     Driver.FindElements(OpenQA.Selenium.By.Id("textBoxPassword")).Count > 0)
                 {
                     this.UIMap.InserirUsuarioESenha();
                 }
+                
                 //Assert.AreEqual(Driver.FindElements(OpenQA.Selenium.By.Id("panelFooter")).Count, 1);
 
 
@@ -106,11 +107,6 @@ namespace TestesAutomatizados
                 //Driver.FindElement(By.Name("MultiClubes")).Click();
 
 
-                WinWindow winMC = new WinWindow();
-                winMC.SearchProperties[WinWindow.PropertyNames.Name] = "MultiClubes";
-                winMC.WindowTitles.Add("MultiClubes");
-                //Mouse.Click(winMC);
-                winMC.SetFocus();
 
                 //Console.WriteLine(winMC.Exists);
 
@@ -121,7 +117,7 @@ namespace TestesAutomatizados
 
                 //}
                 //Driver.FindElement(By.Name("contentPanel1")).Click();
-                
+
 
             }
             catch (ArgumentException e)
@@ -131,6 +127,22 @@ namespace TestesAutomatizados
             }
 
             
+        }
+
+        public void CheckMCWindow()
+        {
+            WinWindow winMC = new WinWindow();
+            winMC.SearchProperties[WinWindow.PropertyNames.Name] = "MultiClubes";
+            winMC.WindowTitles.Add("MultiClubes");
+            //Mouse.Click(winMC);
+
+            while (!winMC.Exists)
+            {
+                Thread.Sleep(1000);
+            }
+
+            Console.WriteLine("passando pelo CheckMCWindow");
+            winMC.SetFocus();
         }
 
         #region Atributos de teste adicionais
