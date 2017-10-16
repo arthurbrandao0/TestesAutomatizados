@@ -56,7 +56,26 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CobrancaEBoleto\DesfazerAcertoDePromotorComCobrancaGerada_8200.cs" />
+    <Compile Include="AcessarMenus\AcessarCadastroDeTitulo6348.cs" />
+    <Compile Include="AcessarMenus\AcessarCentralDeAtendimento6237.cs" />
+    <Compile Include="AcessarMenus\AcessarCentralDeAtendimento6237Winium.cs" />
+    <Compile Include="AcessarMenus\AcessarComputadores6351.cs" />
+    <Compile Include="AcessarMenus\AcessarGruposDeProduto5885.cs" />
+    <Compile Include="AcessarMenus\AcessarParentesco5331.cs" />
+    <Compile Include="AcessarMenus\AcessarSeguranca6350.cs" />
+    <Compile Include="Acesso\IncluirControleDeAcesso8704.cs" />
+    <Compile Include="Cobrança e Boleto\DesfazerAcertoDePromotorComCobrancaGerada_8200.cs" />
+    <Compile Include="Cobrança e Boleto\DesfazerCobrancaEmMassa_7687.cs" />
+    <Compile Include="Cobrança e Boleto\EditarCobrancaDebitoEmConta6442.cs" />
+    <Compile Include="Cobrança e Boleto\GeracaoDeCobrancaSemConsumo6959.cs" />
+    <Compile Include="Cobrança e Boleto\GerarCobrancaEmMassaComImportacaoDeConsumo_Todas_7031.cs" />
+    <Compile Include="Cobrança e Boleto\GerarCobrancaEmMassaSemImportacaoDeConsumo-Todas6283.cs" />
+    <Compile Include="Cobrança e Boleto\GerarCobrancaIndividual_7688.cs" />
+    <Compile Include="Cobrança e Boleto\INCOMPLETO EditarArquivoRemessa_CriarNovoArquivo_7344.cs" />
+    <Compile Include="Cobrança e Boleto\ReemissaoDeRemessa_7483.cs" />
+    <Compile Include="Cobrança e Boleto\SimulacaoDeGeracaoDeCobrancaSemConfirmacao6392.cs" />
+    <Compile Include="Cobrança e Boleto\SimulacaodeGeracaodeCobrancaTodas6387.cs" />
+    <Compile Include="Mapas de Ocupação\InclusaoDeMapaDeOcupacao9265.cs" />
     <Compile Include="MenusAndFunctions.cs" />
     <Compile Include="LoginMultiClubes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

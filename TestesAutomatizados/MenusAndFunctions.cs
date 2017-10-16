@@ -10,6 +10,7 @@ using Microsoft.VisualStudio.TestTools.UITest.Extension;
 using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium;
+using System.Threading;
 
 namespace TestesAutomatizados
 {
@@ -38,6 +39,16 @@ namespace TestesAutomatizados
             //Driver.FindElement(By.Name("Título")).Click();
             //Driver.FindElement(By.Name("Central de atendimento")).Click();
 
+        }
+
+        public void TratarTelaAguarde()
+        {
+            while ((Driver.FindElements(By.Id("progressBar")).Count > 0))
+            {
+                Thread.Sleep(1000);
+                Console.WriteLine("passando pelo loop de tratamento da tela aguarde");
+
+            }
         }
 
         #region Atributos de teste adicionais

@@ -48,17 +48,18 @@ namespace TestesAutomatizados.CobrancaEBoleto
             // Presente no TestInitialize
 
             //4.Acessar Central de Atendimento
-
             AcessarMenu.AcessarCentraldeAtendimento();
 
             //5.Localizar e Acessar Título
-
             this.UIMap.AbrirAtendimentoTitulo008Pro();
-            
+
             //6.Acessar o menu Produtos
             //Serem apresentadas as opções A receber, Recebido, Desativados, Créditos, Resgate, Parcelamento e Mudar promotor
             //7.Clicar na opção A receber
             //Ser apresentada tela contendo as parcelas de produtos a receber, constando parcela do produto Acerto promotor
+
+this.UIMap.AcessarProdutosAReceber();
+            
             //8.Copiar o valor referente a coluna Nosso número
             //9.Clicar no menu Cobranças
             //Serem apresentadas as opções Ativas, Desativadas e Editar Cobranças
@@ -70,6 +71,7 @@ namespace TestesAutomatizados.CobrancaEBoleto
             //13.Clicar no botão Localizar
             //Ser apresentada lista contendo todos os acertos de promotores gerados
             this.UIMap.LocalizarHistoricoDeAcertos();
+
 
             //14.Localizar e clicar no acerto de comissão referente aos passos 7 e 10
             //Registro de acerto ser corretamente selecionado e apresentado em destaque

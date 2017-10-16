@@ -1593,6 +1593,73 @@ namespace TestesAutomatizados
             Keyboard.SendKeys(uITextBoxKeywordEdit, this.LocalizarTituloA28248Params.UITextBoxKeywordEditSendKeys, ModifierKeys.None);
         }
         
+        /// <summary>
+        /// InserirUsuarioESenha - Use 'InserirUsuarioESenhaParams' para passar parâmetros para este método.
+        /// </summary>
+        public void InserirUsuarioESenha()
+        {
+            #region Variable Declarations
+            WinEdit uITextBoxUsernameEdit = this.UIMultiClubesWindow.UITextBoxUsernameWindow.UITextBoxUsernameEdit;
+            WinEdit uITextBoxPasswordEdit = this.UIMultiClubesWindow.UITextBoxPasswordWindow.UITextBoxPasswordEdit;
+            #endregion
+
+            // Digitar 'qualidade' em 'textBoxUsername' caixa de texto
+            uITextBoxUsernameEdit.Text = this.InserirUsuarioESenhaParams.UITextBoxUsernameEditText;
+
+            // Digitar '********' em 'textBoxPassword' caixa de texto
+            Keyboard.SendKeys(uITextBoxPasswordEdit, this.InserirUsuarioESenhaParams.UITextBoxPasswordEditSendKeys, true);
+        }
+        
+        /// <summary>
+        /// AbrirAtendimentoTitulo008Pro - Use 'AbrirAtendimentoTitulo008ProParams' para passar parâmetros para este método.
+        /// </summary>
+        public void AbrirAtendimentoTitulo008Pro()
+        {
+            #region Variable Declarations
+            WinEdit uITextBoxKeywordEdit = this.UIMultiClubesCentraldeWindow.UITextBoxKeywordWindow1.UITextBoxKeywordEdit;
+            WinListItem uISophieMariahGabrielaListItem = this.UIMultiClubesCentraldeWindow.UIListViewWindow.UIListViewList2.UISophieMariahGabrielaListItem;
+            #endregion
+
+            // Digitar '008pro' em 'textBoxKeyword' caixa de texto
+            uITextBoxKeywordEdit.Text = this.AbrirAtendimentoTitulo008ProParams.UITextBoxKeywordEditText;
+
+            // Digitar '{Enter}' em 'textBoxKeyword' caixa de texto
+            Keyboard.SendKeys(uITextBoxKeywordEdit, this.AbrirAtendimentoTitulo008ProParams.UITextBoxKeywordEditSendKeys, ModifierKeys.None);
+
+            // Digitar '{Enter}' em 'Sophie Mariah Gabriela Rocha' item de lista
+            Keyboard.SendKeys(uISophieMariahGabrielaListItem, this.AbrirAtendimentoTitulo008ProParams.UISophieMariahGabrielaListItemSendKeys, ModifierKeys.None);
+        }
+        
+        /// <summary>
+        /// LocalizarHistoricoDeAcertos - Use 'LocalizarHistoricoDeAcertosParams' para passar parâmetros para este método.
+        /// </summary>
+        public void LocalizarHistoricoDeAcertos()
+        {
+            #region Variable Declarations
+            WinButton uIHistóricoButton = this.UIMultiClubesAcertodecWindow.UIHistóricoWindow.UIHistóricoButton;
+            WinButton uILocalizarButton = this.UIMultiClubesWindow11.UILocalizarWindow.UILocalizarButton;
+            #endregion
+
+            // Digitar '{Enter}' em 'Histórico' botão
+            Keyboard.SendKeys(uIHistóricoButton, this.LocalizarHistoricoDeAcertosParams.UIHistóricoButtonSendKeys, ModifierKeys.None);
+
+            // Digitar '{Enter}{LMenu}' em 'Localizar' botão
+            Keyboard.SendKeys(uILocalizarButton, this.LocalizarHistoricoDeAcertosParams.UILocalizarButtonSendKeys, ModifierKeys.None);
+        }
+        
+        /// <summary>
+        /// AcessarProdutosAReceber - Use 'AcessarProdutosAReceberParams' para passar parâmetros para este método.
+        /// </summary>
+        public void AcessarProdutosAReceber()
+        {
+            #region Variable Declarations
+            WinButton uIAreceberButton = this.UIMultiClubesCentraldeWindow.UIAreceberWindow.UIAreceberButton;
+            #endregion
+
+            // Digitar '{Enter}' em 'A receber' botão
+            Keyboard.SendKeys(uIAreceberButton, this.AcessarProdutosAReceberParams.UIAreceberButtonSendKeys, ModifierKeys.None);
+        }
+        
         #region Properties
         public virtual AbrirMultiClubesParams AbrirMultiClubesParams
         {
@@ -2662,6 +2729,54 @@ namespace TestesAutomatizados
             }
         }
         
+        public virtual InserirUsuarioESenhaParams InserirUsuarioESenhaParams
+        {
+            get
+            {
+                if ((this.mInserirUsuarioESenhaParams == null))
+                {
+                    this.mInserirUsuarioESenhaParams = new InserirUsuarioESenhaParams();
+                }
+                return this.mInserirUsuarioESenhaParams;
+            }
+        }
+        
+        public virtual AbrirAtendimentoTitulo008ProParams AbrirAtendimentoTitulo008ProParams
+        {
+            get
+            {
+                if ((this.mAbrirAtendimentoTitulo008ProParams == null))
+                {
+                    this.mAbrirAtendimentoTitulo008ProParams = new AbrirAtendimentoTitulo008ProParams();
+                }
+                return this.mAbrirAtendimentoTitulo008ProParams;
+            }
+        }
+        
+        public virtual LocalizarHistoricoDeAcertosParams LocalizarHistoricoDeAcertosParams
+        {
+            get
+            {
+                if ((this.mLocalizarHistoricoDeAcertosParams == null))
+                {
+                    this.mLocalizarHistoricoDeAcertosParams = new LocalizarHistoricoDeAcertosParams();
+                }
+                return this.mLocalizarHistoricoDeAcertosParams;
+            }
+        }
+        
+        public virtual AcessarProdutosAReceberParams AcessarProdutosAReceberParams
+        {
+            get
+            {
+                if ((this.mAcessarProdutosAReceberParams == null))
+                {
+                    this.mAcessarProdutosAReceberParams = new AcessarProdutosAReceberParams();
+                }
+                return this.mAcessarProdutosAReceberParams;
+            }
+        }
+        
         public UIItemWindow UIItemWindow
         {
             get
@@ -3129,6 +3244,30 @@ namespace TestesAutomatizados
                 return this.mUIDesfazercobrançaWindow;
             }
         }
+        
+        public UIMultiClubesAcertodecWindow UIMultiClubesAcertodecWindow
+        {
+            get
+            {
+                if ((this.mUIMultiClubesAcertodecWindow == null))
+                {
+                    this.mUIMultiClubesAcertodecWindow = new UIMultiClubesAcertodecWindow();
+                }
+                return this.mUIMultiClubesAcertodecWindow;
+            }
+        }
+        
+        public UIMultiClubesWindow111 UIMultiClubesWindow11
+        {
+            get
+            {
+                if ((this.mUIMultiClubesWindow11 == null))
+                {
+                    this.mUIMultiClubesWindow11 = new UIMultiClubesWindow111();
+                }
+                return this.mUIMultiClubesWindow11;
+            }
+        }
         #endregion
         
         #region Fields
@@ -3310,6 +3449,14 @@ namespace TestesAutomatizados
         
         private LocalizarTituloA28248Params mLocalizarTituloA28248Params;
         
+        private InserirUsuarioESenhaParams mInserirUsuarioESenhaParams;
+        
+        private AbrirAtendimentoTitulo008ProParams mAbrirAtendimentoTitulo008ProParams;
+        
+        private LocalizarHistoricoDeAcertosParams mLocalizarHistoricoDeAcertosParams;
+        
+        private AcessarProdutosAReceberParams mAcessarProdutosAReceberParams;
+        
         private UIItemWindow mUIItemWindow;
         
         private UIMultiClubesWindow mUIMultiClubesWindow;
@@ -3387,6 +3534,10 @@ namespace TestesAutomatizados
         private UISemtítuloBlocodenotaWindow mUISemtítuloBlocodenotaWindow;
         
         private UIDesfazercobrançaWindow mUIDesfazercobrançaWindow;
+        
+        private UIMultiClubesAcertodecWindow mUIMultiClubesAcertodecWindow;
+        
+        private UIMultiClubesWindow111 mUIMultiClubesWindow11;
         #endregion
     }
     
@@ -4992,6 +5143,86 @@ namespace TestesAutomatizados
         #endregion
     }
     
+    /// <summary>
+    /// Parâmetros a serem passados para 'InserirUsuarioESenha'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class InserirUsuarioESenhaParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar 'qualidade' em 'textBoxUsername' caixa de texto
+        /// </summary>
+        public string UITextBoxUsernameEditText = "qualidade";
+        
+        /// <summary>
+        /// Digitar '********' em 'textBoxPassword' caixa de texto
+        /// </summary>
+        public string UITextBoxPasswordEditSendKeys = "EwKH4AR/i+efPGIZvLkbbxuhIiidiMHRBw0kCMO4UEoApLA2vtXg1qvtsOPCSlJZOEPifLjTaow=";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'AbrirAtendimentoTitulo008Pro'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class AbrirAtendimentoTitulo008ProParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar '008pro' em 'textBoxKeyword' caixa de texto
+        /// </summary>
+        public string UITextBoxKeywordEditText = "008pro";
+        
+        /// <summary>
+        /// Digitar '{Enter}' em 'textBoxKeyword' caixa de texto
+        /// </summary>
+        public string UITextBoxKeywordEditSendKeys = "{Enter}";
+        
+        /// <summary>
+        /// Digitar '{Enter}' em 'Sophie Mariah Gabriela Rocha' item de lista
+        /// </summary>
+        public string UISophieMariahGabrielaListItemSendKeys = "{Enter}";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'LocalizarHistoricoDeAcertos'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class LocalizarHistoricoDeAcertosParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar '{Enter}' em 'Histórico' botão
+        /// </summary>
+        public string UIHistóricoButtonSendKeys = "{Enter}";
+        
+        /// <summary>
+        /// Digitar '{Enter}{LMenu}' em 'Localizar' botão
+        /// </summary>
+        public string UILocalizarButtonSendKeys = "{Enter}{LMenu}";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parâmetros a serem passados para 'AcessarProdutosAReceber'
+    /// </summary>
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class AcessarProdutosAReceberParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Digitar '{Enter}' em 'A receber' botão
+        /// </summary>
+        public string UIAreceberButtonSendKeys = "{Enter}";
+        #endregion
+    }
+    
     [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
     public class UIItemWindow : WinWindow
     {
@@ -6038,6 +6269,18 @@ namespace TestesAutomatizados
                 return this.mUIMenuMainMenuBar;
             }
         }
+        
+        public UIAreceberWindow UIAreceberWindow
+        {
+            get
+            {
+                if ((this.mUIAreceberWindow == null))
+                {
+                    this.mUIAreceberWindow = new UIAreceberWindow(this);
+                }
+                return this.mUIAreceberWindow;
+            }
+        }
         #endregion
         
         #region Fields
@@ -6056,6 +6299,8 @@ namespace TestesAutomatizados
         private UIListViewMembersWindow mUIListViewMembersWindow;
         
         private UIMenuMainMenuBar1 mUIMenuMainMenuBar;
+        
+        private UIAreceberWindow mUIAreceberWindow;
         #endregion
     }
     
@@ -6135,12 +6380,26 @@ namespace TestesAutomatizados
                 return this.mUIListViewList1;
             }
         }
+        
+        public UIListViewList2 UIListViewList2
+        {
+            get
+            {
+                if ((this.mUIListViewList2 == null))
+                {
+                    this.mUIListViewList2 = new UIListViewList2(this);
+                }
+                return this.mUIListViewList2;
+            }
+        }
         #endregion
         
         #region Fields
         private WinList mUIListViewList;
         
         private UIListViewList1 mUIListViewList1;
+        
+        private UIListViewList2 mUIListViewList2;
         #endregion
     }
     
@@ -6177,6 +6436,42 @@ namespace TestesAutomatizados
         
         #region Fields
         private WinListItem mUITítuloTC6442ListItem;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIListViewList2 : WinList
+    {
+        
+        public UIListViewList2(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinList.PropertyNames.Name] = "Localizado por título";
+            this.WindowTitles.Add("MultiClubes - Central de atendimento");
+            #endregion
+        }
+        
+        #region Properties
+        public WinListItem UISophieMariahGabrielaListItem
+        {
+            get
+            {
+                if ((this.mUISophieMariahGabrielaListItem == null))
+                {
+                    this.mUISophieMariahGabrielaListItem = new WinListItem(this);
+                    #region Critérios de pesquisa
+                    this.mUISophieMariahGabrielaListItem.SearchProperties[WinListItem.PropertyNames.Name] = "Sophie Mariah Gabriela Rocha";
+                    this.mUISophieMariahGabrielaListItem.WindowTitles.Add("MultiClubes - Central de atendimento");
+                    #endregion
+                }
+                return this.mUISophieMariahGabrielaListItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinListItem mUISophieMariahGabrielaListItem;
         #endregion
     }
     
@@ -6424,6 +6719,42 @@ namespace TestesAutomatizados
         
         #region Fields
         private WinMenuItem mUIFecharMenuItem;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIAreceberWindow : WinWindow
+    {
+        
+        public UIAreceberWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "sideButtonParcelReceiving";
+            this.WindowTitles.Add("MultiClubes - Central de atendimento");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIAreceberButton
+        {
+            get
+            {
+                if ((this.mUIAreceberButton == null))
+                {
+                    this.mUIAreceberButton = new WinButton(this);
+                    #region Critérios de pesquisa
+                    this.mUIAreceberButton.SearchProperties[WinButton.PropertyNames.Name] = "A receber";
+                    this.mUIAreceberButton.WindowTitles.Add("MultiClubes - Central de atendimento");
+                    #endregion
+                }
+                return this.mUIAreceberButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIAreceberButton;
         #endregion
     }
     
@@ -8516,13 +8847,13 @@ namespace TestesAutomatizados
         }
         
         #region Properties
-        public UIListViewList2 UIListViewList
+        public UIListViewList3 UIListViewList
         {
             get
             {
                 if ((this.mUIListViewList == null))
                 {
-                    this.mUIListViewList = new UIListViewList2(this);
+                    this.mUIListViewList = new UIListViewList3(this);
                 }
                 return this.mUIListViewList;
             }
@@ -8546,17 +8877,17 @@ namespace TestesAutomatizados
         #endregion
         
         #region Fields
-        private UIListViewList2 mUIListViewList;
+        private UIListViewList3 mUIListViewList;
         
         private WinListItem mUIControledeEmissãodeCListItem;
         #endregion
     }
     
     [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
-    public class UIListViewList2 : WinList
+    public class UIListViewList3 : WinList
     {
         
-        public UIListViewList2(UITestControl searchLimitContainer) : 
+        public UIListViewList3(UITestControl searchLimitContainer) : 
                 base(searchLimitContainer)
         {
             #region Critérios de pesquisa
@@ -11837,13 +12168,13 @@ namespace TestesAutomatizados
         }
         
         #region Properties
-        public UIListViewList3 UIListViewList
+        public UIListViewList4 UIListViewList
         {
             get
             {
                 if ((this.mUIListViewList == null))
                 {
-                    this.mUIListViewList = new UIListViewList3(this);
+                    this.mUIListViewList = new UIListViewList4(this);
                 }
                 return this.mUIListViewList;
             }
@@ -11851,15 +12182,15 @@ namespace TestesAutomatizados
         #endregion
         
         #region Fields
-        private UIListViewList3 mUIListViewList;
+        private UIListViewList4 mUIListViewList;
         #endregion
     }
     
     [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
-    public class UIListViewList3 : WinList
+    public class UIListViewList4 : WinList
     {
         
-        public UIListViewList3(UITestControl searchLimitContainer) : 
+        public UIListViewList4(UITestControl searchLimitContainer) : 
                 base(searchLimitContainer)
         {
             #region Critérios de pesquisa
@@ -12162,6 +12493,142 @@ namespace TestesAutomatizados
         
         #region Fields
         private WinButton mUIOKButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIMultiClubesAcertodecWindow : WinWindow
+    {
+        
+        public UIMultiClubesAcertodecWindow()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "MultiClubes - Acerto de comissão";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("MultiClubes - Acerto de comissão");
+            #endregion
+        }
+        
+        #region Properties
+        public UIHistóricoWindow UIHistóricoWindow
+        {
+            get
+            {
+                if ((this.mUIHistóricoWindow == null))
+                {
+                    this.mUIHistóricoWindow = new UIHistóricoWindow(this);
+                }
+                return this.mUIHistóricoWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIHistóricoWindow mUIHistóricoWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIHistóricoWindow : WinWindow
+    {
+        
+        public UIHistóricoWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "sideButtonClassHistoric";
+            this.WindowTitles.Add("MultiClubes - Acerto de comissão");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIHistóricoButton
+        {
+            get
+            {
+                if ((this.mUIHistóricoButton == null))
+                {
+                    this.mUIHistóricoButton = new WinButton(this);
+                    #region Critérios de pesquisa
+                    this.mUIHistóricoButton.SearchProperties[WinButton.PropertyNames.Name] = "Histórico";
+                    this.mUIHistóricoButton.WindowTitles.Add("MultiClubes - Acerto de comissão");
+                    #endregion
+                }
+                return this.mUIHistóricoButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIHistóricoButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIMultiClubesWindow111 : WinWindow
+    {
+        
+        public UIMultiClubesWindow111()
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "MultiClubes";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("MultiClubes");
+            #endregion
+        }
+        
+        #region Properties
+        public UILocalizarWindow UILocalizarWindow
+        {
+            get
+            {
+                if ((this.mUILocalizarWindow == null))
+                {
+                    this.mUILocalizarWindow = new UILocalizarWindow(this);
+                }
+                return this.mUILocalizarWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UILocalizarWindow mUILocalizarWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UILocalizarWindow : WinWindow
+    {
+        
+        public UILocalizarWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "buttonFilter";
+            this.WindowTitles.Add("MultiClubes");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UILocalizarButton
+        {
+            get
+            {
+                if ((this.mUILocalizarButton == null))
+                {
+                    this.mUILocalizarButton = new WinButton(this);
+                    #region Critérios de pesquisa
+                    this.mUILocalizarButton.SearchProperties[WinButton.PropertyNames.Name] = "Localizar";
+                    this.mUILocalizarButton.WindowTitles.Add("MultiClubes");
+                    #endregion
+                }
+                return this.mUILocalizarButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUILocalizarButton;
         #endregion
     }
 }
