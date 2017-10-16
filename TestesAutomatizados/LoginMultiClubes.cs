@@ -9,6 +9,7 @@ using System;
 using System.Diagnostics;
 using System.Threading;
 
+
 namespace TestesAutomatizados
 {
     /// <resumo>
@@ -25,81 +26,111 @@ namespace TestesAutomatizados
 
         public void VerificarSeMultiClubesEstaAbertoELogado()
         {
-            // verificando se o processo já está em execução
-            Process[] processlist = Process.GetProcesses();
-            // variavel para verificar se o MultiClubes está aberto (por padrão, é falso)
-            bool OpenedMultiClubes = false;
-            bool OpenedWiniumDriver = false;
-
-            foreach (Process process in processlist)
+            try
             {
-                if (!String.IsNullOrEmpty(process.MainWindowTitle))
+                // verificando se o processo já está em execução
+                Process[] processlist = Process.GetProcesses();
+                // variavel para verificar se o MultiClubes está aberto (por padrão, é falso)
+                bool OpenedMultiClubes = false;
+                bool OpenedWiniumDriver = false;
+
+                foreach (Process process in processlist)
                 {
-                    //a linha abaixo, que está comentada, mostra todos os processos em execução
-                    //Console.WriteLine("Process: {0} | ID: {1} | Window title: {2}", process.ProcessName, process.Id, process.MainWindowTitle);
-                    if (process.MainWindowTitle.Contains("MultiClubes"))
+                    if (!String.IsNullOrEmpty(process.MainWindowTitle))
                     {
-                        // se for identificado algum processo em que o título contenha "MultiClubes", a variavel recebe True
-                        OpenedMultiClubes = true;
-                    }
-                    else if (process.MainWindowTitle.Contains("Winium.Desktop.Driver.exe"))
-                    {
-                        OpenedWiniumDriver = true;
+                        //a linha abaixo, que está comentada, mostra todos os processos em execução
+                        //Console.WriteLine("Process: {0} | ID: {1} | Window title: {2}", process.ProcessName, process.Id, process.MainWindowTitle);
+                        if (process.MainWindowTitle.Contains("MultiClubes"))
+                        {
+                            // se for identificado algum processo em que o título contenha "MultiClubes", a variavel recebe True
+                            OpenedMultiClubes = true;
+                        }
+                        else if (process.MainWindowTitle.Contains("Winium.Desktop.Driver.exe"))
+                        {
+                            OpenedWiniumDriver = true;
+                        }
                     }
                 }
-            }
 
-            if (!OpenedWiniumDriver)
+                if (!OpenedWiniumDriver)
+                {
+                    Console.WriteLine("Winium Driver fechado {0}", OpenedWiniumDriver);
+                    Process.Start("C:/Users/arthur.gama/automatizados/TestesAutomatizados/" + "Winium.Desktop.Driver.exe");
+                    Thread.Sleep(5000);
+                }
+
+                var dc = new DesiredCapabilities();
+                dc.SetCapability("app", @"\\tsidev\Triade\Application\Dev\MultiClubes\System\MultiClubes\MultiClubes.UI.application");
+                //dc.SetCapability("app", @"C:/Triade/MultiClubes/System/MultiClubes/MultiClubes.UI.application");
+
+                // se a variavel estiver como falso, entra nessa condição que abre o MultiClubes
+                if (OpenedMultiClubes)
+                {
+                    dc.SetCapability("debugConnectToRunningApp", true);
+                }
+                else
+                {
+                    Thread.Sleep(5000);
+                }
+
+               Driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
+
+                //Driver.FindElement(By.XPath("*[starts-with(@Name, 'MultiClubes')]")).Click();
+                //Driver.FindElement(By.Name("MultiClubes")).Click();
+
+                //foreach (IWebElement i in Driver.FindElements(By.XPath("//*[starts-with(@Name, 'MultiClubes')]")))
+                //{
+                //    Console.WriteLine(i.GetAttribute("Name"));
+                //}
+                //Thread.Sleep(10000);
+
+                //Driver.FindElement(By.Id("textBoxUsername")).SendKeys("suporte");
+                //Driver.FindElement(OpenQA.Selenium.By.Id("textBoxPassword")).SendKeys("DeZer0@100");
+                //Driver.FindElement(OpenQA.Selenium.By.Id("button")).Click();
+                
+
+               
+
+                if (Driver.FindElements(OpenQA.Selenium.By.Id("textBoxUsername")).Count > 0 &&
+                    Driver.FindElements(OpenQA.Selenium.By.Id("textBoxPassword")).Count > 0)
+                {
+                    this.UIMap.InserirUsuarioESenha();
+                }
+                //Assert.AreEqual(Driver.FindElements(OpenQA.Selenium.By.Id("panelFooter")).Count, 1);
+
+
+
+                //Process proc = new Process();
+                //proc.StartInfo.FileName = @"C:/Triade/MultiClubes/System/MultiClubes/MultiClubes.UI.application";
+                //proc.Start();
+                //Driver.FindElement(By.Name("MultiClubes")).Click();
+
+
+                WinWindow winMC = new WinWindow();
+                winMC.SearchProperties[WinWindow.PropertyNames.Name] = "MultiClubes";
+                winMC.WindowTitles.Add("MultiClubes");
+                //Mouse.Click(winMC);
+                winMC.SetFocus();
+
+                //Console.WriteLine(winMC.Exists);
+
+                //foreach (IWebElement i in Driver.FindElements(By.ClassName("WindowsForms10.Window.8.app.0.c4edf4_r9_ad2")))
+                //{
+                //    Console.WriteLine(i.GetAttribute("ProcessId"));
+                //    Console.WriteLine(i.GetAttribute("Name"));
+
+                //}
+                //Driver.FindElement(By.Name("contentPanel1")).Click();
+                
+
+            }
+            catch (ArgumentException e)
             {
-                Console.WriteLine("Winium Driver fechado {0}", OpenedWiniumDriver);
-                Process.Start("C:/Users/arthur.gama/automatizados/TestesAutomatizados/" + "Winium.Desktop.Driver.exe");
-                Thread.Sleep(5000);
+                //Please log when you're just catching something. Especially if the catch statement has side effects. Trust me.
+                Console.WriteLine("IOException source: {0}", e.Source);
             }
 
-            var dc = new DesiredCapabilities();
-            dc.SetCapability("app", @"\\tsidev\Triade\Application\Dev\MultiClubes\System\MultiClubes\MultiClubes.UI.application");
-            //dc.SetCapability("app", @"C:/Triade/MultiClubes/System/MultiClubes/MultiClubes.UI.application");
-
-            // se a variavel estiver como falso, entra nessa condição que abre o MultiClubes
-            if (OpenedMultiClubes)
-            {
-                dc.SetCapability("debugConnectToRunningApp", true);
-            }
-
-            Thread.Sleep(5000);
-            Driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
-
-            //Driver.FindElement(By.XPath("*[starts-with(@Name, 'MultiClubes')]")).Click();
-            //Driver.FindElement(By.Name("MultiClubes")).Click();
-
-            //foreach (IWebElement i in Driver.FindElements(By.XPath("//*[starts-with(@Name, 'MultiClubes')]")))
-            //{
-            //    Console.WriteLine(i.GetAttribute("Name"));
-            //}
-            //Thread.Sleep(10000);
-
-            //Driver.FindElement(By.Id("textBoxUsername")).SendKeys("suporte");
-            //Driver.FindElement(OpenQA.Selenium.By.Id("textBoxPassword")).SendKeys("DeZer0@100");
-            //Driver.FindElement(OpenQA.Selenium.By.Id("button")).Click();
-
-
-            if (Driver.FindElements(OpenQA.Selenium.By.Id("textBoxUsername")).Count > 0 &&
-                Driver.FindElements(OpenQA.Selenium.By.Id("textBoxPassword")).Count > 0)
-            {
-                this.UIMap.InserirUsuarioESenha();
-            }
-            //Assert.AreEqual(Driver.FindElements(OpenQA.Selenium.By.Id("panelFooter")).Count, 1);
-
-
-
-            //Process proc = new Process();
-            //proc.StartInfo.FileName = @"C:/Triade/MultiClubes/System/MultiClubes/MultiClubes.UI.application";
-            //proc.Start();
-            //Driver.FindElement(By.Name("MultiClubes")).Click();
-            WinWindow winMC = new WinWindow();
-            winMC.SearchProperties[WinWindow.PropertyNames.Name] = "MultiClubes";
-            winMC.WindowTitles.Add("MultiClubes");
-            Mouse.Click(winMC);
+            
         }
 
         #region Atributos de teste adicionais
