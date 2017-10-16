@@ -13,7 +13,6 @@ using OpenQA.Selenium;
 using System.Threading;
 
 
-
 namespace TestesAutomatizados.CobrancaEBoleto
 {
     /// <resumo>

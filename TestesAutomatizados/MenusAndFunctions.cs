@@ -35,9 +35,9 @@ namespace TestesAutomatizados
         public void AcessarCentraldeAtendimento()
         {
             // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
-            //Driver.FindElement(By.Name("Operação")).Click();
-            //Driver.FindElement(By.Name("Título")).Click();
-            //Driver.FindElement(By.Name("Central de atendimento")).Click();
+            Driver.FindElement(By.Name("Operação")).Click();
+            Driver.FindElement(By.Name("Título")).Click();
+            Driver.FindElement(By.Name("Central de atendimento")).Click();
 
         }
 
