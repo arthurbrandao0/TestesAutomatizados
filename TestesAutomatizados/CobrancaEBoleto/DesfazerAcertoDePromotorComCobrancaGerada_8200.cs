@@ -12,6 +12,8 @@ using OpenQA.Selenium.Remote;
 using OpenQA.Selenium;
 using System.Threading;
 
+
+
 namespace TestesAutomatizados.CobrancaEBoleto
 {
     /// <resumo>
@@ -27,6 +29,8 @@ namespace TestesAutomatizados.CobrancaEBoleto
         [TestMethod]
         public void DesfazerAcertoDePromotorComCobrancaGerada_8200_Metodo()
         {
+            MenuAccess AcessarMenu = new MenuAccess();
+
             var dc = new DesiredCapabilities();
             dc.SetCapability("app", @"\\tsidev\Triade\Application\Dev\MultiClubes\System\MultiClubes\MultiClubes.UI.application");
             dc.SetCapability("debugConnectToRunningApp", true);
@@ -35,8 +39,8 @@ namespace TestesAutomatizados.CobrancaEBoleto
             // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
             
             // 1. Pré-requisito: Acerto de comissão gerada para o promotor @NomePromotor, associado ao título  @IdTitulo 
-            this.UIMap.GerarAcertoDeComissao();
-            this.UIMap.ClicarBotaoOkAcertoDeComissao();
+            //this.UIMap.GerarAcertoDeComissao();
+            //this.UIMap.ClicarBotaoOkAcertoDeComissao();
 
             //2. Pré - requisito: Cobrança gerada contendo o acerto do promotor @NomePromotor
             
@@ -44,6 +48,8 @@ namespace TestesAutomatizados.CobrancaEBoleto
             // Presente no TestInitialize
 
             //4.Acessar Central de Atendimento
+
+            AcessarMenu.AcessarCentraldeAtendimento();
 
 
             //5.Localizar e Acessar Título
@@ -92,6 +98,10 @@ namespace TestesAutomatizados.CobrancaEBoleto
             Driver.FindElement(By.Name("Fechar")).Click();
 
             //19.Acessar Central de Atendimento
+
+            AcessarMenu.AcessarCentraldeAtendimento();
+
+
             //20.Localizar e Acessar Título
             //21.Repetir os passos 6 e 7
             //Ser apresentada tela contendo as parcelas de produtos a receber, não constando parcela do produto Acerto promotor, desfeita no passo 18
