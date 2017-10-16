@@ -55,7 +55,7 @@ namespace TestesAutomatizados
                 if (!OpenedWiniumDriver)
                 {
                     Console.WriteLine("Winium Driver fechado {0}", OpenedWiniumDriver);
-                    Process.Start("C:/Users/arthur.gama/automatizados/TestesAutomatizados/" + "Winium.Desktop.Driver.exe");
+                    Process.Start("C:/TestesAutomatizados/" + "Winium.Desktop.Driver.exe");
                     Thread.Sleep(5000);
                 }
 
