@@ -29,7 +29,7 @@ namespace TestesAutomatizados.CobrancaEBoleto
         [TestMethod]
         public void DesfazerAcertoDePromotorComCobrancaGerada_8200_Metodo()
         {
-            MenuAccess AcessarMenu = new MenuAccess();
+            MenusAndFunctions AcessarMenu = new MenusAndFunctions();
 
             var dc = new DesiredCapabilities();
             dc.SetCapability("app", @"\\tsidev\Triade\Application\Dev\MultiClubes\System\MultiClubes\MultiClubes.UI.application");

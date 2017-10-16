@@ -17,10 +17,10 @@ namespace TestesAutomatizados
     /// Descrição resumida para CodedUITest1
     /// </resumo>
     [CodedUITest]
-    public class MenuAccess
+    public class MenusAndFunctions
     {
 
-        public MenuAccess()
+        public MenusAndFunctions()
         {
 
             var dc = new DesiredCapabilities();
