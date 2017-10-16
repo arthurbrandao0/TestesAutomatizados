@@ -43,12 +43,18 @@ namespace TestesAutomatizados
 
         public void TratarTelaAguarde()
         {
-            while ((Driver.FindElements(By.Id("progressBar")).Count > 0))
+            int counter = 0;
+            while ((Driver.FindElements(By.Id("progressBar")).Count > 0) && counter < 60)
             {
                 Thread.Sleep(1000);
                 Console.WriteLine("passando pelo loop de tratamento da tela aguarde");
-
+                counter++;
             }
+        }
+
+        public void ClicarBotaoFechar()
+        {
+            Driver.FindElement(By.Id("buttonClose")).Click();
         }
 
         #region Atributos de teste adicionais

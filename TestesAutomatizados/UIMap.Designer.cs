@@ -1660,6 +1660,19 @@ namespace TestesAutomatizados
             Keyboard.SendKeys(uIAreceberButton, this.AcessarProdutosAReceberParams.UIAreceberButtonSendKeys, ModifierKeys.None);
         }
         
+        /// <summary>
+        /// AcessarOperacaoFinanceiroAcertoDeComissao
+        /// </summary>
+        public void AcessarOperacaoFinanceiroAcertoDeComissao()
+        {
+            #region Variable Declarations
+            WinMenuItem uIAcertodecomissãoMenuItem = this.UIMultiClubesCentraldeWindow.UIMenuMainMenuBar.UIOperaçãoMenuItem.UIFinanceiroMenuItem.UIAcertodecomissãoMenuItem;
+            #endregion
+
+            // Clicar 'Operação' -> 'Financeiro' -> 'Acerto de comissão' item de menu
+            Mouse.Click(uIAcertodecomissãoMenuItem, new Point(0, 0));
+        }
+        
         #region Properties
         public virtual AbrirMultiClubesParams AbrirMultiClubesParams
         {
@@ -6715,10 +6728,94 @@ namespace TestesAutomatizados
                 return this.mUIFecharMenuItem;
             }
         }
+        
+        public UIOperaçãoMenuItem1 UIOperaçãoMenuItem
+        {
+            get
+            {
+                if ((this.mUIOperaçãoMenuItem == null))
+                {
+                    this.mUIOperaçãoMenuItem = new UIOperaçãoMenuItem1(this);
+                }
+                return this.mUIOperaçãoMenuItem;
+            }
+        }
         #endregion
         
         #region Fields
         private WinMenuItem mUIFecharMenuItem;
+        
+        private UIOperaçãoMenuItem1 mUIOperaçãoMenuItem;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIOperaçãoMenuItem1 : WinMenuItem
+    {
+        
+        public UIOperaçãoMenuItem1(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinMenuItem.PropertyNames.Name] = "Operação";
+            this.WindowTitles.Add("MultiClubes - Central de atendimento");
+            #endregion
+        }
+        
+        #region Properties
+        public UIFinanceiroMenuItem2 UIFinanceiroMenuItem
+        {
+            get
+            {
+                if ((this.mUIFinanceiroMenuItem == null))
+                {
+                    this.mUIFinanceiroMenuItem = new UIFinanceiroMenuItem2(this);
+                }
+                return this.mUIFinanceiroMenuItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIFinanceiroMenuItem2 mUIFinanceiroMenuItem;
+        #endregion
+    }
+    
+    [GeneratedCode("Construtor de UITest codificado", "15.0.26208.0")]
+    public class UIFinanceiroMenuItem2 : WinMenuItem
+    {
+        
+        public UIFinanceiroMenuItem2(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Critérios de pesquisa
+            this.SearchProperties[WinMenuItem.PropertyNames.Name] = "Financeiro";
+            this.SearchConfigurations.Add(SearchConfiguration.ExpandWhileSearching);
+            this.WindowTitles.Add("MultiClubes - Central de atendimento");
+            #endregion
+        }
+        
+        #region Properties
+        public WinMenuItem UIAcertodecomissãoMenuItem
+        {
+            get
+            {
+                if ((this.mUIAcertodecomissãoMenuItem == null))
+                {
+                    this.mUIAcertodecomissãoMenuItem = new WinMenuItem(this);
+                    #region Critérios de pesquisa
+                    this.mUIAcertodecomissãoMenuItem.SearchProperties[WinMenuItem.PropertyNames.Name] = "Acerto de comissão";
+                    this.mUIAcertodecomissãoMenuItem.SearchConfigurations.Add(SearchConfiguration.ExpandWhileSearching);
+                    this.mUIAcertodecomissãoMenuItem.WindowTitles.Add("MultiClubes - Central de atendimento");
+                    #endregion
+                }
+                return this.mUIAcertodecomissãoMenuItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinMenuItem mUIAcertodecomissãoMenuItem;
         #endregion
     }
     
