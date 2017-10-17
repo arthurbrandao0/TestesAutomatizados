@@ -38,6 +38,11 @@ namespace TestesAutomatizados
             Driver.FindElement(By.Name("Central de atendimento")).Click();
         }
 
+        public void FecharJanela(string NomeJanela = "")
+        {
+            Driver.FindElementByName("Fechar").Click();
+        }
+
         public void FinalizarAtendimentoTitulo()
         {
             Driver.FindElement(By.Name("Fechar")).Click();
@@ -65,7 +70,8 @@ namespace TestesAutomatizados
 
         public void ClicarBotaoFechar()
         {
-            Driver.FindElement(By.Id("buttonClose")).Click();
+            Thread.Sleep(500);
+            Driver.FindElementById("Close").Click();
         }
 
         public void AcessarProdutosAReceber()

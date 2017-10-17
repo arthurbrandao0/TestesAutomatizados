@@ -52,8 +52,6 @@ namespace TestesAutomatizados.CobrancaEBoleto
                 Console.WriteLine("Acerto gerado anteriormente");
             }
 
-            //2. Pré - requisito: Cobrança gerada contendo o acerto do promotor @NomePromotor
-
             //3.Logar no MultiClubes
             // Presente no TestInitialize
 
@@ -91,7 +89,9 @@ namespace TestesAutomatizados.CobrancaEBoleto
             var nossonumero = list2[counter + 6].GetAttribute("Name");
             Console.WriteLine(nossonumero);
 
+            Console.WriteLine("antes do botao fechar");
             AcessarMenu.ClicarBotaoFechar();
+            Console.WriteLine("depois do botao fechar");
 
             //9.Clicar no menu Cobranças
             //Serem apresentadas as opções Ativas, Desativadas e Editar Cobranças
@@ -133,13 +133,11 @@ namespace TestesAutomatizados.CobrancaEBoleto
             //13.Clicar no botão Localizar
             //Ser apresentada lista contendo todos os acertos de promotores gerados
             Driver.FindElement(By.Id("buttonFilter")).Click();
-            this.UIMap.LocalizarHistoricoDeAcertos();
-
+            
             //14.Localizar e clicar no acerto de comissão referente aos passos 7 e 10
             //Registro de acerto ser corretamente selecionado e apresentado em destaque
             Thread.Sleep(1000);
-            //var list = Driver.FindElement(By.Id("listView")).FindElements(By.Name("Sophie Promotor"));
-
+            
             //15.Dar duplo clique no registro de acerto de promotor
             //Ser apresentada tela contendo Detalhe do acerto da comissão
                         
@@ -195,6 +193,28 @@ namespace TestesAutomatizados.CobrancaEBoleto
 
             //22.Repetir os passos 9 e 10
             AcessarMenu.AcessarCobrancasAtivas();
+
+            var list5 = Driver.FindElement(By.Id("listViewDun")).FindElements(By.Id(""));
+            var counter5 = 0;
+            bool encontrounn2 = false;
+
+            foreach (IWebElement i in list5)
+            {
+                var name = i.GetAttribute("Name");
+                Console.WriteLine(name);
+
+                if (name == nossonumero)
+                {
+                    encontrounn = true;
+                    break;
+                }
+                counter5++;
+            }
+            Assert.IsFalse(encontrounn2, "Nosso numero encontrado nas cobranças ativas");
+            AcessarMenu.ClicarBotaoFechar();
+
+            AcessarMenu.FinalizarAtendimentoTitulo();
+            AcessarMenu.FecharJanela("Central de Atendimento");
 
             //Ser apresentada tela contendo as cobranças ativas, não constando cobrança referente ao acerto de comissão de promotor, desfeita no passo 18
         }
