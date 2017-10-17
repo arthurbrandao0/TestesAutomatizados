@@ -138,12 +138,12 @@ namespace TestesAutomatizados.CobrancaEBoleto
             //14.Localizar e clicar no acerto de comissão referente aos passos 7 e 10
             //Registro de acerto ser corretamente selecionado e apresentado em destaque
             Thread.Sleep(1000);
-            var list = Driver.FindElement(By.Id("listView")).FindElements(By.Name("Sophie Promotor"));
+            //var list = Driver.FindElement(By.Id("listView")).FindElements(By.Name("Sophie Promotor"));
 
             //15.Dar duplo clique no registro de acerto de promotor
             //Ser apresentada tela contendo Detalhe do acerto da comissão
                         
-            act.DoubleClick(list[2]).Perform();
+            act.DoubleClick(Driver.FindElement(By.Id("listView")).FindElements(By.Name("Sophie Promotor"))[2]).Perform();
             
             //16.Clicar no botão Opções
             //Ser apresentado sub - menu contendo as opções disponíveis
@@ -173,7 +173,7 @@ namespace TestesAutomatizados.CobrancaEBoleto
             //Ser apresentada tela contendo as parcelas de produtos a receber, não constando parcela do produto Acerto promotor, desfeita no passo 18
             AcessarMenu.AcessarProdutosAReceber();
 
-            var list4 = Driver.FindElement(By.Id("listViewDun")).FindElements(By.Id(""));
+            var list4 = Driver.FindElement(By.Id("listViewParcel")).FindElements(By.Id(""));
             var counter4 = 0;
             bool encontrouacertopromotor = false;
 
