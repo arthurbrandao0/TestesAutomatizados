@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using System.Windows.Input;
-using System.Windows.Forms;
-using System.Drawing;
-using Microsoft.VisualStudio.TestTools.UITesting;
+﻿using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Microsoft.VisualStudio.TestTools.UITest.Extension;
-using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
-using OpenQA.Selenium.Remote;
 using OpenQA.Selenium;
-using System.Threading;
 using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Remote;
+using System;
+using System.Collections.Generic;
+using System.Threading;
 
 namespace TestesAutomatizados.CobrancaEBoleto
 {
@@ -75,9 +69,10 @@ namespace TestesAutomatizados.CobrancaEBoleto
 
             //7.Clicar na opção A receber
             //Ser apresentada tela contendo as parcelas de produtos a receber, constando parcela do produto Acerto promotor
-            this.UIMap.AcessarProdutosAReceber();
+            AcessarMenu.AcessarProdutosAReceber();
 
             //8.Copiar o valor referente a coluna Nosso número
+            Thread.Sleep(1000);
             var list2 = Driver.FindElement(By.Id("listViewParcel")).FindElements(By.Id(""));
             var counter = 0;
 
@@ -100,11 +95,9 @@ namespace TestesAutomatizados.CobrancaEBoleto
 
             //9.Clicar no menu Cobranças
             //Serem apresentadas as opções Ativas, Desativadas e Editar Cobranças
-            Driver.FindElement(By.Name("Cobranças")).FindElement(By.Id("headerButton")).Click();
-
             //10.Clicar na opção Ativas
             //Ser apresentada tela contendo as cobranças ativas, constando na coluna Nosso número o mesmo valor do número copiado no passo 8
-            Driver.FindElement(By.Name("Ativas")).Click();
+            AcessarMenu.AcessarCobrancasAtivas();
 
             var list3 = Driver.FindElement(By.Id("listViewDun")).FindElements(By.Id(""));
             var counter2 = 0;
@@ -144,6 +137,7 @@ namespace TestesAutomatizados.CobrancaEBoleto
 
             //14.Localizar e clicar no acerto de comissão referente aos passos 7 e 10
             //Registro de acerto ser corretamente selecionado e apresentado em destaque
+            Thread.Sleep(1000);
             var list = Driver.FindElement(By.Id("listView")).FindElements(By.Name("Sophie Promotor"));
 
             //15.Dar duplo clique no registro de acerto de promotor
@@ -176,9 +170,32 @@ namespace TestesAutomatizados.CobrancaEBoleto
             this.UIMap.AbrirAtendimentoTitulo008Pro();
 
             //21.Repetir os passos 6 e 7
-
             //Ser apresentada tela contendo as parcelas de produtos a receber, não constando parcela do produto Acerto promotor, desfeita no passo 18
+            AcessarMenu.AcessarProdutosAReceber();
+
+            var list4 = Driver.FindElement(By.Id("listViewDun")).FindElements(By.Id(""));
+            var counter4 = 0;
+            bool encontrouacertopromotor = false;
+
+            foreach (IWebElement i in list4)
+            {
+                var name = i.GetAttribute("Name");
+                Console.WriteLine(name);
+
+                if (name == "Acerto Promotor")
+                {
+                    encontrouacertopromotor = true;
+                    break;
+                }
+               counter4++;
+            }
+            Assert.IsFalse(encontrouacertopromotor, "Acerto Promotor continuou em Produtos a receber");
+
+            AcessarMenu.ClicarBotaoFechar();
+
             //22.Repetir os passos 9 e 10
+            AcessarMenu.AcessarCobrancasAtivas();
+
             //Ser apresentada tela contendo as cobranças ativas, não constando cobrança referente ao acerto de comissão de promotor, desfeita no passo 18
         }
 

@@ -30,8 +30,7 @@ namespace TestesAutomatizados
 
             Driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
         }
-
-        [TestMethod]
+                
         public void AcessarCentralDeAtendimento()
         {
             Driver.FindElement(By.Name("Operação")).Click();
@@ -67,6 +66,18 @@ namespace TestesAutomatizados
         public void ClicarBotaoFechar()
         {
             Driver.FindElement(By.Id("buttonClose")).Click();
+        }
+
+        public void AcessarProdutosAReceber()
+        {
+            //this.UIMap.AcessarProdutosAReceber();
+            Driver.FindElement(By.Name("A receber")).Click();
+        }
+
+        public void AcessarCobrancasAtivas()
+        {
+            Driver.FindElement(By.Name("Cobranças")).FindElement(By.Id("headerButton")).Click();
+            Driver.FindElement(By.Name("Ativas")).Click();
         }
 
         #region Atributos de teste adicionais
