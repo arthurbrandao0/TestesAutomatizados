@@ -29,17 +29,34 @@ namespace TestesAutomatizados.CobrancaEBoleto
         public void DesfazerAcertoDePromotorComCobrancaGerada_8200_Metodo()
         {
             MenusAndFunctions AcessarMenu = new MenusAndFunctions();
-
+            
             var dc = new DesiredCapabilities();
             dc.SetCapability("app", @"\\tsidev\Triade\Application\Dev\MultiClubes\System\MultiClubes\MultiClubes.UI.application");
             dc.SetCapability("debugConnectToRunningApp", true);
             Driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
 
-            // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
+            Actions act = new Actions(Driver);
 
             // 1. Pré-requisito: Acerto de comissão gerada para o promotor @NomePromotor, associado ao título  @IdTitulo 
-            //this.UIMap.GerarAcertoDeComissao();
-            //this.UIMap.ClicarBotaoOkAcertoDeComissao();
+            this.UIMap.AcessarOperacaoFinanceiroAcertoDeComissao();
+
+            Driver.FindElement(By.Name("Localizar")).Click();
+
+            List<IWebElement> elementlist = new List<IWebElement>();
+            elementlist.AddRange(Driver.FindElement(By.Id("listView")).FindElements(By.Name("Sophie Promotor")));
+
+            if(elementlist.Count > 0)
+            {
+                act.ContextClick(elementlist[0]).Perform();
+                Driver.FindElement(By.Name("Gerar acerto")).Click();
+                Driver.FindElement(By.Name("Sim")).Click();
+                AcessarMenu.TratarTelaAguarde();
+                Driver.FindElement(By.Name("OK")).Click();
+            }
+            else
+            {
+                Console.WriteLine("Acerto gerado anteriormente");
+            }
 
             //2. Pré - requisito: Cobrança gerada contendo o acerto do promotor @NomePromotor
 
@@ -131,8 +148,7 @@ namespace TestesAutomatizados.CobrancaEBoleto
 
             //15.Dar duplo clique no registro de acerto de promotor
             //Ser apresentada tela contendo Detalhe do acerto da comissão
-
-            Actions act = new Actions(Driver);
+                        
             act.DoubleClick(list[2]).Perform();
             
             //16.Clicar no botão Opções
@@ -157,7 +173,10 @@ namespace TestesAutomatizados.CobrancaEBoleto
             AcessarMenu.AcessarCentralDeAtendimento();
 
             //20.Localizar e Acessar Título
+            this.UIMap.AbrirAtendimentoTitulo008Pro();
+
             //21.Repetir os passos 6 e 7
+
             //Ser apresentada tela contendo as parcelas de produtos a receber, não constando parcela do produto Acerto promotor, desfeita no passo 18
             //22.Repetir os passos 9 e 10
             //Ser apresentada tela contendo as cobranças ativas, não constando cobrança referente ao acerto de comissão de promotor, desfeita no passo 18
