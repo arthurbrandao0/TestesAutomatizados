@@ -11,7 +11,7 @@ using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium;
 using System.Threading;
-
+using OpenQA.Selenium.Interactions;
 
 namespace TestesAutomatizados.CobrancaEBoleto
 {
@@ -47,7 +47,7 @@ namespace TestesAutomatizados.CobrancaEBoleto
             // Presente no TestInitialize
 
             //4.Acessar Central de Atendimento
-            AcessarMenu.AcessarCentraldeAtendimento();
+            AcessarMenu.AcessarCentralDeAtendimento();
 
             //5.Localizar e Acessar Título
             this.UIMap.AbrirAtendimentoTitulo008Pro();
@@ -98,7 +98,6 @@ namespace TestesAutomatizados.CobrancaEBoleto
                 var name = i.GetAttribute("Name");
                 Console.WriteLine(name);
 
-
                 if (name == nossonumero)
                 {
                     encontrounn = true;
@@ -107,10 +106,12 @@ namespace TestesAutomatizados.CobrancaEBoleto
                 counter2++;
             }
 
-
-            Console.WriteLine("NN encontrado?{0}", encontrounn);
+            Console.WriteLine("NN encontrado? {0}", encontrounn);
+            Assert.IsTrue(encontrounn, "Nosso numero encontrado");
 
             AcessarMenu.ClicarBotaoFechar();
+
+            AcessarMenu.FinalizarAtendimentoTitulo();
 
             //11.Acessar Acerto de Comissão
             this.UIMap.AcessarOperacaoFinanceiroAcertoDeComissao();
@@ -127,35 +128,33 @@ namespace TestesAutomatizados.CobrancaEBoleto
             //14.Localizar e clicar no acerto de comissão referente aos passos 7 e 10
             //Registro de acerto ser corretamente selecionado e apresentado em destaque
             var list = Driver.FindElement(By.Id("listView")).FindElements(By.Name("Sophie Promotor"));
-            
-            Thread.Sleep(3000);
-            Driver.FindElement(By.Name("Fechar")).Click();
-            Thread.Sleep(3000);
-            Driver.FindElement(By.Name("Fechar")).Click();
 
             //15.Dar duplo clique no registro de acerto de promotor
             //Ser apresentada tela contendo Detalhe do acerto da comissão
-            ////Arrumar essa gambiarra do click:
-            list[2].Click();
-            list[2].Click();
-            list[2].Click();
 
+            Actions act = new Actions(Driver);
+            act.DoubleClick(list[2]).Perform();
+            
             //16.Clicar no botão Opções
             //Ser apresentado sub - menu contendo as opções disponíveis
             Driver.FindElement(By.Name("Opções")).Click();
 
             //17.No sub-menu, clicar na opção Desfazer acerto
             //Ser apresentada tela solicitando confirmação para desfazer acerto de comissão para o promotor
-            Thread.Sleep(3000);
             Driver.FindElement(By.Name("Desfazer acerto")).Click();
 
             //18.Clicar no botão Sim
             //Acerto de comissão de promotor ser corretamente desfeito e ser apresentada tela de histórico de acertos sem constar o acerto de comissão desfeito
-            Thread.Sleep(3000);
             Driver.FindElement(By.Name("Sim")).Click();
 
+            AcessarMenu.TratarTelaAguarde();
+
+            Driver.FindElement(By.Name("Fechar")).Click();
+            
+            Driver.FindElement(By.Name("Fechar")).Click();
+
             //19.Acessar Central de Atendimento
-            AcessarMenu.AcessarCentraldeAtendimento();
+            AcessarMenu.AcessarCentralDeAtendimento();
 
             //20.Localizar e Acessar Título
             //21.Repetir os passos 6 e 7
