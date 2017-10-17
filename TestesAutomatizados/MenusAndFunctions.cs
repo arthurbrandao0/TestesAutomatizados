@@ -56,7 +56,7 @@ namespace TestesAutomatizados
         {
             int counter = 0;
             Thread.Sleep(1000);
-            while ((Driver.FindElement(By.Id("FormEmailSender")).FindElements(By.Id("progressBar")).Count > 0) && counter < 60)
+            while ((Driver.FindElements(By.Name("Aguarde...")).Count > 0) && counter < 60)
             {
                 Thread.Sleep(500);
                 Console.WriteLine("passando pelo loop de tratamento da tela aguarde");

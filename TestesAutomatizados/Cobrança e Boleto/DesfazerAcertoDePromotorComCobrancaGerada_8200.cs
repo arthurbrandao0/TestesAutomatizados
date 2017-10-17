@@ -51,7 +51,7 @@ namespace TestesAutomatizados.CobrancaEBoleto
                 Driver.FindElement(By.Name("Gerar acerto")).Click();
                 Driver.FindElement(By.Name("Sim")).Click();
                 AcessarMenu.TratarTelaAguarde();
-                Driver.FindElement(By.Name("OK")).Click();
+                Driver.FindElement(By.Id("buttonCancel")).Click();                
             }
             else
             {
