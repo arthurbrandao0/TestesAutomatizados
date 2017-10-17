@@ -137,11 +137,13 @@ namespace TestesAutomatizados.CobrancaEBoleto
             //14.Localizar e clicar no acerto de comissão referente aos passos 7 e 10
             //Registro de acerto ser corretamente selecionado e apresentado em destaque
             Thread.Sleep(1000);
-            
+
             //15.Dar duplo clique no registro de acerto de promotor
             //Ser apresentada tela contendo Detalhe do acerto da comissão
+
+            var lista = Driver.FindElementsByName("Sophie Promotor");
                         
-            act.DoubleClick(Driver.FindElement(By.Id("listView")).FindElements(By.Name("Sophie Promotor"))[2]).Perform();
+            act.DoubleClick(lista[3]).Perform();
             
             //16.Clicar no botão Opções
             //Ser apresentado sub - menu contendo as opções disponíveis
