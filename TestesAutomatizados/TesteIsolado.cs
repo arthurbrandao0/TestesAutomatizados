@@ -12,84 +12,46 @@ using OpenQA.Selenium.Remote;
 using OpenQA.Selenium;
 using System.Threading;
 
-namespace TestesAutomatizados
+
+namespace TestesAutomatizados.CobrancaEBoleto
 {
     /// <resumo>
     /// Descrição resumida para CodedUITest1
     /// </resumo>
     [CodedUITest]
-    public class MenusAndFunctions
+    public class TestIsolado
     {
-
-        public MenusAndFunctions()
+        public TestIsolado()
         {
+        }
+
+        [TestMethod]
+        public void TestIsolado_Metodo()
+        {
+            MenusAndFunctions AcessarMenu = new MenusAndFunctions();
 
             var dc = new DesiredCapabilities();
             dc.SetCapability("app", @"\\tsidev\Triade\Application\Dev\MultiClubes\System\MultiClubes\MultiClubes.UI.application");
             dc.SetCapability("debugConnectToRunningApp", true);
-
             Driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
-        }
-                
-        public void AcessarCentralDeAtendimento()
-        {
-            Driver.FindElement(By.Name("Operação")).Click();
-            Driver.FindElement(By.Name("Título")).Click();
-            Driver.FindElement(By.Name("Central de atendimento")).Click();
-        }
+            
+            AcessarMenu.FinalizarAtendimentoTitulo();
 
-        public void FinalizarAtendimentoTitulo()
-        {
-            Driver.FindElement(By.Name("Fechar")).Click();
-            try
-            {
-                Thread.Sleep(2000);
-                Driver.FindElement(By.Id("buttonOK")).Click();
             }
-            catch {
-                Console.WriteLine("Atendimento finalizado sem necessidade de apertar ok");
-            }
-        }
-
-        public void TratarTelaAguarde()
-        {
-            int counter = 0;
-            Thread.Sleep(1000);
-            while ((Driver.FindElements(By.Name("Aguarde...")).Count > 0) && counter < 60)
-            {
-                Thread.Sleep(500);
-                Console.WriteLine("passando pelo loop de tratamento da tela aguarde");
-                counter++;
-            }
-        }
-
-        public void ClicarBotaoFechar()
-        {
-            Driver.FindElement(By.Id("buttonClose")).Click();
-        }
-
-        public void AcessarProdutosAReceber()
-        {
-            //this.UIMap.AcessarProdutosAReceber();
-            Driver.FindElement(By.Name("A receber")).Click();
-        }
-
-        public void AcessarCobrancasAtivas()
-        {
-            Driver.FindElement(By.Name("Cobranças")).FindElement(By.Id("headerButton")).Click();
-            Driver.FindElement(By.Name("Ativas")).Click();
-        }
 
         #region Atributos de teste adicionais
 
         // É possível usar os seguintes atributos adicionais enquanto escreve os testes:
 
         ////Use TestInitialize para executar código antes de executar cada teste 
-        //[TestInitialize()]
-        //public void MyTestInitialize()
-        //{        
-        //    // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
-        //}
+        [TestInitialize()]
+        public void MyTestInitialize()
+        {
+            // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
+            CheckLoginMulticlubes loginMC = new CheckLoginMulticlubes();
+            loginMC.VerificarSeMultiClubesEstaAbertoELogado();
+            loginMC.CheckMCWindow();
+        }
 
         ////Use TestCleanup para executar código depois de cada execução de teste
         //[TestCleanup()]
@@ -114,10 +76,8 @@ namespace TestesAutomatizados
             {
                 testContextInstance = value;
             }
-
         }
         private TestContext testContextInstance;
-
 
         public UIMap UIMap
         {
@@ -134,7 +94,5 @@ namespace TestesAutomatizados
 
         private UIMap map;
         private RemoteWebDriver Driver;
-
-
     }
 }
