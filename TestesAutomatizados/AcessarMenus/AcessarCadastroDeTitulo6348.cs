@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using System.Windows.Input;
-using System.Windows.Forms;
-using System.Drawing;
-using Microsoft.VisualStudio.TestTools.UITesting;
+﻿using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Microsoft.VisualStudio.TestTools.UITest.Extension;
-using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
 
 
 namespace TestesAutomatizados.AcessarMenus
@@ -27,7 +19,8 @@ namespace TestesAutomatizados.AcessarMenus
         {
             // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
 
-            //Necessita que seja feita uma validação que verifique se o caixa está aberto
+            OpenCash openCash = new OpenCash();
+            openCash.OpenCashMethod();
             this.UIMap.AcessarCadastroDeTitulo();
             this.UIMap.ProcurarTextoCadastro();
             this.UIMap.ProcurarTextoNovoTítulo();
