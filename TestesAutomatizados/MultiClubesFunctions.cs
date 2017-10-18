@@ -18,10 +18,10 @@ namespace TestesAutomatizados
     /// Descrição resumida para CodedUITest1
     /// </resumo>
     [CodedUITest]
-    public class MenusAndFunctions
+    public class MultiClubesFunctions
     {
 
-        public MenusAndFunctions()
+        public MultiClubesFunctions()
         {
 
             var dc = new DesiredCapabilities();

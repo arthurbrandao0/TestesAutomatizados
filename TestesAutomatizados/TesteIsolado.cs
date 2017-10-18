@@ -28,7 +28,7 @@ namespace TestesAutomatizados.CobrancaEBoleto
         [TestMethod]
         public void TestIsolado_Metodo()
         {
-            MenusAndFunctions AcessarMenu = new MenusAndFunctions();
+            MultiClubesFunctions AcessarMenu = new MultiClubesFunctions();
 
             var dc = new DesiredCapabilities();
             dc.SetCapability("app", @"\\tsidev\Triade\Application\Dev\MultiClubes\System\MultiClubes\MultiClubes.UI.application");

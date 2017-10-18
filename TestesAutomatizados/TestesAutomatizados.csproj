@@ -78,7 +78,7 @@
     <Compile Include="Cobrança e Boleto\SimulacaodeGeracaodeCobrancaTodas6387.cs" />
     <Compile Include="TesteIsolado.cs" />
     <Compile Include="Mapas de Ocupação\InclusaoDeMapaDeOcupacao9265.cs" />
-    <Compile Include="MenusAndFunctions.cs" />
+    <Compile Include="MultiClubesFunctions.cs" />
     <Compile Include="LoginMultiClubes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UIMap.cs">

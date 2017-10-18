@@ -22,7 +22,7 @@ namespace TestesAutomatizados.CobrancaEBoleto
         [TestMethod]
         public void DesfazerAcertoDePromotorComCobrancaGerada_8200_Metodo()
         {
-            MenusAndFunctions AcessarMenu = new MenusAndFunctions();
+            MultiClubesFunctions McFunctions = new MultiClubesFunctions();
             
             var dc = new DesiredCapabilities();
             dc.SetCapability("app", @"\\tsidev\Triade\Application\Dev\MultiClubes\System\MultiClubes\MultiClubes.UI.application");
@@ -44,7 +44,7 @@ namespace TestesAutomatizados.CobrancaEBoleto
                 act.ContextClick(elementlist[0]).Perform();
                 Driver.FindElement(By.Name("Gerar acerto")).Click();
                 Driver.FindElement(By.Name("Sim")).Click();
-                AcessarMenu.TratarTelaAguarde();
+                McFunctions.TratarTelaAguarde();
                 Driver.FindElement(By.Id("buttonCancel")).Click();                
             }
             else
@@ -56,7 +56,7 @@ namespace TestesAutomatizados.CobrancaEBoleto
             // Presente no TestInitialize
 
             //4.Acessar Central de Atendimento
-            AcessarMenu.AcessarCentralDeAtendimento();
+            McFunctions.AcessarCentralDeAtendimento();
 
             //5.Localizar e Acessar Título
             this.UIMap.AbrirAtendimentoTitulo008Pro();
@@ -67,7 +67,7 @@ namespace TestesAutomatizados.CobrancaEBoleto
 
             //7.Clicar na opção A receber
             //Ser apresentada tela contendo as parcelas de produtos a receber, constando parcela do produto Acerto promotor
-            AcessarMenu.AcessarProdutosAReceber();
+            McFunctions.AcessarProdutosAReceber();
 
             //8.Copiar o valor referente a coluna Nosso número
             Thread.Sleep(1000);
@@ -85,19 +85,16 @@ namespace TestesAutomatizados.CobrancaEBoleto
                 }
                 counter++;
             }
-            Console.WriteLine("NN:");
+            
             var nossonumero = list2[counter + 6].GetAttribute("Name");
-            Console.WriteLine(nossonumero);
 
-            Console.WriteLine("antes do botao fechar");
-            AcessarMenu.ClicarBotaoFechar();
-            Console.WriteLine("depois do botao fechar");
-
+            McFunctions.ClicarBotaoFechar();
+            
             //9.Clicar no menu Cobranças
             //Serem apresentadas as opções Ativas, Desativadas e Editar Cobranças
             //10.Clicar na opção Ativas
             //Ser apresentada tela contendo as cobranças ativas, constando na coluna Nosso número o mesmo valor do número copiado no passo 8
-            AcessarMenu.AcessarCobrancasAtivas();
+            McFunctions.AcessarCobrancasAtivas();
 
             var list3 = Driver.FindElement(By.Id("listViewDun")).FindElements(By.Id(""));
             var counter2 = 0;
@@ -105,9 +102,7 @@ namespace TestesAutomatizados.CobrancaEBoleto
 
             foreach (IWebElement i in list3)
             {
-                var name = i.GetAttribute("Name");
-                Console.WriteLine(name);
-
+                string name = i.GetAttribute("Name");
                 if (name == nossonumero)
                 {
                     encontrounn = true;
@@ -116,12 +111,11 @@ namespace TestesAutomatizados.CobrancaEBoleto
                 counter2++;
             }
 
-            Console.WriteLine("NN encontrado? {0}", encontrounn);
             Assert.IsTrue(encontrounn, "Nosso numero encontrado");
 
-            AcessarMenu.ClicarBotaoFechar();
+            McFunctions.ClicarBotaoFechar();
 
-            AcessarMenu.FinalizarAtendimentoTitulo();
+            McFunctions.FinalizarAtendimentoTitulo();
 
             //11.Acessar Acerto de Comissão
             this.UIMap.AcessarOperacaoFinanceiroAcertoDeComissao();
@@ -142,8 +136,12 @@ namespace TestesAutomatizados.CobrancaEBoleto
             //Ser apresentada tela contendo Detalhe do acerto da comissão
 
             var lista = Driver.FindElementsByName("Sophie Promotor");
-                        
-            act.DoubleClick(lista[3]).Perform();
+            var Sophie = lista[3];
+            Console.WriteLine(Sophie);
+
+            Sophie.Click();
+            new Actions(Driver).DoubleClick(Sophie).Build().Perform();
+            //act.MoveToElement(Sophie).DoubleClick().Build().Perform();
             
             //16.Clicar no botão Opções
             //Ser apresentado sub - menu contendo as opções disponíveis
@@ -157,21 +155,21 @@ namespace TestesAutomatizados.CobrancaEBoleto
             //Acerto de comissão de promotor ser corretamente desfeito e ser apresentada tela de histórico de acertos sem constar o acerto de comissão desfeito
             Driver.FindElement(By.Name("Sim")).Click();
 
-            AcessarMenu.TratarTelaAguarde();
+            McFunctions.TratarTelaAguarde();
 
             Driver.FindElement(By.Name("Fechar")).Click();
             
             Driver.FindElement(By.Name("Fechar")).Click();
 
             //19.Acessar Central de Atendimento
-            AcessarMenu.AcessarCentralDeAtendimento();
+            McFunctions.AcessarCentralDeAtendimento();
 
             //20.Localizar e Acessar Título
             this.UIMap.AbrirAtendimentoTitulo008Pro();
 
             //21.Repetir os passos 6 e 7
             //Ser apresentada tela contendo as parcelas de produtos a receber, não constando parcela do produto Acerto promotor, desfeita no passo 18
-            AcessarMenu.AcessarProdutosAReceber();
+            McFunctions.AcessarProdutosAReceber();
 
             var list4 = Driver.FindElement(By.Id("listViewParcel")).FindElements(By.Id(""));
             var counter4 = 0;
@@ -180,8 +178,6 @@ namespace TestesAutomatizados.CobrancaEBoleto
             foreach (IWebElement i in list4)
             {
                 var name = i.GetAttribute("Name");
-                Console.WriteLine(name);
-
                 if (name == "Acerto Promotor")
                 {
                     encontrouacertopromotor = true;
@@ -191,10 +187,10 @@ namespace TestesAutomatizados.CobrancaEBoleto
             }
             Assert.IsFalse(encontrouacertopromotor, "Acerto Promotor continuou em Produtos a receber");
 
-            AcessarMenu.ClicarBotaoFechar();
+            McFunctions.ClicarBotaoFechar();
 
             //22.Repetir os passos 9 e 10
-            AcessarMenu.AcessarCobrancasAtivas();
+            McFunctions.AcessarCobrancasAtivas();
 
             var list5 = Driver.FindElement(By.Id("listViewDun")).FindElements(By.Id(""));
             var counter5 = 0;
@@ -203,8 +199,6 @@ namespace TestesAutomatizados.CobrancaEBoleto
             foreach (IWebElement i in list5)
             {
                 var name = i.GetAttribute("Name");
-                Console.WriteLine(name);
-
                 if (name == nossonumero)
                 {
                     encontrounn = true;
@@ -213,10 +207,10 @@ namespace TestesAutomatizados.CobrancaEBoleto
                 counter5++;
             }
             Assert.IsFalse(encontrounn2, "Nosso numero encontrado nas cobranças ativas");
-            AcessarMenu.ClicarBotaoFechar();
+            McFunctions.ClicarBotaoFechar();
 
-            AcessarMenu.FinalizarAtendimentoTitulo();
-            AcessarMenu.FecharJanela("Central de Atendimento");
+            McFunctions.FinalizarAtendimentoTitulo();
+            McFunctions.FecharJanela("Central de Atendimento");
 
             //Ser apresentada tela contendo as cobranças ativas, não constando cobrança referente ao acerto de comissão de promotor, desfeita no passo 18
         }
