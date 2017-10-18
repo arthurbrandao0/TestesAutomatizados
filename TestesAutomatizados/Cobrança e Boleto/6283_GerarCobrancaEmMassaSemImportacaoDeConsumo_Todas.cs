@@ -84,16 +84,18 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
         public void MyTestInitialize()
         {
             // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
-            CheckLoginMulticlubes loginMultiClubes = new CheckLoginMulticlubes();
-            loginMultiClubes.VerificarSeMultiClubesEstaAbertoELogado();
+            CheckLoginMulticlubes loginMC = new CheckLoginMulticlubes();
+            loginMC.VerificarSeMultiClubesEstaAbertoELogado();
+            loginMC.CheckMCWindow();
         }
 
         ////Use TestCleanup para executar código depois de cada execução de teste
-        //[TestCleanup()]
-        //public void MyTestCleanup()
-        //{        
-        //    // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
-        //}
+        [TestCleanup()]
+        public void MyTestCleanup()
+        {
+            CheckTestTrash McClean = new CheckTestTrash();
+            McClean.CheckTestTrashMethod();
+        }
 
         #endregion
 

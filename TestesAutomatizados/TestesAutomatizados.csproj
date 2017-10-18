@@ -71,7 +71,7 @@
     <Compile Include="Cobrança e Boleto\EditarCobrancaDebitoEmConta6442.cs" />
     <Compile Include="Cobrança e Boleto\GeracaoDeCobrancaSemConsumo6959.cs" />
     <Compile Include="Cobrança e Boleto\GerarCobrancaEmMassaComImportacaoDeConsumo_Todas_7031.cs" />
-    <Compile Include="Cobrança e Boleto\GerarCobrancaEmMassaSemImportacaoDeConsumo-Todas6283.cs" />
+    <Compile Include="Cobrança e Boleto\6283_GerarCobrancaEmMassaSemImportacaoDeConsumo_Todas.cs" />
     <Compile Include="Cobrança e Boleto\GerarCobrancaIndividual_7688.cs" />
     <Compile Include="Cobrança e Boleto\INCOMPLETO EditarArquivoRemessa_CriarNovoArquivo_7344.cs" />
     <Compile Include="Cobrança e Boleto\ReemissaoDeRemessa_7483.cs" />
