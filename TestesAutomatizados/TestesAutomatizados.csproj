@@ -42,6 +42,7 @@
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <Private>False</Private>
     </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -77,6 +78,7 @@
     <Compile Include="Cobrança e Boleto\SimulacaoDeGeracaoDeCobrancaSemConfirmacao6392.cs" />
     <Compile Include="Cobrança e Boleto\SimulacaodeGeracaodeCobrancaTodas6387.cs" />
     <Compile Include="CheckTestTrash.cs" />
+    <Compile Include="OpenCash.cs" />
     <Compile Include="MultiClubesMenus.cs" />
     <Compile Include="TesteIsolado.cs" />
     <Compile Include="Mapas de Ocupação\InclusaoDeMapaDeOcupacao9265.cs" />
