@@ -11,6 +11,7 @@ using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium;
 using System.Threading;
+using OpenQA.Selenium.Support.UI;
 
 namespace TestesAutomatizados
 {
@@ -63,7 +64,6 @@ namespace TestesAutomatizados
             while ((Driver.FindElements(By.Name("Aguarde...")).Count > 0) && counter < 60)
             {
                 Thread.Sleep(500);
-                Console.WriteLine("passando pelo loop de tratamento da tela aguarde");
                 counter++;
             }
         }
@@ -84,6 +84,19 @@ namespace TestesAutomatizados
         {
             Driver.FindElement(By.Name("Cobranças")).FindElement(By.Id("headerButton")).Click();
             Driver.FindElement(By.Name("Ativas")).Click();
+        }
+
+        public void WaitForElementLoad(By by, int attempts = 2)
+        {
+            int counter = 0;
+            while ((Driver.FindElement(By.Id("FormMain")).FindElements(by).Count == 0) && counter < attempts)
+            {
+                Thread.Sleep(500);
+                Console.WriteLine("passando pelo loop WaitForElementLoad: {0}", by);
+                counter++;
+            }
+
+            //}
         }
 
         #region Atributos de teste adicionais

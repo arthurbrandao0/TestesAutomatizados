@@ -30,20 +30,18 @@ namespace TestesAutomatizados.CobrancaEBoleto
             dc.SetCapability("debugConnectToRunningApp", true);
             Driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
 
-            Actions act = new Actions(Driver);
-
             // 1. Pré-requisito: Acerto de comissão gerada para o promotor @NomePromotor, associado ao título  @IdTitulo 
             McMenus.AcessarMenuOperacaoFinanceiroAcertoDeComissao();
 
             Driver.FindElement(By.Name("Localizar")).Click();
 
-            Thread.Sleep(2000);
+            McFunctions.WaitForElementLoad(By.Id("listView"));
             List<IWebElement> elementlist = new List<IWebElement>();
             elementlist.AddRange(Driver.FindElement(By.Id("listView")).FindElements(By.Name("Sophie Promotor")));
 
             if(elementlist.Count > 0)
             {
-                act.ContextClick(elementlist[0]).Perform();
+                new Actions(Driver).ContextClick(elementlist[0]).Perform();
                 Driver.FindElement(By.Name("Gerar acerto")).Click();
                 Driver.FindElement(By.Name("Sim")).Click();
                 McFunctions.TratarTelaAguarde();
@@ -72,23 +70,20 @@ namespace TestesAutomatizados.CobrancaEBoleto
             McFunctions.AcessarProdutosAReceber();
 
             //8.Copiar o valor referente a coluna Nosso número
-            Thread.Sleep(1000);
-            var list2 = Driver.FindElement(By.Id("listViewParcel")).FindElements(By.Id(""));
-            var counter = 0;
+            McFunctions.WaitForElementLoad(By.Id("listViewParcel"));
+            var ListViewParcelElements = Driver.FindElement(By.Id("listViewParcel")).FindElements(By.Id(""));
+            int counterStep8 = 0;
 
-            foreach (IWebElement i in list2)
+            foreach (IWebElement i in ListViewParcelElements)
             {
-                var name = i.GetAttribute("Name");
-                Console.WriteLine(name);
-
-                if (name == "Acerto Promotor")
+                if (i.GetAttribute("Name") == "Acerto Promotor")
                 {
                     break;
                 }
-                counter++;
+                counterStep8++;
             }
             
-            var nossonumero = list2[counter + 6].GetAttribute("Name");
+            var nossoNumero = ListViewParcelElements[counterStep8 + 6].GetAttribute("Name");
 
             McFunctions.ClicarBotaoFechar();
             
@@ -98,19 +93,19 @@ namespace TestesAutomatizados.CobrancaEBoleto
             //Ser apresentada tela contendo as cobranças ativas, constando na coluna Nosso número o mesmo valor do número copiado no passo 8
             McFunctions.AcessarCobrancasAtivas();
 
-            var list3 = Driver.FindElement(By.Id("listViewDun")).FindElements(By.Id(""));
-            var counter2 = 0;
+            McFunctions.WaitForElementLoad(By.Id("listViewDun"));
+            var listViewDunElements = Driver.FindElement(By.Id("listViewDun")).FindElements(By.Id(""));
+            int counterStep9 = 0;
             bool encontrounn = false;
 
-            foreach (IWebElement i in list3)
+            foreach (IWebElement i in listViewDunElements)
             {
-                string name = i.GetAttribute("Name");
-                if (name == nossonumero)
+                if (i.GetAttribute("Name") == nossoNumero)
                 {
                     encontrounn = true;
                     break;
                 }
-                counter2++;
+                counterStep9++;
             }
 
             Assert.IsTrue(encontrounn, "Nosso numero encontrado");
@@ -120,7 +115,7 @@ namespace TestesAutomatizados.CobrancaEBoleto
             McFunctions.FinalizarAtendimentoTitulo();
 
             //11.Acessar Acerto de Comissão
-            this.UIMap.AcessarOperacaoFinanceiroAcertoDeComissao();
+            McMenus.AcessarMenuOperacaoFinanceiroAcertoDeComissao();
 
             //12.Clicar no menu Histórico
             //Ser apresentada tela para acessar o histórico de acertos de promotores gerados
@@ -132,21 +127,14 @@ namespace TestesAutomatizados.CobrancaEBoleto
             
             //14.Localizar e clicar no acerto de comissão referente aos passos 7 e 10
             //Registro de acerto ser corretamente selecionado e apresentado em destaque
-            Thread.Sleep(1000);
-
             //15.Dar duplo clique no registro de acerto de promotor
             //Ser apresentada tela contendo Detalhe do acerto da comissão
+                        
+            new Actions(Driver).DoubleClick(Driver.FindElementsByName("Sophie Promotor")[3]).Build().Perform();
 
-            var lista = Driver.FindElementsByName("Sophie Promotor");
-            var Sophie = lista[3];
-            Console.WriteLine(Sophie);
-
-            Sophie.Click();
-            new Actions(Driver).DoubleClick(Sophie).Build().Perform();
-            //act.MoveToElement(Sophie).DoubleClick().Build().Perform();
-            
             //16.Clicar no botão Opções
             //Ser apresentado sub - menu contendo as opções disponíveis
+            McFunctions.WaitForElementLoad(By.Name("Opções"));
             Driver.FindElement(By.Name("Opções")).Click();
 
             //17.No sub-menu, clicar na opção Desfazer acerto
@@ -173,48 +161,47 @@ namespace TestesAutomatizados.CobrancaEBoleto
             //Ser apresentada tela contendo as parcelas de produtos a receber, não constando parcela do produto Acerto promotor, desfeita no passo 18
             McFunctions.AcessarProdutosAReceber();
 
-            var list4 = Driver.FindElement(By.Id("listViewParcel")).FindElements(By.Id(""));
-            var counter4 = 0;
+            McFunctions.WaitForElementLoad(By.Id("listViewParcel"));
+            var NewlistViewParcelElements = Driver.FindElement(By.Id("listViewParcel")).FindElements(By.Id(""));
+            var counterStep21 = 0;
             bool encontrouacertopromotor = false;
 
-            foreach (IWebElement i in list4)
+            foreach (IWebElement i in NewlistViewParcelElements)
             {
-                var name = i.GetAttribute("Name");
-                if (name == "Acerto Promotor")
+                if (i.GetAttribute("Name") == "Acerto Promotor")
                 {
                     encontrouacertopromotor = true;
                     break;
                 }
-               counter4++;
+               counterStep21++;
             }
             Assert.IsFalse(encontrouacertopromotor, "Acerto Promotor continuou em Produtos a receber");
 
             McFunctions.ClicarBotaoFechar();
 
             //22.Repetir os passos 9 e 10
+            //Ser apresentada tela contendo as cobranças ativas, não constando cobrança referente ao acerto de comissão de promotor, desfeita no passo 18
             McFunctions.AcessarCobrancasAtivas();
 
-            var list5 = Driver.FindElement(By.Id("listViewDun")).FindElements(By.Id(""));
-            var counter5 = 0;
+            McFunctions.WaitForElementLoad(By.Id("listViewDun"));
+            var NewListViewDunElements = Driver.FindElement(By.Id("listViewDun")).FindElements(By.Id(""));
+            var counterStep22 = 0;
             bool encontrounn2 = false;
 
-            foreach (IWebElement i in list5)
+            foreach (IWebElement i in NewListViewDunElements)
             {
-                var name = i.GetAttribute("Name");
-                if (name == nossonumero)
+                if (i.GetAttribute("Name") == nossoNumero)
                 {
                     encontrounn = true;
                     break;
                 }
-                counter5++;
+                counterStep22++;
             }
             Assert.IsFalse(encontrounn2, "Nosso numero encontrado nas cobranças ativas");
             McFunctions.ClicarBotaoFechar();
 
             McFunctions.FinalizarAtendimentoTitulo();
-            McFunctions.FecharJanela("Central de Atendimento");
-
-            //Ser apresentada tela contendo as cobranças ativas, não constando cobrança referente ao acerto de comissão de promotor, desfeita no passo 18
+            McFunctions.FecharJanela("Central de Atendimento");            
         }
 
         #region Atributos de teste adicionais
@@ -232,11 +219,12 @@ namespace TestesAutomatizados.CobrancaEBoleto
         }
 
         ////Use TestCleanup para executar código depois de cada execução de teste
-        //[TestCleanup()]
-        //public void MyTestCleanup()
-        //{        
-        //    // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
-        //}
+        [TestCleanup()]
+        public void MyTestCleanup()
+        {
+            CheckTestTrash McClean = new CheckTestTrash();
+            McClean.CheckTestTrashMethod();
+        }
 
         #endregion
 

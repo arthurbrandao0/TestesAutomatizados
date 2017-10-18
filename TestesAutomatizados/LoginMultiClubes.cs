@@ -135,14 +135,11 @@ namespace TestesAutomatizados
             WinWindow winMC = new WinWindow();
             winMC.SearchProperties[WinWindow.PropertyNames.Name] = "MultiClubes";
             winMC.WindowTitles.Add("MultiClubes");
-            //Mouse.Click(winMC);
-
+            
             while (!winMC.Exists)
             {
                 Thread.Sleep(1000);
             }
-
-            Console.WriteLine("passando pelo CheckMCWindow");
             winMC.SetFocus();
         }
 

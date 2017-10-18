@@ -45,6 +45,11 @@ namespace TestesAutomatizados
         // Arquivo - Bloquear
         // Arquivo - Trocar usuário
         // Arquivo - Sair
+        public void AcessarMenuArquivoSair()
+        {
+            this.AcessarMenuArquivo();
+            this.AcessarMenu("Sair");
+        }
 
         // Operação
         public void AcessarMenuOperacao()
