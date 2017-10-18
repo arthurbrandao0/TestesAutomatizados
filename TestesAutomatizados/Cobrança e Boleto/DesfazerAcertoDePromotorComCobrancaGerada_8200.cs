@@ -23,7 +23,8 @@ namespace TestesAutomatizados.CobrancaEBoleto
         public void DesfazerAcertoDePromotorComCobrancaGerada_8200_Metodo()
         {
             MultiClubesFunctions McFunctions = new MultiClubesFunctions();
-            
+            MultiClubesMenus McMenus = new MultiClubesMenus();
+
             var dc = new DesiredCapabilities();
             dc.SetCapability("app", @"\\tsidev\Triade\Application\Dev\MultiClubes\System\MultiClubes\MultiClubes.UI.application");
             dc.SetCapability("debugConnectToRunningApp", true);
@@ -32,10 +33,11 @@ namespace TestesAutomatizados.CobrancaEBoleto
             Actions act = new Actions(Driver);
 
             // 1. Pré-requisito: Acerto de comissão gerada para o promotor @NomePromotor, associado ao título  @IdTitulo 
-            this.UIMap.AcessarOperacaoFinanceiroAcertoDeComissao();
+            McMenus.AcessarMenuOperacaoFinanceiroAcertoDeComissao();
 
             Driver.FindElement(By.Name("Localizar")).Click();
 
+            Thread.Sleep(2000);
             List<IWebElement> elementlist = new List<IWebElement>();
             elementlist.AddRange(Driver.FindElement(By.Id("listView")).FindElements(By.Name("Sophie Promotor")));
 

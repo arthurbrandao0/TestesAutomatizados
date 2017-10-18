@@ -29,14 +29,14 @@ namespace TestesAutomatizados.CobrancaEBoleto
         public void TestIsolado_Metodo()
         {
             MultiClubesFunctions AcessarMenu = new MultiClubesFunctions();
+            MultiClubesMenus McMenus = new MultiClubesMenus();
 
             var dc = new DesiredCapabilities();
             dc.SetCapability("app", @"\\tsidev\Triade\Application\Dev\MultiClubes\System\MultiClubes\MultiClubes.UI.application");
             dc.SetCapability("debugConnectToRunningApp", true);
             Driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
-            
-            AcessarMenu.FinalizarAtendimentoTitulo();
 
+            McMenus.AcessarMenuOperacaoFinanceiroAcertoDeComissao();
             }
 
         #region Atributos de teste adicionais
