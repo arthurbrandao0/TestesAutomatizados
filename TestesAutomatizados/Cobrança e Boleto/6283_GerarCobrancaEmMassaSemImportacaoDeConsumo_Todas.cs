@@ -10,6 +10,8 @@ using Microsoft.VisualStudio.TestTools.UITest.Extension;
 using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
 using System.Threading;
 using Microsoft.VisualStudio.TestTools.UITesting.WinControls;
+using OpenQA.Selenium.Remote;
+using OpenQA.Selenium;
 
 namespace TestesAutomatizados.Cobrança_e_Boleto
 {
@@ -23,56 +25,72 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
         {
         }
 
-        [TestMethod]
+        [TestMethod(), Timeout(14400000)]
         public void GerarCobrancaEmMassaSemImportacaoDeConsumoTodas6283Metodo()
         {
-            // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
-            //this.UIMap.AbrirGeracaoDeCobranca();
-            //this.UIMap.VerificarTituloGeracaoCobranca();
-            //this.UIMap.DesabilitarOpcaoImportarConsumosAte();
-            //this.UIMap.SelecionarTodasCobrancas();
-            //this.UIMap.DesabilitarGerarComOpcaoPorCiclo();
-            //this.UIMap.ClicarBotaoGeracaoCobranca();
-            //this.UIMap.VerificarTituloGeracaoCobranca();
+            MultiClubesFunctions McFunctions = new MultiClubesFunctions();
+            MultiClubesMenus McMenus = new MultiClubesMenus();
 
-            int tempoEspera = 0;
+            var dc = new DesiredCapabilities();
+            dc.SetCapability("app", @"\\tsidev\Triade\Application\Dev\MultiClubes\System\MultiClubes\MultiClubes.UI.application");
+            dc.SetCapability("debugConnectToRunningApp", true);
+            RemoteWebDriver Driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
 
-           while (tempoEspera < 5)
-            {
-                tempoEspera += 1;
-                Thread.Sleep(1000);
-                Console.WriteLine(tempoEspera);
+            McMenus.AcessarMenuOperacaoFinanceiroCobrancaGeracaoDeCobranca();
+            this.UIMap.VerificarTituloGeracaoCobranca();
+            this.UIMap.DesabilitarOpcaoImportarConsumosAte();
+            this.UIMap.SelecionarTodasCobrancas();
+            this.UIMap.DesabilitarGerarComOpcaoPorCiclo();
+            this.UIMap.ClicarBotaoGeracaoCobranca();
+            this.UIMap.VerificarTituloGeracaoCobranca();
 
-                Console.WriteLine(DateTime.Now.ToString("h:mm:ss:fff tt"));
+            Thread.Sleep(60000);
+            string helpText = Driver.FindElement(By.Id("pictureBox")).GetAttribute("HelpText");
+            Console.WriteLine(helpText);
 
-                // essa parte abaixo é para verificar se terminou a verificação, mas nao rolou
-                //UIMap NewUIMap = new UIMap();
+            string initialTime = helpText.Substring(helpText.IndexOf("Início: ")+8, 5);
+            Console.WriteLine("Inicio da Geração: {0}", initialTime);
+            //validando horas início:
+            bool convertHours = int.TryParse(initialTime.Substring(0,2), out int convertedHours);
+            Assert.IsTrue(convertHours, "Valor de horas é um número inteiro");
+            //validando minutos início:
+            bool convertMinutes = int.TryParse(initialTime.Substring(3,2), out int convertedMinutes);
+            Assert.IsTrue(convertMinutes, "Valor de minutos é um número inteiro");
+                       
+            string expectedEnd = helpText.Substring(helpText.IndexOf("Término previsto: ") + 18, 5);
+            Console.WriteLine("Término Previsto: {0}", expectedEnd);
+            bool convertExpectedEnd = int.TryParse(expectedEnd.Substring(3, 2), out int convertedExpectedEnd);
+            Assert.IsTrue(convertExpectedEnd, "Valor de minutos é um número inteiro");
 
-                //WinWindow UIGeraçãodecobrançaWindow1 = new WinWindow();
-                //UIGeraçãodecobrançaWindow1.SearchProperties[WinWindow.PropertyNames.Name] = "Geração de cobrança";
-                //UIGeraçãodecobrançaWindow1.WindowTitles.Add("Geração de cobrança");
-
-                //WinWindow UIConcluídaWindow = new WinWindow();
-                //UIConcluídaWindow.SearchProperties[WinWindow.PropertyNames.ControlName] = "labelMessage";
-                //UIConcluídaWindow.WindowTitles.Add("Geração de cobrança");
-
-                WinText UIConcluídaText = new WinText();
-                UIConcluídaText.SearchProperties[WinText.PropertyNames.Name] = "Concluída";
-                UIConcluídaText.WindowTitles.Add("Geração de cobrança");
 
 
-                if (UIConcluídaText.Exists)
-                //if (NewUIMap.UIGeraçãodecobrançaWindow1.UIConcluídaWindow.UIConcluídaText.Exists)
-                {
-                Console.WriteLine("Concluiu a geracao de cobranca");
-                   break;
 
-                }
-                else
-                {
-                    Console.WriteLine("Ainda nao encontrou");
-                }
-            }
+            string duracaoPrevistaHoras  = helpText.Substring(helpText.IndexOf("Duração prevista: ") + 18, 1);
+            Console.WriteLine("Duração Prevista: {0} hora", duracaoPrevistaHoras);
+
+            string duracaoPrevistaMinutos = helpText.Substring(helpText.IndexOf(" e ") + 3, 2);
+            Console.WriteLine("Duração Prevista: {0} minutos", duracaoPrevistaMinutos);
+
+            string media = helpText.Substring(helpText.IndexOf("Média: ") + 7, 4);
+            Console.WriteLine("Média: {0} s/título", media);
+            bool convertAverage = decimal.TryParse(expectedEnd.Substring(3, 2), out decimal convertedAverage);
+            Assert.IsTrue(convertExpectedEnd, "Valor de minutos é um número decimal");
+
+            Console.WriteLine("IndexOf Horas:");
+            Console.WriteLine(helpText.IndexOf("horas"));
+
+            Console.WriteLine("IndexOf Minutos:");
+            Console.WriteLine(helpText.IndexOf("minutos"));
+
+
+            //int counter = 0;
+            //Thread.Sleep(1000);
+            //while ((Driver.FindElements(By.Name("Gerando...")).Count > 0) && counter < 50)
+            //{
+            //    Console.WriteLine(DateTime.Now.ToString("HH:mm:ss"));
+            //    Thread.Sleep(600000);
+            //    counter++;
+            //}
         }
 
         #region Atributos de teste adicionais
