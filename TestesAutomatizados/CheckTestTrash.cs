@@ -35,10 +35,10 @@ namespace TestesAutomatizados
             dc.SetCapability("debugConnectToRunningApp", true);
             RemoteWebDriver Driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
 
-            Console.WriteLine(Driver.FindElement(By.Id("FormMain")).FindElements(By.Name("Fechar")).Count);
             if (Driver.FindElement(By.Id("FormMain")).FindElements(By.Name("Fechar")).Count > 1)
             {
                 McMenus.AcessarMenuArquivoSair();
+                Console.WriteLine("MultiClubes fechado pelo CheckTestTrash.cs");
             }
         }
 
