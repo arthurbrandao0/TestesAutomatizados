@@ -62,35 +62,39 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             bool convertExpectedEnd = int.TryParse(expectedEnd.Substring(3, 2), out int convertedExpectedEnd);
             Assert.IsTrue(convertExpectedEnd, "Valor de minutos é um número inteiro");
 
+            if (helpText.IndexOf("hora") > -1)
+            {
+                string duracaoPrevistaHoras = helpText.Substring(helpText.IndexOf("Duração prevista: ") + 18, 1);
+                Console.WriteLine("Duração Prevista: {0} hora", duracaoPrevistaHoras);
 
-
-
-            string duracaoPrevistaHoras  = helpText.Substring(helpText.IndexOf("Duração prevista: ") + 18, 1);
-            Console.WriteLine("Duração Prevista: {0} hora", duracaoPrevistaHoras);
-
-            string duracaoPrevistaMinutos = helpText.Substring(helpText.IndexOf(" e ") + 3, 2);
-            Console.WriteLine("Duração Prevista: {0} minutos", duracaoPrevistaMinutos);
-
+                string duracaoPrevistaMinutos = helpText.Substring(helpText.IndexOf(" e ") + 3, 2);
+                Console.WriteLine("Duração Prevista: {0} minutos", duracaoPrevistaMinutos);
+            }
+            else if (helpText.IndexOf("minuto") > -1)
+            {
+                string duracaoPrevistaMinutos = helpText.Substring(helpText.IndexOf("Duração prevista: ") + 18, 2);
+                Console.WriteLine("Duração Prevista: {0} minutos", duracaoPrevistaMinutos);
+            }
+            
             string media = helpText.Substring(helpText.IndexOf("Média: ") + 7, 4);
             Console.WriteLine("Média: {0} s/título", media);
             bool convertAverage = decimal.TryParse(expectedEnd.Substring(3, 2), out decimal convertedAverage);
             Assert.IsTrue(convertExpectedEnd, "Valor de minutos é um número decimal");
 
-            Console.WriteLine("IndexOf Horas:");
-            Console.WriteLine(helpText.IndexOf("horas"));
+            //Console.WriteLine("IndexOf Horas:");
+            //Console.WriteLine(helpText.IndexOf("hora"));
 
-            Console.WriteLine("IndexOf Minutos:");
-            Console.WriteLine(helpText.IndexOf("minutos"));
+            //Console.WriteLine("IndexOf Minuto:");
+            //Console.WriteLine(helpText.IndexOf("minuto"));
 
-
-            //int counter = 0;
-            //Thread.Sleep(1000);
-            //while ((Driver.FindElements(By.Name("Gerando...")).Count > 0) && counter < 50)
-            //{
-            //    Console.WriteLine(DateTime.Now.ToString("HH:mm:ss"));
-            //    Thread.Sleep(600000);
-            //    counter++;
-            //}
+            int counter = 0;
+            Thread.Sleep(1000);
+            while ((Driver.FindElements(By.Name("Gerando...")).Count > 0) && counter < 50)
+            {
+                Console.WriteLine(DateTime.Now.ToString("HH:mm:ss"));
+                Thread.Sleep(600000);
+                counter++;
+            }
         }
 
         #region Atributos de teste adicionais
