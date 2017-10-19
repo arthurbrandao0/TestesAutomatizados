@@ -85,6 +85,22 @@ namespace TestesAutomatizados
         // Operação - Financeiro - Caixas
         // Operação - Financeiro - Cheques
         // Operação - Financeiro - Cobrança
+        public void AcessarMenuOperacaoFinanceiroCobranca()
+        {
+            this.AcessarMenuOperacaoFinanceiro();
+            this.AcessarMenu("Cobrança");
+        }
+
+        // Operação - Financeiro - Cobrança - Mensagens de cobrança
+        // Operação - Financeiro - Cobrança - Notificação de cobrança
+        // Operação - Financeiro - Cobrança - Quitação anual de débitos
+        // Operação - Financeiro - Cobrança - Geração de cobrança
+        public void AcessarMenuOperacaoFinanceiroCobrancaGeracaoDeCobranca()
+        {
+            this.AcessarMenuOperacaoFinanceiroCobranca();
+            this.AcessarMenu("Geração de cobrança");
+        }
+
         // Operação - Financeiro - NFS-e
         // Operação - Financeiro - Parcelamentos
         // Operação - Financeiro - Sped contribuições

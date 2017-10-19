@@ -17,9 +17,9 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
     /// Descrição resumida para CodedUITest3
     /// </resumo>
     [CodedUITest]
-    public class DesfazerCobrancaEmMassa_7687
+    public class DesfazerCobrancaEmMassa
     {
-        public DesfazerCobrancaEmMassa_7687()
+        public DesfazerCobrancaEmMassa()
         {
         }
 
