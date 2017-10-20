@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using System.Windows.Input;
-using System.Windows.Forms;
-using System.Drawing;
-using Microsoft.VisualStudio.TestTools.UITesting;
+﻿using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Microsoft.VisualStudio.TestTools.UITest.Extension;
-using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
-using OpenQA.Selenium.Remote;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Remote;
+using System;
 using System.Threading;
-using OpenQA.Selenium.Support.UI;
 
 namespace TestesAutomatizados
 {
@@ -87,7 +79,7 @@ namespace TestesAutomatizados
             driver.FindElement(By.Name("Ativas")).Click();
         }
 
-        public void WaitForElementLoad(By by, int attempts = 2)
+        public void WaitForElementLoad(By by, int attempts = 5)
         {
             int counter = 0;
             while ((driver.FindElement(By.Id("FormMain")).FindElements(by).Count == 0) && counter < attempts)
@@ -96,8 +88,62 @@ namespace TestesAutomatizados
                 Console.WriteLine("passando pelo loop WaitForElementLoad: {0}", by);
                 counter++;
             }
+        }
 
-            //}
+        public void CheckBillingForecast()
+        {
+            WaitForElementLoad(By.Id("pictureBox"));
+            string helpText = driver.FindElement(By.Id("pictureBox")).GetAttribute("HelpText");
+            while (helpText.Contains("calculando"))
+            {
+                Thread.Sleep(3000);
+                Console.WriteLine("Aguardando cálculo do tempo estimado em {0}", DateTime.Now.ToString("HH:mm:ss"));
+                helpText = driver.FindElement(By.Id("pictureBox")).GetAttribute("HelpText");
+            }
+            Console.WriteLine(helpText);
+
+            string initialTime = helpText.Substring(helpText.IndexOf("Início: ") + 8, 5);
+            Console.WriteLine("Inicio da Geração: {0}", initialTime);
+
+            //validando horas início:
+            bool convertHours = int.TryParse(initialTime.Substring(0, 2), out int convertedHours);
+            Assert.IsTrue(convertHours, "Valor de horas é um número inteiro");
+
+            //validando minutos início:
+            bool convertMinutes = int.TryParse(initialTime.Substring(3, 2), out int convertedMinutes);
+            Assert.IsTrue(convertMinutes, "Valor de minutos é um número inteiro");
+
+            string expectedEnd = helpText.Substring(helpText.IndexOf("Término previsto: ") + 18, 5);
+            Console.WriteLine("Término Previsto: {0}", expectedEnd);
+            bool convertExpectedEnd = int.TryParse(expectedEnd.Substring(3, 2), out int convertedExpectedEnd);
+            Assert.IsTrue(convertExpectedEnd, "Valor de minutos é um número inteiro");
+
+            string estimatedDurationMinutes = "";
+
+            if (helpText.IndexOf("hora") > -1)
+            {
+                string estimatedDurationHours = helpText.Substring(helpText.IndexOf("Duração prevista: ") + 18, 1);
+                Console.WriteLine("Duração Prevista Horas: {0} h", estimatedDurationHours);
+                bool convertEstimatedTimeHours = int.TryParse(estimatedDurationHours, out int convertedEstimatedTimeHours);
+                Assert.IsTrue(convertEstimatedTimeHours, "Valor de horas previstas é um número inteiro");
+
+                estimatedDurationMinutes = helpText.Substring(helpText.IndexOf(" e ") + 3, 2);
+                estimatedDurationMinutes = estimatedDurationMinutes.Replace("  ", string.Empty);
+            }
+            else if (helpText.IndexOf("minuto") > -1)
+            {
+                estimatedDurationMinutes = helpText.Substring(helpText.IndexOf("Duração prevista: ") + 18, 2);
+            }
+
+            Console.WriteLine("Duração Prevista Minutos: {0} min", estimatedDurationMinutes);
+            bool convertEstimatedMinutes = int.TryParse(estimatedDurationMinutes, out int convertedEstimatedMinutes);
+            Assert.IsTrue(convertEstimatedMinutes, "Valor de minutos previstos é um número inteiro");
+
+
+            string media = helpText.Substring(helpText.IndexOf("Média: ") + 7, 4);
+            Console.WriteLine("Média: {0} seg/título", media);
+            bool convertAverage = decimal.TryParse(expectedEnd.Substring(3, 2), out decimal convertedAverage);
+            Assert.IsTrue(convertExpectedEnd, "Valor de minutos é um número decimal");
         }
 
         #region Atributos de teste adicionais

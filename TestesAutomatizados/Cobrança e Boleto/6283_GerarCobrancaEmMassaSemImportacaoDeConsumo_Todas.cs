@@ -37,59 +37,14 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             this.UIMap.ClicarBotaoGeracaoCobranca();
             this.UIMap.VerificarTituloGeracaoCobranca();
 
-            Thread.Sleep(60000);
-            string helpText = driver.FindElement(By.Id("pictureBox")).GetAttribute("HelpText");
-            Console.WriteLine(helpText);
-
-            string initialTime = helpText.Substring(helpText.IndexOf("Início: ")+8, 5);
-            Console.WriteLine("Inicio da Geração: {0}", initialTime);
-
-            //validando horas início:
-            bool convertHours = int.TryParse(initialTime.Substring(0,2), out int convertedHours);
-            Assert.IsTrue(convertHours, "Valor de horas é um número inteiro");
-            
-            //validando minutos início:
-            bool convertMinutes = int.TryParse(initialTime.Substring(3,2), out int convertedMinutes);
-            Assert.IsTrue(convertMinutes, "Valor de minutos é um número inteiro");
-                       
-            string expectedEnd = helpText.Substring(helpText.IndexOf("Término previsto: ") + 18, 5);
-            Console.WriteLine("Término Previsto: {0}", expectedEnd);
-            bool convertExpectedEnd = int.TryParse(expectedEnd.Substring(3, 2), out int convertedExpectedEnd);
-            Assert.IsTrue(convertExpectedEnd, "Valor de minutos é um número inteiro");
-
-            string estimatedDurationMinutes = "";
-
-            if (helpText.IndexOf("hora") > -1)
-            {
-                string estimatedDurationHours = helpText.Substring(helpText.IndexOf("Duração prevista: ") + 18, 1);
-                Console.WriteLine("Duração Prevista Horas: {0} h", estimatedDurationHours);
-                bool convertEstimatedTimeHours = int.TryParse(estimatedDurationHours, out int convertedEstimatedTimeHours);
-                Assert.IsTrue(convertEstimatedTimeHours, "Valor de horas previstas é um número inteiro");
-
-                estimatedDurationMinutes = helpText.Substring(helpText.IndexOf(" e ") + 3, 2);
-                estimatedDurationMinutes = estimatedDurationMinutes.Replace("  ", string.Empty);                
-            }
-            else if (helpText.IndexOf("minuto") > -1)
-            {
-                estimatedDurationMinutes = helpText.Substring(helpText.IndexOf("Duração prevista: ") + 18, 2);                
-            }
-
-            Console.WriteLine("Duração Prevista Minutos: {0} min", estimatedDurationMinutes);
-            bool convertEstimatedMinutes = int.TryParse(estimatedDurationMinutes, out int convertedEstimatedMinutes);
-            Assert.IsTrue(convertEstimatedMinutes, "Valor de minutos previstos é um número inteiro");
-
-
-            string media = helpText.Substring(helpText.IndexOf("Média: ") + 7, 4);
-            Console.WriteLine("Média: {0} seg/título", media);
-            bool convertAverage = decimal.TryParse(expectedEnd.Substring(3, 2), out decimal convertedAverage);
-            Assert.IsTrue(convertExpectedEnd, "Valor de minutos é um número decimal");
+            McFunctions.CheckBillingForecast();
 
             int counter = 0;
             Thread.Sleep(1000);
-            while ((driver.FindElements(By.Name("Gerando...")).Count > 0) && (counter < 100) && (driver.FindElements(By.Name("OK")).Count < 1))
+            while ((driver.FindElements(By.Name("Gerando...")).Count > 0) && (driver.FindElements(By.Name("OK")).Count < 1) && (counter < 100))
             {
                 Console.WriteLine(DateTime.Now.ToString("HH:mm:ss"));
-                // Waiting 3 minutes each loop:
+                // Waiting 3 minutes:
                 Thread.Sleep(180000);
                 counter++;
             }
