@@ -19,9 +19,9 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
     /// Descrição resumida para CodedUITest1
     /// </resumo>
     [CodedUITest]
-    public class CodedUITest1
+    public class EditarCobrancaDebitoEmConta6442
     {
-        public CodedUITest1()
+        public EditarCobrancaDebitoEmConta6442()
         {
         }
 
@@ -37,14 +37,13 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             dc.SetCapability("debugConnectToRunningApp", true);
             RemoteWebDriver driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
 
-            // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
             mcMenus.AcessarMenuOperacaoTituloCentralDeAtendimento();
 
             mcFunctions.WaitForElementLoad(By.Id("textBoxKeyword"));
             driver.FindElement(By.Id("textBoxKeyword")).Click();
             Keyboard.SendKeys(nTitle + "{Enter}");
-            mcFunctions.WaitForElementLoad(By.Name("Titular"));
 
+            mcFunctions.WaitForElementLoad(By.Name("Titular"));
             new Actions(driver).DoubleClick(driver.FindElement(By.Name("Titular"))).Build().Perform();
 
             mcFunctions.AcessarCobrancasEditarCobrancas();
@@ -63,29 +62,42 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             driver.FindElement(By.Name("Débito em conta")).Click();
             driver.FindElement(By.Id("buttonDetail")).Click();
 
+            // Instituição de cobrança
+            driver.FindElement(By.Id("comboBoxDunInstitution")).Click();
+            string instituition = "BANCO DO BRASIL DEBITO AUTOMATICO";
+            driver.FindElement(By.Name(instituition)).Click();
+
+            // Ciclo
+            driver.FindElement(By.Id("comboBoxCycle")).Click();
+            string cycle = "Mensal";
+            driver.FindElement(By.Name(cycle)).Click();
+
+            // Agencia e dígito
+            //textBoxCode
+            //textBoxDigit
+
+            // Conta e dígito
+            //textBoxCode
+            //textBoxDigit
+
+            // Dia vencimento
+            IWebElement boxDueDay = driver.FindElement(By.Id("textBoxDueDay"));
+            boxDueDay.Clear();
+            boxDueDay.Click();
+            Keyboard.SendKeys("5");
 
             driver.FindElement(By.Id("buttonOK")).Click();
+            driver.FindElement(By.Id("buttonOK")).Click();
             mcFunctions.TratarTelaAguarde();
+            mcFunctions.FecharJanela("Cobranças do título");
 
+            Assert.AreEqual(driver.FindElement(By.Id("labelDunModeValue")).GetAttribute("Name"), instituition + " " + cycle.ToLower(), "Verificando se o campo Cobrança presente no título informa os valores escolhidos.");
 
             mcFunctions.FinalizarAtendimentoTitulo();
             mcFunctions.FecharJanela("Central de Atendimento");
-
-            //new Actions(driver).Click(driver.FindElement(By.Name("À vista"))).Build().Perform();
-
-            //this.UIMap.SelecionarDebitoEmConta();
-            //this.UIMap.AbrirDetalhesFormasDePagamento();
-            ////nessa parte precisa verificar como cadastra a instituição de cobrança
-            //this.UIMap.InserirDadosInstituicaoDeCobranca();
-            //this.UIMap.FecharTelaEdicaoCobranca();
-            //this.UIMap.VerificarTermoDeAutorizacaoParaDebitoEmConta();
-            //this.UIMap.FecharTermoDeAutorizacaoParaDebitoEmConta();
-            //this.UIMap.FecharTelasEdicaoCobrancaECentralDeAtendimento();
         }
 
         #region Atributos de teste adicionais
-
-        // É possível usar os seguintes atributos adicionais enquanto escreve os testes:
 
         ////Use TestInitialize para executar código antes de executar cada teste 
         [TestInitialize()]
