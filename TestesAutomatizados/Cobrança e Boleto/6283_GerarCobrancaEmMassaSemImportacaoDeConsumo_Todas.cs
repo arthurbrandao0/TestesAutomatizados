@@ -11,12 +11,13 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
     /// Descrição resumida para CodedUITest1
     /// </resumo>
     [CodedUITest]
-    public class testeVersion
+    public class GerarCobrancaEmMassaSemImportacaoDeConsumoTodas6283
     {
-        public testeVersion()
+        public GerarCobrancaEmMassaSemImportacaoDeConsumoTodas6283()
         {
         }
 
+        //Timeout = 4h (converted in ms)
         [TestMethod(), Timeout(14400000)]
         public void GerarCobrancaEmMassaSemImportacaoDeConsumoTodas6283Metodo()
         {
@@ -56,22 +57,30 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             bool convertExpectedEnd = int.TryParse(expectedEnd.Substring(3, 2), out int convertedExpectedEnd);
             Assert.IsTrue(convertExpectedEnd, "Valor de minutos é um número inteiro");
 
+            string estimatedDurationMinutes = "";
+
             if (helpText.IndexOf("hora") > -1)
             {
-                string duracaoPrevistaHoras = helpText.Substring(helpText.IndexOf("Duração prevista: ") + 18, 1);
-                Console.WriteLine("Duração Prevista: {0} hora", duracaoPrevistaHoras);
+                string estimatedDurationHours = helpText.Substring(helpText.IndexOf("Duração prevista: ") + 18, 1);
+                Console.WriteLine("Duração Prevista Horas: {0} h", estimatedDurationHours);
+                bool convertEstimatedTimeHours = int.TryParse(estimatedDurationHours, out int convertedEstimatedTimeHours);
+                Assert.IsTrue(convertEstimatedTimeHours, "Valor de horas previstas é um número inteiro");
 
-                string duracaoPrevistaMinutos = helpText.Substring(helpText.IndexOf(" e ") + 3, 2);
-                Console.WriteLine("Duração Prevista: {0} minutos", duracaoPrevistaMinutos);
+                estimatedDurationMinutes = helpText.Substring(helpText.IndexOf(" e ") + 3, 2);
+                estimatedDurationMinutes = estimatedDurationMinutes.Replace("  ", string.Empty);                
             }
             else if (helpText.IndexOf("minuto") > -1)
             {
-                string duracaoPrevistaMinutos = helpText.Substring(helpText.IndexOf("Duração prevista: ") + 18, 2);
-                Console.WriteLine("Duração Prevista: {0} minutos", duracaoPrevistaMinutos);
+                estimatedDurationMinutes = helpText.Substring(helpText.IndexOf("Duração prevista: ") + 18, 2);                
             }
-            
+
+            Console.WriteLine("Duração Prevista Minutos: {0} min", estimatedDurationMinutes);
+            bool convertEstimatedMinutes = int.TryParse(estimatedDurationMinutes, out int convertedEstimatedMinutes);
+            Assert.IsTrue(convertEstimatedMinutes, "Valor de minutos previstos é um número inteiro");
+
+
             string media = helpText.Substring(helpText.IndexOf("Média: ") + 7, 4);
-            Console.WriteLine("Média: {0} s/título", media);
+            Console.WriteLine("Média: {0} seg/título", media);
             bool convertAverage = decimal.TryParse(expectedEnd.Substring(3, 2), out decimal convertedAverage);
             Assert.IsTrue(convertExpectedEnd, "Valor de minutos é um número decimal");
 
@@ -80,13 +89,17 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             while ((driver.FindElements(By.Name("Gerando...")).Count > 0) && (counter < 100) && (driver.FindElements(By.Name("OK")).Count < 1))
             {
                 Console.WriteLine(DateTime.Now.ToString("HH:mm:ss"));
-                Thread.Sleep(300000);
+                // Waiting 3 minutes each loop:
+                Thread.Sleep(180000);
                 counter++;
             }
 
-            Console.WriteLine("Término da geração de cobrança: {0} (margem de erro menor que 10 minutos)", DateTime.Now.ToString("HH:mm:ss"));
-        }
+            Console.WriteLine("Término da geração de cobrança: {0} (margem de erro menor que 5 minutos)", DateTime.Now.ToString("HH:mm"));
 
+            driver.FindElement(By.Name("OK")).Click();
+            McFunctions.FecharJanela("Geração de cobrança");
+        }
+        
         #region Atributos de teste adicionais
 
         // É possível usar os seguintes atributos adicionais enquanto escreve os testes:

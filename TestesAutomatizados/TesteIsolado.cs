@@ -36,7 +36,8 @@ namespace TestesAutomatizados.CobrancaEBoleto
             dc.SetCapability("debugConnectToRunningApp", true);
             Driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
 
-            Console.WriteLine(DateTime.Now.ToString("HH:mm:ss"));
+            //Console.WriteLine(DateTime.Now.ToString("HH:mm:ss"));
+            McMenus.AcessarMenu("Simulação de cobrança");
         }
 
         #region Atributos de teste adicionais

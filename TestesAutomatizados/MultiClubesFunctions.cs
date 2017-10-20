@@ -39,8 +39,9 @@ namespace TestesAutomatizados
             driver.FindElement(By.Name("Central de atendimento")).Click();
         }
 
-        public void FecharJanela(string NomeJanela = "")
+        public void FecharJanela(string windowName = "")
         {
+            // o parametro 'WindowName' nao altera em nada a função, apenas facilita a identificação da tela em que o mesmo atua.
             driver.FindElementByName("Fechar").Click();
         }
 
