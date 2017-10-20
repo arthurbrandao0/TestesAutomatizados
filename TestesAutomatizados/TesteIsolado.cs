@@ -28,16 +28,16 @@ namespace TestesAutomatizados.CobrancaEBoleto
         [TestMethod]
         public void TestIsolado_Metodo()
         {
-            MultiClubesFunctions AcessarMenu = new MultiClubesFunctions();
-            MultiClubesMenus McMenus = new MultiClubesMenus();
+            MultiClubesFunctions mcFunctions = new MultiClubesFunctions();
+            MultiClubesMenus mcMenus = new MultiClubesMenus();
 
             var dc = new DesiredCapabilities();
             dc.SetCapability("app", @"\\tsidev\Triade\Application\Dev\MultiClubes\System\MultiClubes\MultiClubes.UI.application");
             dc.SetCapability("debugConnectToRunningApp", true);
-            Driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
+            RemoteWebDriver driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
 
             //Console.WriteLine(DateTime.Now.ToString("HH:mm:ss"));
-            McMenus.AcessarMenu("Simulação de cobrança");
+            mcMenus.AcessarMenuOperacaoTituloCentralDeAtendimento();
         }
 
         #region Atributos de teste adicionais
@@ -94,6 +94,5 @@ namespace TestesAutomatizados.CobrancaEBoleto
         }
 
         private UIMap map;
-        private RemoteWebDriver Driver;
     }
 }

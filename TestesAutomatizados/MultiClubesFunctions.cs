@@ -39,21 +39,16 @@ namespace TestesAutomatizados
 
         public void FinalizarAtendimentoTitulo()
         {
+            WaitForElementLoad(By.Name("Fechar"));
             driver.FindElement(By.Name("Fechar")).Click();
-            try
-            {
-                Thread.Sleep(2000);
-                driver.FindElement(By.Id("buttonOK")).Click();
-            }
-            catch {
-                Console.WriteLine("Atendimento finalizado sem necessidade de apertar ok");
-            }
+            WaitForElementLoad(By.Id("buttonOK"));
+            driver.FindElement(By.Id("buttonOK")).Click();
         }
 
         public void TratarTelaAguarde()
         {
             int counter = 0;
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
             while ((driver.FindElements(By.Name("Aguarde...")).Count > 0) && counter < 60)
             {
                 Thread.Sleep(500);
@@ -73,10 +68,21 @@ namespace TestesAutomatizados
             driver.FindElement(By.Name("A receber")).Click();
         }
 
-        public void AcessarCobrancasAtivas()
+        public void AcessarCobrancas()
         {
             driver.FindElement(By.Name("Cobranças")).FindElement(By.Id("headerButton")).Click();
+        }
+
+        public void AcessarCobrancasAtivas()
+        {
+            AcessarCobrancas();
             driver.FindElement(By.Name("Ativas")).Click();
+        }
+
+        public void AcessarCobrancasEditarCobrancas()
+        {
+            AcessarCobrancas();
+            driver.FindElement(By.Name("Editar cobranças")).Click();
         }
 
         public void WaitForElementLoad(By by, int attempts = 5)

@@ -8,7 +8,10 @@ using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.VisualStudio.TestTools.UITest.Extension;
 using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
-
+using OpenQA.Selenium.Remote;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
+using System.Threading;
 
 namespace TestesAutomatizados.Cobrança_e_Boleto
 {
@@ -25,20 +28,59 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
         [TestMethod]
         public void EditarCobrancaDebitoEmConta6442Metodo()
         {
+            string nTitle = "N/S9440-0";
+            MultiClubesFunctions mcFunctions = new MultiClubesFunctions();
+            MultiClubesMenus mcMenus = new MultiClubesMenus();
+
+            var dc = new DesiredCapabilities();
+            dc.SetCapability("app", @"\\tsidev\Triade\Application\Dev\MultiClubes\System\MultiClubes\MultiClubes.UI.application");
+            dc.SetCapability("debugConnectToRunningApp", true);
+            RemoteWebDriver driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
+
             // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
-            this.UIMap.AbrirCentralAtendimento();
-            this.UIMap.LocalizarTituloTC6442();
-            this.UIMap.AbrirTituloTC6442();
-            this.UIMap.AbrirTelaEditarCobrancas();
-            this.UIMap.ClicarLinkEditar();
-            this.UIMap.SelecionarDebitoEmConta();
-            this.UIMap.AbrirDetalhesFormasDePagamento();
-            //nessa parte precisa verificar como cadastra a instituição de cobrança
-            this.UIMap.InserirDadosInstituicaoDeCobranca();
-            this.UIMap.FecharTelaEdicaoCobranca();
-            this.UIMap.VerificarTermoDeAutorizacaoParaDebitoEmConta();
-            this.UIMap.FecharTermoDeAutorizacaoParaDebitoEmConta();
-            this.UIMap.FecharTelasEdicaoCobrancaECentralDeAtendimento();
+            mcMenus.AcessarMenuOperacaoTituloCentralDeAtendimento();
+
+            mcFunctions.WaitForElementLoad(By.Id("textBoxKeyword"));
+            driver.FindElement(By.Id("textBoxKeyword")).Click();
+            Keyboard.SendKeys(nTitle + "{Enter}");
+            mcFunctions.WaitForElementLoad(By.Name("Titular"));
+
+            new Actions(driver).DoubleClick(driver.FindElement(By.Name("Titular"))).Build().Perform();
+
+            mcFunctions.AcessarCobrancasEditarCobrancas();
+            driver.FindElement(By.Id("linkLabelEdit")).Click();
+
+            driver.FindElement(By.Id("comboBoxDunType")).Click();
+            driver.FindElement(By.Name("À vista")).Click();
+            driver.FindElement(By.Id("buttonOK")).Click();
+            mcFunctions.TratarTelaAguarde();
+            mcFunctions.FecharJanela("Cobranças do título");
+            //---
+            mcFunctions.AcessarCobrancasEditarCobrancas();
+            driver.FindElement(By.Id("linkLabelEdit")).Click();
+
+            driver.FindElement(By.Id("comboBoxDunType")).Click();
+            driver.FindElement(By.Name("Débito em conta")).Click();
+            driver.FindElement(By.Id("buttonDetail")).Click();
+
+
+            driver.FindElement(By.Id("buttonOK")).Click();
+            mcFunctions.TratarTelaAguarde();
+
+
+            mcFunctions.FinalizarAtendimentoTitulo();
+            mcFunctions.FecharJanela("Central de Atendimento");
+
+            //new Actions(driver).Click(driver.FindElement(By.Name("À vista"))).Build().Perform();
+
+            //this.UIMap.SelecionarDebitoEmConta();
+            //this.UIMap.AbrirDetalhesFormasDePagamento();
+            ////nessa parte precisa verificar como cadastra a instituição de cobrança
+            //this.UIMap.InserirDadosInstituicaoDeCobranca();
+            //this.UIMap.FecharTelaEdicaoCobranca();
+            //this.UIMap.VerificarTermoDeAutorizacaoParaDebitoEmConta();
+            //this.UIMap.FecharTermoDeAutorizacaoParaDebitoEmConta();
+            //this.UIMap.FecharTelasEdicaoCobrancaECentralDeAtendimento();
         }
 
         #region Atributos de teste adicionais
@@ -50,16 +92,18 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
         public void MyTestInitialize()
         {
             // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
-            CheckLoginMulticlubes loginMultiClubes = new CheckLoginMulticlubes();
-            loginMultiClubes.VerificarSeMultiClubesEstaAbertoELogado();
+            CheckLoginMulticlubes loginMC = new CheckLoginMulticlubes();
+            loginMC.VerificarSeMultiClubesEstaAbertoELogado();
+            loginMC.CheckMCWindow();
         }
 
         ////Use TestCleanup para executar código depois de cada execução de teste
-        //[TestCleanup()]
-        //public void MyTestCleanup()
-        //{        
-        //    // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
-        //}
+        [TestCleanup()]
+        public void MyTestCleanup()
+        {
+            CheckTestTrash McClean = new CheckTestTrash();
+            McClean.CheckTestTrashMethod();
+        }
 
         #endregion
 

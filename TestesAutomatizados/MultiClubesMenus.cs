@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using System.Windows.Input;
-using System.Windows.Forms;
-using System.Drawing;
-using Microsoft.VisualStudio.TestTools.UITesting;
+﻿using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Microsoft.VisualStudio.TestTools.UITest.Extension;
-using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
-using OpenQA.Selenium.Remote;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Remote;
+using System;
 
 namespace TestesAutomatizados
 {
@@ -117,6 +110,27 @@ namespace TestesAutomatizados
 
         // Operação - Marinas
         // Operação - Título
+        public void AcessarMenuOperacaoTitulo()
+        {
+            this.AcessarMenuOperacao();
+            this.AcessarMenu("Título");
+        }
+
+        // Operação - Título - Bloqueio
+        // Operação - Título - Cadastro de título
+        // Operação - Título - Carteiras
+        // Operação - Título - Cenários
+        // Operação - Título - Central de atendimento
+        public void AcessarMenuOperacaoTituloCentralDeAtendimento()
+        {
+            AcessarMenuOperacaoTitulo();
+            AcessarMenu("Central de atendimento");
+        }
+        // Operação - Título - Comunicados
+        // Operação - Título - Exclusão
+        // Operação - Título - Importação de fotos
+        // Operação - Título - Importação de títulos
+
         // Operação - Visitas
 
         // Administração
