@@ -101,6 +101,15 @@ namespace TestesAutomatizados
             this.AcessarMenu("Geração de cobrança");
         }
 
+        // Operação - Financeiro - Cobrança - Gerações anteriores
+        // Operação - Financeiro - Cobrança - Importação de cobrança
+        // Operação - Financeiro - Cobrança - Simulação de cobrança
+        public void AcessarMenuOperacaoFinanceiroCobrancaSimulacaoDeCobranca()
+        {
+            this.AcessarMenuOperacaoFinanceiroCobranca();
+            this.AcessarMenu("Simulação de cobrança");
+        }
+
         // Operação - Financeiro - NFS-e
         // Operação - Financeiro - Parcelamentos
         // Operação - Financeiro - Sped contribuições

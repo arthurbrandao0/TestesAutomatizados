@@ -29,28 +29,28 @@ namespace TestesAutomatizados
             dc.SetCapability("app", @"\\tsidev\Triade\Application\Dev\MultiClubes\System\MultiClubes\MultiClubes.UI.application");
             dc.SetCapability("debugConnectToRunningApp", true);
 
-            Driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
+            driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
         }
                 
         public void AcessarCentralDeAtendimento()
         {
-            Driver.FindElement(By.Name("Operação")).Click();
-            Driver.FindElement(By.Name("Título")).Click();
-            Driver.FindElement(By.Name("Central de atendimento")).Click();
+            driver.FindElement(By.Name("Operação")).Click();
+            driver.FindElement(By.Name("Título")).Click();
+            driver.FindElement(By.Name("Central de atendimento")).Click();
         }
 
         public void FecharJanela(string NomeJanela = "")
         {
-            Driver.FindElementByName("Fechar").Click();
+            driver.FindElementByName("Fechar").Click();
         }
 
         public void FinalizarAtendimentoTitulo()
         {
-            Driver.FindElement(By.Name("Fechar")).Click();
+            driver.FindElement(By.Name("Fechar")).Click();
             try
             {
                 Thread.Sleep(2000);
-                Driver.FindElement(By.Id("buttonOK")).Click();
+                driver.FindElement(By.Id("buttonOK")).Click();
             }
             catch {
                 Console.WriteLine("Atendimento finalizado sem necessidade de apertar ok");
@@ -61,7 +61,7 @@ namespace TestesAutomatizados
         {
             int counter = 0;
             Thread.Sleep(1000);
-            while ((Driver.FindElements(By.Name("Aguarde...")).Count > 0) && counter < 60)
+            while ((driver.FindElements(By.Name("Aguarde...")).Count > 0) && counter < 60)
             {
                 Thread.Sleep(500);
                 counter++;
@@ -71,25 +71,25 @@ namespace TestesAutomatizados
         public void ClicarBotaoFechar()
         {
             Thread.Sleep(500);
-            Driver.FindElementById("Close").Click();
+            driver.FindElementById("Close").Click();
         }
 
         public void AcessarProdutosAReceber()
         {
             //this.UIMap.AcessarProdutosAReceber();
-            Driver.FindElement(By.Name("A receber")).Click();
+            driver.FindElement(By.Name("A receber")).Click();
         }
 
         public void AcessarCobrancasAtivas()
         {
-            Driver.FindElement(By.Name("Cobranças")).FindElement(By.Id("headerButton")).Click();
-            Driver.FindElement(By.Name("Ativas")).Click();
+            driver.FindElement(By.Name("Cobranças")).FindElement(By.Id("headerButton")).Click();
+            driver.FindElement(By.Name("Ativas")).Click();
         }
 
         public void WaitForElementLoad(By by, int attempts = 2)
         {
             int counter = 0;
-            while ((Driver.FindElement(By.Id("FormMain")).FindElements(by).Count == 0) && counter < attempts)
+            while ((driver.FindElement(By.Id("FormMain")).FindElements(by).Count == 0) && counter < attempts)
             {
                 Thread.Sleep(500);
                 Console.WriteLine("passando pelo loop WaitForElementLoad: {0}", by);
@@ -152,7 +152,7 @@ namespace TestesAutomatizados
         }
 
         private UIMap map;
-        private RemoteWebDriver Driver;
+        private RemoteWebDriver driver;
 
 
     }

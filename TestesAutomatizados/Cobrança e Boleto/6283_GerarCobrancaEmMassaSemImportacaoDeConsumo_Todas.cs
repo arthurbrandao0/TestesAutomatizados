@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using System.Windows.Input;
-using System.Windows.Forms;
-using System.Drawing;
-using Microsoft.VisualStudio.TestTools.UITesting;
+﻿using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Microsoft.VisualStudio.TestTools.UITest.Extension;
-using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
-using System.Threading;
-using Microsoft.VisualStudio.TestTools.UITesting.WinControls;
-using OpenQA.Selenium.Remote;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Remote;
+using System;
+using System.Threading;
 
 namespace TestesAutomatizados.Cobrança_e_Boleto
 {
@@ -34,7 +26,7 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             var dc = new DesiredCapabilities();
             dc.SetCapability("app", @"\\tsidev\Triade\Application\Dev\MultiClubes\System\MultiClubes\MultiClubes.UI.application");
             dc.SetCapability("debugConnectToRunningApp", true);
-            RemoteWebDriver Driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
+            RemoteWebDriver driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
 
             McMenus.AcessarMenuOperacaoFinanceiroCobrancaGeracaoDeCobranca();
             this.UIMap.VerificarTituloGeracaoCobranca();
@@ -45,14 +37,16 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             this.UIMap.VerificarTituloGeracaoCobranca();
 
             Thread.Sleep(60000);
-            string helpText = Driver.FindElement(By.Id("pictureBox")).GetAttribute("HelpText");
+            string helpText = driver.FindElement(By.Id("pictureBox")).GetAttribute("HelpText");
             Console.WriteLine(helpText);
 
             string initialTime = helpText.Substring(helpText.IndexOf("Início: ")+8, 5);
             Console.WriteLine("Inicio da Geração: {0}", initialTime);
+
             //validando horas início:
             bool convertHours = int.TryParse(initialTime.Substring(0,2), out int convertedHours);
             Assert.IsTrue(convertHours, "Valor de horas é um número inteiro");
+            
             //validando minutos início:
             bool convertMinutes = int.TryParse(initialTime.Substring(3,2), out int convertedMinutes);
             Assert.IsTrue(convertMinutes, "Valor de minutos é um número inteiro");
@@ -81,20 +75,16 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             bool convertAverage = decimal.TryParse(expectedEnd.Substring(3, 2), out decimal convertedAverage);
             Assert.IsTrue(convertExpectedEnd, "Valor de minutos é um número decimal");
 
-            //Console.WriteLine("IndexOf Horas:");
-            //Console.WriteLine(helpText.IndexOf("hora"));
-
-            //Console.WriteLine("IndexOf Minuto:");
-            //Console.WriteLine(helpText.IndexOf("minuto"));
-
             int counter = 0;
             Thread.Sleep(1000);
-            while ((Driver.FindElements(By.Name("Gerando...")).Count > 0) && counter < 50)
+            while ((driver.FindElements(By.Name("Gerando...")).Count > 0) && (counter < 100) && (driver.FindElements(By.Name("OK")).Count < 1))
             {
                 Console.WriteLine(DateTime.Now.ToString("HH:mm:ss"));
-                Thread.Sleep(600000);
+                Thread.Sleep(300000);
                 counter++;
             }
+
+            Console.WriteLine("Término da geração de cobrança: {0} (margem de erro menor que 10 minutos)", DateTime.Now.ToString("HH:mm:ss"));
         }
 
         #region Atributos de teste adicionais

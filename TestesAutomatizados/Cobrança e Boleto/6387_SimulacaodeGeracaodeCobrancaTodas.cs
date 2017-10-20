@@ -8,7 +8,7 @@ using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.VisualStudio.TestTools.UITest.Extension;
 using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
-
+using OpenQA.Selenium.Remote;
 
 namespace TestesAutomatizados.Cobrança_e_Boleto
 {
@@ -25,8 +25,15 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
         [TestMethod]
         public void SimulacaodeGeracaodeCobrancaTodas6387Metodo()
         {
+            MultiClubesFunctions McFunctions = new MultiClubesFunctions();
+            MultiClubesMenus McMenus = new MultiClubesMenus();
+
+            var dc = new DesiredCapabilities();
+            dc.SetCapability("app", @"\\tsidev\Triade\Application\Dev\MultiClubes\System\MultiClubes\MultiClubes.UI.application");
+            dc.SetCapability("debugConnectToRunningApp", true);
+            RemoteWebDriver driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
             // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
-            this.UIMap.AbrirSimulacaoDeCobranca();
+            McMenus.AcessarMenuOperacaoFinanceiroCobrancaSimulacaoDeCobranca();
             this.UIMap.SelecionarTodasCobrancasEmSimulacaoCobranca();
             this.UIMap.InformarQuantidadeMeses1();
             this.UIMap.ClicarBotaoSimularGeracaoCobranca();
