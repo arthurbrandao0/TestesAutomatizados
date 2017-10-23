@@ -69,7 +69,7 @@
     <Compile Include="Cobrança e Boleto\8200_DesfazerAcertoDePromotorComCobrancaGerada.cs" />
     <Compile Include="Cobrança e Boleto\7687_DesfazerCobrancaEmMassa.cs" />
     <Compile Include="Cobrança e Boleto\6442_EditarCobrancaDebitoEmConta.cs" />
-    <Compile Include="Cobrança e Boleto\6959_GeracaoDeCobrancaSemConsumo.cs" />
+    <Compile Include="Cobrança e Boleto\%28TC igual ao 6283%29_6959_GeracaoDeCobrancaSemConsumo.cs" />
     <Compile Include="Cobrança e Boleto\7031_GerarCobrancaEmMassaComImportacaoDeConsumo_Todas.cs" />
     <Compile Include="Cobrança e Boleto\6283_GerarCobrancaEmMassaSemImportacaoDeConsumo_Todas.cs" />
     <Compile Include="Cobrança e Boleto\7688_GerarCobrancaIndividual.cs" />
@@ -78,6 +78,7 @@
     <Compile Include="Cobrança e Boleto\6392_SimulacaoDeGeracaoDeCobrancaSemConfirmacao.cs" />
     <Compile Include="Cobrança e Boleto\6387_SimulacaodeGeracaodeCobrancaTodas.cs" />
     <Compile Include="CheckTestTrash.cs" />
+    <Compile Include="MultiClubesVariables.cs" />
     <Compile Include="OpenCash.cs" />
     <Compile Include="MultiClubesMenus.cs" />
     <Compile Include="TesteIsolado.cs" />

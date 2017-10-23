@@ -53,7 +53,7 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             driver.FindElement(By.Name("À vista")).Click();
             driver.FindElement(By.Id("buttonOK")).Click();
             mcFunctions.TratarTelaAguarde();
-            mcFunctions.FecharJanela("Cobranças do título");
+            mcFunctions.CloseWindow("Cobranças do título");
             //---
             mcFunctions.AcessarCobrancasEditarCobrancas();
             driver.FindElement(By.Id("linkLabelEdit")).Click();
@@ -89,12 +89,12 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             driver.FindElement(By.Id("buttonOK")).Click();
             driver.FindElement(By.Id("buttonOK")).Click();
             mcFunctions.TratarTelaAguarde();
-            mcFunctions.FecharJanela("Cobranças do título");
+            mcFunctions.CloseWindow("Cobranças do título");
 
             Assert.AreEqual(driver.FindElement(By.Id("labelDunModeValue")).GetAttribute("Name"), instituition + " " + cycle.ToLower(), "Verificando se o campo Cobrança presente no título informa os valores escolhidos.");
 
             mcFunctions.FinalizarAtendimentoTitulo();
-            mcFunctions.FecharJanela("Central de Atendimento");
+            mcFunctions.CloseWindow("Central de Atendimento");
         }
 
         #region Atributos de teste adicionais

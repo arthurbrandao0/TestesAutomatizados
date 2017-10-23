@@ -39,20 +39,7 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
 
             McFunctions.CheckBillingForecast();
 
-            int counter = 0;
-            Thread.Sleep(1000);
-            while ((driver.FindElements(By.Name("Gerando...")).Count > 0) && (driver.FindElements(By.Name("OK")).Count < 1) && (counter < 100))
-            {
-                Console.WriteLine(DateTime.Now.ToString("HH:mm:ss"));
-                // Waiting 3 minutes:
-                Thread.Sleep(180000);
-                counter++;
-            }
-
-            Console.WriteLine("Término da geração de cobrança: {0} (margem de erro menor que 5 minutos)", DateTime.Now.ToString("HH:mm"));
-
-            driver.FindElement(By.Name("OK")).Click();
-            McFunctions.FecharJanela("Geração de cobrança");
+            McFunctions.WaitBillingGeneration();
         }
         
         #region Atributos de teste adicionais

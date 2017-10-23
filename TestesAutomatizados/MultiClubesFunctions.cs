@@ -7,16 +7,15 @@ using System.Threading;
 
 namespace TestesAutomatizados
 {
+
     /// <resumo>
     /// Descrição resumida para CodedUITest1
     /// </resumo>
     [CodedUITest]
     public class MultiClubesFunctions
     {
-
         public MultiClubesFunctions()
         {
-
             var dc = new DesiredCapabilities();
             dc.SetCapability("app", @"\\tsidev\Triade\Application\Dev\MultiClubes\System\MultiClubes\MultiClubes.UI.application");
             dc.SetCapability("debugConnectToRunningApp", true);
@@ -31,7 +30,7 @@ namespace TestesAutomatizados
             driver.FindElement(By.Name("Central de atendimento")).Click();
         }
 
-        public void FecharJanela(string windowName = "")
+        public void CloseWindow(string windowName = "")
         {
             // o parametro 'WindowName' nao altera em nada a função, apenas facilita a identificação da tela em que o mesmo atua.
             driver.FindElementByName("Fechar").Click();
@@ -150,6 +149,24 @@ namespace TestesAutomatizados
             Console.WriteLine("Média: {0} seg/título", media);
             bool convertAverage = decimal.TryParse(expectedEnd.Substring(3, 2), out decimal convertedAverage);
             Assert.IsTrue(convertExpectedEnd, "Valor de minutos é um número decimal");
+        }
+
+        public void WaitBillingGeneration()
+        {
+            int counter = 0;
+            Thread.Sleep(1000);
+            while ((driver.FindElements(By.Name("Gerando...")).Count > 0) && (driver.FindElements(By.Name("OK")).Count < 1) && (counter < 100))
+            {
+                Console.WriteLine(DateTime.Now.ToString("HH:mm:ss"));
+                // Waiting 3 minutes:
+                Thread.Sleep(180000);
+                counter++;
+            }
+
+            Console.WriteLine("Término da geração de cobrança: {0} (margem de erro menor que 5 minutos)", DateTime.Now.ToString("HH:mm"));
+
+            driver.FindElement(By.Name("OK")).Click();
+            CloseWindow("Geração de cobrança");
         }
 
         #region Atributos de teste adicionais
