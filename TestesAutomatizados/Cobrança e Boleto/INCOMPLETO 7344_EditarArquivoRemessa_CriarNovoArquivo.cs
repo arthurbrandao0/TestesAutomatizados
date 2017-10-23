@@ -45,12 +45,8 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             }
 
             new Actions(driver).DoubleClick(driver.FindElement(By.Id("listViewParcel")).FindElements(By.Id(""))[0]).Build().Perform();
-            McFunctions.WaitForElementLoad(By.Id("linkLabelDun"));
-            driver.FindElement(By.Id("linkLabelDun")).Click();
 
-            McFunctions.WaitForElementLoad(By.Id("buttonOptions"));
-            driver.FindElement(By.Id("buttonOptions")).Click();
-            driver.FindElement(By.Name("Editar arquivos remessa")).Click();
+            McFunctions.BillingRemittanceFiles();
 
             McFunctions.WaitForElementLoad(By.Id("buttonNew"));
             driver.FindElement(By.Id("buttonNew")).Click();
@@ -59,6 +55,38 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             driver.FindElement(By.Id("comboBoxRemittanceType")).Click();
             driver.FindElement(By.Name("Impressão")).Click();
 
+            string fileName = "TESTE_NOVO_" + DateTime.Now.ToString("dd_MM_yyyy_HH_mm_ss");
+            driver.FindElement(By.Id("textBoxFileName")).Click();
+            Keyboard.SendKeys(fileName);
+
+            driver.FindElement(By.Id("buttonOK")).Click();
+            driver.FindElement(By.Id("buttonOK")).Click();
+
+            McFunctions.WaitForElementLoad(By.Name("Detalhes da cobrança"));
+            McFunctions.CloseWindow("Detalhes da cobrança");
+
+            McFunctions.WaitForElementLoad(By.Name("Detalhes da parcela e venda"));
+            McFunctions.CloseWindow("Detalhes da parcela e venda");
+
+            new Actions(driver).DoubleClick(driver.FindElement(By.Id("listViewParcel")).FindElements(By.Id(""))[8]).Build().Perform();
+
+            McFunctions.BillingRemittanceFiles();
+
+            if (driver.FindElement(By.Id("listView")).FindElements(By.Name(fileName + ".rem")).Count > 0){
+                Console.WriteLine("achou o arquivo remessa criado anteriormente");
+            }
+
+            driver.FindElement(By.Id("buttonOK")).Click();
+            driver.FindElement(By.Id("buttonOK")).Click();
+
+            McFunctions.WaitForElementLoad(By.Name("Detalhes da cobrança"));
+            McFunctions.CloseWindow("Detalhes da cobrança");
+
+            McFunctions.WaitForElementLoad(By.Name("Produtos a receber"));
+            McFunctions.CloseWindow("Produtos a receber");
+
+            McFunctions.FinalizarAtendimentoTitulo();
+            McFunctions.CloseWindow("Central de atendimento");
         }
 
         #region Atributos de teste adicionais

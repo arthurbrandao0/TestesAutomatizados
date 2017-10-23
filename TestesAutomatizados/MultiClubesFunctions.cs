@@ -183,6 +183,16 @@ namespace TestesAutomatizados
             WaitForElementLoad(By.Name("Titular"));
             new Actions(driver).DoubleClick(driver.FindElement(By.Name("Titular"))).Build().Perform();
         }
+        public void BillingRemittanceFiles()
+        {
+            WaitForElementLoad(By.Id("linkLabelDun"));
+            driver.FindElement(By.Id("linkLabelDun")).Click();
+
+            WaitForElementLoad(By.Id("buttonOptions"));
+            driver.FindElement(By.Id("buttonOptions")).Click();
+            driver.FindElement(By.Name("Editar arquivos remessa")).Click();
+                       
+        }
 
         #region Atributos de teste adicionais
 
