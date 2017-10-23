@@ -28,7 +28,7 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
         [TestMethod]
         public void EditarCobrancaDebitoEmConta6442Metodo()
         {
-            string nTitle = "N/S9440-0";
+            
             MultiClubesFunctions mcFunctions = new MultiClubesFunctions();
             MultiClubesMenus mcMenus = new MultiClubesMenus();
 
@@ -39,13 +39,8 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
 
             mcMenus.AcessarMenuOperacaoTituloCentralDeAtendimento();
 
-            mcFunctions.WaitForElementLoad(By.Id("textBoxKeyword"));
-            driver.FindElement(By.Id("textBoxKeyword")).Click();
-            Keyboard.SendKeys(nTitle + "{Enter}");
-
-            mcFunctions.WaitForElementLoad(By.Name("Titular"));
-            new Actions(driver).DoubleClick(driver.FindElement(By.Name("Titular"))).Build().Perform();
-
+            mcFunctions.SearchHolder("N/S9440-0");
+            
             mcFunctions.AcessarCobrancasEditarCobrancas();
             driver.FindElement(By.Id("linkLabelEdit")).Click();
 

@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Remote;
 using System;
 using System.Threading;
@@ -42,6 +43,11 @@ namespace TestesAutomatizados
             driver.FindElement(By.Name("Fechar")).Click();
             WaitForElementLoad(By.Id("buttonOK"));
             driver.FindElement(By.Id("buttonOK")).Click();
+        }
+
+        internal void SearchHolder()
+        {
+            throw new NotImplementedException();
         }
 
         public void TratarTelaAguarde()
@@ -167,6 +173,15 @@ namespace TestesAutomatizados
 
             driver.FindElement(By.Name("OK")).Click();
             CloseWindow("Geração de cobrança");
+        }
+
+        public void SearchHolder(string HolderId) { 
+            WaitForElementLoad(By.Id("textBoxKeyword"));
+            driver.FindElement(By.Id("textBoxKeyword")).Click();
+            Keyboard.SendKeys(HolderId);
+            Keyboard.SendKeys("{Enter}");
+            WaitForElementLoad(By.Name("Titular"));
+            new Actions(driver).DoubleClick(driver.FindElement(By.Name("Titular"))).Build().Perform();
         }
 
         #region Atributos de teste adicionais
