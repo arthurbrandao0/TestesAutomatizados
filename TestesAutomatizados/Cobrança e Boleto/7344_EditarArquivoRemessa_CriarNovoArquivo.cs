@@ -38,11 +38,8 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             McMenus.AcessarMenuOperacaoTituloCentralDeAtendimento();
             McFunctions.SearchHolder("A28225");
             McFunctions.AcessarProdutosAReceber();
-            foreach (IWebElement i in driver.FindElement(By.Id("listViewParcel")).FindElements(By.Id("")))
-            //foreach (IWebElement i in driver.FindElement(By.Id("listViewParcel")).FindElements(By.XPath("*")))
-            {
-                Console.WriteLine(i.GetAttribute("Name"));
-            }
+
+            McFunctions.WaitForElementLoad(By.Id("listViewParcel"));
 
             new Actions(driver).DoubleClick(driver.FindElement(By.Id("listViewParcel")).FindElements(By.Id(""))[0]).Build().Perform();
 
@@ -72,21 +69,26 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
 
             McFunctions.BillingRemittanceFiles();
 
+            bool fileNameExists = false;
             if (driver.FindElement(By.Id("listView")).FindElements(By.Name(fileName + ".rem")).Count > 0){
-                Console.WriteLine("achou o arquivo remessa criado anteriormente");
+                fileNameExists = true;
             }
-
-            driver.FindElement(By.Id("buttonOK")).Click();
+            
             driver.FindElement(By.Id("buttonOK")).Click();
 
             McFunctions.WaitForElementLoad(By.Name("Detalhes da cobrança"));
             McFunctions.CloseWindow("Detalhes da cobrança");
+
+            McFunctions.WaitForElementLoad(By.Name("Detalhes da parcela e venda"));
+            McFunctions.CloseWindow("Detalhes da parcela e venda");
 
             McFunctions.WaitForElementLoad(By.Name("Produtos a receber"));
             McFunctions.CloseWindow("Produtos a receber");
 
             McFunctions.FinalizarAtendimentoTitulo();
             McFunctions.CloseWindow("Central de atendimento");
+
+            Assert.IsTrue(fileNameExists, "Encontrou o arquivo remessa criado anteriormente");
         }
 
         #region Atributos de teste adicionais
