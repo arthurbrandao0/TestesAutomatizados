@@ -40,8 +40,6 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             McMenus.AcessarMenuOperacaoFinanceiroTransacoesBancariasRemessasAnteriores();
 
             McFunctions.WaitForElementLoad(By.Id("listView"));
-            //driver.FindElement(By.Name("Data")).Click();
-
             driver.FindElement(By.Id("listView")).FindElements(By.Id(""))[0].Click();
             string fileName = driver.FindElement(By.Id("listView")).FindElements(By.Id(""))[0].GetAttribute("Name");
             

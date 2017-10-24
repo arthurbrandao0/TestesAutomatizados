@@ -28,7 +28,7 @@ namespace TestesAutomatizados.CobrancaEBoleto
             RemoteWebDriver driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
 
             //Console.WriteLine(DateTime.Now.ToString("HH:mm:ss"));
-            mcMenus.AcessarMenuOperacaoTituloCentralDeAtendimento();
+            mcMenus.AcessarMenu("Completo");
         }
 
         #region Atributos de teste adicionais

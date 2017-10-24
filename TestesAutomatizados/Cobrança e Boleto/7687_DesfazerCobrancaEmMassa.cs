@@ -10,6 +10,8 @@ using Microsoft.VisualStudio.TestTools.UITest.Extension;
 using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
 using Microsoft.VisualStudio.TestTools.UITesting.WinControls;
 using System.Threading;
+using OpenQA.Selenium.Remote;
+using OpenQA.Selenium;
 
 namespace TestesAutomatizados.Cobrança_e_Boleto
 {
@@ -26,37 +28,47 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
         [TestMethod]
         public void DesfazerCobrancaEmMassa_7687_Metodo()
         {
-            // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
-            this.UIMap.AbrirGeracoesAnterioresDeCobranca();
+            MultiClubesFunctions McFunctions = new MultiClubesFunctions();
+            MultiClubesMenus McMenus = new MultiClubesMenus();
+
+            var dc = new DesiredCapabilities();
+            dc.SetCapability("app", @"\\tsidev\Triade\Application\Dev\MultiClubes\System\MultiClubes\MultiClubes.UI.application");
+            dc.SetCapability("debugConnectToRunningApp", true);
+            RemoteWebDriver driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
+
+            McMenus.AcessarMenuOperacaoFinanceiroCobrancaGeracoesAnteriores();
+            
             //aqui entra o código com o range de datas, se necessário
-            this.UIMap.AcessarSelecaoDeCobrancasAnteriores();
-            Keyboard.SendKeys(this.UIMap.UIGeraçõesanterioresWindow, "{End}");
-            this.UIMap.ClicarOpcaoDesfazerCobranca();
 
-            int tempoEspera = 0;
+            McFunctions.WaitForElementLoad(By.Id("listView"));
 
-            while (tempoEspera < 500)
+            driver.FindElement(By.Name("Data")).Click();
+            driver.FindElement(By.Name("Data")).Click();
+
+            driver.FindElement(By.Id("listView")).FindElements(By.Id(""))[0].Click();
+            string fileName = driver.FindElement(By.Id("listView")).FindElements(By.Id(""))[0].GetAttribute("Name");
+
+            driver.FindElement(By.Id("buttonReport")).Click();
+            driver.FindElement(By.Name("Desfazer")).Click();
+
+            McFunctions.WaitForElementLoad(By.Name("Pergunta"));
+            driver.FindElement(By.Name("Sim")).Click();
+
+            McFunctions.WaitForElementLoad(By.Name("Concluído"));
+            driver.FindElement(By.Name("OK")).Click();
+
+            McFunctions.CloseWindow("Gerações anteriores");
+
+            McMenus.AcessarMenuOperacaoFinanceiroCobrancaGeracoesAnteriores();
+
+            bool billingExists = false;
+            if (driver.FindElement(By.Id("listView")).FindElements(By.Name(fileName)).Count > 0)
             {
-                tempoEspera += 1;
-                Thread.Sleep(1000);
-
-                Console.WriteLine(tempoEspera + "ª tentativa às " + DateTime.Now.ToString("h:mm:ss:fff tt"));
-
-                WinText UIConcluídaText = new WinText();
-                UIConcluídaText.SearchProperties[WinText.PropertyNames.Name] = "Concluído";
-                UIConcluídaText.WindowTitles.Add("Desfazer cobrança");
-
-
-                if (UIConcluídaText.Exists)
-                {
-                    Console.WriteLine("Desfez cobranca");
-                    break;
-
-                }
+                billingExists = true;
             }
 
-            this.UIMap.FecharTelaDesfazerCobrancasAnteriores();
-
+            McFunctions.CloseWindow("Gerações anteriores");
+            Assert.IsFalse(billingExists, "Verificando se a cobrança desapareceu");
         }
 
         #region Atributos de teste adicionais
@@ -68,15 +80,17 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
         public void MyTestInitialize()
         {
             // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
-            CheckLoginMulticlubes loginMultiClubes = new CheckLoginMulticlubes();
-            loginMultiClubes.VerificarSeMultiClubesEstaAbertoELogado();
+            CheckLoginMulticlubes loginMC = new CheckLoginMulticlubes();
+            loginMC.VerificarSeMultiClubesEstaAbertoELogado();
+            loginMC.CheckMCWindow();
         }
 
-        ////Use TestCleanup para executar código depois de cada execução de teste
+        //Use TestCleanup para executar código depois de cada execução de teste
         //[TestCleanup()]
         //public void MyTestCleanup()
-        //{        
-        //    // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
+        //{
+        //    CheckTestTrash McClean = new CheckTestTrash();
+        //    McClean.CheckTestTrashMethod();
         //}
 
         #endregion
