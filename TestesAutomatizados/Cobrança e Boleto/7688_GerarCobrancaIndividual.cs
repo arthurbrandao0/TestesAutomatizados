@@ -8,7 +8,9 @@ using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.VisualStudio.TestTools.UITest.Extension;
 using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
-
+using OpenQA.Selenium.Remote;
+using OpenQA.Selenium;
+using System.Threading;
 
 namespace TestesAutomatizados.Cobrança_e_Boleto
 {
@@ -25,12 +27,47 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
         [TestMethod]
         public void GerarCobrancaIndividual_7688_Metodo()
         {
-            // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
-            this.UIMap.AbrirCentralAtendimento();
-            this.UIMap.LocalizarTituloA28248();
+            MultiClubesFunctions McFunctions = new MultiClubesFunctions();
+            MultiClubesMenus McMenus = new MultiClubesMenus();
 
+            var dc = new DesiredCapabilities();
+            dc.SetCapability("app", @"\\tsidev\Triade\Application\Dev\MultiClubes\System\MultiClubes\MultiClubes.UI.application");
+            dc.SetCapability("debugConnectToRunningApp", true);
+            RemoteWebDriver driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
 
+            McMenus.AcessarMenuOperacaoTituloCentralDeAtendimento();
+            McFunctions.SearchHolder("A28248");
+
+            McFunctions.AcessarCobrancasEditarCobrancas();
+
+            McFunctions.WaitForElementLoad(By.Id("listViewDuns"));
+            string billing = driver.FindElement(By.Id("listViewDuns")).FindElements(By.Id(""))[0].GetAttribute("Name");
+            string billingValue = billing.Substring(billing.IndexOf("R$"));
+
+            Console.WriteLine(billingValue);
+
+            driver.FindElement(By.Id("linkLabelGenerate")).Click();
+
+            McFunctions.WaitForElementLoad(By.Id("buttonGenerate"));
+            driver.FindElement(By.Id("buttonGenerate")).Click();
+
+            McFunctions.WaitForElementLoad(By.Name("Sim"));
+            driver.FindElement(By.Name("Sim")).Click();
+
+            McFunctions.WaitForElementLoad(By.Name("OK"), 10);
             
+            string generatedBilling = driver.FindElement(By.Id("labelTotalValue")).GetAttribute("Name");
+            
+            driver.FindElement(By.Name("OK")).Click();
+
+            McFunctions.TratarTelaAguarde();
+            McFunctions.CloseWindow("Cobranças do título");
+
+            McFunctions.FinalizarAtendimentoTitulo();
+            McFunctions.CloseWindow("Central de Atendimento");
+
+            Assert.AreEqual(billingValue, generatedBilling, "Valor previsto foi o valor gerado");
+
         }
 
         #region Atributos de teste adicionais
@@ -42,16 +79,18 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
         public void MyTestInitialize()
         {
             // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
-            CheckLoginMulticlubes loginMultiClubes = new CheckLoginMulticlubes();
-            loginMultiClubes.VerificarSeMultiClubesEstaAbertoELogado();
+            CheckLoginMulticlubes loginMC = new CheckLoginMulticlubes();
+            loginMC.VerificarSeMultiClubesEstaAbertoELogado();
+            loginMC.CheckMCWindow();
         }
 
         ////Use TestCleanup para executar código depois de cada execução de teste
-        //[TestCleanup()]
-        //public void MyTestCleanup()
-        //{        
-        //    // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
-        //}
+        [TestCleanup()]
+        public void MyTestCleanup()
+        {
+            CheckTestTrash McClean = new CheckTestTrash();
+            McClean.CheckTestTrashMethod();
+        }
 
         #endregion
 

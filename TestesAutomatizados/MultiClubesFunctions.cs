@@ -45,11 +45,6 @@ namespace TestesAutomatizados
             driver.FindElement(By.Id("buttonOK")).Click();
         }
 
-        internal void SearchHolder()
-        {
-            throw new NotImplementedException();
-        }
-
         public void TratarTelaAguarde()
         {
             int counter = 0;
