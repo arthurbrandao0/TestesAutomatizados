@@ -107,6 +107,23 @@ namespace TestesAutomatizados
         // Operação - Financeiro - Parcelamentos
         // Operação - Financeiro - Sped contribuições
         // Operação - Financeiro - Transações bancárias
+        public void AcessarMenuOperacaoFinanceiroTransacoesBancarias()
+        {
+            this.AcessarMenuOperacaoFinanceiro();
+            this.AcessarMenu("Transações bancárias");
+        }
+        // Operação - Financeiro - Transações bancárias - Emissão de remessa
+        // Operação - Financeiro - Transações bancárias - Remessas anteriores
+        public void AcessarMenuOperacaoFinanceiroTransacoesBancariasRemessasAnteriores()
+        {
+            this.AcessarMenuOperacaoFinanceiroTransacoesBancarias();
+            this.AcessarMenu("Remessas anteriores");
+        }
+        // Operação - Financeiro - Transações bancárias - Envio de e-mail
+        // Operação - Financeiro - Transações bancárias - Envio remessa de cartão
+        // Operação - Financeiro - Transações bancárias - Impressão de boleto
+        // Operação - Financeiro - Transações bancárias - Mensagens de remessa
+        // Operação - Financeiro - Transações bancárias - Recebimento de retorno
 
         // Operação - Marinas
         // Operação - Título
