@@ -30,8 +30,8 @@ namespace TestesAutomatizados.CobrancaEBoleto
             //Console.WriteLine(DateTime.Now.ToString("HH:mm:ss"));
             //mcMenus.AcessarMenu("Completo");
 
-            mcFunctions.FinalizarAtendimentoTitulo();
-            mcFunctions.CloseWindow();
+            //mcFunctions.FinalizarAtendimentoTitulo();
+            //mcFunctions.CloseWindow();
         }
 
         #region Atributos de teste adicionais

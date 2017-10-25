@@ -10,6 +10,7 @@ using Microsoft.VisualStudio.TestTools.UITest.Extension;
 using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium;
+using System.IO;
 
 namespace TestesAutomatizados.Cobrança_e_Boleto
 {
@@ -26,6 +27,19 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
         [TestMethod]
         public void GerarCobrancaAtravesDeImportacaoDeArquivo_Metodo()
         {
+            string holder = "A28248";
+
+            string filePath = "C:/TestesAutomatizados/TestResults/";
+            string fileName = "cobranca_por_arquivo" + DateTime.Now.ToString("_dd_MM_yyyy_HH_mm_ss") + ".csv";
+            string valueBilling = "123,45";
+
+            using (var w = new StreamWriter(filePath + fileName))
+            {
+                w.WriteLine("Título;Sócio;Valor;Data de vencimento;Produto");
+                w.WriteLine("{0};;{1};{2};Produto Teste Cobranca por Arquivo", holder , valueBilling ,DateTime.Now.ToString("dd/MM/yyyy"));
+                w.Flush();
+            }
+
             MultiClubesFunctions McFunctions = new MultiClubesFunctions();
             MultiClubesMenus McMenus = new MultiClubesMenus();
 
@@ -36,9 +50,8 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
 
             McMenus.AcessarMenuOperacaoFinanceiroCobrancaImportacaoDeCobranca();
 
-            string fileName = "C:/TestesAutomatizados/TestResults/" + "cobrancaporarquivo.csv";
             driver.FindElement(By.Id("textBoxFileName")).Click();
-            Keyboard.SendKeys(fileName);
+            Keyboard.SendKeys(filePath + fileName);
 
             driver.FindElement(By.Id("buttonGenerate")).Click();
 
@@ -48,13 +61,33 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             McFunctions.CloseWindow("Importação de cobrança");
 
             McMenus.AcessarMenuOperacaoTituloCentralDeAtendimento();
-            McFunctions.SearchHolder("A28248");
+            McFunctions.SearchHolder(holder);
 
             McFunctions.AcessarCobrancasAtivas();
 
-            //McFunctions.CloseWindow("Cobranças ativas");
-            //McFunctions.FinalizarAtendimentoTitulo();
-            //McFunctions.CloseWindow("Central de atendimento");
+            McFunctions.WaitForElementLoad(By.Id("listViewDun"));
+            var listViewDunElements = driver.FindElement(By.Id("listViewDun")).FindElements(By.Id(""));
+
+            int counter = 0;
+            bool importedBillingFound = false;
+            foreach (IWebElement i in listViewDunElements)
+            {
+                if (i.GetAttribute("Name") == DateTime.Now.ToString("dd/MM/yyyy"))
+                {
+                    if (listViewDunElements[counter + 3].GetAttribute("Name") == "R$ " + valueBilling)
+                    {
+                        importedBillingFound = true;
+                        break;
+                    }
+                }
+                counter++;
+            }
+            
+            McFunctions.CloseWindow("Cobranças ativas");
+            McFunctions.FinalizarAtendimentoTitulo();
+            McFunctions.CloseWindow("Central de atendimento");
+
+            Assert.IsTrue(importedBillingFound, "Valor da cobrança encontrado nas cobranças ativas");
         }
 
         #region Additional test attributes
@@ -76,7 +109,7 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
         public void MyTestCleanup()
         {
             CheckTestTrash McClean = new CheckTestTrash();
-            //McClean.CheckTestTrashMethod();
+            McClean.CheckTestTrashMethod();
         }
 
         #endregion
