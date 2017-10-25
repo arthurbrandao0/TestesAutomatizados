@@ -54,7 +54,12 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             McFunctions.WaitForElementLoad(By.Name("Pergunta"));
             driver.FindElement(By.Name("Sim")).Click();
 
-            McFunctions.WaitForElementLoad(By.Name("Concluído"));
+            McFunctions.WaitForElementLoad(By.Name("Concluído"), 30);
+
+            if (driver.FindElements(By.Name("Informação")).Count > 0)
+            {
+                driver.FindElement(By.Name("OK")).Click();
+            }
             driver.FindElement(By.Name("OK")).Click();
 
             McFunctions.CloseWindow("Gerações anteriores");

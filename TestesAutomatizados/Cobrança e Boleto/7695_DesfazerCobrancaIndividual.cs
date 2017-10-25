@@ -48,8 +48,7 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
                 }
                 counter++;
             }
-
-            Console.WriteLine(listViewDunElements[counter - 4].GetAttribute("Name"));
+            string billing = listViewDunElements[counter - 4].GetAttribute("Name");
             listViewDunElements[counter - 4].Click();
 
             new Actions(driver).DoubleClick(listViewDunElements[counter - 4]).Build().Perform();
@@ -63,11 +62,18 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             McFunctions.WaitForElementLoad(By.Name("OK"));
             driver.FindElement(By.Name("OK")).Click();
 
+            bool undoneBilling = true;
+            if (driver.FindElement(By.Id("listViewDun")).FindElements(By.Name(billing)).Count > 0)
+            {
+                undoneBilling = false;
+            }
+            
+            McFunctions.WaitForElementLoad(By.Name("Cobranças ativas"));
             McFunctions.CloseWindow("Cobranças ativas");
             McFunctions.FinalizarAtendimentoTitulo();
             McFunctions.CloseWindow("Central de atendimento");
 
-
+            Assert.IsTrue(undoneBilling, "Cobrança desfeita");
         }
 
         #region Additional test attributes
@@ -92,7 +98,7 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
         public void MyTestCleanup()
         {
             CheckTestTrash McClean = new CheckTestTrash();
-            //McClean.CheckTestTrashMethod();
+            McClean.CheckTestTrashMethod();
         }
 
         #endregion
