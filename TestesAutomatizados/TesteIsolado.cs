@@ -28,7 +28,10 @@ namespace TestesAutomatizados.CobrancaEBoleto
             RemoteWebDriver driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
 
             //Console.WriteLine(DateTime.Now.ToString("HH:mm:ss"));
-            mcMenus.AcessarMenu("Completo");
+            //mcMenus.AcessarMenu("Completo");
+
+            mcFunctions.FinalizarAtendimentoTitulo();
+            mcFunctions.CloseWindow();
         }
 
         #region Atributos de teste adicionais
@@ -46,11 +49,12 @@ namespace TestesAutomatizados.CobrancaEBoleto
         }
 
         ////Use TestCleanup para executar código depois de cada execução de teste
-        //[TestCleanup()]
-        //public void MyTestCleanup()
-        //{        
-        //    // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
-        //}
+        [TestCleanup()]
+        public void MyTestCleanup()
+        {
+            CheckTestTrash McClean = new CheckTestTrash();
+            McClean.CheckTestTrashMethod();
+        }
 
         #endregion
 
