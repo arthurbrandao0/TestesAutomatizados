@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using System.Windows.Input;
-using System.Windows.Forms;
-using System.Drawing;
-using Microsoft.VisualStudio.TestTools.UITesting;
+﻿using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Microsoft.VisualStudio.TestTools.UITest.Extension;
-using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
-using OpenQA.Selenium.Remote;
 using OpenQA.Selenium;
-using System.Threading;
+using OpenQA.Selenium.Remote;
+using System;
+using System.Collections.Generic;
 
 namespace TestesAutomatizados
 {
@@ -18,13 +11,14 @@ namespace TestesAutomatizados
     /// Summary description for CodedUITest1
     /// </summary>
     [CodedUITest]
-    public class CheckTestTrash
+    public class CloseCash
     {
-        public CheckTestTrash()
+        public CloseCash()
         {
         }
 
-        public void CheckTestTrashMethod()
+        [TestMethod]
+        public void CloseCashMethod()
         {
             MultiClubesFunctions mcFunctions = new MultiClubesFunctions();
             MultiClubesMenus mcMenus = new MultiClubesMenus();
@@ -34,27 +28,31 @@ namespace TestesAutomatizados
             dc.SetCapability("debugConnectToRunningApp", true);
             RemoteWebDriver driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
 
-            if (driver.FindElement(By.Id("FormMain")).FindElements(By.Name("Fechar")).Count > 1)
-            {
-                mcMenus.AcessarMenuArquivoSair();
-                Thread.Sleep(500);
-                Console.WriteLine(driver.FindElements(By.Name("Erro")).Count);
-                if (driver.FindElements(By.Name("Erro")).Count > 0)
-                {
-                    string errorMessage = driver.FindElement(By.Id("ContentText")).GetAttribute("Name");
-                    Console.WriteLine(errorMessage);
-                    driver.FindElement(By.Name("OK")).Click();
-                    if (errorMessage == "Feche o caixa para finalizar o sistema.")
-                    {
-                        Console.WriteLine("Fechar caixa");
-                        CloseCash closecash = new CloseCash();
-                        closecash.CloseCashMethod();
-                        mcMenus.AcessarMenuArquivoSair();
-                    }
-                }
+            driver.FindElement(By.Name("tabPageCash")).Click();
 
-                Console.WriteLine("MultiClubes fechado pelo CheckTestTrash.cs");
+            mcFunctions.WaitForElementLoad(By.Id("buttonOptions"));
+            driver.FindElement(By.Id("buttonOptions")).Click();
+            driver.FindElement(By.Name("Fechamento")).Click();
+
+            List<string> textBoxList = new List<string>();
+            textBoxList.Add("textBoxClosingConsumptionCardValue");
+            textBoxList.Add("textBoxClosingCheckValue");
+            textBoxList.Add("textBoxClosingCovenantValue");
+            textBoxList.Add("textBoxClosingMoneyValue");
+            textBoxList.Add("textBoxClosingDocumentValue");
+
+            foreach (string i in textBoxList)
+            {
+                Console.WriteLine(i + "/");
+                driver.FindElement(By.Id(i)).Click();
+                Keyboard.SendKeys("0");
             }
+
+            driver.FindElement(By.Id("textBoxUserPassword")).Click();
+            Keyboard.SendKeys("DeZer0@100");
+
+            driver.FindElement(By.Id("buttonUser")).Click();
+            driver.FindElement(By.Id("buttonOK")).Click();
         }
 
         #region Additional test attributes
