@@ -101,6 +101,11 @@ namespace TestesAutomatizados
             this.AcessarMenu("Gerações anteriores");
         }
         // Operação - Financeiro - Cobrança - Importação de cobrança
+        public void AcessarMenuOperacaoFinanceiroCobrancaImportacaoDeCobranca()
+        {
+            this.AcessarMenuOperacaoFinanceiroCobranca();
+            this.AcessarMenu("Importação de cobrança");
+        }
         // Operação - Financeiro - Cobrança - Simulação de cobrança
         public void AcessarMenuOperacaoFinanceiroCobrancaSimulacaoDeCobranca()
         {
