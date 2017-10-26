@@ -34,6 +34,11 @@ namespace TestesAutomatizados
             dc.SetCapability("debugConnectToRunningApp", true);
             RemoteWebDriver driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
 
+            while (driver.FindElement(By.Id("FormMain")).FindElements(By.Name("Cancelar")).Count > 0)
+            {
+                driver.FindElement(By.Name("Cancelar")).Click();
+            }
+
             if (driver.FindElement(By.Id("FormMain")).FindElements(By.Name("Fechar")).Count > 1)
             {
                 mcMenus.AcessarMenuArquivoSair();
@@ -43,6 +48,22 @@ namespace TestesAutomatizados
                     string errorMessage = driver.FindElement(By.Id("ContentText")).GetAttribute("Name");
                     Console.WriteLine(errorMessage);
                     driver.FindElement(By.Name("OK")).Click();
+
+                    if (errorMessage == "Finalize o atendimento para sair.")
+                    {
+                         while (driver.FindElement(By.Id("FormMain")).FindElements(By.Name("Fechar")).Count > 2)
+                        {
+                            mcFunctions.CloseWindow();
+                        }
+                        mcFunctions.FinalizarAtendimentoTitulo();
+                        mcFunctions.CloseWindow("Central de atendimento");
+                        mcMenus.AcessarMenuArquivoSair();
+                        if (driver.FindElements(By.Name("Erro")).Count > 0)
+                        {
+                            errorMessage = driver.FindElement(By.Id("ContentText")).GetAttribute("Name");
+                            driver.FindElement(By.Name("OK")).Click();
+                        }
+                    }
                     if (errorMessage == "Feche o caixa para finalizar o sistema.")
                     {
                         CloseCash closecash = new CloseCash();

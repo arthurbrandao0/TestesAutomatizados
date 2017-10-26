@@ -26,6 +26,8 @@ namespace TestesAutomatizados
         [TestMethod]
         public void OpenCashMethod()
         {
+            MultiClubesFunctions mcFunctions = new MultiClubesFunctions();
+
             var dc = new DesiredCapabilities();
             dc.SetCapability("app", @"\\tsidev\Triade\Application\Dev\MultiClubes\System\MultiClubes\MultiClubes.UI.application");
             dc.SetCapability("debugConnectToRunningApp", true);
@@ -45,6 +47,8 @@ namespace TestesAutomatizados
                     Driver.FindElement(By.Name("Existente")).Click();
                 }
                 this.UIMap.InserirSenhaAberturaCaixa();
+
+                mcFunctions.WaitForElementLoad(By.Id("buttonOK"));
                 Driver.FindElement(By.Id("buttonOK")).Click();
             }
             

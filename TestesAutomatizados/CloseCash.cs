@@ -17,7 +17,6 @@ namespace TestesAutomatizados
         {
         }
 
-        [TestMethod]
         public void CloseCashMethod()
         {
             MultiClubesFunctions mcFunctions = new MultiClubesFunctions();

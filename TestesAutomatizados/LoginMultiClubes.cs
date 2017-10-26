@@ -22,8 +22,6 @@ namespace TestesAutomatizados
         {
         }
 
-        [TestMethod]
-
         public void VerificarSeMultiClubesEstaAbertoELogado()
         {
             try
