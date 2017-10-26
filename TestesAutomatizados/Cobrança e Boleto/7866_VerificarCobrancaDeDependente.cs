@@ -21,7 +21,7 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
         public void VerificarCobrancaDeDependente_Metodo()
         {
             string holder = "A28234";
-            string holderType = "Mensalidade Dependente";
+            string billingType = "Mensalidade Dependente";
 
             MultiClubesFunctions McFunctions = new MultiClubesFunctions();
             MultiClubesMenus McMenus = new MultiClubesMenus();
@@ -44,7 +44,7 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             string valueBilling = String.Empty;
             foreach (IWebElement i in listViewDunElements)
             {
-                if (i.GetAttribute("Name") == holderType)
+                if (i.GetAttribute("Name") == billingType)
                 {
                     valueBilling = listViewDunElements[counter + 3].GetAttribute("Name");
                     dependentBillingFound = true;
