@@ -59,9 +59,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AcessarMenus\AcessarCadastroDeTitulo6348.cs" />
-    <Compile Include="AcessarMenus\AcessarCentralDeAtendimento6237.cs" />
-    <Compile Include="AcessarMenus\AcessarCentralDeAtendimento6237Winium.cs" />
-    <Compile Include="AcessarMenus\%28INCOMPLETO%29 6351_AcessarComputadores.cs" />
+    <Compile Include="AcessarMenus\6237_AcessarCentralDeAtendimento.cs" />
+    <Compile Include="AcessarMenus\6351_AcessarComputadores.cs" />
     <Compile Include="AcessarMenus\AcessarGruposDeProduto5885.cs" />
     <Compile Include="AcessarMenus\AcessarParentesco5331.cs" />
     <Compile Include="AcessarMenus\AcessarSeguranca6350.cs" />
