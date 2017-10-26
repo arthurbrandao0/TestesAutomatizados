@@ -193,6 +193,21 @@ namespace TestesAutomatizados
         // Administração - Profissões
         // Administração - Retornos de correspondência
         // Administração - Segurança
+        public void AcessarMenuAdministracaoSeguranca()
+        {
+            AcessarMenuAdministracao();
+            AcessarMenu("Segurança");
+        }
+        // Administração - Segurança - Computadores
+        public void AcessarMenuAdministracaoSegurancaComputadores()
+        {
+            AcessarMenuAdministracaoSeguranca();
+            AcessarMenu("Computadores");
+        }
+
+        // Administração - Segurança - Permissões
+        // Administração - Segurança - Usuários
+
         // Administração - Título
 
         public void AcessarMenuRelatorios()
