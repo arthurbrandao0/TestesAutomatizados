@@ -189,6 +189,28 @@ namespace TestesAutomatizados
                        
         }
 
+        public void CashReceiptByBillingGeneration()
+        {
+            driver.FindElement(By.Name("tabPageCash")).Click();
+            if (driver.FindElements(By.Name("Caixa fechado")).Count == 1)
+            {
+                OpenCash openCash = new OpenCash();
+                openCash.OpenCashMethod();
+            }
+            WaitForElementLoad(By.Id("buttonReceive"));
+            driver.FindElement(By.Id("buttonReceive")).Click();
+
+            driver.FindElement(By.Name("Gerar cobrança")).Click();
+
+            WaitForElementLoad(By.Id("radioButtonMain"));
+            driver.FindElement(By.Id("radioButtonMain")).Click();
+
+            TratarTelaAguarde();
+            driver.FindElement(By.Id("buttonOK")).Click();
+
+            TratarTelaAguarde();
+            driver.FindElement(By.Name("OK")).Click();
+        }
         #region Atributos de teste adicionais
 
         // É possível usar os seguintes atributos adicionais enquanto escreve os testes:

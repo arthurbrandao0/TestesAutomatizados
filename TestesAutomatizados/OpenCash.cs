@@ -48,7 +48,7 @@ namespace TestesAutomatizados
                 }
                 this.UIMap.InserirSenhaAberturaCaixa();
 
-                mcFunctions.WaitForElementLoad(By.Id("buttonOK"));
+                mcFunctions.TratarTelaAguarde();
                 Driver.FindElement(By.Id("buttonOK")).Click();
             }
             
