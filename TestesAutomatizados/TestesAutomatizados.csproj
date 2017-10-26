@@ -81,6 +81,7 @@
     <Compile Include="Cobrança e Boleto\7695_DesfazerCobrancaIndividual.cs" />
     <Compile Include="Cobrança e Boleto\7697_GerarCobrancaAtravesDeImportacaoDeArquivo.cs" />
     <Compile Include="CloseCash.cs" />
+    <Compile Include="Cobrança e Boleto\7866_VerificarCobrancaDeDependente.cs" />
     <Compile Include="MultiClubesVariables.cs" />
     <Compile Include="OpenCash.cs" />
     <Compile Include="MultiClubesMenus.cs" />

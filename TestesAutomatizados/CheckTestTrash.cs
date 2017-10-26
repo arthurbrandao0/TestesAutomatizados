@@ -38,7 +38,6 @@ namespace TestesAutomatizados
             {
                 mcMenus.AcessarMenuArquivoSair();
                 Thread.Sleep(500);
-                Console.WriteLine(driver.FindElements(By.Name("Erro")).Count);
                 if (driver.FindElements(By.Name("Erro")).Count > 0)
                 {
                     string errorMessage = driver.FindElement(By.Id("ContentText")).GetAttribute("Name");
@@ -46,13 +45,11 @@ namespace TestesAutomatizados
                     driver.FindElement(By.Name("OK")).Click();
                     if (errorMessage == "Feche o caixa para finalizar o sistema.")
                     {
-                        Console.WriteLine("Fechar caixa");
                         CloseCash closecash = new CloseCash();
                         closecash.CloseCashMethod();
                         mcMenus.AcessarMenuArquivoSair();
                     }
                 }
-
                 Console.WriteLine("MultiClubes fechado pelo CheckTestTrash.cs");
             }
         }

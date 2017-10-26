@@ -3,36 +3,25 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 using System;
-using System.IO;
-using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
+
 
 namespace TestesAutomatizados.Cobrança_e_Boleto
 {
     /// <summary>
-    /// Summary description for CodedUITest3
+    /// Summary description for CodedUITest4
     /// </summary>
     [CodedUITest]
-    public class CodedUITest3
+    public class CodedUITest4
     {
-        public CodedUITest3()
+        public CodedUITest4()
         {
         }
 
         [TestMethod]
-        public void GerarCobrancaAtravesDeImportacaoDeArquivo_Metodo()
+        public void VerificarCobrancaDeDependente_Metodo()
         {
-            string holder = "A28248";
-
-            string filePath = "C:/TestesAutomatizados/TestResults/";
-            string fileName = "cobranca_por_arquivo" + DateTime.Now.ToString("_dd_MM_yyyy_HH_mm_ss") + ".csv";
-            string valueBilling = "123,45";
-
-            using (var w = new StreamWriter(filePath + fileName))
-            {
-                w.WriteLine("Título;Sócio;Valor;Data de vencimento;Produto");
-                w.WriteLine("{0};;{1};{2};Produto Teste Cobranca por Arquivo", holder , valueBilling ,DateTime.Now.ToString("dd/MM/yyyy"));
-                w.Flush();
-            }
+            string holder = "A28234";
+            string holderType = "Mensalidade Dependente";
 
             MultiClubesFunctions McFunctions = new MultiClubesFunctions();
             MultiClubesMenus McMenus = new MultiClubesMenus();
@@ -42,46 +31,41 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             dc.SetCapability("debugConnectToRunningApp", true);
             RemoteWebDriver driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
 
-            McMenus.AcessarMenuOperacaoFinanceiroCobrancaImportacaoDeCobranca();
-
-            driver.FindElement(By.Id("textBoxFileName")).Click();
-            Keyboard.SendKeys(filePath + fileName);
-
-            driver.FindElement(By.Id("buttonGenerate")).Click();
-
-            McFunctions.WaitForElementLoad(By.Name("OK"), 10);
-            driver.FindElement(By.Name("OK")).Click();
-
-            McFunctions.CloseWindow("Importação de cobrança");
-
             McMenus.AcessarMenuOperacaoTituloCentralDeAtendimento();
             McFunctions.SearchHolder(holder);
 
-            McFunctions.AcessarCobrancasAtivas();
-
-            McFunctions.WaitForElementLoad(By.Id("listViewDun"));
-            var listViewDunElements = driver.FindElement(By.Id("listViewDun")).FindElements(By.Id(""));
+            McFunctions.AcessarCobrancasEditarCobrancas();
+            
+            McFunctions.WaitForElementLoad(By.Id("listView"));
+            var listViewDunElements = driver.FindElement(By.Id("listView")).FindElements(By.Id(""));
 
             int counter = 0;
-            bool importedBillingFound = false;
+            bool dependentBillingFound = false;
+            string valueBilling = String.Empty;
             foreach (IWebElement i in listViewDunElements)
             {
-                if (i.GetAttribute("Name") == DateTime.Now.ToString("dd/MM/yyyy"))
+                if (i.GetAttribute("Name") == holderType)
                 {
-                    if (listViewDunElements[counter + 3].GetAttribute("Name") == "R$ " + valueBilling)
-                    {
-                        importedBillingFound = true;
-                        break;
-                    }
+                    valueBilling = listViewDunElements[counter + 3].GetAttribute("Name");
+                    dependentBillingFound = true;
+                    break;
                 }
                 counter++;
             }
-            
-            McFunctions.CloseWindow("Cobranças ativas");
+
+            bool dependentBillingValueFound = false;
+            if (valueBilling.Contains("R$ ") && valueBilling.Contains(","))
+            {
+                dependentBillingValueFound = true;
+            }
+
+            McFunctions.CloseWindow("Cobranças do título");
+            McFunctions.TratarTelaAguarde();
             McFunctions.FinalizarAtendimentoTitulo();
             McFunctions.CloseWindow("Central de atendimento");
 
-            Assert.IsTrue(importedBillingFound, "Valor da cobrança encontrado nas cobranças ativas");
+            Assert.IsTrue(dependentBillingFound, "Cobrança de dependente encontrada");
+            Assert.IsTrue(dependentBillingValueFound, "Valor da cobrança de dependente encontrada");
         }
 
         #region Additional test attributes
