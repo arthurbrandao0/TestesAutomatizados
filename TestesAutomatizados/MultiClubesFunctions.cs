@@ -48,10 +48,10 @@ namespace TestesAutomatizados
         public void TratarTelaAguarde()
         {
             int counter = 0;
-            Thread.Sleep(500);
+            Thread.Sleep(250);
             while ((driver.FindElements(By.Name("Aguarde...")).Count > 0) && counter < 60)
             {
-                Thread.Sleep(500);
+                Thread.Sleep(250);
                 counter++;
             }
         }
@@ -64,7 +64,6 @@ namespace TestesAutomatizados
 
         public void AcessarProdutosAReceber()
         {
-            //this.UIMap.AcessarProdutosAReceber();
             driver.FindElement(By.Name("A receber")).Click();
         }
 
@@ -211,6 +210,36 @@ namespace TestesAutomatizados
             TratarTelaAguarde();
             driver.FindElement(By.Name("OK")).Click();
         }
+        public void ChangePaymentGateway(string paymentGateway)
+        {
+            MultiClubesMenus mcMenus = new MultiClubesMenus();
+
+            mcMenus.AcessarMenuAdministracaoConfiguracoes();
+
+            TratarTelaAguarde();
+
+            Keyboard.SendKeys("{END}");
+
+            new Actions(driver).MoveToElement(driver.FindElement(By.Name("Regras de pagamento"))).Click(driver.FindElement(By.Name("Regras de pagamento"))).Build().Perform();
+            driver.FindElement(By.Id("linkLabelDefaultEcommerce")).Click();
+
+            WaitForElementLoad(By.Id("comboBoxGateway"));
+
+            driver.FindElement(By.Id("comboBoxGateway")).Click();
+            driver.FindElement(By.Name(paymentGateway)).Click();
+
+            IWebElement firstCheckbox = driver.FindElement(By.Id("controlCreditCardSelect")).FindElements(By.Id(""))[0];
+
+            new Actions(driver).MoveToElement(firstCheckbox).ContextClick(firstCheckbox).Build().Perform();
+
+            driver.FindElement(By.Name("Todos")).Click();
+
+            driver.FindElement(By.Id("buttonOK")).Click();
+            driver.FindElement(By.Id("buttonOK")).Click();
+
+            TratarTelaAguarde();
+        }
+
         #region Atributos de teste adicionais
 
         // É possível usar os seguintes atributos adicionais enquanto escreve os testes:
