@@ -1689,6 +1689,43 @@ namespace TestesAutomatizados
             Keyboard.SendKeys(uITextBoxUserPasswordEdit, this.InserirSenhaAberturaCaixaParams.UITextBoxUserPasswordEditSendKeys, true);
         }
         
+        /// <summary>
+        /// AlterarConfiguracaoPagamento - Use 'AlterarConfiguracaoPagamentoParams' to pass parameters into this method.
+        /// </summary>
+        public void AlterarConfiguracaoPagamento()
+        {
+            #region Variable Declarations
+            WinMenuItem uIConfiguraçõesMenuItem = this.UIMultiClubesCentraldeWindow.UIMenuMainMenuBar.UIAdministraçãoMenuItem.UIConfiguraçõesMenuItem;
+            WinTreeItem uIRegrasdepagamentoTreeItem = this.UIMultiClubesConfiguraWindow.UITreeViewWindow.UIIntegraçãoTreeItem.UILojaTreeItem.UIRegrasdepagamentoTreeItem;
+            WinHyperlink uIConfigurarHyperlink = this.UIMultiClubesConfiguraWindow.UIConfigurarWindow.UIConfigurarText.UIConfigurarHyperlink;
+            WinComboBox uIGatewaydepagamentoComboBox = this.UIRegradepagamentoWindow.UIComboBoxGatewayWindow.UIGatewaydepagamentoComboBox;
+            WinButton uIOKButton = this.UIRegradepagamentoWindow.UIOKWindow.UIOKButton;
+            WinButton uIOKButton1 = this.UIMultiClubesConfiguraWindow.UIOKWindow.UIOKButton;
+            WinClient uIControlConfigurationClient = this.UIMultiClubesConfiguraWindow.UIControlConfigurationWindow.UIControlConfigurationClient;
+            #endregion
+
+            // Click 'Administração' -> 'Configurações' menu item
+            Mouse.Click(uIConfiguraçõesMenuItem, new Point(61, 10));
+
+            // Click 'Integração' -> 'Loja' -> 'Regras de pagamento' tree item
+            Mouse.Click(uIRegrasdepagamentoTreeItem, new Point(78, 7));
+
+            // Click 'Configurar' link
+            Mouse.Click(uIConfigurarHyperlink, new Point(28, 4));
+
+            // Select 'Cielo Qa' in 'Gateway de pagamento :' combo box
+            uIGatewaydepagamentoComboBox.SelectedItem = this.AlterarConfiguracaoPagamentoParams.UIGatewaydepagamentoComboBoxSelectedItem;
+
+            // Click '&OK' button
+            Mouse.Click(uIOKButton, new Point(15, 8));
+
+            // Click 'OK' button
+            Mouse.Click(uIOKButton1, new Point(47, 15));
+
+            // Click 'ControlConfigurationIntegrationStoreGatewayRules' client
+            Mouse.Click(uIControlConfigurationClient, new Point(768, 384));
+        }
+        
         #region Properties
         public virtual AbrirMultiClubesParams AbrirMultiClubesParams
         {
@@ -2818,6 +2855,18 @@ namespace TestesAutomatizados
             }
         }
         
+        public virtual AlterarConfiguracaoPagamentoParams AlterarConfiguracaoPagamentoParams
+        {
+            get
+            {
+                if ((this.mAlterarConfiguracaoPagamentoParams == null))
+                {
+                    this.mAlterarConfiguracaoPagamentoParams = new AlterarConfiguracaoPagamentoParams();
+                }
+                return this.mAlterarConfiguracaoPagamentoParams;
+            }
+        }
+        
         public UIItemWindow UIItemWindow
         {
             get
@@ -3321,6 +3370,30 @@ namespace TestesAutomatizados
                 return this.mUICaixaWindow;
             }
         }
+        
+        public UIMultiClubesConfiguraWindow UIMultiClubesConfiguraWindow
+        {
+            get
+            {
+                if ((this.mUIMultiClubesConfiguraWindow == null))
+                {
+                    this.mUIMultiClubesConfiguraWindow = new UIMultiClubesConfiguraWindow();
+                }
+                return this.mUIMultiClubesConfiguraWindow;
+            }
+        }
+        
+        public UIRegradepagamentoWindow UIRegradepagamentoWindow
+        {
+            get
+            {
+                if ((this.mUIRegradepagamentoWindow == null))
+                {
+                    this.mUIRegradepagamentoWindow = new UIRegradepagamentoWindow();
+                }
+                return this.mUIRegradepagamentoWindow;
+            }
+        }
         #endregion
         
         #region Fields
@@ -3512,6 +3585,8 @@ namespace TestesAutomatizados
         
         private InserirSenhaAberturaCaixaParams mInserirSenhaAberturaCaixaParams;
         
+        private AlterarConfiguracaoPagamentoParams mAlterarConfiguracaoPagamentoParams;
+        
         private UIItemWindow mUIItemWindow;
         
         private UIMultiClubesWindow mUIMultiClubesWindow;
@@ -3595,6 +3670,10 @@ namespace TestesAutomatizados
         private UIMultiClubesWindow111 mUIMultiClubesWindow11;
         
         private UICaixaWindow mUICaixaWindow;
+        
+        private UIMultiClubesConfiguraWindow mUIMultiClubesConfiguraWindow;
+        
+        private UIRegradepagamentoWindow mUIRegradepagamentoWindow;
         #endregion
     }
     
@@ -5295,6 +5374,21 @@ namespace TestesAutomatizados
         #endregion
     }
     
+    /// <summary>
+    /// Parameters to be passed into 'AlterarConfiguracaoPagamento'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class AlterarConfiguracaoPagamentoParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Select 'Cielo Qa' in 'Gateway de pagamento :' combo box
+        /// </summary>
+        public string UIGatewaydepagamentoComboBoxSelectedItem = "Cielo Qa";
+        #endregion
+    }
+    
     [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
     public class UIItemWindow : WinWindow
     {
@@ -6799,12 +6893,26 @@ namespace TestesAutomatizados
                 return this.mUIOperaçãoMenuItem;
             }
         }
+        
+        public UIAdministraçãoMenuItem1 UIAdministraçãoMenuItem
+        {
+            get
+            {
+                if ((this.mUIAdministraçãoMenuItem == null))
+                {
+                    this.mUIAdministraçãoMenuItem = new UIAdministraçãoMenuItem1(this);
+                }
+                return this.mUIAdministraçãoMenuItem;
+            }
+        }
         #endregion
         
         #region Fields
         private WinMenuItem mUIFecharMenuItem;
         
         private UIOperaçãoMenuItem1 mUIOperaçãoMenuItem;
+        
+        private UIAdministraçãoMenuItem1 mUIAdministraçãoMenuItem;
         #endregion
     }
     
@@ -6875,6 +6983,43 @@ namespace TestesAutomatizados
         
         #region Fields
         private WinMenuItem mUIAcertodecomissãoMenuItem;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIAdministraçãoMenuItem1 : WinMenuItem
+    {
+        
+        public UIAdministraçãoMenuItem1(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinMenuItem.PropertyNames.Name] = "Administração";
+            this.WindowTitles.Add("MultiClubes - Central de atendimento");
+            #endregion
+        }
+        
+        #region Properties
+        public WinMenuItem UIConfiguraçõesMenuItem
+        {
+            get
+            {
+                if ((this.mUIConfiguraçõesMenuItem == null))
+                {
+                    this.mUIConfiguraçõesMenuItem = new WinMenuItem(this);
+                    #region Search Criteria
+                    this.mUIConfiguraçõesMenuItem.SearchProperties[WinMenuItem.PropertyNames.Name] = "Configurações";
+                    this.mUIConfiguraçõesMenuItem.SearchConfigurations.Add(SearchConfiguration.ExpandWhileSearching);
+                    this.mUIConfiguraçõesMenuItem.WindowTitles.Add("MultiClubes - Central de atendimento");
+                    #endregion
+                }
+                return this.mUIConfiguraçõesMenuItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinMenuItem mUIConfiguraçõesMenuItem;
         #endregion
     }
     
@@ -12852,6 +12997,444 @@ namespace TestesAutomatizados
         
         #region Fields
         private WinEdit mUITextBoxUserPasswordEdit;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIMultiClubesConfiguraWindow : WinWindow
+    {
+        
+        public UIMultiClubesConfiguraWindow()
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "MultiClubes - Configurações";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("MultiClubes - Configurações");
+            #endregion
+        }
+        
+        #region Properties
+        public UITreeViewWindow1 UITreeViewWindow
+        {
+            get
+            {
+                if ((this.mUITreeViewWindow == null))
+                {
+                    this.mUITreeViewWindow = new UITreeViewWindow1(this);
+                }
+                return this.mUITreeViewWindow;
+            }
+        }
+        
+        public UIConfigurarWindow UIConfigurarWindow
+        {
+            get
+            {
+                if ((this.mUIConfigurarWindow == null))
+                {
+                    this.mUIConfigurarWindow = new UIConfigurarWindow(this);
+                }
+                return this.mUIConfigurarWindow;
+            }
+        }
+        
+        public UIOKWindow10 UIOKWindow
+        {
+            get
+            {
+                if ((this.mUIOKWindow == null))
+                {
+                    this.mUIOKWindow = new UIOKWindow10(this);
+                }
+                return this.mUIOKWindow;
+            }
+        }
+        
+        public UIControlConfigurationWindow UIControlConfigurationWindow
+        {
+            get
+            {
+                if ((this.mUIControlConfigurationWindow == null))
+                {
+                    this.mUIControlConfigurationWindow = new UIControlConfigurationWindow(this);
+                }
+                return this.mUIControlConfigurationWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UITreeViewWindow1 mUITreeViewWindow;
+        
+        private UIConfigurarWindow mUIConfigurarWindow;
+        
+        private UIOKWindow10 mUIOKWindow;
+        
+        private UIControlConfigurationWindow mUIControlConfigurationWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UITreeViewWindow1 : WinWindow
+    {
+        
+        public UITreeViewWindow1(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "treeView";
+            this.WindowTitles.Add("MultiClubes - Configurações");
+            #endregion
+        }
+        
+        #region Properties
+        public UIIntegraçãoTreeItem UIIntegraçãoTreeItem
+        {
+            get
+            {
+                if ((this.mUIIntegraçãoTreeItem == null))
+                {
+                    this.mUIIntegraçãoTreeItem = new UIIntegraçãoTreeItem(this);
+                }
+                return this.mUIIntegraçãoTreeItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIIntegraçãoTreeItem mUIIntegraçãoTreeItem;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIIntegraçãoTreeItem : WinTreeItem
+    {
+        
+        public UIIntegraçãoTreeItem(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinTreeItem.PropertyNames.Name] = "Integração";
+            this.SearchProperties["Value"] = "0";
+            this.WindowTitles.Add("MultiClubes - Configurações");
+            #endregion
+        }
+        
+        #region Properties
+        public UILojaTreeItem UILojaTreeItem
+        {
+            get
+            {
+                if ((this.mUILojaTreeItem == null))
+                {
+                    this.mUILojaTreeItem = new UILojaTreeItem(this);
+                }
+                return this.mUILojaTreeItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UILojaTreeItem mUILojaTreeItem;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UILojaTreeItem : WinTreeItem
+    {
+        
+        public UILojaTreeItem(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinTreeItem.PropertyNames.Name] = "Loja";
+            this.SearchProperties["Value"] = "1";
+            this.SearchConfigurations.Add(SearchConfiguration.ExpandWhileSearching);
+            this.SearchConfigurations.Add(SearchConfiguration.NextSibling);
+            this.WindowTitles.Add("MultiClubes - Configurações");
+            #endregion
+        }
+        
+        #region Properties
+        public WinTreeItem UIRegrasdepagamentoTreeItem
+        {
+            get
+            {
+                if ((this.mUIRegrasdepagamentoTreeItem == null))
+                {
+                    this.mUIRegrasdepagamentoTreeItem = new WinTreeItem(this);
+                    #region Search Criteria
+                    this.mUIRegrasdepagamentoTreeItem.SearchProperties[WinTreeItem.PropertyNames.Name] = "Regras de pagamento";
+                    this.mUIRegrasdepagamentoTreeItem.SearchProperties["Value"] = "2";
+                    this.mUIRegrasdepagamentoTreeItem.SearchConfigurations.Add(SearchConfiguration.ExpandWhileSearching);
+                    this.mUIRegrasdepagamentoTreeItem.SearchConfigurations.Add(SearchConfiguration.NextSibling);
+                    this.mUIRegrasdepagamentoTreeItem.WindowTitles.Add("MultiClubes - Configurações");
+                    #endregion
+                }
+                return this.mUIRegrasdepagamentoTreeItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinTreeItem mUIRegrasdepagamentoTreeItem;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIConfigurarWindow : WinWindow
+    {
+        
+        public UIConfigurarWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "linkLabelDefaultEcommerce";
+            this.WindowTitles.Add("MultiClubes - Configurações");
+            #endregion
+        }
+        
+        #region Properties
+        public UIConfigurarText UIConfigurarText
+        {
+            get
+            {
+                if ((this.mUIConfigurarText == null))
+                {
+                    this.mUIConfigurarText = new UIConfigurarText(this);
+                }
+                return this.mUIConfigurarText;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIConfigurarText mUIConfigurarText;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIConfigurarText : WinText
+    {
+        
+        public UIConfigurarText(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinText.PropertyNames.Name] = "Configurar";
+            this.WindowTitles.Add("MultiClubes - Configurações");
+            #endregion
+        }
+        
+        #region Properties
+        public WinHyperlink UIConfigurarHyperlink
+        {
+            get
+            {
+                if ((this.mUIConfigurarHyperlink == null))
+                {
+                    this.mUIConfigurarHyperlink = new WinHyperlink(this);
+                    #region Search Criteria
+                    this.mUIConfigurarHyperlink.SearchProperties[WinHyperlink.PropertyNames.Name] = "Configurar";
+                    this.mUIConfigurarHyperlink.WindowTitles.Add("MultiClubes - Configurações");
+                    #endregion
+                }
+                return this.mUIConfigurarHyperlink;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinHyperlink mUIConfigurarHyperlink;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIOKWindow10 : WinWindow
+    {
+        
+        public UIOKWindow10(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "buttonOK";
+            this.WindowTitles.Add("MultiClubes - Configurações");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIOKButton
+        {
+            get
+            {
+                if ((this.mUIOKButton == null))
+                {
+                    this.mUIOKButton = new WinButton(this);
+                    #region Search Criteria
+                    this.mUIOKButton.SearchProperties[WinButton.PropertyNames.Name] = "OK";
+                    this.mUIOKButton.WindowTitles.Add("MultiClubes - Configurações");
+                    #endregion
+                }
+                return this.mUIOKButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIOKButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIControlConfigurationWindow : WinWindow
+    {
+        
+        public UIControlConfigurationWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "ControlConfigurationIntegrationStoreGatewayRules";
+            this.WindowTitles.Add("MultiClubes - Configurações");
+            #endregion
+        }
+        
+        #region Properties
+        public WinClient UIControlConfigurationClient
+        {
+            get
+            {
+                if ((this.mUIControlConfigurationClient == null))
+                {
+                    this.mUIControlConfigurationClient = new WinClient(this);
+                    #region Search Criteria
+                    this.mUIControlConfigurationClient.WindowTitles.Add("MultiClubes - Configurações");
+                    #endregion
+                }
+                return this.mUIControlConfigurationClient;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinClient mUIControlConfigurationClient;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIRegradepagamentoWindow : WinWindow
+    {
+        
+        public UIRegradepagamentoWindow()
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "Regra de pagamento";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("Regra de pagamento");
+            #endregion
+        }
+        
+        #region Properties
+        public UIComboBoxGatewayWindow UIComboBoxGatewayWindow
+        {
+            get
+            {
+                if ((this.mUIComboBoxGatewayWindow == null))
+                {
+                    this.mUIComboBoxGatewayWindow = new UIComboBoxGatewayWindow(this);
+                }
+                return this.mUIComboBoxGatewayWindow;
+            }
+        }
+        
+        public UIOKWindow11 UIOKWindow
+        {
+            get
+            {
+                if ((this.mUIOKWindow == null))
+                {
+                    this.mUIOKWindow = new UIOKWindow11(this);
+                }
+                return this.mUIOKWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIComboBoxGatewayWindow mUIComboBoxGatewayWindow;
+        
+        private UIOKWindow11 mUIOKWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIComboBoxGatewayWindow : WinWindow
+    {
+        
+        public UIComboBoxGatewayWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "comboBoxGateway";
+            this.WindowTitles.Add("Regra de pagamento");
+            #endregion
+        }
+        
+        #region Properties
+        public WinComboBox UIGatewaydepagamentoComboBox
+        {
+            get
+            {
+                if ((this.mUIGatewaydepagamentoComboBox == null))
+                {
+                    this.mUIGatewaydepagamentoComboBox = new WinComboBox(this);
+                    #region Search Criteria
+                    this.mUIGatewaydepagamentoComboBox.SearchProperties[WinComboBox.PropertyNames.Name] = "Gateway de pagamento :";
+                    this.mUIGatewaydepagamentoComboBox.WindowTitles.Add("Regra de pagamento");
+                    #endregion
+                }
+                return this.mUIGatewaydepagamentoComboBox;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinComboBox mUIGatewaydepagamentoComboBox;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIOKWindow11 : WinWindow
+    {
+        
+        public UIOKWindow11(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "buttonOK";
+            this.WindowTitles.Add("Regra de pagamento");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIOKButton
+        {
+            get
+            {
+                if ((this.mUIOKButton == null))
+                {
+                    this.mUIOKButton = new WinButton(this);
+                    #region Search Criteria
+                    this.mUIOKButton.SearchProperties[WinButton.PropertyNames.Name] = "OK";
+                    this.mUIOKButton.WindowTitles.Add("Regra de pagamento");
+                    #endregion
+                }
+                return this.mUIOKButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIOKButton;
         #endregion
     }
 }

@@ -173,6 +173,12 @@ namespace TestesAutomatizados
         // Administração - Biblioteca
         // Administração - Clubes
         // Administração - Configurações
+        public void AcessarMenuAdministracaoConfiguracoes()
+        {
+            AcessarMenuAdministracao();
+            this.AcessarMenu("Configurações");
+        }
+
         // Administração - Conselhos
         // Administração - Departamentos
         // Administração - Dependências

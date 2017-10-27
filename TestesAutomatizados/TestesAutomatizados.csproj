@@ -72,7 +72,7 @@
     <Compile Include="Cobrança e Boleto\7031_GerarCobrancaEmMassaComImportacaoDeConsumo_Todas.cs" />
     <Compile Include="Cobrança e Boleto\6283_GerarCobrancaEmMassaSemImportacaoDeConsumo_Todas.cs" />
     <Compile Include="Cobrança e Boleto\7688_GerarCobrancaIndividual.cs" />
-    <Compile Include="Cobrança e Boleto\7344_EditarArquivoRemessa_CriarNovoArquivo.cs" />
+    <Compile Include="Cobrança e Boleto\7344_EditarArquivoRemessaCriarNovoArquivo.cs" />
     <Compile Include="Cobrança e Boleto\7483_ReemissaoDeRemessa.cs" />
     <Compile Include="Cobrança e Boleto\6392_SimulacaoDeGeracaoDeCobrancaSemConfirmacao.cs" />
     <Compile Include="Cobrança e Boleto\6387_SimulacaodeGeracaodeCobrancaTodas.cs" />
@@ -82,6 +82,7 @@
     <Compile Include="CloseCash.cs" />
     <Compile Include="Cobrança e Boleto\7866_VerificarCobrancaDeDependente.cs" />
     <Compile Include="Cobrança e Boleto\8409_DetalharCobranca.cs" />
+    <Compile Include="Cobrança e Boleto\8661_EditarCobrancaPagamentoOnline.cs" />
     <Compile Include="MultiClubesVariables.cs" />
     <Compile Include="OpenCash.cs" />
     <Compile Include="MultiClubesMenus.cs" />
