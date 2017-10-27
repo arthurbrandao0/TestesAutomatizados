@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Remote;
 using System;
 
@@ -19,37 +20,64 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
         [TestMethod]
         public void EditarCobrancaPagamentoOnline_8661()
         {
-            //string holder = "n/s41344-0";
+            string holder = "n/s41344-0";
+            string paymentGateway = "Cielo Qa";
+            string cardHolderName = "Usuario Teste QA";
+            string cardNumber = "4111111111111111";
+            string cardValidity = "12/21";
+            string securityCode = "123";
 
-            //MultiClubesFunctions mcFunctions = new MultiClubesFunctions();
-            //MultiClubesMenus mcMenus = new MultiClubesMenus();
+            MultiClubesFunctions mcFunctions = new MultiClubesFunctions();
+            MultiClubesMenus mcMenus = new MultiClubesMenus();
 
-            //var dc = new DesiredCapabilities();
-            //dc.SetCapability("app", @"\\tsidev\Triade\Application\Dev\MultiClubes\System\MultiClubes\MultiClubes.UI.application");
-            //dc.SetCapability("debugConnectToRunningApp", true);
-            //RemoteWebDriver driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
+            var dc = new DesiredCapabilities();
+            dc.SetCapability("app", @"\\tsidev\Triade\Application\Dev\MultiClubes\System\MultiClubes\MultiClubes.UI.application");
+            dc.SetCapability("debugConnectToRunningApp", true);
+            RemoteWebDriver driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
 
-            this.UIMap.AlterarConfiguracaoPagamento();
+            mcFunctions.ChangePaymentGateway(paymentGateway);
+            
+            mcMenus.AcessarMenuOperacaoTituloCentralDeAtendimento();
 
+            mcFunctions.SearchHolder(holder);
 
-            //mcMenus.AcessarMenuOperacaoTituloCentralDeAtendimento();
+            mcFunctions.AcessarCobrancasEditarCobrancas();
+            driver.FindElement(By.Id("linkLabelEdit")).Click();
 
-            //mcFunctions.SearchHolder(holder);
+            driver.FindElement(By.Id("comboBoxDunType")).Click();
+            driver.FindElement(By.Name("À vista")).Click();
+            driver.FindElement(By.Id("buttonOK")).Click();
+            mcFunctions.TratarTelaAguarde();
+            mcFunctions.CloseWindow("Cobranças do título");
+            //---
+            mcFunctions.AcessarCobrancasEditarCobrancas();
+            driver.FindElement(By.Id("linkLabelEdit")).Click();
+            driver.FindElement(By.Id("comboBoxDunType")).Click();
+            driver.FindElement(By.Name("Pagamento online")).Click();
+            driver.FindElement(By.Id("buttonDetail")).Click();
 
-            //mcFunctions.AcessarCobrancasEditarCobrancas();
-            //driver.FindElement(By.Id("linkLabelEdit")).Click();
+            driver.FindElement(By.Id("buttonCreditCardEdit")).Click();
 
-            //driver.FindElement(By.Id("comboBoxDunType")).Click();
-            //driver.FindElement(By.Name("À vista")).Click();
-            //driver.FindElement(By.Id("buttonOK")).Click();
-            //mcFunctions.TratarTelaAguarde();
-            //mcFunctions.CloseWindow("Cobranças do título");
-            ////---
-            //mcFunctions.AcessarCobrancasEditarCobrancas();
-            //driver.FindElement(By.Id("linkLabelEdit")).Click();
-            //driver.FindElement(By.Id("comboBoxDunType")).Click();
-            //driver.FindElement(By.Name("Pagamento online")).Click();
-            //driver.FindElement(By.Id("buttonDetail")).Click();
+            driver.FindElement(By.Id("comboBoxCardType")).Click();
+            driver.FindElement(By.Name("Visa")).Click();
+
+            mcFunctions.searchElementByIdAndSendKeys("textBoxCardHolderName", cardHolderName);
+            mcFunctions.searchElementByIdAndSendKeys("textBoxCardNumber", cardNumber);
+            mcFunctions.searchElementByIdAndSendKeys("maskedTextBoxCardValidity", "{HOME}" + cardValidity);
+            mcFunctions.searchElementByIdAndSendKeys("textBoxSecurityCode", securityCode);
+
+            mcFunctions.WaitForElementLoad(By.Id("buttonOK"));
+            mcFunctions.searchElementByIdAndClick("buttonOK");
+            mcFunctions.WaitForElementLoad(By.Id("buttonOK"));
+            mcFunctions.searchElementByIdAndClick("buttonOK");
+            mcFunctions.WaitForElementLoad(By.Id("buttonOK"));
+            mcFunctions.searchElementByIdAndClick("buttonOK");
+
+            mcFunctions.TratarTelaAguarde();
+
+            mcFunctions.CloseWindow("Cobranças do título");
+            mcFunctions.FinalizarAtendimentoTitulo();
+            mcFunctions.CloseWindow("Central de atendimento");
         }
 
         #region Additional test attributes
@@ -71,7 +99,7 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
         public void MyTestCleanup()
         {
             CheckTestTrash McClean = new CheckTestTrash();
-            //McClean.CheckTestTrashMethod();
+            McClean.CheckTestTrashMethod();
         }
 
         #endregion

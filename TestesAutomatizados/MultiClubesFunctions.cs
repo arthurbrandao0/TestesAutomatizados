@@ -84,12 +84,12 @@ namespace TestesAutomatizados
             driver.FindElement(By.Name("Editar cobranças")).Click();
         }
 
-        public void WaitForElementLoad(By by, int attempts = 5)
+        public void WaitForElementLoad(By by, int attempts = 20)
         {
             int counter = 0;
             while ((driver.FindElement(By.Id("FormMain")).FindElements(by).Count == 0) && counter < attempts)
             {
-                Thread.Sleep(500);
+                Thread.Sleep(100);
                 Console.WriteLine("passando pelo loop WaitForElementLoad: {0}", by);
                 counter++;
             }
@@ -239,7 +239,15 @@ namespace TestesAutomatizados
 
             TratarTelaAguarde();
         }
-
+        public void searchElementByIdAndClick(string idElement)
+        {
+            driver.FindElement(By.Id(idElement)).Click();
+        }
+        public void searchElementByIdAndSendKeys(string idElement, string keysToSend)
+        {
+            searchElementByIdAndClick(idElement);
+            Keyboard.SendKeys(keysToSend);
+        }
         #region Atributos de teste adicionais
 
         // É possível usar os seguintes atributos adicionais enquanto escreve os testes:
