@@ -11,14 +11,14 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
     /// Summary description for CodedUITest5
     /// </summary>
     [CodedUITest]
-    public class CodedUITest5
+    public class DetalharCobranca
     {
-        public CodedUITest5()
+        public DetalharCobranca()
         {
         }
 
         [TestMethod]
-        public void DetalharCobranca_Metodo()
+        public void DetalharCobranca_8409()
         {
             string holder = "A28282";
             string modalityName = "AP 2826 - Beach Tênis - Normal - 15:00:00";
@@ -56,6 +56,8 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             McFunctions.WaitForElementLoad(By.Id("checkBoxFirstMaintenance"));
             driver.FindElement(By.Id("checkBoxFirstMaintenance")).Click();
             driver.FindElement(By.Id("radioButtonMain")).Click();
+
+            McFunctions.WaitForElementLoad(By.Id("buttonOK"));
             driver.FindElement(By.Id("buttonOK")).Click();           
             driver.FindElement(By.Name("Sim")).Click();
 
@@ -74,16 +76,20 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             McFunctions.WaitForElementLoad(By.Id("listViewDiscounts"));
 
             bool discountFound = false;
+            bool yesterdayDateFound = false;
             foreach (IWebElement i in driver.FindElement(By.Id("listViewDiscounts")).FindElements(By.Id("")))
             {
-                Console.WriteLine(i.GetAttribute("Name"));
+                if (i.GetAttribute("Name") == "Até " + DateTime.Now.AddDays(-1).ToString("dd/MM/yyyy"))
+                {
+                    yesterdayDateFound = true;
+                }
                 if (i.GetAttribute("Name") == "Aplicado")
                 {
                     discountFound = true;
-                    break;
                 }
             }
-            Assert.IsTrue(discountFound, "Desconto proporcional encontrado");
+            Assert.IsTrue(yesterdayDateFound, "Período de desconto correto");
+            Assert.IsTrue(discountFound, "Desconto proporcional aplicado");
 
             McFunctions.CloseWindow("Manutenção - Detalhe da geração da manutenção");
             McFunctions.CloseWindow("Parcela - Detalhes da parcela e venda");
@@ -91,15 +97,36 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
 
             new Actions(driver).MoveToElement(holderElement).ContextClick(holderElement).Build().Perform();
             driver.FindElement(By.Name("Modalidades")).Click();
-            driver.FindElement(By.Name(modalityName)).Click();
 
+            driver.FindElement(By.Name(modalityBillingName + " - " + modalityName)).Click();
+
+            McFunctions.WaitForElementLoad(By.Id("buttonOptions"));
             driver.FindElement(By.Id("buttonOptions")).Click();
             driver.FindElement(By.Name("Cancelar matrícula")).Click();
 
+            foreach (IWebElement i in driver.FindElement(By.Id("listViewParcel")).FindElements(By.Id("")))
+            {
+                if (i.GetAttribute("ControlType") == "ControlType.CheckBox")
+                {
+                    i.Click();
+                }
+            }
+            driver.FindElement(By.Id("buttonOK")).Click();
+            driver.FindElement(By.Name("Sim")).Click();
+            
             McFunctions.TratarTelaAguarde();
-            //McFunctions.FinalizarAtendimentoTitulo();
-            //McFunctions.CloseWindow("Central de atendimento");
 
+            bool remainingRegistration = false;
+            new Actions(driver).MoveToElement(holderElement).ContextClick(holderElement).Build().Perform();
+            driver.FindElement(By.Name("Modalidades")).Click();
+            if (driver.FindElements(By.Name(modalityName)).Count == 0)
+            {
+                remainingRegistration = true;
+            }
+
+            Assert.IsTrue(remainingRegistration, "Matrícula cancelada com sucesso");
+            McFunctions.FinalizarAtendimentoTitulo();
+            McFunctions.CloseWindow("Central de atendimento");
         }
 
         #region Additional test attributes
@@ -121,7 +148,7 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
         public void MyTestCleanup()
         {
             CheckTestTrash McClean = new CheckTestTrash();
-            //McClean.CheckTestTrashMethod();
+            McClean.CheckTestTrashMethod();
         }
 
         #endregion

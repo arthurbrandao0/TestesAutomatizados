@@ -51,6 +51,7 @@ namespace TestesAutomatizados
             Keyboard.SendKeys("DeZer0@100");
 
             driver.FindElement(By.Id("buttonUser")).Click();
+            mcFunctions.WaitForElementLoad(By.Id("buttonOK"));
             driver.FindElement(By.Id("buttonOK")).Click();
         }
 
