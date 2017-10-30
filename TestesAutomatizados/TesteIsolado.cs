@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 using System;
 
@@ -32,6 +33,11 @@ namespace TestesAutomatizados.CobrancaEBoleto
 
             //mcFunctions.FinalizarAtendimentoTitulo();
             //mcFunctions.CloseWindow();
+
+            var today = DateTime.Now;
+            var yesterday = DateTime.Now.AddDays(-1).ToString("dd/MM/yyyy");
+
+            Console.WriteLine(yesterday);
         }
 
         #region Atributos de teste adicionais
@@ -44,8 +50,8 @@ namespace TestesAutomatizados.CobrancaEBoleto
         {
             // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
             CheckLoginMulticlubes loginMC = new CheckLoginMulticlubes();
-            loginMC.VerificarSeMultiClubesEstaAbertoELogado();
-            loginMC.CheckMCWindow();
+            //loginMC.VerificarSeMultiClubesEstaAbertoELogado();
+            //loginMC.CheckMCWindow();
         }
 
         ////Use TestCleanup para executar código depois de cada execução de teste
@@ -53,7 +59,7 @@ namespace TestesAutomatizados.CobrancaEBoleto
         public void MyTestCleanup()
         {
             CheckTestTrash McClean = new CheckTestTrash();
-            McClean.CheckTestTrashMethod();
+            //McClean.CheckTestTrashMethod();
         }
 
         #endregion

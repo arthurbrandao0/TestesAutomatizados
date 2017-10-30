@@ -123,6 +123,11 @@ namespace TestesAutomatizados
             this.AcessarMenu("Transações bancárias");
         }
         // Operação - Financeiro - Transações bancárias - Emissão de remessa
+        public void AcessarMenuOperacaoFinanceiroTransacoesBancariasEmissaoDeRemessa()
+        {
+            this.AcessarMenuOperacaoFinanceiroTransacoesBancarias();
+            this.AcessarMenu("Emissão de remessa");
+        }
         // Operação - Financeiro - Transações bancárias - Remessas anteriores
         public void AcessarMenuOperacaoFinanceiroTransacoesBancariasRemessasAnteriores()
         {

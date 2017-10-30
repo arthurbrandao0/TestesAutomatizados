@@ -61,17 +61,17 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             driver.FindElement(By.Id("comboBoxCardType")).Click();
             driver.FindElement(By.Name("Visa")).Click();
 
-            mcFunctions.searchElementByIdAndSendKeys("textBoxCardHolderName", cardHolderName);
-            mcFunctions.searchElementByIdAndSendKeys("textBoxCardNumber", cardNumber);
-            mcFunctions.searchElementByIdAndSendKeys("maskedTextBoxCardValidity", "{HOME}" + cardValidity);
-            mcFunctions.searchElementByIdAndSendKeys("textBoxSecurityCode", securityCode);
+            mcFunctions.SearchElementByIdAndSendKeys("textBoxCardHolderName", cardHolderName);
+            mcFunctions.SearchElementByIdAndSendKeys("textBoxCardNumber", cardNumber);
+            mcFunctions.SearchElementByIdAndSendKeys("maskedTextBoxCardValidity", "{HOME}" + cardValidity);
+            mcFunctions.SearchElementByIdAndSendKeys("textBoxSecurityCode", securityCode);
 
             mcFunctions.WaitForElementLoad(By.Id("buttonOK"));
-            mcFunctions.searchElementByIdAndClick("buttonOK");
+            mcFunctions.SearchElementByIdAndClick("buttonOK");
             mcFunctions.WaitForElementLoad(By.Id("buttonOK"));
-            mcFunctions.searchElementByIdAndClick("buttonOK");
+            mcFunctions.SearchElementByIdAndClick("buttonOK");
             mcFunctions.WaitForElementLoad(By.Id("buttonOK"));
-            mcFunctions.searchElementByIdAndClick("buttonOK");
+            mcFunctions.SearchElementByIdAndClick("buttonOK");
 
             mcFunctions.TratarTelaAguarde();
 

@@ -83,6 +83,7 @@
     <Compile Include="Cobrança e Boleto\7866_VerificarCobrancaDeDependente.cs" />
     <Compile Include="Cobrança e Boleto\8409_DetalharCobranca.cs" />
     <Compile Include="Cobrança e Boleto\8661_EditarCobrancaPagamentoOnline.cs" />
+    <Compile Include="Cobrança e Boleto\8679_EmissaoDeRemessa.cs" />
     <Compile Include="MultiClubesVariables.cs" />
     <Compile Include="OpenCash.cs" />
     <Compile Include="MultiClubesMenus.cs" />

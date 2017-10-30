@@ -34,6 +34,11 @@ namespace TestesAutomatizados
             dc.SetCapability("debugConnectToRunningApp", true);
             RemoteWebDriver driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
 
+            while (driver.FindElement(By.Id("FormMain")).FindElements(By.Name("OK")).Count > 0)
+            {
+                driver.FindElement(By.Name("OK")).Click();
+            }
+
             while (driver.FindElement(By.Id("FormMain")).FindElements(By.Name("Cancelar")).Count > 0)
             {
                 driver.FindElement(By.Name("Cancelar")).Click();

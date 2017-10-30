@@ -239,13 +239,27 @@ namespace TestesAutomatizados
 
             TratarTelaAguarde();
         }
-        public void searchElementByIdAndClick(string idElement)
+        public void SearchElementByIdAndClick(string elementId, bool waitForElement = false, int attempts = 20)
         {
-            driver.FindElement(By.Id(idElement)).Click();
+            if (waitForElement == true)
+            {
+                WaitForElementLoad(By.Id(elementId), attempts);
+            }
+            driver.FindElement(By.Id(elementId)).Click();
         }
-        public void searchElementByIdAndSendKeys(string idElement, string keysToSend)
+
+        public void SearchElementByNameAndClick(string elementName, bool waitForElement = false, int attempts = 20)
         {
-            searchElementByIdAndClick(idElement);
+            if (waitForElement == true)
+            {
+                WaitForElementLoad(By.Name(elementName), attempts);
+            }
+            driver.FindElement(By.Name(elementName)).Click();
+        }
+        public void SearchElementByIdAndSendKeys(string idElement, string keysToSend)
+        {
+            SearchElementByIdAndClick(idElement);
+            driver.FindElement(By.Id(idElement)).Clear();
             Keyboard.SendKeys(keysToSend);
         }
         #region Atributos de teste adicionais
