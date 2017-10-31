@@ -1726,6 +1726,27 @@ namespace TestesAutomatizados
             Mouse.Click(uIControlConfigurationClient, new Point(768, 384));
         }
         
+        /// <summary>
+        /// AcessarArquivoDeRemessa - Use 'AcessarArquivoDeRemessaParams' to pass parameters into this method.
+        /// </summary>
+        public void AcessarArquivoDeRemessa()
+        {
+            #region Variable Declarations
+            WinButton uIItemButton = this.UIImpressãodeboletoWindow.UIItemWindow.UIItemButton;
+            WinComboBox uINomeComboBox = this.UIAbrirWindow.UIItemWindow2.UINomeComboBox;
+            WinSplitButton uIAbrirSplitButton = this.UIAbrirWindow.UIAbrirWindow1.UIAbrirSplitButton;
+            #endregion
+
+            // Click '...' button
+            Mouse.Click(uIItemButton, new Point(8, 13));
+
+            // Select 'C:\TestesAutomatizados\QATESTE.rem' in 'Nome:' combo box
+            uINomeComboBox.EditableItem = this.AcessarArquivoDeRemessaParams.UINomeComboBoxEditableItem;
+
+            // Click '&Abrir' split button
+            Mouse.Click(uIAbrirSplitButton, new Point(34, 17));
+        }
+        
         #region Properties
         public virtual AbrirMultiClubesParams AbrirMultiClubesParams
         {
@@ -2867,6 +2888,18 @@ namespace TestesAutomatizados
             }
         }
         
+        public virtual AcessarArquivoDeRemessaParams AcessarArquivoDeRemessaParams
+        {
+            get
+            {
+                if ((this.mAcessarArquivoDeRemessaParams == null))
+                {
+                    this.mAcessarArquivoDeRemessaParams = new AcessarArquivoDeRemessaParams();
+                }
+                return this.mAcessarArquivoDeRemessaParams;
+            }
+        }
+        
         public UIItemWindow UIItemWindow
         {
             get
@@ -3394,6 +3427,42 @@ namespace TestesAutomatizados
                 return this.mUIRegradepagamentoWindow;
             }
         }
+        
+        public UIImpressãodeboletoWindow UIImpressãodeboletoWindow
+        {
+            get
+            {
+                if ((this.mUIImpressãodeboletoWindow == null))
+                {
+                    this.mUIImpressãodeboletoWindow = new UIImpressãodeboletoWindow();
+                }
+                return this.mUIImpressãodeboletoWindow;
+            }
+        }
+        
+        public UIAbrirWindow UIAbrirWindow
+        {
+            get
+            {
+                if ((this.mUIAbrirWindow == null))
+                {
+                    this.mUIAbrirWindow = new UIAbrirWindow();
+                }
+                return this.mUIAbrirWindow;
+            }
+        }
+        
+        public UIErroWindow UIErroWindow
+        {
+            get
+            {
+                if ((this.mUIErroWindow == null))
+                {
+                    this.mUIErroWindow = new UIErroWindow();
+                }
+                return this.mUIErroWindow;
+            }
+        }
         #endregion
         
         #region Fields
@@ -3587,6 +3656,8 @@ namespace TestesAutomatizados
         
         private AlterarConfiguracaoPagamentoParams mAlterarConfiguracaoPagamentoParams;
         
+        private AcessarArquivoDeRemessaParams mAcessarArquivoDeRemessaParams;
+        
         private UIItemWindow mUIItemWindow;
         
         private UIMultiClubesWindow mUIMultiClubesWindow;
@@ -3674,6 +3745,12 @@ namespace TestesAutomatizados
         private UIMultiClubesConfiguraWindow mUIMultiClubesConfiguraWindow;
         
         private UIRegradepagamentoWindow mUIRegradepagamentoWindow;
+        
+        private UIImpressãodeboletoWindow mUIImpressãodeboletoWindow;
+        
+        private UIAbrirWindow mUIAbrirWindow;
+        
+        private UIErroWindow mUIErroWindow;
         #endregion
     }
     
@@ -5386,6 +5463,21 @@ namespace TestesAutomatizados
         /// Select 'Cielo Qa' in 'Gateway de pagamento :' combo box
         /// </summary>
         public string UIGatewaydepagamentoComboBoxSelectedItem = "Cielo Qa";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'AcessarArquivoDeRemessa'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class AcessarArquivoDeRemessaParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Select 'C:\TestesAutomatizados\QATESTE.rem' in 'Nome:' combo box
+        /// </summary>
+        public string UINomeComboBoxEditableItem = "C:\\TestesAutomatizados\\QATESTE.rem";
         #endregion
     }
     
@@ -13426,6 +13518,580 @@ namespace TestesAutomatizados
                     #region Search Criteria
                     this.mUIOKButton.SearchProperties[WinButton.PropertyNames.Name] = "OK";
                     this.mUIOKButton.WindowTitles.Add("Regra de pagamento");
+                    #endregion
+                }
+                return this.mUIOKButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIOKButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIImpressãodeboletoWindow : WinWindow
+    {
+        
+        public UIImpressãodeboletoWindow()
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "Impressão de boleto";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("Impressão de boleto");
+            #endregion
+        }
+        
+        #region Properties
+        public UIItemWindow5 UIItemWindow
+        {
+            get
+            {
+                if ((this.mUIItemWindow == null))
+                {
+                    this.mUIItemWindow = new UIItemWindow5(this);
+                }
+                return this.mUIItemWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIItemWindow5 mUIItemWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIItemWindow5 : WinWindow
+    {
+        
+        public UIItemWindow5(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "buttonFileName";
+            this.WindowTitles.Add("Impressão de boleto");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIItemButton
+        {
+            get
+            {
+                if ((this.mUIItemButton == null))
+                {
+                    this.mUIItemButton = new WinButton(this);
+                    #region Search Criteria
+                    this.mUIItemButton.SearchProperties[WinButton.PropertyNames.Name] = "...";
+                    this.mUIItemButton.WindowTitles.Add("Impressão de boleto");
+                    #endregion
+                }
+                return this.mUIItemButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIItemButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIAbrirWindow : WinWindow
+    {
+        
+        public UIAbrirWindow()
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "Abrir";
+            this.SearchProperties[WinWindow.PropertyNames.ClassName] = "#32770";
+            this.WindowTitles.Add("Abrir");
+            #endregion
+        }
+        
+        #region Properties
+        public UIMododeExibiçãodeÁrvoWindow UIMododeExibiçãodeÁrvoWindow
+        {
+            get
+            {
+                if ((this.mUIMododeExibiçãodeÁrvoWindow == null))
+                {
+                    this.mUIMododeExibiçãodeÁrvoWindow = new UIMododeExibiçãodeÁrvoWindow(this);
+                }
+                return this.mUIMododeExibiçãodeÁrvoWindow;
+            }
+        }
+        
+        public UIItemWindow6 UIItemWindow
+        {
+            get
+            {
+                if ((this.mUIItemWindow == null))
+                {
+                    this.mUIItemWindow = new UIItemWindow6(this);
+                }
+                return this.mUIItemWindow;
+            }
+        }
+        
+        public UIItemWindow12 UIItemWindow1
+        {
+            get
+            {
+                if ((this.mUIItemWindow1 == null))
+                {
+                    this.mUIItemWindow1 = new UIItemWindow12(this);
+                }
+                return this.mUIItemWindow1;
+            }
+        }
+        
+        public UIAbrirWindow1 UIAbrirWindow1
+        {
+            get
+            {
+                if ((this.mUIAbrirWindow1 == null))
+                {
+                    this.mUIAbrirWindow1 = new UIAbrirWindow1(this);
+                }
+                return this.mUIAbrirWindow1;
+            }
+        }
+        
+        public UIItemWindow21 UIItemWindow2
+        {
+            get
+            {
+                if ((this.mUIItemWindow2 == null))
+                {
+                    this.mUIItemWindow2 = new UIItemWindow21(this);
+                }
+                return this.mUIItemWindow2;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIMododeExibiçãodeÁrvoWindow mUIMododeExibiçãodeÁrvoWindow;
+        
+        private UIItemWindow6 mUIItemWindow;
+        
+        private UIItemWindow12 mUIItemWindow1;
+        
+        private UIAbrirWindow1 mUIAbrirWindow1;
+        
+        private UIItemWindow21 mUIItemWindow2;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIMododeExibiçãodeÁrvoWindow : WinWindow
+    {
+        
+        public UIMododeExibiçãodeÁrvoWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "100";
+            this.WindowTitles.Add("Abrir");
+            #endregion
+        }
+        
+        #region Properties
+        public UIMododeExibiçãodeÁrvoTree UIMododeExibiçãodeÁrvoTree
+        {
+            get
+            {
+                if ((this.mUIMododeExibiçãodeÁrvoTree == null))
+                {
+                    this.mUIMododeExibiçãodeÁrvoTree = new UIMododeExibiçãodeÁrvoTree(this);
+                }
+                return this.mUIMododeExibiçãodeÁrvoTree;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIMododeExibiçãodeÁrvoTree mUIMododeExibiçãodeÁrvoTree;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIMododeExibiçãodeÁrvoTree : WinTree
+    {
+        
+        public UIMododeExibiçãodeÁrvoTree(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinTree.PropertyNames.Name] = "Controle da Árvore de Namespace";
+            this.WindowTitles.Add("Abrir");
+            #endregion
+        }
+        
+        #region Properties
+        public UIÁreadeTrabalhoTreeItem UIÁreadeTrabalhoTreeItem
+        {
+            get
+            {
+                if ((this.mUIÁreadeTrabalhoTreeItem == null))
+                {
+                    this.mUIÁreadeTrabalhoTreeItem = new UIÁreadeTrabalhoTreeItem(this);
+                }
+                return this.mUIÁreadeTrabalhoTreeItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIÁreadeTrabalhoTreeItem mUIÁreadeTrabalhoTreeItem;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIÁreadeTrabalhoTreeItem : WinTreeItem
+    {
+        
+        public UIÁreadeTrabalhoTreeItem(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinTreeItem.PropertyNames.Name] = "Área de Trabalho";
+            this.SearchProperties["Value"] = "0";
+            this.WindowTitles.Add("Abrir");
+            #endregion
+        }
+        
+        #region Properties
+        public UIComputadorTreeItem UIComputadorTreeItem
+        {
+            get
+            {
+                if ((this.mUIComputadorTreeItem == null))
+                {
+                    this.mUIComputadorTreeItem = new UIComputadorTreeItem(this);
+                }
+                return this.mUIComputadorTreeItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIComputadorTreeItem mUIComputadorTreeItem;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIComputadorTreeItem : WinTreeItem
+    {
+        
+        public UIComputadorTreeItem(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinTreeItem.PropertyNames.Name] = "Computador";
+            this.SearchProperties["Value"] = "1";
+            this.SearchConfigurations.Add(SearchConfiguration.ExpandWhileSearching);
+            this.SearchConfigurations.Add(SearchConfiguration.NextSibling);
+            this.WindowTitles.Add("Abrir");
+            #endregion
+        }
+        
+        #region Properties
+        public WinTreeItem UIDiscoLocalCTreeItem
+        {
+            get
+            {
+                if ((this.mUIDiscoLocalCTreeItem == null))
+                {
+                    this.mUIDiscoLocalCTreeItem = new WinTreeItem(this);
+                    #region Search Criteria
+                    this.mUIDiscoLocalCTreeItem.SearchProperties[WinTreeItem.PropertyNames.Name] = "Disco Local (C:)";
+                    this.mUIDiscoLocalCTreeItem.SearchProperties["Value"] = "2";
+                    this.mUIDiscoLocalCTreeItem.SearchConfigurations.Add(SearchConfiguration.ExpandWhileSearching);
+                    this.mUIDiscoLocalCTreeItem.SearchConfigurations.Add(SearchConfiguration.NextSibling);
+                    this.mUIDiscoLocalCTreeItem.WindowTitles.Add("Abrir");
+                    #endregion
+                }
+                return this.mUIDiscoLocalCTreeItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinTreeItem mUIDiscoLocalCTreeItem;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIItemWindow6 : WinWindow
+    {
+        
+        public UIItemWindow6(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.AccessibleName] = "Modo de Exibição de Itens";
+            this.SearchProperties[WinWindow.PropertyNames.ClassName] = "DirectUIHWND";
+            this.WindowTitles.Add("Abrir");
+            #endregion
+        }
+        
+        #region Properties
+        public UITestesAutomatizadosListItem UITestesAutomatizadosListItem
+        {
+            get
+            {
+                if ((this.mUITestesAutomatizadosListItem == null))
+                {
+                    this.mUITestesAutomatizadosListItem = new UITestesAutomatizadosListItem(this);
+                }
+                return this.mUITestesAutomatizadosListItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UITestesAutomatizadosListItem mUITestesAutomatizadosListItem;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UITestesAutomatizadosListItem : WinListItem
+    {
+        
+        public UITestesAutomatizadosListItem(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinListItem.PropertyNames.Name] = "TestesAutomatizados";
+            this.WindowTitles.Add("Abrir");
+            #endregion
+        }
+        
+        #region Properties
+        public WinEdit UINomeEdit
+        {
+            get
+            {
+                if ((this.mUINomeEdit == null))
+                {
+                    this.mUINomeEdit = new WinEdit(this);
+                    #region Search Criteria
+                    this.mUINomeEdit.SearchProperties[WinEdit.PropertyNames.Name] = "Nome";
+                    this.mUINomeEdit.WindowTitles.Add("Abrir");
+                    #endregion
+                }
+                return this.mUINomeEdit;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinEdit mUINomeEdit;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIItemWindow12 : WinWindow
+    {
+        
+        public UIItemWindow12(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.AccessibleName] = "Modo de Exibição de Itens";
+            this.SearchProperties[WinWindow.PropertyNames.ClassName] = "DirectUIHWND";
+            this.WindowTitles.Add("Abrir");
+            #endregion
+        }
+        
+        #region Properties
+        public UIQATESTEremListItem UIQATESTEremListItem
+        {
+            get
+            {
+                if ((this.mUIQATESTEremListItem == null))
+                {
+                    this.mUIQATESTEremListItem = new UIQATESTEremListItem(this);
+                }
+                return this.mUIQATESTEremListItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIQATESTEremListItem mUIQATESTEremListItem;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIQATESTEremListItem : WinListItem
+    {
+        
+        public UIQATESTEremListItem(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinListItem.PropertyNames.Name] = "QATESTE.rem";
+            this.WindowTitles.Add("Abrir");
+            #endregion
+        }
+        
+        #region Properties
+        public WinEdit UINomeEdit
+        {
+            get
+            {
+                if ((this.mUINomeEdit == null))
+                {
+                    this.mUINomeEdit = new WinEdit(this);
+                    #region Search Criteria
+                    this.mUINomeEdit.SearchProperties[WinEdit.PropertyNames.Name] = "Nome";
+                    this.mUINomeEdit.WindowTitles.Add("Abrir");
+                    #endregion
+                }
+                return this.mUINomeEdit;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinEdit mUINomeEdit;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIAbrirWindow1 : WinWindow
+    {
+        
+        public UIAbrirWindow1(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "1";
+            this.WindowTitles.Add("Abrir");
+            #endregion
+        }
+        
+        #region Properties
+        public WinSplitButton UIAbrirSplitButton
+        {
+            get
+            {
+                if ((this.mUIAbrirSplitButton == null))
+                {
+                    this.mUIAbrirSplitButton = new WinSplitButton(this);
+                    #region Search Criteria
+                    this.mUIAbrirSplitButton.SearchProperties[WinButton.PropertyNames.Name] = "Abrir";
+                    this.mUIAbrirSplitButton.WindowTitles.Add("Abrir");
+                    #endregion
+                }
+                return this.mUIAbrirSplitButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinSplitButton mUIAbrirSplitButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIItemWindow21 : WinWindow
+    {
+        
+        public UIItemWindow21(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "1148";
+            this.SearchProperties[WinWindow.PropertyNames.Instance] = "2";
+            this.WindowTitles.Add("Abrir");
+            #endregion
+        }
+        
+        #region Properties
+        public WinComboBox UINomeComboBox
+        {
+            get
+            {
+                if ((this.mUINomeComboBox == null))
+                {
+                    this.mUINomeComboBox = new WinComboBox(this);
+                    #region Search Criteria
+                    this.mUINomeComboBox.SearchProperties[WinComboBox.PropertyNames.Name] = "Nome:";
+                    this.mUINomeComboBox.WindowTitles.Add("Abrir");
+                    #endregion
+                }
+                return this.mUINomeComboBox;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinComboBox mUINomeComboBox;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIErroWindow : WinWindow
+    {
+        
+        public UIErroWindow()
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "Erro";
+            this.SearchProperties[WinWindow.PropertyNames.ClassName] = "#32770";
+            this.WindowTitles.Add("Erro");
+            #endregion
+        }
+        
+        #region Properties
+        public UIErroPane UIErroPane
+        {
+            get
+            {
+                if ((this.mUIErroPane == null))
+                {
+                    this.mUIErroPane = new UIErroPane(this);
+                }
+                return this.mUIErroPane;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIErroPane mUIErroPane;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIErroPane : WinPane
+    {
+        
+        public UIErroPane(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinControl.PropertyNames.Name] = "Erro";
+            this.WindowTitles.Add("Erro");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIOKButton
+        {
+            get
+            {
+                if ((this.mUIOKButton == null))
+                {
+                    this.mUIOKButton = new WinButton(this);
+                    #region Search Criteria
+                    this.mUIOKButton.SearchProperties[WinButton.PropertyNames.Name] = "OK";
+                    this.mUIOKButton.WindowTitles.Add("Erro");
                     #endregion
                 }
                 return this.mUIOKButton;

@@ -34,16 +34,26 @@ namespace TestesAutomatizados
             dc.SetCapability("debugConnectToRunningApp", true);
             RemoteWebDriver driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
 
-            while (driver.FindElement(By.Id("FormMain")).FindElements(By.Name("OK")).Count > 0)
+            while ((driver.FindElement(By.Id("FormMain")).FindElements(By.Name("Cancelar")).Count > 0)
+                    &&
+                    (driver.FindElement(By.Id("FormMain")).FindElements(By.Name("OK")).Count > 0)
+                    &&
+                    (driver.FindElement(By.Id("FormMain")).FindElements(By.Name("Fechar")).Count > 2))
             {
-                driver.FindElement(By.Name("OK")).Click();
+                if ((driver.FindElement(By.Name("Fechar")).Displayed) && (driver.FindElement(By.Name("Fechar")).Enabled))
+                {
+                    driver.FindElement(By.Name("Fechar")).Click();
+                }
+                if  ((driver.FindElement(By.Name("Cancelar")).Displayed) && (driver.FindElement(By.Name("Cancelar")).Enabled))
+                { 
+                    driver.FindElement(By.Name("Cancelar")).Click();
+                }
+                if ((driver.FindElement(By.Name("OK")).Displayed) && (driver.FindElement(By.Name("OK")).Enabled))
+                {
+                    driver.FindElement(By.Name("OK")).Click();
+                }
             }
-
-            while (driver.FindElement(By.Id("FormMain")).FindElements(By.Name("Cancelar")).Count > 0)
-            {
-                driver.FindElement(By.Name("Cancelar")).Click();
-            }
-
+            
             if (driver.FindElement(By.Id("FormMain")).FindElements(By.Name("Fechar")).Count > 1)
             {
                 mcMenus.AcessarMenuArquivoSair();
@@ -51,7 +61,6 @@ namespace TestesAutomatizados
                 if (driver.FindElements(By.Name("Erro")).Count > 0)
                 {
                     string errorMessage = driver.FindElement(By.Id("ContentText")).GetAttribute("Name");
-                    Console.WriteLine(errorMessage);
                     driver.FindElement(By.Name("OK")).Click();
 
                     if (errorMessage == "Finalize o atendimento para sair.")

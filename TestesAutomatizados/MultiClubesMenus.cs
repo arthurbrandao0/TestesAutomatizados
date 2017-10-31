@@ -137,6 +137,11 @@ namespace TestesAutomatizados
         // Operação - Financeiro - Transações bancárias - Envio de e-mail
         // Operação - Financeiro - Transações bancárias - Envio remessa de cartão
         // Operação - Financeiro - Transações bancárias - Impressão de boleto
+        public void AcessarMenuOperacaoFinanceiroTransacoesBancariasImpressaoDeBoleto()
+        {
+            this.AcessarMenuOperacaoFinanceiroTransacoesBancarias();
+            this.AcessarMenu("Impressão de boleto");
+        }
         // Operação - Financeiro - Transações bancárias - Mensagens de remessa
         // Operação - Financeiro - Transações bancárias - Recebimento de retorno
 

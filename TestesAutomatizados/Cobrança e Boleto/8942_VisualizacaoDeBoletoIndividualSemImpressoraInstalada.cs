@@ -10,7 +10,7 @@ using Microsoft.VisualStudio.TestTools.UITest.Extension;
 using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium;
-using System.IO;
+using OpenQA.Selenium.Interactions;
 
 namespace TestesAutomatizados.Cobrança_e_Boleto
 {
@@ -18,59 +18,61 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
     /// Summary description for CodedUITest5
     /// </summary>
     [CodedUITest]
-    public class EmissaoDeRemessa
+    public class VisualizacaoDeBoletoIndividualSemImpressoraInstalada
     {
-        public EmissaoDeRemessa()
+        public VisualizacaoDeBoletoIndividualSemImpressoraInstalada()
         {
         }
 
         [TestMethod]
-        public void EmissaoDeRemessa_8679()
+        public void VisualizacaoDeBoletoIndividualSemImpressoraInstalada_8942()
         {
-            MultiClubesFunctions mcFunctions = new MultiClubesFunctions();
-            MultiClubesMenus mcMenus = new MultiClubesMenus();
+            string holder = "A28282";
 
-            string folderPath = "C:/TestesAutomatizados/TestResults";
-            string fileName = "REMESSA" + DateTime.Now.ToString("_dd_MM_yyyy_HH_mm_ss") + ".rem";
-            string filePath = folderPath + "/" + fileName;
+            MultiClubesFunctions McFunctions = new MultiClubesFunctions();
+            MultiClubesMenus McMenus = new MultiClubesMenus();
+            OpenCash openCash = new OpenCash();
 
             var dc = new DesiredCapabilities();
             dc.SetCapability("app", @"\\tsidev\Triade\Application\Dev\MultiClubes\System\MultiClubes\MultiClubes.UI.application");
             dc.SetCapability("debugConnectToRunningApp", true);
             RemoteWebDriver driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
-
-            mcMenus.AcessarMenuOperacaoFinanceiroTransacoesBancariasEmissaoDeRemessa();
-
             
-            mcFunctions.SearchElementByIdAndClick("comboBoxDunInstitution", true);
-            mcFunctions.SearchElementByNameAndClick("BANRISUL BOLETO");
+            McMenus.AcessarMenuOperacaoTituloCentralDeAtendimento();
+            McFunctions.SearchHolder(holder);
 
-            mcFunctions.SearchElementByIdAndClick("comboBoxRemittanceType");
-            mcFunctions.SearchElementByNameAndClick("Impressão");
+            McFunctions.AcessarCobrancasAtivas();
 
-            mcFunctions.SearchElementByIdAndSendKeys("textBoxFileName", filePath);
+            McFunctions.WaitForElementLoad(By.Id("listViewDun"));
 
-            mcFunctions.SearchElementByIdAndClick("buttonOK");
-            mcFunctions.SearchElementByNameAndClick("Sim", true);
+            var listViewDunElements = driver.FindElement(By.Id("listViewDun")).FindElements(By.Id(""));
+            
+            Console.WriteLine("Valor da cobrança: {0}", listViewDunElements[4].GetAttribute("Name"));
 
-            bool finishedRemittance = false;
-            if (driver.FindElements(By.Name("Erro")).Count == 1)
-            {
-                mcFunctions.WaitForElementLoad(By.Name("Concluído"));
-                if (driver.FindElements(By.Name("Concluído")).Count > 0)
-                {
-                    finishedRemittance = true;
-                }
-            }
-            else
-            {
-                Assert.Fail(driver.FindElement(By.Id("ContentText")).GetAttribute("Name"));
-            }
-            Assert.IsTrue(finishedRemittance, "Gerou a cobrança com sucesso");
-            Assert.IsTrue(File.Exists(filePath), "Arquivo criado com sucesso");
+            new Actions(driver).MoveToElement(driver.FindElement(By.Id("listViewDun")).FindElements(By.Id(""))[0]).Build().Perform();
+            new Actions(driver).DoubleClick(driver.FindElement(By.Id("listViewDun")).FindElements(By.Id(""))[0]).Build().Perform();
 
-            mcFunctions.SearchElementByIdAndClick("buttonOK");
-            mcFunctions.CloseWindow("Emissão de remessa");
+            McFunctions.SearchElementByIdAndClick("buttonOptions");
+            McFunctions.SearchElementByNameAndClick("Boleto");
+            McFunctions.SearchElementByNameAndClick("Imprimir");
+            McFunctions.SearchElementByNameAndClick("Visualizar");
+
+            McFunctions.TratarTelaAguarde(5);
+
+            McFunctions.WaitForElementLoad(By.Id("labelMessage"));
+            Assert.AreEqual("Boleto bancário", driver.FindElement(By.Id("labelMessage")).GetAttribute("Name"));
+            Assert.IsTrue(driver.FindElement(By.Id("printPreviewControl")).Enabled);
+
+            Assert.Fail("É necessário validar os dados do boleto manualmente");
+
+            SendKeys.SendWait("(%{F4})");
+            McFunctions.SearchElementByIdAndClick("buttonCancel", true);
+            McFunctions.TratarTelaAguarde(5);
+            McFunctions.CloseWindow("Detalhes da cobrança");
+            McFunctions.TratarTelaAguarde(5);
+            McFunctions.CloseWindow("Cobranças ativas");
+            McFunctions.FinalizarAtendimentoTitulo();
+            McFunctions.CloseWindow("Central de atendimento");
         }
 
         #region Additional test attributes

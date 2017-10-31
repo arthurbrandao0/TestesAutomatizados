@@ -1,62 +1,56 @@
 ﻿using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 using System;
 
-
-namespace TestesAutomatizados.CobrancaEBoleto
+namespace TestesAutomatizados.Cobrança_e_Boleto
 {
-    /// <resumo>
-    /// Descrição resumida para CodedUITest1
-    /// </resumo>
+    /// <summary>
+    /// Summary description for CodedUITest5
+    /// </summary>
     [CodedUITest]
-    public class TestIsolado
+    public class ImpressaoDeBoletoEmMassa
     {
-        public TestIsolado()
+        public ImpressaoDeBoletoEmMassa()
         {
         }
 
         [TestMethod]
-        public void TestIsolado_Metodo()
+        public void ImpressaoDeBoletoEmMassa_8685()
         {
             MultiClubesFunctions mcFunctions = new MultiClubesFunctions();
             MultiClubesMenus mcMenus = new MultiClubesMenus();
 
+            string folderPath = "C:/TestesAutomatizados/TestResults";
+            string fileName = string.Empty;
+            string filePath = folderPath + "/" + fileName;
+            
             var dc = new DesiredCapabilities();
             dc.SetCapability("app", @"\\tsidev\Triade\Application\Dev\MultiClubes\System\MultiClubes\MultiClubes.UI.application");
             dc.SetCapability("debugConnectToRunningApp", true);
             RemoteWebDriver driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
 
-            //Console.WriteLine(DateTime.Now.ToString("HH:mm:ss"));
-            //mcMenus.AcessarMenu("Completo");
+            mcMenus.AcessarMenuOperacaoFinanceiroTransacoesBancariasImpressaoDeBoleto();
 
-            //mcFunctions.FinalizarAtendimentoTitulo();
-            //mcFunctions.CloseWindow();
+            this.UIMap.AcessarArquivoDeRemessa();
 
-            var today = DateTime.Now;
-            var yesterday = DateTime.Now.AddDays(-1).ToString("dd/MM/yyyy");
+            //mcFunctions.SearchElementByIdAndClick("buttonPrint");
 
-            //Console.WriteLine(yesterday);
-
-            Console.WriteLine(driver.FindElement(By.Id("textBoxUsername")).GetAttribute("Value"));
-            Console.WriteLine("--");
-            //Console.WriteLine(driver.FindElement(By.Id("textBoxUsername")).Text);
+            //mcFunctions.CloseWindow("Impressão de boleto");
         }
 
-        #region Atributos de teste adicionais
+        #region Additional test attributes
 
-        // É possível usar os seguintes atributos adicionais enquanto escreve os testes:
+        // You can use the following additional attributes as you write your tests:
 
-        ////Use TestInitialize para executar código antes de executar cada teste 
+        ////Use TestInitialize to run code before running each test 
         [TestInitialize()]
         public void MyTestInitialize()
         {
             // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
             CheckLoginMulticlubes loginMC = new CheckLoginMulticlubes();
-            //loginMC.VerificarSeMultiClubesEstaAbertoELogado();
+            loginMC.VerificarSeMultiClubesEstaAbertoELogado();
             loginMC.CheckMCWindow();
-
         }
 
         ////Use TestCleanup para executar código depois de cada execução de teste
@@ -69,10 +63,10 @@ namespace TestesAutomatizados.CobrancaEBoleto
 
         #endregion
 
-        /// <resumo>
-        ///Obtém ou define o contexto do teste que provê
-        ///informação e funcionalidade da execução de teste atual.
-        ///</resumo>
+        /// <summary>
+        ///Gets or sets the test context which provides
+        ///information about and functionality for the current test run.
+        ///</summary>
         public TestContext TestContext
         {
             get

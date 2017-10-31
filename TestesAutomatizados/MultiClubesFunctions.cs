@@ -45,14 +45,15 @@ namespace TestesAutomatizados
             driver.FindElement(By.Id("buttonOK")).Click();
         }
 
-        public void TratarTelaAguarde()
+        public void TratarTelaAguarde(int attempts = 20)
         {
             int counter = 0;
-            Thread.Sleep(250);
-            while ((driver.FindElements(By.Name("Aguarde...")).Count > 0) && counter < 60)
+            Thread.Sleep(500);
+            while ((driver.FindElements(By.Name("Aguarde...")).Count > 0) && counter < attempts)
             {
                 Thread.Sleep(250);
                 counter++;
+                Console.WriteLine("Tela 'Aguardando'... ativa {0}/{1}", counter, attempts);
             }
         }
 
@@ -143,8 +144,7 @@ namespace TestesAutomatizados
             Console.WriteLine("Duração Prevista Minutos: {0} min", estimatedDurationMinutes);
             bool convertEstimatedMinutes = int.TryParse(estimatedDurationMinutes, out int convertedEstimatedMinutes);
             Assert.IsTrue(convertEstimatedMinutes, "Valor de minutos previstos é um número inteiro");
-
-
+            
             string media = helpText.Substring(helpText.IndexOf("Média: ") + 7, 4);
             Console.WriteLine("Média: {0} seg/título", media);
             bool convertAverage = decimal.TryParse(expectedEnd.Substring(3, 2), out decimal convertedAverage);
@@ -169,13 +169,22 @@ namespace TestesAutomatizados
             CloseWindow("Geração de cobrança");
         }
 
-        public void SearchHolder(string HolderId) { 
-            WaitForElementLoad(By.Id("textBoxKeyword"));
-            driver.FindElement(By.Id("textBoxKeyword")).Click();
-            Keyboard.SendKeys(HolderId);
+        public void SearchHolder(string HolderId) {
+            SendAndCheckKeys("textBoxKeyword", HolderId);
             Keyboard.SendKeys("{Enter}");
             WaitForElementLoad(By.Name("Titular"));
             new Actions(driver).DoubleClick(driver.FindElement(By.Name("Titular"))).Build().Perform();
+        }
+
+        public void SendAndCheckKeys(string elementId, string keysToSend)
+        {
+            WaitForElementLoad(By.Id(elementId));            
+            while (driver.FindElement(By.Id(elementId)).GetAttribute("Name") != keysToSend)
+            {
+                driver.FindElement(By.Id(elementId)).Clear();
+                driver.FindElement(By.Id(elementId)).Click();
+                Keyboard.SendKeys(keysToSend);
+            }
         }
         public void BillingRemittanceFiles()
         {
@@ -184,8 +193,7 @@ namespace TestesAutomatizados
 
             WaitForElementLoad(By.Id("buttonOptions"));
             driver.FindElement(By.Id("buttonOptions")).Click();
-            driver.FindElement(By.Name("Editar arquivos remessa")).Click();
-                       
+            driver.FindElement(By.Name("Editar arquivos remessa")).Click();                       
         }
 
         public void CashReceiptByBillingGeneration()
