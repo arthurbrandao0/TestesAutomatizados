@@ -1747,6 +1747,39 @@ namespace TestesAutomatizados
             Mouse.Click(uIAbrirSplitButton, new Point(34, 17));
         }
         
+        /// <summary>
+        /// ImprimirDoPdf - Use 'ImprimirDoPdfParams' to pass parameters into this method.
+        /// </summary>
+        public void ImprimirDoPdf()
+        {
+            #region Variable Declarations
+            WinListItem uINovaPDF9ListItem = this.UIImprimirWindow.UIExibiçãodePastasList.UINovaPDF9ListItem;
+            WinButton uIImprimirButton = this.UIImprimirWindow.UIImprimirWindow1.UIImprimirButton;
+            WinCheckBox uIOpenfileCheckBox = this.UINovaPDF9SavePDFfileWindow.UIOpenfileWindow.UIOpenfileCheckBox;
+            WinComboBox uIClickheretochangesavComboBox = this.UINovaPDF9SavePDFfileWindow.UIItemWindow.UIClickheretochangesavComboBox;
+            WinButton uIOKButton = this.UINovaPDF9SavePDFfileWindow.UIOKWindow.UIOKButton;
+            WinButton uIYesButton = this.UISaveWindow.UIYesWindow.UIYesButton;
+            #endregion
+
+            // Click 'novaPDF 9' list item
+            Mouse.Click(uINovaPDF9ListItem, new Point(41, 11));
+
+            // Click 'I&mprimir' button
+            Mouse.Click(uIImprimirButton, new Point(34, 8));
+
+            // Clear '&Open file' check box
+            uIOpenfileCheckBox.Checked = this.ImprimirDoPdfParams.UIOpenfileCheckBoxChecked;
+
+            // Select 'C:\TestesAutomatizados\TestResults\boleto_tc9018.pdf' in 'Click here to change save options, add watermarks,...' combo box
+            uIClickheretochangesavComboBox.EditableItem = this.ImprimirDoPdfParams.UIClickheretochangesavComboBoxEditableItem;
+
+            // Click '&OK' button
+            Mouse.Click(uIOKButton, new Point(44, 13));
+
+            // Click '&Yes' button
+            Mouse.Click(uIYesButton, new Point(23, 14));
+        }
+        
         #region Properties
         public virtual AbrirMultiClubesParams AbrirMultiClubesParams
         {
@@ -2900,6 +2933,18 @@ namespace TestesAutomatizados
             }
         }
         
+        public virtual ImprimirDoPdfParams ImprimirDoPdfParams
+        {
+            get
+            {
+                if ((this.mImprimirDoPdfParams == null))
+                {
+                    this.mImprimirDoPdfParams = new ImprimirDoPdfParams();
+                }
+                return this.mImprimirDoPdfParams;
+            }
+        }
+        
         public UIItemWindow UIItemWindow
         {
             get
@@ -3463,6 +3508,54 @@ namespace TestesAutomatizados
                 return this.mUIErroWindow;
             }
         }
+        
+        public UIImprimirWindow UIImprimirWindow
+        {
+            get
+            {
+                if ((this.mUIImprimirWindow == null))
+                {
+                    this.mUIImprimirWindow = new UIImprimirWindow();
+                }
+                return this.mUIImprimirWindow;
+            }
+        }
+        
+        public UINovaPDF9SavePDFfileWindow UINovaPDF9SavePDFfileWindow
+        {
+            get
+            {
+                if ((this.mUINovaPDF9SavePDFfileWindow == null))
+                {
+                    this.mUINovaPDF9SavePDFfileWindow = new UINovaPDF9SavePDFfileWindow();
+                }
+                return this.mUINovaPDF9SavePDFfileWindow;
+            }
+        }
+        
+        public UISaveWindow UISaveWindow
+        {
+            get
+            {
+                if ((this.mUISaveWindow == null))
+                {
+                    this.mUISaveWindow = new UISaveWindow();
+                }
+                return this.mUISaveWindow;
+            }
+        }
+        
+        public UIImpressãoWindow UIImpressãoWindow
+        {
+            get
+            {
+                if ((this.mUIImpressãoWindow == null))
+                {
+                    this.mUIImpressãoWindow = new UIImpressãoWindow();
+                }
+                return this.mUIImpressãoWindow;
+            }
+        }
         #endregion
         
         #region Fields
@@ -3658,6 +3751,8 @@ namespace TestesAutomatizados
         
         private AcessarArquivoDeRemessaParams mAcessarArquivoDeRemessaParams;
         
+        private ImprimirDoPdfParams mImprimirDoPdfParams;
+        
         private UIItemWindow mUIItemWindow;
         
         private UIMultiClubesWindow mUIMultiClubesWindow;
@@ -3751,6 +3846,14 @@ namespace TestesAutomatizados
         private UIAbrirWindow mUIAbrirWindow;
         
         private UIErroWindow mUIErroWindow;
+        
+        private UIImprimirWindow mUIImprimirWindow;
+        
+        private UINovaPDF9SavePDFfileWindow mUINovaPDF9SavePDFfileWindow;
+        
+        private UISaveWindow mUISaveWindow;
+        
+        private UIImpressãoWindow mUIImpressãoWindow;
         #endregion
     }
     
@@ -5478,6 +5581,26 @@ namespace TestesAutomatizados
         /// Select 'C:\TestesAutomatizados\QATESTE.rem' in 'Nome:' combo box
         /// </summary>
         public string UINomeComboBoxEditableItem = "C:\\TestesAutomatizados\\QATESTE.rem";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'ImprimirDoPdf'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class ImprimirDoPdfParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Clear '&Open file' check box
+        /// </summary>
+        public bool UIOpenfileCheckBoxChecked = false;
+        
+        /// <summary>
+        /// Select 'C:\TestesAutomatizados\TestResults\boleto_tc9018.pdf' in 'Click here to change save options, add watermarks,...' combo box
+        /// </summary>
+        public string UIClickheretochangesavComboBoxEditableItem = "C:\\TestesAutomatizados\\TestResults\\boleto_tc9018.pdf";
         #endregion
     }
     
@@ -14092,6 +14215,448 @@ namespace TestesAutomatizados
                     #region Search Criteria
                     this.mUIOKButton.SearchProperties[WinButton.PropertyNames.Name] = "OK";
                     this.mUIOKButton.WindowTitles.Add("Erro");
+                    #endregion
+                }
+                return this.mUIOKButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIOKButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIImprimirWindow : WinWindow
+    {
+        
+        public UIImprimirWindow()
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "Imprimir";
+            this.SearchProperties[WinWindow.PropertyNames.ClassName] = "#32770";
+            this.WindowTitles.Add("Imprimir");
+            #endregion
+        }
+        
+        #region Properties
+        public UIExibiçãodePastasList UIExibiçãodePastasList
+        {
+            get
+            {
+                if ((this.mUIExibiçãodePastasList == null))
+                {
+                    this.mUIExibiçãodePastasList = new UIExibiçãodePastasList(this);
+                }
+                return this.mUIExibiçãodePastasList;
+            }
+        }
+        
+        public UIImprimirWindow1 UIImprimirWindow1
+        {
+            get
+            {
+                if ((this.mUIImprimirWindow1 == null))
+                {
+                    this.mUIImprimirWindow1 = new UIImprimirWindow1(this);
+                }
+                return this.mUIImprimirWindow1;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIExibiçãodePastasList mUIExibiçãodePastasList;
+        
+        private UIImprimirWindow1 mUIImprimirWindow1;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIExibiçãodePastasList : WinList
+    {
+        
+        public UIExibiçãodePastasList(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinList.PropertyNames.Name] = "Exibição de Pastas";
+            this.WindowTitles.Add("Imprimir");
+            #endregion
+        }
+        
+        #region Properties
+        public WinListItem UIDoPDF8ListItem
+        {
+            get
+            {
+                if ((this.mUIDoPDF8ListItem == null))
+                {
+                    this.mUIDoPDF8ListItem = new WinListItem(this);
+                    #region Search Criteria
+                    this.mUIDoPDF8ListItem.SearchProperties[WinListItem.PropertyNames.Name] = "doPDF 8";
+                    this.mUIDoPDF8ListItem.WindowTitles.Add("Imprimir");
+                    #endregion
+                }
+                return this.mUIDoPDF8ListItem;
+            }
+        }
+        
+        public WinListItem UINovaPDF9ListItem
+        {
+            get
+            {
+                if ((this.mUINovaPDF9ListItem == null))
+                {
+                    this.mUINovaPDF9ListItem = new WinListItem(this);
+                    #region Search Criteria
+                    this.mUINovaPDF9ListItem.SearchProperties[WinListItem.PropertyNames.Name] = "novaPDF 9";
+                    this.mUINovaPDF9ListItem.WindowTitles.Add("Imprimir");
+                    #endregion
+                }
+                return this.mUINovaPDF9ListItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinListItem mUIDoPDF8ListItem;
+        
+        private WinListItem mUINovaPDF9ListItem;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIImprimirWindow1 : WinWindow
+    {
+        
+        public UIImprimirWindow1(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "1";
+            this.SearchProperties[WinWindow.PropertyNames.Instance] = "2";
+            this.WindowTitles.Add("Imprimir");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIImprimirButton
+        {
+            get
+            {
+                if ((this.mUIImprimirButton == null))
+                {
+                    this.mUIImprimirButton = new WinButton(this);
+                    #region Search Criteria
+                    this.mUIImprimirButton.SearchProperties[WinButton.PropertyNames.Name] = "Imprimir";
+                    this.mUIImprimirButton.WindowTitles.Add("Imprimir");
+                    #endregion
+                }
+                return this.mUIImprimirButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIImprimirButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UINovaPDF9SavePDFfileWindow : WinWindow
+    {
+        
+        public UINovaPDF9SavePDFfileWindow()
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "novaPDF 9 - Save PDF file";
+            this.SearchProperties[WinWindow.PropertyNames.ClassName] = "#32770";
+            this.WindowTitles.Add("novaPDF 9 - Save PDF file");
+            #endregion
+        }
+        
+        #region Properties
+        public UIItemWindow7 UIItemWindow
+        {
+            get
+            {
+                if ((this.mUIItemWindow == null))
+                {
+                    this.mUIItemWindow = new UIItemWindow7(this);
+                }
+                return this.mUIItemWindow;
+            }
+        }
+        
+        public UIOpenfileWindow UIOpenfileWindow
+        {
+            get
+            {
+                if ((this.mUIOpenfileWindow == null))
+                {
+                    this.mUIOpenfileWindow = new UIOpenfileWindow(this);
+                }
+                return this.mUIOpenfileWindow;
+            }
+        }
+        
+        public UIOKWindow12 UIOKWindow
+        {
+            get
+            {
+                if ((this.mUIOKWindow == null))
+                {
+                    this.mUIOKWindow = new UIOKWindow12(this);
+                }
+                return this.mUIOKWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIItemWindow7 mUIItemWindow;
+        
+        private UIOpenfileWindow mUIOpenfileWindow;
+        
+        private UIOKWindow12 mUIOKWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIItemWindow7 : WinWindow
+    {
+        
+        public UIItemWindow7(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "1207";
+            this.WindowTitles.Add("novaPDF 9 - Save PDF file");
+            #endregion
+        }
+        
+        #region Properties
+        public WinComboBox UIClickheretochangesavComboBox
+        {
+            get
+            {
+                if ((this.mUIClickheretochangesavComboBox == null))
+                {
+                    this.mUIClickheretochangesavComboBox = new WinComboBox(this);
+                    #region Search Criteria
+                    this.mUIClickheretochangesavComboBox.SearchProperties[WinComboBox.PropertyNames.Name] = "Click here to change save options, add watermarks, overlay, password, signature ." +
+                        "..";
+                    this.mUIClickheretochangesavComboBox.WindowTitles.Add("novaPDF 9 - Save PDF file");
+                    #endregion
+                }
+                return this.mUIClickheretochangesavComboBox;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinComboBox mUIClickheretochangesavComboBox;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIOpenfileWindow : WinWindow
+    {
+        
+        public UIOpenfileWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "1116";
+            this.WindowTitles.Add("novaPDF 9 - Save PDF file");
+            #endregion
+        }
+        
+        #region Properties
+        public WinCheckBox UIOpenfileCheckBox
+        {
+            get
+            {
+                if ((this.mUIOpenfileCheckBox == null))
+                {
+                    this.mUIOpenfileCheckBox = new WinCheckBox(this);
+                    #region Search Criteria
+                    this.mUIOpenfileCheckBox.SearchProperties[WinCheckBox.PropertyNames.Name] = "Open file";
+                    this.mUIOpenfileCheckBox.WindowTitles.Add("novaPDF 9 - Save PDF file");
+                    #endregion
+                }
+                return this.mUIOpenfileCheckBox;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinCheckBox mUIOpenfileCheckBox;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIOKWindow12 : WinWindow
+    {
+        
+        public UIOKWindow12(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "1069";
+            this.WindowTitles.Add("novaPDF 9 - Save PDF file");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIOKButton
+        {
+            get
+            {
+                if ((this.mUIOKButton == null))
+                {
+                    this.mUIOKButton = new WinButton(this);
+                    #region Search Criteria
+                    this.mUIOKButton.SearchProperties[WinButton.PropertyNames.Name] = "OK";
+                    this.mUIOKButton.WindowTitles.Add("novaPDF 9 - Save PDF file");
+                    #endregion
+                }
+                return this.mUIOKButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIOKButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UISaveWindow : WinWindow
+    {
+        
+        public UISaveWindow()
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "Save";
+            this.SearchProperties[WinWindow.PropertyNames.ClassName] = "#32770";
+            this.WindowTitles.Add("Save");
+            #endregion
+        }
+        
+        #region Properties
+        public UIYesWindow UIYesWindow
+        {
+            get
+            {
+                if ((this.mUIYesWindow == null))
+                {
+                    this.mUIYesWindow = new UIYesWindow(this);
+                }
+                return this.mUIYesWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIYesWindow mUIYesWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIYesWindow : WinWindow
+    {
+        
+        public UIYesWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "1080";
+            this.WindowTitles.Add("Save");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIYesButton
+        {
+            get
+            {
+                if ((this.mUIYesButton == null))
+                {
+                    this.mUIYesButton = new WinButton(this);
+                    #region Search Criteria
+                    this.mUIYesButton.SearchProperties[WinButton.PropertyNames.Name] = "Yes";
+                    this.mUIYesButton.WindowTitles.Add("Save");
+                    #endregion
+                }
+                return this.mUIYesButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIYesButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIImpressãoWindow : WinWindow
+    {
+        
+        public UIImpressãoWindow()
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "Impressão";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("Impressão");
+            #endregion
+        }
+        
+        #region Properties
+        public UIOKWindow13 UIOKWindow
+        {
+            get
+            {
+                if ((this.mUIOKWindow == null))
+                {
+                    this.mUIOKWindow = new UIOKWindow13(this);
+                }
+                return this.mUIOKWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIOKWindow13 mUIOKWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIOKWindow13 : WinWindow
+    {
+        
+        public UIOKWindow13(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "buttonOK";
+            this.WindowTitles.Add("Impressão");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIOKButton
+        {
+            get
+            {
+                if ((this.mUIOKButton == null))
+                {
+                    this.mUIOKButton = new WinButton(this);
+                    #region Search Criteria
+                    this.mUIOKButton.SearchProperties[WinButton.PropertyNames.Name] = "OK";
+                    this.mUIOKButton.WindowTitles.Add("Impressão");
                     #endregion
                 }
                 return this.mUIOKButton;

@@ -85,6 +85,7 @@
     <Compile Include="Cobrança e Boleto\8661_EditarCobrancaPagamentoOnline.cs" />
     <Compile Include="Cobrança e Boleto\8679_EmissaoDeRemessa.cs" />
     <Compile Include="Cobrança e Boleto\8942_VisualizacaoDeBoletoIndividualSemImpressoraInstalada.cs" />
+    <Compile Include="Cobrança e Boleto\9018_ImpressaoDeBoletoIndividual.cs" />
     <Compile Include="Cobrança e Boleto\INCOMPLETO_8685_ImpressaoDeBoletoEmMassa.cs" />
     <Compile Include="MultiClubesVariables.cs" />
     <Compile Include="OpenCash.cs" />

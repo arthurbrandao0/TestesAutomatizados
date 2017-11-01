@@ -43,6 +43,7 @@ namespace TestesAutomatizados
             driver.FindElement(By.Name("Fechar")).Click();
             WaitForElementLoad(By.Id("buttonOK"));
             driver.FindElement(By.Id("buttonOK")).Click();
+            TratarTelaAguarde();
         }
 
         public void TratarTelaAguarde(int attempts = 20)
@@ -53,7 +54,7 @@ namespace TestesAutomatizados
             {
                 Thread.Sleep(250);
                 counter++;
-                Console.WriteLine("Tela 'Aguardando'... ativa {0}/{1}", counter, attempts);
+                Console.WriteLine("Tela 'Aguardando...' ativa {0}/{1}", counter, attempts);
             }
         }
 
