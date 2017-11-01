@@ -18,16 +18,16 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
     /// Summary description for CodedUITest5
     /// </summary>
     [CodedUITest]
-    public class VisualizacaoDeBoletoIndividualSemImpressoraInstalada
+    public class VisualizarMensagemInstrucaoEMensagemExternaDeBoletoPago
     {
-        public VisualizacaoDeBoletoIndividualSemImpressoraInstalada()
+        public VisualizarMensagemInstrucaoEMensagemExternaDeBoletoPago()
         {
         }
 
         [TestMethod]
-        public void VisualizacaoDeBoletoIndividualSemImpressoraInstalada_8942()
+        public void VisualizarMensagemInstrucaoEMensagemExternaDeBoletoPago_9061()
         {
-            string holder = "A28282";
+            string holder = "N/S41344-0";
 
             MultiClubesFunctions McFunctions = new MultiClubesFunctions();
             MultiClubesMenus McMenus = new MultiClubesMenus();
@@ -37,42 +37,50 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             dc.SetCapability("app", @"\\tsidev\Triade\Application\Dev\MultiClubes\System\MultiClubes\MultiClubes.UI.application");
             dc.SetCapability("debugConnectToRunningApp", true);
             RemoteWebDriver driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
-            
+
             McMenus.AcessarMenuOperacaoTituloCentralDeAtendimento();
             McFunctions.SearchHolder(holder);
 
             McFunctions.AcessarCobrancasAtivas();
 
-            McFunctions.WaitForElementLoad(By.Id("listViewDun"));
+            McFunctions.WaitForElementLoad(By.Id("listViewYear"));
+            driver.FindElement(By.Id("listViewYear")).FindElements(By.Id(""))[0].Click();
 
-            var listViewDunElements = driver.FindElement(By.Id("listViewDun")).FindElements(By.Id(""));
-            
-            Console.WriteLine("Valor da cobrança: {0}", listViewDunElements[4].GetAttribute("Name"));
-
-            new Actions(driver).MoveToElement(driver.FindElement(By.Id("listViewDun")).FindElements(By.Id(""))[0]).Build().Perform();
-            new Actions(driver).DoubleClick(driver.FindElement(By.Id("listViewDun")).FindElements(By.Id(""))[0]).Build().Perform();
-
+            new Actions(driver).DoubleClick(driver.FindElement(By.Id("listViewDun")).FindElements(By.Name("444100000143"))[0]).Build().Perform();
+            McFunctions.TratarTelaAguarde();
             McFunctions.SearchElementByIdAndClick("buttonOptions");
             McFunctions.SearchElementByNameAndClick("Boleto");
-            McFunctions.SearchElementByNameAndClick("Imprimir");
-            McFunctions.SearchElementByNameAndClick("Visualizar");
+            McFunctions.SearchElementByNameAndClick("Visualizar mensagem");
 
-            McFunctions.TratarTelaAguarde(5);
+            bool messageFound = false;
+            if (driver.FindElements(By.Name("MSG TESTE")).Count > 0)
+            {
+                messageFound = true;
+            }
 
-            McFunctions.WaitForElementLoad(By.Id("labelMessage"));
-            Assert.AreEqual("Boleto bancário", driver.FindElement(By.Id("labelMessage")).GetAttribute("Name"));
-            Assert.IsTrue(driver.FindElement(By.Id("printPreviewControl")).Enabled);
+            McFunctions.SearchElementByNameAndClick("Instrução");
+            bool instructionFound = false;
+            if (driver.FindElements(By.Name("INSTRUCAO TESTE")).Count > 0)
+            {
+                instructionFound = true;
+            }
 
-            Assert.Inconclusive("É necessário validar os dados do boleto manualmente");
-
-            SendKeys.SendWait("(%{F4})");
-            McFunctions.SearchElementByIdAndClick("buttonCancel", true);
-            McFunctions.TratarTelaAguarde(5);
+            McFunctions.SearchElementByNameAndClick("Mensagem externa");
+            bool externalMessageFound = false;
+            if (driver.FindElements(By.Name("MSG EXTERNA TESTE")).Count > 0)
+            {
+                externalMessageFound = true;
+            }
+            
+            driver.FindElement(By.Name("Cancelar")).Click();
             McFunctions.CloseWindow("Detalhes da cobrança");
-            McFunctions.TratarTelaAguarde(5);
             McFunctions.CloseWindow("Cobranças ativas");
             McFunctions.FinalizarAtendimentoTitulo();
             McFunctions.CloseWindow("Central de atendimento");
+
+            Assert.IsTrue(messageFound, "Mensagem Encontrada");
+            Assert.IsTrue(instructionFound, "Instrução Encontrada");
+            Assert.IsTrue(externalMessageFound, "Mensagem externa Encontrada");
         }
 
         #region Additional test attributes

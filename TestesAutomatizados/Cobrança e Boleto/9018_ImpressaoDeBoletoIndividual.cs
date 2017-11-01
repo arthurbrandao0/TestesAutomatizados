@@ -70,7 +70,7 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             McFunctions.FinalizarAtendimentoTitulo();
             McFunctions.CloseWindow("Central de atendimento");
 
-            Assert.Fail("Verificar o boleto gerado em C:/TestesAutomatizados/TestResults/boleto_tc9018.pdf");
+            Assert.Inconclusive("Verificar o boleto gerado em C:/TestesAutomatizados/TestResults/boleto_tc9018.pdf");
         }
 
         #region Additional test attributes

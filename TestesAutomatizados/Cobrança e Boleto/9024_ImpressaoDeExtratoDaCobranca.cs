@@ -46,12 +46,13 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             new Actions(driver).MoveToElement(driver.FindElement(By.Id("listViewDun")).FindElements(By.Id(""))[0]).Build().Perform();
             new Actions(driver).DoubleClick(driver.FindElement(By.Id("listViewDun")).FindElements(By.Id(""))[0]).Build().Perform();
 
+            McFunctions.TratarTelaAguarde();
             McFunctions.SearchElementByIdAndClick("buttonOptions");
             McFunctions.SearchElementByNameAndClick("Imprimir extrato");
 
             McFunctions.WaitForElementLoad(By.Id("DocumentViewer"), 2);
 
-            Assert.Fail("Verificar se a imagem em anexo no relatório de testes consta com os dados corretos");
+            Assert.Inconclusive("Verificar se a imagem em anexo no relatório de testes consta com os dados corretos");
 
             //this.UIMap.PrintExtractBilling();
             
