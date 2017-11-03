@@ -86,6 +86,22 @@ namespace TestesAutomatizados
 
         // Operação - Financeiro - Cobrança - Mensagens de cobrança
         // Operação - Financeiro - Cobrança - Notificação de cobrança
+        public void AcessarMenuOperacaoFinanceiroCobrancaNotificacaoDeCobranca()
+        {
+            this.AcessarMenuOperacaoFinanceiroCobranca();
+            this.AcessarMenu("Notificação de cobrança");
+        }
+        // Operação - Financeiro - Cobrança - Notificação de cobrança - E-mail
+        public void AcessarMenuOperacaoFinanceiroCobrancaNotificacaoDeCobrancaEmail()
+        {
+            this.AcessarMenuOperacaoFinanceiroCobrancaNotificacaoDeCobranca();
+            this.AcessarMenu("E-mail");
+
+        }
+        // Operação - Financeiro - Cobrança - Notificação de cobrança - Impressão
+        // Operação - Financeiro - Cobrança - Notificação de cobrança - SMS
+        // Operação - Financeiro - Cobrança - Notificação de cobrança - Histórico
+
         // Operação - Financeiro - Cobrança - Quitação anual de débitos
         // Operação - Financeiro - Cobrança - Geração de cobrança
         public void AcessarMenuOperacaoFinanceiroCobrancaGeracaoDeCobranca()
