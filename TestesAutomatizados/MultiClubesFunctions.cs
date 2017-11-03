@@ -34,15 +34,20 @@ namespace TestesAutomatizados
         public void CloseWindow(string windowName = "")
         {
             // o parametro 'WindowName' nao altera em nada a função, apenas facilita a identificação da tela em que o mesmo atua.
-            driver.FindElementByName("Fechar").Click();
+            if (driver.FindElements(By.Name("Fechar")).Count > 0)
+            {
+                SearchElementByNameAndClick("Fechar");
+            }
+            else if ((driver.FindElement(By.Id("buttonClose")).Displayed) && (driver.FindElement(By.Id("buttonClose")).Enabled))
+            {
+                SearchElementByIdAndClick("buttonClose");
+            }
         }
 
         public void FinalizarAtendimentoTitulo()
         {
-            WaitForElementLoad(By.Name("Fechar"));
-            driver.FindElement(By.Name("Fechar")).Click();
-            WaitForElementLoad(By.Id("buttonOK"));
-            driver.FindElement(By.Id("buttonOK")).Click();
+            CloseWindow("Central de atendimento");
+            SearchElementByIdAndClick("buttonOK");
             TratarTelaAguarde();
         }
 
@@ -270,6 +275,15 @@ namespace TestesAutomatizados
             SearchElementByIdAndClick(idElement);
             driver.FindElement(By.Id(idElement)).Clear();
             Keyboard.SendKeys(keysToSend);
+        }
+
+        public void ClearTextAreaById(string elementId)
+        {
+            while (driver.FindElement(By.Id(elementId)).GetAttribute("Name") != "")
+            {
+                SearchElementByIdAndClick(elementId);
+                Keyboard.SendKeys("{BACK}{BACK}{BACK}{BACK}{BACK}");
+            }
         }
         #region Atributos de teste adicionais
 
