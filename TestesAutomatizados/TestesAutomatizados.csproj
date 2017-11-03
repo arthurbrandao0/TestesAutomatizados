@@ -90,6 +90,7 @@
     <Compile Include="Cobrança e Boleto\9061_VisualizarMensagemInstrucaoEMensagemExternaDeBoletoPago.cs" />
     <Compile Include="Cobrança e Boleto\9078_EditarMensagemInstrucaoEMensagemExternaDeBoletoPendente.cs" />
     <Compile Include="Cobrança e Boleto\9787_EnviarNotificacaoDeCobranca.cs" />
+    <Compile Include="Cobrança e Boleto\10524_EditarCobrancaBoleto.cs" />
     <Compile Include="Cobrança e Boleto\INCOMPLETO_8685_ImpressaoDeBoletoEmMassa.cs" />
     <Compile Include="MultiClubesVariables.cs" />
     <Compile Include="OpenCash.cs" />
