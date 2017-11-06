@@ -1,14 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using System.Windows.Input;
-using System.Windows.Forms;
-using System.Drawing;
-using Microsoft.VisualStudio.TestTools.UITesting;
+﻿using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Microsoft.VisualStudio.TestTools.UITest.Extension;
-using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
-
 
 namespace TestesAutomatizados.AcessarMenus
 {
@@ -25,14 +16,11 @@ namespace TestesAutomatizados.AcessarMenus
         [TestMethod]
         public void AcessarSeguranca6350Metodo()
         {
-            // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
             this.UIMap.AcessarSegurancaPermissoes();
             this.UIMap.ProcurarTituloPermissoes();
             this.UIMap.ProcurarTextoGruposEPermissoes();
             this.UIMap.ProcurarTextoSeguranca();
             this.UIMap.FecharTelaSegurancaPermissoes();
-
-
         }
 
         #region Atributos de teste adicionais
@@ -40,18 +28,22 @@ namespace TestesAutomatizados.AcessarMenus
         // É possível usar os seguintes atributos adicionais enquanto escreve os testes:
 
         ////Use TestInitialize para executar código antes de executar cada teste 
-        //[TestInitialize()]
-        //public void MyTestInitialize()
-        //{        
-        //    // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
-        //}
+        [TestInitialize()]
+        public void MyTestInitialize()
+        {
+            // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
+            CheckLoginMulticlubes loginMC = new CheckLoginMulticlubes();
+            loginMC.VerificarSeMultiClubesEstaAbertoELogado();
+            loginMC.CheckMCWindow();
+        }
 
         ////Use TestCleanup para executar código depois de cada execução de teste
-        //[TestCleanup()]
-        //public void MyTestCleanup()
-        //{        
-        //    // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
-        //}
+        [TestCleanup()]
+        public void MyTestCleanup()
+        {
+            CheckTestTrash McClean = new CheckTestTrash();
+            McClean.CheckTestTrashMethod();
+        }
 
         #endregion
 

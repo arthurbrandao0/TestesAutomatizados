@@ -38,18 +38,22 @@ namespace TestesAutomatizados.AcessarMenus
         // É possível usar os seguintes atributos adicionais enquanto escreve os testes:
 
         ////Use TestInitialize para executar código antes de executar cada teste 
-        //[TestInitialize()]
-        //public void MyTestInitialize()
-        //{        
-        //    // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
-        //}
+        [TestInitialize()]
+        public void MyTestInitialize()
+        {
+            // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
+            CheckLoginMulticlubes loginMC = new CheckLoginMulticlubes();
+            loginMC.VerificarSeMultiClubesEstaAbertoELogado();
+            loginMC.CheckMCWindow();
+        }
 
         ////Use TestCleanup para executar código depois de cada execução de teste
-        //[TestCleanup()]
-        //public void MyTestCleanup()
-        //{        
-        //    // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
-        //}
+        [TestCleanup()]
+        public void MyTestCleanup()
+        {
+            CheckTestTrash McClean = new CheckTestTrash();
+            McClean.CheckTestTrashMethod();
+        }
 
         #endregion
 

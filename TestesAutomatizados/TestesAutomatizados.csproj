@@ -108,6 +108,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Cobrança e Boleto\TestList.orderedtest">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="UIMap.uitest" />
   </ItemGroup>

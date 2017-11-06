@@ -76,7 +76,6 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
         [TestInitialize()]
         public void MyTestInitialize()
         {
-            // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
             CheckLoginMulticlubes loginMC = new CheckLoginMulticlubes();
             loginMC.VerificarSeMultiClubesEstaAbertoELogado();
             loginMC.CheckMCWindow();

@@ -49,6 +49,7 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
                 counter++;
             }
             string billing = listViewDunElements[counter - 4].GetAttribute("Name");
+            Console.WriteLine(billing);
             listViewDunElements[counter - 4].Click();
 
             new Actions(driver).DoubleClick(listViewDunElements[counter - 4]).Build().Perform();
@@ -84,13 +85,9 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
         [TestInitialize()]
         public void MyTestInitialize()
         {
-            // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
             CheckLoginMulticlubes loginMC = new CheckLoginMulticlubes();
             loginMC.VerificarSeMultiClubesEstaAbertoELogado();
             loginMC.CheckMCWindow();
-
-            OpenCash openCash = new OpenCash();
-            openCash.OpenCashMethod();
         }
 
         ////Use TestCleanup para executar código depois de cada execução de teste
