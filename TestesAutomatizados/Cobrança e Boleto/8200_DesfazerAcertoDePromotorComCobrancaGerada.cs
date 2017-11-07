@@ -13,15 +13,15 @@ namespace TestesAutomatizados.CobrancaEBoleto
     /// Descrição resumida para CodedUITest1
     /// </resumo>
     [CodedUITest]
-    public class DesfazerAcertoDePromotorComCobrancaGerada_8200
+    public class DesfazerAcertoDePromotorComCobrancaGerada
     {
-        public DesfazerAcertoDePromotorComCobrancaGerada_8200()
+        public DesfazerAcertoDePromotorComCobrancaGerada()
         {
         }
 
         //Timeout = 4h (converted in ms)
         [TestMethod(), Timeout(14400000)]
-        public void DesfazerAcertoDePromotorComCobrancaGerada_8200_Metodo()
+        public void DesfazerAcertoDePromotorComCobrancaGerada_8200()
         {
             MultiClubesFunctions McFunctions = new MultiClubesFunctions();
             MultiClubesMenus McMenus = new MultiClubesMenus();
@@ -86,7 +86,7 @@ namespace TestesAutomatizados.CobrancaEBoleto
             
             var nossoNumero = ListViewParcelElements[counterStep8 + 6].GetAttribute("Name");
 
-            McFunctions.ClicarBotaoFechar();
+            McFunctions.CloseWindow();
             
             //9.Clicar no menu Cobranças
             //Serem apresentadas as opções Ativas, Desativadas e Editar Cobranças
@@ -111,7 +111,7 @@ namespace TestesAutomatizados.CobrancaEBoleto
 
             Assert.IsTrue(encontrounn, "Nosso numero encontrado");
 
-            McFunctions.ClicarBotaoFechar();
+            McFunctions.CloseWindow();
 
             McFunctions.FinalizarAtendimentoTitulo();
 
@@ -148,9 +148,9 @@ namespace TestesAutomatizados.CobrancaEBoleto
 
             McFunctions.TratarTelaAguarde();
 
-            driver.FindElement(By.Name("Fechar")).Click();
-            
-            driver.FindElement(By.Name("Fechar")).Click();
+            McFunctions.CloseWindow();
+
+            McFunctions.CloseWindow();
 
             //19.Acessar Central de Atendimento
             McFunctions.AcessarCentralDeAtendimento();
@@ -178,7 +178,7 @@ namespace TestesAutomatizados.CobrancaEBoleto
             }
             Assert.IsFalse(encontrouacertopromotor, "Acerto Promotor continuou em Produtos a receber");
 
-            McFunctions.ClicarBotaoFechar();
+            McFunctions.CloseWindow();
 
             //22.Repetir os passos 9 e 10
             //Ser apresentada tela contendo as cobranças ativas, não constando cobrança referente ao acerto de comissão de promotor, desfeita no passo 18
@@ -199,7 +199,7 @@ namespace TestesAutomatizados.CobrancaEBoleto
                 counterStep22++;
             }
             Assert.IsFalse(encontrounn2, "Nosso numero encontrado nas cobranças ativas");
-            McFunctions.ClicarBotaoFechar();
+            McFunctions.CloseWindow();
 
             McFunctions.FinalizarAtendimentoTitulo();
             McFunctions.CloseWindow("Central de Atendimento");            

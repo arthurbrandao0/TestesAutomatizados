@@ -45,8 +45,9 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             holderElement.Click();
 
             new Actions(driver).MoveToElement(holderElement).ContextClick(holderElement).Build().Perform();
+            
             driver.FindElement(By.Name("Modalidades")).Click();
-            driver.FindElement(By.Name("Nova matrícula")).Click();
+            driver.FindElement(By.Name("Modalidades")).FindElement(By.Name("Nova matrícula")).Click();
 
             McFunctions.WaitForElementLoad(By.Name(modalityName));
             driver.FindElement(By.Name(modalityName)).Click();
@@ -66,6 +67,9 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             McFunctions.CashReceiptByBillingGeneration();
             
             McFunctions.AcessarProdutosAReceber();
+
+            McFunctions.WaitForElementLoad(By.Id("listViewYear"));
+            driver.FindElement(By.Id("listViewYear")).FindElements(By.Id(""))[0].Click();
 
             new Actions(driver).DoubleClick(driver.FindElement(By.Name(modalityBillingName))).Build().Perform();
 

@@ -11,14 +11,14 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
     /// Summary description for CodedUITest1
     /// </summary>
     [CodedUITest]
-    public class CodedUITest1
+    public class DesfazerCobrancaIndividual
     {
-        public CodedUITest1()
+        public DesfazerCobrancaIndividual()
         {
         }
 
         [TestMethod]
-        public void DesfazerCobrancaIndividual_Metodo()
+        public void DesfazerCobrancaIndividual_7695()
         {
             MultiClubesFunctions McFunctions = new MultiClubesFunctions();
             MultiClubesMenus McMenus = new MultiClubesMenus();
@@ -48,11 +48,11 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
                 }
                 counter++;
             }
-            string billing = listViewDunElements[counter - 4].GetAttribute("Name");
+            string billing = listViewDunElements[counter - 3].GetAttribute("Name");
             Console.WriteLine(billing);
-            listViewDunElements[counter - 4].Click();
+            listViewDunElements[counter - 3].Click();
 
-            new Actions(driver).DoubleClick(listViewDunElements[counter - 4]).Build().Perform();
+            new Actions(driver).DoubleClick(listViewDunElements[counter - 3]).Build().Perform();
             
             McFunctions.WaitForElementLoad(By.Id("buttonOptions"));
             driver.FindElement(By.Id("buttonOptions")).Click();

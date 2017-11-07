@@ -12,14 +12,14 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
     /// Summary description for CodedUITest3
     /// </summary>
     [CodedUITest]
-    public class CodedUITest3
+    public class GerarCobrancaAtravesDeImportacaoDeArquivo
     {
-        public CodedUITest3()
+        public GerarCobrancaAtravesDeImportacaoDeArquivo()
         {
         }
 
         [TestMethod]
-        public void GerarCobrancaAtravesDeImportacaoDeArquivo_Metodo()
+        public void GerarCobrancaAtravesDeImportacaoDeArquivo_7697()
         {
             string holder = "A28248";
 

@@ -10,14 +10,14 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
     /// Descrição resumida para CodedUITest2
     /// </resumo>
     [CodedUITest]
-    public class GerarCobrancaEmMassaComImportacaoDeConsumo_Todas_7031
+    public class GerarCobrancaEmMassaComImportacaoDeConsumoTodas
     {
-        public GerarCobrancaEmMassaComImportacaoDeConsumo_Todas_7031()
+        public GerarCobrancaEmMassaComImportacaoDeConsumoTodas()
         {
         }
 
         [TestMethod]
-        public void GerarCobrancaEmMassaComImportacaoDeConsumo_Todas_7031Metodo()
+        public void GerarCobrancaEmMassaComImportacaoDeConsumoTodas_7031()
         {
             MultiClubesFunctions McFunctions = new MultiClubesFunctions();
             MultiClubesMenus McMenus = new MultiClubesMenus();
@@ -32,9 +32,6 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
 
             McFunctions.WaitForElementLoad(By.Id("OPERATION_FINANCIAL+DUN+DUN_GENERATION"));
 
-            //this.UIMap.HabilitarOpcaoImportarConsumosAte();
-            //this.UIMap.SelecionarTodasCobrancas();
-            //this.UIMap.DesabilitarGerarComOpcaoPorCiclo();
             McFunctions.SearchElementByIdAndClick("buttonGenerate");
             McFunctions.SearchElementByNameAndClick("Sim", true);
 

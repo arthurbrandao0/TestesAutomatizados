@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using System.Windows.Input;
-using System.Windows.Forms;
-using System.Drawing;
-using Microsoft.VisualStudio.TestTools.UITesting;
+﻿using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Microsoft.VisualStudio.TestTools.UITest.Extension;
-using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
-using OpenQA.Selenium.Remote;
 using OpenQA.Selenium;
-using System.Threading;
+using OpenQA.Selenium.Remote;
+using System;
 
 namespace TestesAutomatizados.Cobrança_e_Boleto
 {
@@ -18,14 +10,14 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
     /// Descrição resumida para CodedUITest3
     /// </resumo>
     [CodedUITest]
-    public class GerarCobrancaIndividual_7688
+    public class GerarCobrancaIndividual
     {
-        public GerarCobrancaIndividual_7688()
+        public GerarCobrancaIndividual()
         {
         }
 
         [TestMethod]
-        public void GerarCobrancaIndividual_7688_Metodo()
+        public void GerarCobrancaIndividual_7688()
         {
             MultiClubesFunctions McFunctions = new MultiClubesFunctions();
             MultiClubesMenus McMenus = new MultiClubesMenus();

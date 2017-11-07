@@ -25,7 +25,7 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
         }
 
         [TestMethod]
-        public void SimulacaodeGeracaodeCobrancaTodas6387Metodo()
+        public void SimulacaodeGeracaodeCobrancaTodas_6387()
         {
             MultiClubesFunctions mcFunctions = new MultiClubesFunctions();
             MultiClubesMenus McMenus = new MultiClubesMenus();
@@ -59,7 +59,8 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             Console.WriteLine("Término da simulação de cobrança: {0} (margem de erro menor que 5 minutos)", DateTime.Now.ToString("HH:mm"));
 
             driver.FindElement(By.Name("OK")).Click();
-            mcFunctions.CloseWindow("Simulação de cobrança");
+
+            mcFunctions.CloseWindow();
         }
 
         #region Atributos de teste adicionais

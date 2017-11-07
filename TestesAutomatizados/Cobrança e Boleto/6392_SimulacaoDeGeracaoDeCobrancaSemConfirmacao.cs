@@ -23,7 +23,7 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
         }
 
         [TestMethod]
-        public void SimulacaoDeGeracaoDeCobrancaSemConfirmacao6392Metodo()
+        public void SimulacaoDeGeracaoDeCobrancaSemConfirmacao_6392()
         {
             MultiClubesFunctions mcFunctions = new MultiClubesFunctions();
             MultiClubesMenus McMenus = new MultiClubesMenus();

@@ -20,14 +20,14 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
     /// Descrição resumida para CodedUITest3
     /// </resumo>
     [CodedUITest]
-    public class ReemissaoDeRemessa_7483
+    public class ReemissaoDeRemessa
     {
-        public ReemissaoDeRemessa_7483()
+        public ReemissaoDeRemessa()
         {
         }
 
         [TestMethod]
-        public void ReemissaoDeRemessa_7483_Metodo()
+        public void ReemissaoDeRemessa_7483()
         {
             MultiClubesFunctions McFunctions = new MultiClubesFunctions();
             MultiClubesMenus McMenus = new MultiClubesMenus();

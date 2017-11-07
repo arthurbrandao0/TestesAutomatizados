@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using System.Windows.Input;
-using System.Windows.Forms;
-using System.Drawing;
-using Microsoft.VisualStudio.TestTools.UITesting;
+﻿using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Microsoft.VisualStudio.TestTools.UITest.Extension;
-using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
-using OpenQA.Selenium.Remote;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Interactions;
-using System.Threading;
+using OpenQA.Selenium.Remote;
+using System;
+using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
 
 namespace TestesAutomatizados.Cobrança_e_Boleto
 {
@@ -26,7 +18,7 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
         }
 
         [TestMethod]
-        public void EditarCobrancaDebitoEmConta6442Metodo()
+        public void EditarCobrancaDebitoEmConta_6442()
         {
             
             MultiClubesFunctions mcFunctions = new MultiClubesFunctions();

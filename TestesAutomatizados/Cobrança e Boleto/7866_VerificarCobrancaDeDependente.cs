@@ -11,14 +11,14 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
     /// Summary description for CodedUITest4
     /// </summary>
     [CodedUITest]
-    public class CodedUITest4
+    public class VerificarCobrancaDeDependente
     {
-        public CodedUITest4()
+        public VerificarCobrancaDeDependente()
         {
         }
 
         [TestMethod]
-        public void VerificarCobrancaDeDependente_Metodo()
+        public void VerificarCobrancaDeDependente_7866()
         {
             string holder = "A28234";
             string billingType = "Mensalidade Dependente";

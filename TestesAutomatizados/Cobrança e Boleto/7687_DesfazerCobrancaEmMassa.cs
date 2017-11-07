@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using System.Windows.Input;
-using System.Windows.Forms;
-using System.Drawing;
-using Microsoft.VisualStudio.TestTools.UITesting;
+﻿using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Microsoft.VisualStudio.TestTools.UITest.Extension;
-using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
-using Microsoft.VisualStudio.TestTools.UITesting.WinControls;
-using System.Threading;
-using OpenQA.Selenium.Remote;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Remote;
+using System;
 
 namespace TestesAutomatizados.Cobrança_e_Boleto
 {
@@ -26,7 +17,7 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
         }
 
         [TestMethod]
-        public void DesfazerCobrancaEmMassa_7687_Metodo()
+        public void DesfazerCobrancaEmMassa_7687()
         {
             MultiClubesFunctions McFunctions = new MultiClubesFunctions();
             MultiClubesMenus McMenus = new MultiClubesMenus();
