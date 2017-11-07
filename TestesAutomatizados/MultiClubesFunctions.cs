@@ -31,17 +31,25 @@ namespace TestesAutomatizados
             driver.FindElement(By.Name("Central de atendimento")).Click();
         }
 
-        public void CloseWindow(string windowName = "")
+        public void CloseWindow(string windowName = "", string windowId = "FormMain")
         {
             // o parametro 'WindowName' nao altera em nada a função, apenas facilita a identificação da tela em que o mesmo atua.
-            if (driver.FindElements(By.Name("Fechar")).Count > 0)
-            {
-                SearchElementByNameAndClick("Fechar");
-            }
-            else if ((driver.FindElement(By.Id("buttonClose")).Displayed) && (driver.FindElement(By.Id("buttonClose")).Enabled))
-            {
-                SearchElementByIdAndClick("buttonClose");
-            }
+            Thread.Sleep(500);
+            driver.FindElement(By.Id(windowId)).FindElement(By.Name("Fechar")).Click();
+
+            //if ((driver.FindElements(By.Name("Fechar")).Count > 0) && (driver.FindElement(By.Name("Fechar")).Displayed))
+            //{
+            //    SearchElementByNameAndClick("Fechar");
+            //}
+            //else if ((driver.FindElement(By.Id("buttonClose")).Displayed) && (driver.FindElement(By.Id("buttonClose")).Enabled))
+            //{
+            //    SearchElementByIdAndClick("buttonClose");
+            //}
+            //else
+            //{
+            //    Assert.Fail("Não encontrou o botão fechar da janela {0}", windowName);
+            //}
+
         }
 
         public void FinalizarAtendimentoTitulo()
