@@ -31,29 +31,30 @@ namespace TestesAutomatizados
             var dc = new DesiredCapabilities();
             dc.SetCapability("app", @"\\tsidev\Triade\Application\Dev\MultiClubes\System\MultiClubes\MultiClubes.UI.application");
             dc.SetCapability("debugConnectToRunningApp", true);
-            RemoteWebDriver Driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
+            RemoteWebDriver driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
 
-            Driver.FindElement(By.Name("tabPageCash")).Click();
-            if (Driver.FindElements(By.Name("Caixa fechado")).Count == 1)
+            driver.FindElement(By.Name("tabPageCash")).Click();
+            if (driver.FindElements(By.Name("Caixa fechado")).Count == 1)
             {
-                Driver.FindElement(By.Id("buttonOpen")).Click();
-                Driver.FindElement(By.Name("Novo")).Click();
+                driver.FindElement(By.Id("buttonOpen")).Click();
+                mcFunctions.WaitForElementLoad(By.Name("Novo"), 1);
+                driver.FindElement(By.Name("Novo")).Click();
 
-                if (Driver.FindElements(By.Name("Atenção")).Count > 0)
+                if (driver.FindElements(By.Name("Atenção")).Count > 0)
                 {
                     Console.WriteLine("Caixa aberto anteriormente");
-                    Driver.FindElement(By.Id("CommandButton_1")).Click();
-                    Driver.FindElement(By.Id("buttonOpen")).Click();
-                    Driver.FindElement(By.Name("Existente")).Click();
+                    driver.FindElement(By.Id("CommandButton_1")).Click();
+                    driver.FindElement(By.Id("buttonOpen")).Click();
+                    driver.FindElement(By.Name("Existente")).Click();
                 }
                 this.UIMap.InserirSenhaAberturaCaixa();
 
                 mcFunctions.TratarTelaAguarde();
-                Driver.FindElement(By.Id("buttonOK")).Click();
+                driver.FindElement(By.Id("buttonOK")).Click();
             }
             
 
-            Assert.AreEqual(Driver.FindElements(By.Name("Caixa aberto")).Count, 1, "Caixa aberto");
+            Assert.AreEqual(driver.FindElements(By.Name("Caixa aberto")).Count, 1, "Caixa aberto");
         }
 
         
