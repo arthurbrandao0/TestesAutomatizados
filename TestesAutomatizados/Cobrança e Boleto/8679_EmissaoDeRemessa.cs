@@ -32,9 +32,19 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             dc.SetCapability("debugConnectToRunningApp", true);
             RemoteWebDriver driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
 
-            mcMenus.AcessarMenuOperacaoFinanceiroTransacoesBancariasEmissaoDeRemessa();
-
+            mcMenus.AcessarMenuOperacaoFinanceiroTransacoesBancariasRemessasAnteriores();
+            mcFunctions.WaitForElementLoad(By.Id("listView"));
+            driver.FindElement(By.Id("listView")).FindElements(By.Id(""))[0].Click();
             
+            driver.FindElement(By.Id("buttonOptions")).Click();
+            driver.FindElement(By.Name("Desfazer")).Click();
+            mcFunctions.TratarTelaAguarde();
+            driver.FindElement(By.Name("Sim")).Click();
+            mcFunctions.WaitForElementLoad(By.Id("OPERATION_FINANCIAL+BANK+REMITTANCE_HISTORY"), 2);
+            mcFunctions.CloseWindow("Remessas anteriores", "OPERATION_FINANCIAL+BANK+REMITTANCE_HISTORY");
+
+            mcMenus.AcessarMenuOperacaoFinanceiroTransacoesBancariasEmissaoDeRemessa();
+                        
             mcFunctions.SearchElementByIdAndClick("comboBoxDunInstitution", true);
             mcFunctions.SearchElementByNameAndClick("BANRISUL BOLETO");
 
@@ -47,23 +57,19 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             mcFunctions.SearchElementByNameAndClick("Sim", true);
 
             bool finishedRemittance = false;
-            if (driver.FindElements(By.Name("Erro")).Count == 1)
-            {
-                mcFunctions.WaitForElementLoad(By.Name("Concluído"));
-                if (driver.FindElements(By.Name("Concluído")).Count > 0)
-                {
-                    finishedRemittance = true;
-                }
-            }
-            else
+            if (driver.FindElements(By.Name("Erro")).Count > 0)
             {
                 Assert.Fail(driver.FindElement(By.Id("ContentText")).GetAttribute("Name"));
+            }
+            else if (driver.FindElements(By.Name("Concluído")).Count > 0)
+            {
+                finishedRemittance = true;
             }
             Assert.IsTrue(finishedRemittance, "Gerou a cobrança com sucesso");
             Assert.IsTrue(File.Exists(filePath), "Arquivo criado com sucesso");
 
             mcFunctions.SearchElementByIdAndClick("buttonOK");
-            mcFunctions.CloseWindow("Emissão de remessa");
+            mcFunctions.CloseWindow("Emissão de remessa", "OPERATION_FINANCIAL+BANK+REMITTANCE_GENERATION");
         }
 
         #region Additional test attributes
