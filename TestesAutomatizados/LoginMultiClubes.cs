@@ -29,7 +29,7 @@ namespace TestesAutomatizados
                 // verificando se o processo já está em execução
                 Process[] processlist = Process.GetProcesses();
                 // variavel para verificar se o MultiClubes está aberto (por padrão, é falso)
-                bool OpenedMultiClubes = false;
+                bool openedMultiClubes = false;
                 bool OpenedWiniumDriver = false;
 
                 foreach (Process process in processlist)
@@ -41,7 +41,7 @@ namespace TestesAutomatizados
                         if (process.MainWindowTitle.Contains("MultiClubes"))
                         {
                             // se for identificado algum processo em que o título contenha "MultiClubes", a variavel recebe True
-                            OpenedMultiClubes = true;
+                            openedMultiClubes = true;
                         }
                         else if (process.MainWindowTitle.Contains("Winium.Desktop.Driver.exe"))
                         {
@@ -59,10 +59,9 @@ namespace TestesAutomatizados
 
                 var dc = new DesiredCapabilities();
                 dc.SetCapability("app", @"\\tsidev\Triade\Application\Dev\MultiClubes\System\MultiClubes\MultiClubes.UI.application");
-                //dc.SetCapability("app", @"C:/Triade/MultiClubes/System/MultiClubes/MultiClubes.UI.application");
 
                 // se a variavel estiver como falso, entra nessa condição que abre o MultiClubes
-                if (OpenedMultiClubes)
+                if (openedMultiClubes)
                 {
                     dc.SetCapability("debugConnectToRunningApp", true);
                 }
@@ -71,52 +70,34 @@ namespace TestesAutomatizados
                     Thread.Sleep(5000);
                 }
 
-                Driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
-
-                //Driver.FindElement(By.XPath("*[starts-with(@Name, 'MultiClubes')]")).Click();
-                //Driver.FindElement(By.Name("MultiClubes")).Click();
-
-                //foreach (IWebElement i in Driver.FindElements(By.XPath("//*[starts-with(@Name, 'MultiClubes')]")))
-                //{
-                //    Console.WriteLine(i.GetAttribute("Name"));
-                //}
-                //Thread.Sleep(10000);
-
-                //Driver.FindElement(By.Id("textBoxUsername")).SendKeys("suporte");
-                //Driver.FindElement(OpenQA.Selenium.By.Id("textBoxPassword")).SendKeys("DeZer0@100");
-                //Driver.FindElement(OpenQA.Selenium.By.Id("button")).Click();
+                driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
 
                 CheckMCWindow();
 
-
-                if (Driver.FindElements(OpenQA.Selenium.By.Id("textBoxUsername")).Count > 0 &&
-                    Driver.FindElements(OpenQA.Selenium.By.Id("textBoxPassword")).Count > 0)
-                {
-                    this.UIMap.InserirUsuarioESenha();
-
+                int counter = 0;
+                if (!openedMultiClubes) { 
+                    while (counter < 50)
+                    { 
+                        if (driver.FindElements(By.Id("textBoxUsername")).Count > 0 
+                            &&
+                            driver.FindElements(By.Id("textBoxPassword")).Count > 0)
+                        {
+                            this.UIMap.InserirUsuarioESenha();
+                            break;
+                        }
+                        Thread.Sleep(1000);
+                        counter++;
+                    }
                 }
-
-                //Assert.AreEqual(Driver.FindElements(OpenQA.Selenium.By.Id("panelFooter")).Count, 1);
-
-
-
-                //Process proc = new Process();
-                //proc.StartInfo.FileName = @"C:/Triade/MultiClubes/System/MultiClubes/MultiClubes.UI.application";
-                //proc.Start();
-                //Driver.FindElement(By.Name("MultiClubes")).Click();
-
-
-
-                //Console.WriteLine(winMC.Exists);
-
-                //foreach (IWebElement i in Driver.FindElements(By.ClassName("WindowsForms10.Window.8.app.0.c4edf4_r9_ad2")))
-                //{
-                //    Console.WriteLine(i.GetAttribute("ProcessId"));
-                //    Console.WriteLine(i.GetAttribute("Name"));
-
-                //}
-                //Driver.FindElement(By.Name("contentPanel1")).Click();
-
+                else
+                {
+                    if (driver.FindElements(By.Id("textBoxUsername")).Count > 0
+                            &&
+                            driver.FindElements(By.Id("textBoxPassword")).Count > 0)
+                    {
+                        this.UIMap.InserirUsuarioESenha();
+                    }
+                }
 
             }
             catch (ArgumentException e)
@@ -124,8 +105,6 @@ namespace TestesAutomatizados
                 //Please log when you're just catching something. Especially if the catch statement has side effects. Trust me.
                 Console.WriteLine("IOException source: {0}", e.Source);
             }
-
-
         }
 
         public void CheckMCWindow()
@@ -193,7 +172,7 @@ namespace TestesAutomatizados
         }
 
         private UIMap map;
-        public RemoteWebDriver Driver;
+        public RemoteWebDriver driver;
 
     }
 }
