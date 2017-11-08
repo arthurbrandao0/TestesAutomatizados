@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 using System;
 
@@ -31,6 +32,16 @@ namespace TestesAutomatizados.AcessarMenus
 
             this.UIMap.ProcurarTituloMultiClubesComputadores();
             this.UIMap.ProcurarTextoComputadores();
+
+            bool listViewDisplayed = false;
+            if (driver.FindElement(By.Id("listView")).Displayed)
+            {
+                listViewDisplayed = true;
+            }
+
+            McFunctions.CloseWindow("Computadores");
+
+            Assert.IsTrue(listViewDisplayed, "Lista de computadores exibida");
         }
 
         #region Atributos de teste adicionais
