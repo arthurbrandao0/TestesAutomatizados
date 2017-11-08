@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+using OpenQA.Selenium.Remote;
+using System;
 
 namespace TestesAutomatizados.AcessarMenus
 {
@@ -8,26 +9,35 @@ namespace TestesAutomatizados.AcessarMenus
     /// Descrição resumida para CodedUITest1
     /// </resumo>
     [CodedUITest]
-    public class AcessarCadastroDeTitulo6348
+    public class AcessarCadastroDeTitulo
     {
-        public AcessarCadastroDeTitulo6348()
+        public AcessarCadastroDeTitulo()
         {
         }
 
         [TestMethod]
-        public void AcessarCadastroDeTitulo6348Metodo()
+        public void AcessarCadastroDeTitulo_6348()
         {
             // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
 
             OpenCash openCash = new OpenCash();
             openCash.OpenCashMethod();
-            this.UIMap.AcessarCadastroDeTitulo();
+
+            MultiClubesFunctions mcFunctions = new MultiClubesFunctions();
+            MultiClubesMenus mcMenus = new MultiClubesMenus();
+
+            var dc = new DesiredCapabilities();
+            dc.SetCapability("app", @"\\tsidev\Triade\Application\Dev\MultiClubes\System\MultiClubes\MultiClubes.UI.application");
+            dc.SetCapability("debugConnectToRunningApp", true);
+            RemoteWebDriver driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
+
+            mcMenus.AcessarMenuOperacaoTituloCadastroDeTitulo();
             this.UIMap.ProcurarTextoCadastro();
             this.UIMap.ProcurarTextoNovoTítulo();
             this.UIMap.ProcurarBotaoTítulo();
             this.UIMap.ProcurarBotaoIncluirDependente();
             this.UIMap.ProcurarGroupBoxVenda();
-            this.UIMap.FecharTelaCadastroTitulo();            
+            mcFunctions.CloseWindow("Cadastro de título");
         }
 
         #region Atributos de teste adicionais
