@@ -61,9 +61,9 @@
     <Compile Include="AcessarMenus\6348_AcessarCadastroDeTitulo.cs" />
     <Compile Include="AcessarMenus\6237_AcessarCentralDeAtendimento.cs" />
     <Compile Include="AcessarMenus\6351_AcessarComputadores.cs" />
-    <Compile Include="AcessarMenus\AcessarGruposDeProduto5885.cs" />
+    <Compile Include="AcessarMenus\5885_AcessarGruposDeProduto.cs" />
     <Compile Include="AcessarMenus\5331_AcessarParentesco.cs" />
-    <Compile Include="AcessarMenus\AcessarSeguranca6350.cs" />
+    <Compile Include="AcessarMenus\6350_AcessarSeguranca.cs" />
     <Compile Include="Acesso\8704_IncluirControleDeAcesso.cs" />
     <Compile Include="Cobrança e Boleto\8200_DesfazerAcertoDePromotorComCobrancaGerada.cs" />
     <Compile Include="Cobrança e Boleto\7687_DesfazerCobrancaEmMassa.cs" />

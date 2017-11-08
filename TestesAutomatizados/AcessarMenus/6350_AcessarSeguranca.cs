@@ -1,5 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenQA.Selenium.Remote;
+using System;
 
 namespace TestesAutomatizados.AcessarMenus
 {
@@ -7,20 +9,29 @@ namespace TestesAutomatizados.AcessarMenus
     /// Descrição resumida para CodedUITest1
     /// </resumo>
     [CodedUITest]
-    public class AcessarSeguranca6350
+    public class AcessarSeguranca
     {
-        public AcessarSeguranca6350()
+        public AcessarSeguranca()
         {
         }
 
         [TestMethod]
-        public void AcessarSeguranca6350Metodo()
+        public void AcessarSeguranca_6350()
         {
-            this.UIMap.AcessarSegurancaPermissoes();
+            // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
+            MultiClubesFunctions McFunctions = new MultiClubesFunctions();
+            MultiClubesMenus McMenus = new MultiClubesMenus();
+
+            var dc = new DesiredCapabilities();
+            dc.SetCapability("app", @"\\tsidev\Triade\Application\Dev\MultiClubes\System\MultiClubes\MultiClubes.UI.application");
+            dc.SetCapability("debugConnectToRunningApp", true);
+            RemoteWebDriver driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
+
+            McMenus.AcessarMenuAdministracaoSegurancaPermissoes();
             this.UIMap.ProcurarTituloPermissoes();
             this.UIMap.ProcurarTextoGruposEPermissoes();
             this.UIMap.ProcurarTextoSeguranca();
-            this.UIMap.FecharTelaSegurancaPermissoes();
+            McFunctions.CloseWindow("Permissões");
         }
 
         #region Atributos de teste adicionais

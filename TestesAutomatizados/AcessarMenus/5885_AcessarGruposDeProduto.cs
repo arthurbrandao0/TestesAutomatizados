@@ -65,7 +65,6 @@ namespace TestesAutomatizados.AcessarMenus
         }
 
         #endregion
-
         /// <resumo>
         ///Obtém ou define o contexto do teste que provê
         ///informação e funcionalidade da execução de teste atual.

@@ -289,6 +289,12 @@ namespace TestesAutomatizados
         }
 
         // Administração - Segurança - Permissões
+        public void AcessarMenuAdministracaoSegurancaPermissoes()
+        {
+            AcessarMenuAdministracaoSeguranca();
+            AcessarMenu("Permissões");
+        }
+
         // Administração - Segurança - Usuários
 
         // Administração - Título
