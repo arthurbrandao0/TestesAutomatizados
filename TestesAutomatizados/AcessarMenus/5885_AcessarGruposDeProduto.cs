@@ -8,7 +8,7 @@ using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.VisualStudio.TestTools.UITest.Extension;
 using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
-
+using OpenQA.Selenium.Remote;
 
 namespace TestesAutomatizados.AcessarMenus
 {
@@ -16,22 +16,30 @@ namespace TestesAutomatizados.AcessarMenus
     /// Descrição resumida para CodedUITest1
     /// </resumo>
     [CodedUITest]
-    public class AcessarGruposDeProduto5885
+    public class AcessarGruposDeProduto
     {
-        public AcessarGruposDeProduto5885()
+        public AcessarGruposDeProduto()
         {
         }
 
         [TestMethod]
         public void AcessarGruposDeProduto_5885()
         {
+            MultiClubesFunctions McFunctions = new MultiClubesFunctions();
+            MultiClubesMenus McMenus = new MultiClubesMenus();
+
+            var dc = new DesiredCapabilities();
+            dc.SetCapability("app", @"\\tsidev\Triade\Application\Dev\MultiClubes\System\MultiClubes\MultiClubes.UI.application");
+            dc.SetCapability("debugConnectToRunningApp", true);
+            RemoteWebDriver driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
+
             // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
-            this.UIMap.AbrirAdministracaoFinanceiroGruposProduto();
+            McMenus.AcessarMenuAdministracaoFinanceiroGruposDeProdutos();
+            McFunctions.TreatWaitScreen();
             this.UIMap.ProcurarTituloMultiClubesGruposDeProduto();
             this.UIMap.ProcurarTextoGruposDeProduto();
             this.UIMap.ProcurarColunaGrupo();
-            this.UIMap.FecharTelaAcessarGruposDeProduto();
-            
+            McFunctions.CloseWindow("Grupos de produto");            
         }
 
         #region Atributos de teste adicionais

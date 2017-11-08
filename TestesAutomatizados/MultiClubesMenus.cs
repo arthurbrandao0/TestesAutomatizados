@@ -171,6 +171,11 @@ namespace TestesAutomatizados
 
         // Operação - Título - Bloqueio
         // Operação - Título - Cadastro de título
+        public void AcessarMenuOperacaoTituloCadastroDeTitulo()
+        {
+            AcessarMenuOperacaoTitulo();
+            AcessarMenu("Cadastro de título");
+        }
         // Operação - Título - Carteiras
         // Operação - Título - Cenários
         // Operação - Título - Central de atendimento
@@ -236,6 +241,32 @@ namespace TestesAutomatizados
         // Administração - Feriados
         // Administração - Ferramentas
         // Administração - Financeiro
+        public void AcessarMenuAdministracaoFinanceiro()
+        {
+            AcessarMenuAdministracao();
+            AcessarMenu("Financeiro");
+        }
+        // Administração - Financeiro - Alíneas de cheque
+        // Administração - Financeiro - Capacidades de venda
+        // Administração - Financeiro - Despesas
+        // Administração - Financeiro - Formas de pagamento
+        // Administração - Financeiro - Gerentes
+        // Administração - Financeiro - Grupos de produtos
+        public void AcessarMenuAdministracaoFinanceiroGruposDeProdutos()
+        {
+            AcessarMenuAdministracaoFinanceiro();
+            AcessarMenu("Grupos de produto");
+        }
+        // Administração - Financeiro - Instituições
+        // Administração - Financeiro - Instituições de cobrança
+        // Administração - Financeiro - Motivos de desconto
+        // Administração - Financeiro - Planos de venda
+        // Administração - Financeiro - Planos empresa
+        // Administração - Financeiro - Produtos
+        // Administração - Financeiro - Promotores
+        // Administração - Financeiro - Transações bancárias
+
+
         // Administração - Histórico de ações
         // Administração - Integração ERP
         // Administração - Mapas de ocupação

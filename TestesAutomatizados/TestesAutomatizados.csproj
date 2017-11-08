@@ -58,7 +58,7 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AcessarMenus\AcessarCadastroDeTitulo6348.cs" />
+    <Compile Include="AcessarMenus\6348_AcessarCadastroDeTitulo.cs" />
     <Compile Include="AcessarMenus\6237_AcessarCentralDeAtendimento.cs" />
     <Compile Include="AcessarMenus\6351_AcessarComputadores.cs" />
     <Compile Include="AcessarMenus\AcessarGruposDeProduto5885.cs" />
