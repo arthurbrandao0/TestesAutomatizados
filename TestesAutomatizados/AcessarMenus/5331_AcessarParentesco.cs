@@ -8,7 +8,8 @@ using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.VisualStudio.TestTools.UITest.Extension;
 using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
-
+using OpenQA.Selenium.Remote;
+using OpenQA.Selenium;
 
 namespace TestesAutomatizados.AcessarMenus
 {
@@ -16,21 +17,41 @@ namespace TestesAutomatizados.AcessarMenus
     /// Descrição resumida para CodedUITest1
     /// </resumo>
     [CodedUITest]
-    public class AcessarParentesco5331
+    public class AcessarParentesco
     {
-        public AcessarParentesco5331()
+        public AcessarParentesco()
         {
         }
 
         [TestMethod]
-        public void AcessarParentesco5331Metodo()
+        public void AcessarParentesco_5331()
         {
-            // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
-            this.UIMap.AcessarParentesco();
-            this.UIMap.ProcurarTextoParentesco();
-            this.UIMap.ProcurarTextoItens();
-            this.UIMap.FecharParentesco();
+            MultiClubesFunctions McFunctions = new MultiClubesFunctions();
+            MultiClubesMenus McMenus = new MultiClubesMenus();
 
+            var dc = new DesiredCapabilities();
+            dc.SetCapability("app", @"\\tsidev\Triade\Application\Dev\MultiClubes\System\MultiClubes\MultiClubes.UI.application");
+            dc.SetCapability("debugConnectToRunningApp", true);
+            RemoteWebDriver driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
+
+            McMenus.AcessarMenuAdministracaoTituloParentescos();
+
+            // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
+            bool correctTitle = false;
+            if (driver.FindElement(By.Id("labelMessage")).GetAttribute("Name") == "Parentescos")
+            {
+                correctTitle = true;
+            }
+
+            bool listViewDisplayed = false;
+            if (driver.FindElement(By.Id("listView")).Displayed)
+            {
+                listViewDisplayed = true;
+            }
+
+            McFunctions.CloseWindow("Parentescos");
+            Assert.IsTrue(correctTitle, "Título 'Parentescos' encontrado");
+            Assert.IsTrue(listViewDisplayed, "Lista de parentescos exibida");
         }
 
         #region Atributos de teste adicionais

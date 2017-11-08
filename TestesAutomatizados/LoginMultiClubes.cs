@@ -54,7 +54,7 @@ namespace TestesAutomatizados
                 {
                     //Console.WriteLine("Winium Driver fechado {0}", OpenedWiniumDriver);
                     Process.Start("C:/TestesAutomatizados/" + "Winium.Desktop.Driver.exe");
-                    Thread.Sleep(5000);
+                    Thread.Sleep(3000);
                 }
 
                 var dc = new DesiredCapabilities();
@@ -67,7 +67,7 @@ namespace TestesAutomatizados
                 }
                 else
                 {
-                    Thread.Sleep(5000);
+                    Thread.Sleep(3000);
                 }
 
                 driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
