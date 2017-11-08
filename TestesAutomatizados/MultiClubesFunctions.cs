@@ -8,7 +8,6 @@ using System.Threading;
 
 namespace TestesAutomatizados
 {
-
     /// <resumo>
     /// Descrição resumida para CodedUITest1
     /// </resumo>
@@ -36,30 +35,16 @@ namespace TestesAutomatizados
             // o parametro 'WindowName' nao altera em nada a função, apenas facilita a identificação da tela em que o mesmo atua.
             Thread.Sleep(500);
             driver.FindElement(By.Id(windowId)).FindElement(By.Name("Fechar")).Click();
-
-            //if ((driver.FindElements(By.Name("Fechar")).Count > 0) && (driver.FindElement(By.Name("Fechar")).Displayed))
-            //{
-            //    SearchElementByNameAndClick("Fechar");
-            //}
-            //else if ((driver.FindElement(By.Id("buttonClose")).Displayed) && (driver.FindElement(By.Id("buttonClose")).Enabled))
-            //{
-            //    SearchElementByIdAndClick("buttonClose");
-            //}
-            //else
-            //{
-            //    Assert.Fail("Não encontrou o botão fechar da janela {0}", windowName);
-            //}
-
         }
 
         public void FinalizarAtendimentoTitulo()
         {
             CloseWindow("Central de atendimento");
             SearchElementByIdAndClick("buttonOK");
-            TratarTelaAguarde();
+            TreatWaitScreen();
         }
 
-        public void TratarTelaAguarde(int attempts = 20)
+        public void TreatWaitScreen(int attempts = 20)
         {
             int counter = 0;
             Thread.Sleep(500);
@@ -69,12 +54,6 @@ namespace TestesAutomatizados
                 counter++;
                 Console.WriteLine("Tela 'Aguardando...' ativa {0}/{1}", counter, attempts);
             }
-        }
-
-        public void ClicarBotaoFechar()
-        {
-            Thread.Sleep(500);
-            driver.FindElementById("Close").Click();
         }
 
         public void AcessarProdutosAReceber()
@@ -226,10 +205,10 @@ namespace TestesAutomatizados
             WaitForElementLoad(By.Id("radioButtonMain"));
             driver.FindElement(By.Id("radioButtonMain")).Click();
 
-            TratarTelaAguarde();
+            TreatWaitScreen();
             driver.FindElement(By.Id("buttonOK")).Click();
 
-            TratarTelaAguarde();
+            TreatWaitScreen();
             driver.FindElement(By.Name("OK")).Click();
         }
         public void ChangePaymentGateway(string paymentGateway)
@@ -238,7 +217,7 @@ namespace TestesAutomatizados
 
             mcMenus.AcessarMenuAdministracaoConfiguracoes();
 
-            TratarTelaAguarde();
+            TreatWaitScreen();
 
             Keyboard.SendKeys("{END}");
 
@@ -259,7 +238,7 @@ namespace TestesAutomatizados
             driver.FindElement(By.Id("buttonOK")).Click();
             driver.FindElement(By.Id("buttonOK")).Click();
 
-            TratarTelaAguarde();
+            TreatWaitScreen();
         }
         public void SearchElementByIdAndClick(string elementId, bool waitForElement = false, int attempts = 20)
         {
@@ -293,26 +272,7 @@ namespace TestesAutomatizados
                 Keyboard.SendKeys("{BACK}{BACK}{BACK}{BACK}{BACK}");
             }
         }
-        #region Atributos de teste adicionais
-
-        // É possível usar os seguintes atributos adicionais enquanto escreve os testes:
-
-        ////Use TestInitialize para executar código antes de executar cada teste 
-        //[TestInitialize()]
-        //public void MyTestInitialize()
-        //{        
-        //    // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
-        //}
-
-        ////Use TestCleanup para executar código depois de cada execução de teste
-        //[TestCleanup()]
-        //public void MyTestCleanup()
-        //{        
-        //    // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
-        //}
-
-        #endregion
-
+        
         /// <resumo>
         ///Obtém ou define o contexto do teste que provê
         ///informação e funcionalidade da execução de teste atual.
@@ -330,8 +290,7 @@ namespace TestesAutomatizados
 
         }
         private TestContext testContextInstance;
-
-
+        
         public UIMap UIMap
         {
             get
@@ -347,7 +306,6 @@ namespace TestesAutomatizados
 
         private UIMap map;
         private RemoteWebDriver driver;
-
 
     }
 }

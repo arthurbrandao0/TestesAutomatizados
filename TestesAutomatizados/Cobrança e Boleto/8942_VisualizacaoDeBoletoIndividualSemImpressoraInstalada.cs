@@ -51,7 +51,7 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             McFunctions.SearchElementByNameAndClick("Imprimir");
             McFunctions.SearchElementByNameAndClick("Visualizar");
 
-            McFunctions.TratarTelaAguarde(5);
+            McFunctions.TreatWaitScreen(5);
 
             McFunctions.WaitForElementLoad(By.Id("labelMessage"));
             Assert.AreEqual("Boleto bancário", driver.FindElement(By.Id("labelMessage")).GetAttribute("Name"));
@@ -61,9 +61,9 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
 
             SendKeys.SendWait("(%{F4})");
             McFunctions.SearchElementByIdAndClick("buttonCancel", true);
-            McFunctions.TratarTelaAguarde(5);
+            McFunctions.TreatWaitScreen(5);
             McFunctions.CloseWindow("Detalhes da cobrança");
-            McFunctions.TratarTelaAguarde(5);
+            McFunctions.TreatWaitScreen(5);
             McFunctions.CloseWindow("Cobranças ativas");
             McFunctions.FinalizarAtendimentoTitulo();
             McFunctions.CloseWindow("Central de atendimento");

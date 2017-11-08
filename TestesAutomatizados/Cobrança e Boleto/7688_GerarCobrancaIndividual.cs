@@ -52,7 +52,7 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             
             driver.FindElement(By.Name("OK")).Click();
 
-            McFunctions.TratarTelaAguarde();
+            McFunctions.TreatWaitScreen();
             McFunctions.CloseWindow("Cobranças do título");
 
             McFunctions.FinalizarAtendimentoTitulo();

@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using System.Windows.Input;
-using System.Windows.Forms;
-using System.Drawing;
-using Microsoft.VisualStudio.TestTools.UITesting;
+﻿using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Microsoft.VisualStudio.TestTools.UITest.Extension;
-using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
-using OpenQA.Selenium.Remote;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Remote;
+using System;
 
 namespace TestesAutomatizados.Cobrança_e_Boleto
 {
@@ -47,7 +40,7 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             driver.FindElement(By.Id("listViewYear")).FindElements(By.Id(""))[0].Click();
 
             new Actions(driver).DoubleClick(driver.FindElement(By.Id("listViewDun")).FindElements(By.Name("444100000143"))[0]).Build().Perform();
-            McFunctions.TratarTelaAguarde();
+            McFunctions.TreatWaitScreen();
             McFunctions.SearchElementByIdAndClick("buttonOptions");
             McFunctions.SearchElementByNameAndClick("Boleto");
             McFunctions.SearchElementByNameAndClick("Visualizar mensagem");

@@ -39,7 +39,7 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             driver.FindElement(By.Id("comboBoxDunType")).Click();
             driver.FindElement(By.Name("À vista")).Click();
             driver.FindElement(By.Id("buttonOK")).Click();
-            mcFunctions.TratarTelaAguarde();
+            mcFunctions.TreatWaitScreen();
             mcFunctions.CloseWindow("Cobranças do título");
             //---
             mcFunctions.AcessarCobrancasEditarCobrancas();
@@ -75,7 +75,7 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
 
             driver.FindElement(By.Id("buttonOK")).Click();
             driver.FindElement(By.Id("buttonOK")).Click();
-            mcFunctions.TratarTelaAguarde();
+            mcFunctions.TreatWaitScreen();
             mcFunctions.CloseWindow("Cobranças do título");
 
             Assert.AreEqual(driver.FindElement(By.Id("labelDunModeValue")).GetAttribute("Name"), instituition + " " + cycle.ToLower(), "Verificando se o campo Cobrança presente no título informa os valores escolhidos.");

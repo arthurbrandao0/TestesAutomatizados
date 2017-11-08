@@ -43,7 +43,7 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             driver.FindElement(By.Id("buttonOK")).Click();
             driver.FindElement(By.Id("buttonOK")).Click();
 
-            mcFunctions.TratarTelaAguarde();
+            mcFunctions.TreatWaitScreen();
 
             mcFunctions.CloseWindow("Cobranças do título");
             mcFunctions.FinalizarAtendimentoTitulo();

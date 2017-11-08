@@ -34,14 +34,7 @@ namespace TestesAutomatizados.CobrancaEBoleto
             //mcFunctions.FinalizarAtendimentoTitulo();
             //mcFunctions.CloseWindow();
 
-            var today = DateTime.Now;
-            var yesterday = DateTime.Now.AddDays(-1).ToString("dd/MM/yyyy");
-
-            //Console.WriteLine(yesterday);
-
-            Console.WriteLine(driver.FindElement(By.Id("textBoxUsername")).GetAttribute("Value"));
-            Console.WriteLine("--");
-            //Console.WriteLine(driver.FindElement(By.Id("textBoxUsername")).Text);
+            //driver.FindElement(By.Id("OPERATION_FINANCIAL+DUN+SIMULATION")).FindElement(By.Id("buttonClose")).Click();
         }
 
         #region Atributos de teste adicionais
@@ -54,7 +47,7 @@ namespace TestesAutomatizados.CobrancaEBoleto
         {
             // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
             CheckLoginMulticlubes loginMC = new CheckLoginMulticlubes();
-            //loginMC.VerificarSeMultiClubesEstaAbertoELogado();
+            loginMC.VerificarSeMultiClubesEstaAbertoELogado();
             loginMC.CheckMCWindow();
 
         }
@@ -64,7 +57,7 @@ namespace TestesAutomatizados.CobrancaEBoleto
         public void MyTestCleanup()
         {
             CheckTestTrash McClean = new CheckTestTrash();
-            //McClean.CheckTestTrashMethod();
+            McClean.CheckTestTrashMethod();
         }
 
         #endregion

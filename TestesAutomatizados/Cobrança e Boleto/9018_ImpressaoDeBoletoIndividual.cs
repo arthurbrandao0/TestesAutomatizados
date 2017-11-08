@@ -57,7 +57,7 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             SendKeys.SendWait("(%{F4})");
 
             McFunctions.CloseWindow("Imprimir boletos");
-            McFunctions.TratarTelaAguarde();
+            McFunctions.TreatWaitScreen();
             McFunctions.CloseWindow("Detalhes da cobrança");
             McFunctions.CloseWindow("Cobranças ativas");
             McFunctions.FinalizarAtendimentoTitulo();

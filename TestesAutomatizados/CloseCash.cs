@@ -33,6 +33,11 @@ namespace TestesAutomatizados
             driver.FindElement(By.Id("buttonOptions")).Click();
             driver.FindElement(By.Name("Fechamento")).Click();
 
+            if (driver.FindElements(By.Name("Não é possível fechar o caixa com valores a receber no caixa.")).Count > 0)
+            {
+                Console.WriteLine("Valor em aberto no Caixa. É necessário recebê-lo");
+            }
+
             List<string> textBoxList = new List<string>();
             textBoxList.Add("textBoxClosingConsumptionCardValue");
             textBoxList.Add("textBoxClosingCheckValue");

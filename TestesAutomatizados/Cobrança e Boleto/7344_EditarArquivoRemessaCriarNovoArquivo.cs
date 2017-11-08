@@ -37,7 +37,7 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
 
             new Actions(driver).DoubleClick(driver.FindElement(By.Id("listViewParcel")).FindElements(By.Id(""))[0]).Build().Perform();
 
-            McFunctions.TratarTelaAguarde();
+            McFunctions.TreatWaitScreen();
             McFunctions.BillingRemittanceFiles();
 
             McFunctions.WaitForElementLoad(By.Id("buttonNew"));

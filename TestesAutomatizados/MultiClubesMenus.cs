@@ -193,6 +193,26 @@ namespace TestesAutomatizados
         }
 
         // Administração - Acesso
+        public void AcessarMenuAdministracaoAcesso()
+        {
+            AcessarMenuAdministracao();
+            AcessarMenu("Acesso");
+
+        }
+
+        // Administração - Acesso - Catracas
+        // Administração - Acesso - Componentes
+        // Administração - Acesso - Controles de acesso
+        public void AcessarMenuAdministracaoAcessoControlesDeAcesso()
+        {
+            AcessarMenuAdministracaoAcesso();
+            AcessarMenu("Controles de acesso");
+        }
+
+        // Administração - Acesso - Locais de acesso
+        // Administração - Acesso - Locais desconectados
+        // Administração - Acesso - Tipos de entrada
+
         // Administração - Armários
         // Administração - Atendimento
         // Administração - Benefícios
@@ -241,7 +261,30 @@ namespace TestesAutomatizados
         // Administração - Segurança - Usuários
 
         // Administração - Título
+        public void AcessarMenuAdministracaoTitulo()
+        {
+            AcessarMenuAdministracao();
+            AcessarMenu("Título");
+        }
 
+        // Administração - Título - Campos complementares
+        // Administração - Título - Modelos de carteira
+        // Administração - Título - Modelos Modelos de notificação
+        // Administração - Título - Parentescos
+        public void AcessarMenuAdministracaoTituloParentescos()
+        {
+            AcessarMenuAdministracaoTitulo();
+            AcessarMenu("Parentescos");
+
+        }
+        // Administração - Título - Pendências
+        // Administração - Título - Sequências de código de título
+        // Administração - Título - Tipos de licença
+        // Administração - Título - Tipos de termo
+        // Administração - Título - Tipos de título
+
+
+        // Relatorios
         public void AcessarMenuRelatorios()
         {
             this.AcessarMenu("Relatórios");

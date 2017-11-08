@@ -45,7 +45,7 @@ namespace TestesAutomatizados.CobrancaEBoleto
                 new Actions(driver).ContextClick(elementlist[0]).Perform();
                 driver.FindElement(By.Name("Gerar acerto")).Click();
                 driver.FindElement(By.Name("Sim")).Click();
-                McFunctions.TratarTelaAguarde();
+                McFunctions.TreatWaitScreen();
                 driver.FindElement(By.Id("buttonCancel")).Click();                
             }
             else
@@ -146,7 +146,7 @@ namespace TestesAutomatizados.CobrancaEBoleto
             //Acerto de comissão de promotor ser corretamente desfeito e ser apresentada tela de histórico de acertos sem constar o acerto de comissão desfeito
             driver.FindElement(By.Name("Sim")).Click();
 
-            McFunctions.TratarTelaAguarde();
+            McFunctions.TreatWaitScreen();
 
             McFunctions.CloseWindow();
 

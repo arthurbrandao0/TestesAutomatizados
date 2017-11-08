@@ -46,7 +46,7 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             new Actions(driver).MoveToElement(driver.FindElement(By.Id("listViewDun")).FindElements(By.Id(""))[0]).Build().Perform();
             new Actions(driver).DoubleClick(driver.FindElement(By.Id("listViewDun")).FindElements(By.Id(""))[0]).Build().Perform();
 
-            McFunctions.TratarTelaAguarde();
+            McFunctions.TreatWaitScreen();
             McFunctions.SearchElementByIdAndClick("buttonOptions");
             McFunctions.SearchElementByNameAndClick("Imprimir extrato");
 

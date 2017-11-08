@@ -38,7 +38,7 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             
             driver.FindElement(By.Id("buttonOptions")).Click();
             driver.FindElement(By.Name("Desfazer")).Click();
-            mcFunctions.TratarTelaAguarde();
+            mcFunctions.TreatWaitScreen();
             driver.FindElement(By.Name("Sim")).Click();
             mcFunctions.WaitForElementLoad(By.Id("OPERATION_FINANCIAL+BANK+REMITTANCE_HISTORY"), 2);
             mcFunctions.CloseWindow("Remessas anteriores", "OPERATION_FINANCIAL+BANK+REMITTANCE_HISTORY");

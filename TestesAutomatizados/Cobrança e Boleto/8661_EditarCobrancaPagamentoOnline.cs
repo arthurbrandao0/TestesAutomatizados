@@ -47,7 +47,7 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             driver.FindElement(By.Id("comboBoxDunType")).Click();
             driver.FindElement(By.Name("À vista")).Click();
             driver.FindElement(By.Id("buttonOK")).Click();
-            mcFunctions.TratarTelaAguarde();
+            mcFunctions.TreatWaitScreen();
             mcFunctions.CloseWindow("Cobranças do título");
             //---
             mcFunctions.AcessarCobrancasEditarCobrancas();
@@ -73,7 +73,7 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             mcFunctions.WaitForElementLoad(By.Id("buttonOK"));
             mcFunctions.SearchElementByIdAndClick("buttonOK");
 
-            mcFunctions.TratarTelaAguarde();
+            mcFunctions.TreatWaitScreen();
 
             mcFunctions.CloseWindow("Cobranças do título");
             mcFunctions.FinalizarAtendimentoTitulo();

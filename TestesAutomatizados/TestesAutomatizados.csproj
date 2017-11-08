@@ -62,13 +62,12 @@
     <Compile Include="AcessarMenus\6237_AcessarCentralDeAtendimento.cs" />
     <Compile Include="AcessarMenus\6351_AcessarComputadores.cs" />
     <Compile Include="AcessarMenus\AcessarGruposDeProduto5885.cs" />
-    <Compile Include="AcessarMenus\AcessarParentesco5331.cs" />
+    <Compile Include="AcessarMenus\5331_AcessarParentesco.cs" />
     <Compile Include="AcessarMenus\AcessarSeguranca6350.cs" />
-    <Compile Include="Acesso\IncluirControleDeAcesso8704.cs" />
+    <Compile Include="Acesso\8704_IncluirControleDeAcesso.cs" />
     <Compile Include="Cobrança e Boleto\8200_DesfazerAcertoDePromotorComCobrancaGerada.cs" />
     <Compile Include="Cobrança e Boleto\7687_DesfazerCobrancaEmMassa.cs" />
     <Compile Include="Cobrança e Boleto\6442_EditarCobrancaDebitoEmConta.cs" />
-    <Compile Include="Cobrança e Boleto\%28TC igual ao 6283%29_6959_GeracaoDeCobrancaSemConsumo.cs" />
     <Compile Include="Cobrança e Boleto\7031_GerarCobrancaEmMassaComImportacaoDeConsumo_Todas.cs" />
     <Compile Include="Cobrança e Boleto\6283_GerarCobrancaEmMassaSemImportacaoDeConsumo_Todas.cs" />
     <Compile Include="Cobrança e Boleto\7688_GerarCobrancaIndividual.cs" />
@@ -108,9 +107,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Cobrança e Boleto\TestList.orderedtest">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="packages.config" />
     <None Include="UIMap.uitest" />
   </ItemGroup>

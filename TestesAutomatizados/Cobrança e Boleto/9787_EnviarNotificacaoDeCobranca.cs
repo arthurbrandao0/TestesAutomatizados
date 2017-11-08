@@ -31,7 +31,7 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             McMenus.AcessarMenuOperacaoFinanceiroCobrancaNotificacaoDeCobrancaEmail();
 
             McFunctions.SearchElementByIdAndClick("buttonOK");
-            McFunctions.TratarTelaAguarde();
+            McFunctions.TreatWaitScreen();
 
             int counter = 0;
             while ((driver.FindElements(By.Name("Enviando...")).Count > 0) && counter < 200)

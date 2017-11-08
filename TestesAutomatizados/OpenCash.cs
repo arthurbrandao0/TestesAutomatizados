@@ -23,7 +23,6 @@ namespace TestesAutomatizados
         {
         }
 
-        [TestMethod]
         public void OpenCashMethod()
         {
             MultiClubesFunctions mcFunctions = new MultiClubesFunctions();
@@ -49,7 +48,7 @@ namespace TestesAutomatizados
                 }
                 this.UIMap.InserirSenhaAberturaCaixa();
 
-                mcFunctions.TratarTelaAguarde();
+                mcFunctions.TreatWaitScreen();
                 driver.FindElement(By.Id("buttonOK")).Click();
             }
             

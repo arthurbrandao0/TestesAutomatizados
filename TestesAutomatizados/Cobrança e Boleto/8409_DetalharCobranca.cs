@@ -62,7 +62,7 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             driver.FindElement(By.Id("buttonOK")).Click();           
             driver.FindElement(By.Name("Sim")).Click();
 
-            McFunctions.TratarTelaAguarde();
+            McFunctions.TreatWaitScreen();
 
             McFunctions.CashReceiptByBillingGeneration();
             
@@ -73,7 +73,7 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
 
             new Actions(driver).DoubleClick(driver.FindElement(By.Name(modalityBillingName))).Build().Perform();
 
-            McFunctions.TratarTelaAguarde();
+            McFunctions.TreatWaitScreen();
             driver.FindElement(By.Id("buttonOptions")).Click();
             driver.FindElement(By.Name("Detalhar manutenção")).Click();
 
@@ -118,7 +118,7 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             driver.FindElement(By.Id("buttonOK")).Click();
             driver.FindElement(By.Name("Sim")).Click();
             
-            McFunctions.TratarTelaAguarde();
+            McFunctions.TreatWaitScreen();
 
             bool remainingRegistration = false;
             new Actions(driver).MoveToElement(holderElement).ContextClick(holderElement).Build().Perform();
