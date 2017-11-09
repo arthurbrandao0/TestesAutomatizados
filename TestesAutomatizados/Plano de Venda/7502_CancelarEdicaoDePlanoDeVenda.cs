@@ -11,14 +11,14 @@ namespace TestesAutomatizados.Plano_de_Venda
     /// Summary description for CodedUITest1
     /// </summary>
     [CodedUITest]
-    public class CancelarPlanoDeVenda
+    public class CancelarEdicaoDePlanoDeVenda
     {
-        public CancelarPlanoDeVenda()
+        public CancelarEdicaoDePlanoDeVenda()
         {
         }
 
         [TestMethod]
-        public void CancelarPlanoDeVenda_7500()
+        public void CancelarEdicaoDePlanoDeVenda_7502()
         {
             MultiClubesFunctions McFunctions = new MultiClubesFunctions();
             MultiClubesMenus McMenus = new MultiClubesMenus();
@@ -38,9 +38,8 @@ namespace TestesAutomatizados.Plano_de_Venda
             IWebElement listViewElement = driver.FindElement(By.Id("listView")).FindElement(By.Name(".Ingresso Teste"));
             new Actions(driver).MoveToElement(listViewElement).ContextClick(listViewElement).Build().Perform();
             driver.FindElement(By.Name("Editar")).Click();
-            McFunctions.TreatWaitScreen();
-                        
-            McFunctions.SearchElementByIdAndSendKeys("textBoxDescription", "Descrição teste");
+
+
 
             McFunctions.SearchElementByIdAndClick("buttonCancel");
             McFunctions.TreatWaitScreen();

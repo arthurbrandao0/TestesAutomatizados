@@ -96,6 +96,7 @@
     <Compile Include="MultiClubesMenus.cs" />
     <Compile Include="Plano de Venda\10720_CriarPlanoDeVenda.cs" />
     <Compile Include="Plano de Venda\7500_CancelarPlanoDeVenda.cs" />
+    <Compile Include="Plano de Venda\7502_CancelarEdicaoDePlanoDeVenda.cs" />
     <Compile Include="TesteIsolado.cs" />
     <Compile Include="Mapas de Ocupação\9265_InclusaoDeMapaDeOcupacao.cs" />
     <Compile Include="MultiClubesFunctions.cs" />
