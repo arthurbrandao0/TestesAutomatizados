@@ -1,69 +1,57 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using System.Windows.Input;
-using System.Windows.Forms;
-using System.Drawing;
-using Microsoft.VisualStudio.TestTools.UITesting;
+﻿using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Microsoft.VisualStudio.TestTools.UITest.Extension;
-using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
-using OpenQA.Selenium.Remote;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Remote;
+using System;
 
-namespace TestesAutomatizados.Cobrança_e_Boleto
+namespace TestesAutomatizados.Mapas_de_Ocupação
 {
     /// <resumo>
     /// Descrição resumida para CodedUITest1
     /// </resumo>
     [CodedUITest]
-    public class IncluirControleDeAcesso
+    public class InclusaoDeMapaDeOcupacao
     {
-        public IncluirControleDeAcesso()
+        public InclusaoDeMapaDeOcupacao()
         {
         }
 
         [TestMethod]
-        public void IncluirControleDeAcesso_8704()
+        public void InclusaoDeMapaDeOcupacao_9265()
         {
             MultiClubesFunctions McFunctions = new MultiClubesFunctions();
             MultiClubesMenus McMenus = new MultiClubesMenus();
 
-            string accessControlName = "Controle de Acesso criado em " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
-            string descriptionAccessControlName = "Descrição " + accessControlName;
+            string ocupationMapName = "Mapa de ocupação criado em " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
 
             var dc = new DesiredCapabilities();
             dc.SetCapability("app", @"\\tsidev\Triade\Application\Dev\MultiClubes\System\MultiClubes\MultiClubes.UI.application");
             dc.SetCapability("debugConnectToRunningApp", true);
             RemoteWebDriver driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
 
-            McMenus.AcessarMenuAdministracaoAcessoControlesDeAcesso();
+            // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
+            McMenus.AcessarMenuAdministracaoMapasDeOcupacao();
 
             IWebElement listViewElement = driver.FindElement(By.Id("listView"));
             new Actions(driver).MoveToElement(listViewElement).ContextClick(listViewElement).Build().Perform();
             driver.FindElement(By.Name("Incluir")).Click();
 
-            McFunctions.SearchElementByIdAndSendKeys("textBoxName", accessControlName);
-            McFunctions.SearchElementByIdAndSendKeys("textBoxDescription", descriptionAccessControlName);
+            McFunctions.WaitForElementLoad(By.Id("textBoxName"));
+            McFunctions.SearchElementByIdAndSendKeys("textBoxName", ocupationMapName);
 
-            McFunctions.SearchElementByIdAndClick("buttonRules");
-
-            //verificar quais regras serão aplicadas
-            
-            McFunctions.SearchElementByIdAndClick("buttonOK");
             McFunctions.SearchElementByIdAndClick("buttonOK");
             McFunctions.TreatWaitScreen();
 
             bool createdAcessControl = false;
-            if (listViewElement.FindElements(By.Name(accessControlName)).Count > 0)
+            if (listViewElement.FindElements(By.Name(ocupationMapName)).Count > 0)
             {
                 createdAcessControl = true;
             }
 
-            McFunctions.CloseWindow("Controle de Acesso");
+            McFunctions.CloseWindow("Mapas de ocupação");
 
-            Assert.IsTrue(createdAcessControl, "Controle de acesso criado");
+            Assert.IsTrue(createdAcessControl, "Mapa de ocupação criado");
         }
 
         #region Atributos de teste adicionais
@@ -84,7 +72,7 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
         public void MyTestCleanup()
         {
             CheckTestTrash McClean = new CheckTestTrash();
-            McClean.CheckTestTrashMethod();
+            //McClean.CheckTestTrashMethod();
         }
 
         #endregion

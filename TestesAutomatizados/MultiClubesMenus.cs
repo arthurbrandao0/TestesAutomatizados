@@ -270,6 +270,11 @@ namespace TestesAutomatizados
         // Administração - Histórico de ações
         // Administração - Integração ERP
         // Administração - Mapas de ocupação
+        public void AcessarMenuAdministracaoMapasDeOcupacao()
+        {
+            AcessarMenuAdministracao();
+            AcessarMenu("Mapas de ocupação");
+        }
         // Administração - Marinas
         // Administração - Modalidades
         // Administração - Ouvidoria

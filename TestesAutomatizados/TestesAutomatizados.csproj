@@ -95,7 +95,7 @@
     <Compile Include="OpenCash.cs" />
     <Compile Include="MultiClubesMenus.cs" />
     <Compile Include="TesteIsolado.cs" />
-    <Compile Include="Mapas de Ocupação\InclusaoDeMapaDeOcupacao9265.cs" />
+    <Compile Include="Mapas de Ocupação\9265_InclusaoDeMapaDeOcupacao.cs" />
     <Compile Include="MultiClubesFunctions.cs" />
     <Compile Include="LoginMultiClubes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
