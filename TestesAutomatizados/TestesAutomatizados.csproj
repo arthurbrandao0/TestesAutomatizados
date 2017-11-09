@@ -94,6 +94,7 @@
     <Compile Include="MultiClubesVariables.cs" />
     <Compile Include="OpenCash.cs" />
     <Compile Include="MultiClubesMenus.cs" />
+    <Compile Include="Plano de Venda\10720_CriarPlanoDeVenda.cs" />
     <Compile Include="TesteIsolado.cs" />
     <Compile Include="Mapas de Ocupação\9265_InclusaoDeMapaDeOcupacao.cs" />
     <Compile Include="MultiClubesFunctions.cs" />

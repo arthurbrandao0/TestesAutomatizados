@@ -261,6 +261,20 @@ namespace TestesAutomatizados
         // Administração - Financeiro - Instituições de cobrança
         // Administração - Financeiro - Motivos de desconto
         // Administração - Financeiro - Planos de venda
+        public void AcessarMenuAdministracaoFinanceiroPlanosDeVenda()
+        {
+            AcessarMenuAdministracaoFinanceiro();
+            AcessarMenu("Planos de venda");
+        }
+        // Administração - Financeiro - Planos de venda - Campanhas
+        // Administração - Financeiro - Planos de venda - Componentes
+        // Administração - Financeiro - Planos de venda - Planos
+        public void AcessarMenuAdministracaoFinanceiroPlanosDeVendaPlanos()
+        {
+            AcessarMenuAdministracaoFinanceiroPlanosDeVenda();
+            AcessarMenu("Planos");
+        }
+
         // Administração - Financeiro - Planos empresa
         // Administração - Financeiro - Produtos
         // Administração - Financeiro - Promotores

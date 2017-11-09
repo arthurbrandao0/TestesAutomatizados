@@ -72,7 +72,7 @@ namespace TestesAutomatizados.Mapas_de_Ocupação
         public void MyTestCleanup()
         {
             CheckTestTrash McClean = new CheckTestTrash();
-            //McClean.CheckTestTrashMethod();
+            McClean.CheckTestTrashMethod();
         }
 
         #endregion
