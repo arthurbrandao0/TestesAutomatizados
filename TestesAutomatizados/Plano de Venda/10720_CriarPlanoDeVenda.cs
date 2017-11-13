@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using System.Windows.Input;
-using System.Windows.Forms;
-using System.Drawing;
-using Microsoft.VisualStudio.TestTools.UITesting;
+﻿using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Microsoft.VisualStudio.TestTools.UITest.Extension;
-using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
-using OpenQA.Selenium.Remote;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Remote;
+using System;
 
 namespace TestesAutomatizados.Plano_de_Venda
 {
@@ -31,8 +24,7 @@ namespace TestesAutomatizados.Plano_de_Venda
             MultiClubesMenus McMenus = new MultiClubesMenus();
 
             string planName = "Plano de venda criado em " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
-
-
+            
             var dc = new DesiredCapabilities();
             dc.SetCapability("app", @"\\tsidev\Triade\Application\Dev\MultiClubes\System\MultiClubes\MultiClubes.UI.application");
             dc.SetCapability("debugConnectToRunningApp", true);
@@ -40,7 +32,11 @@ namespace TestesAutomatizados.Plano_de_Venda
 
             McMenus.AcessarMenuAdministracaoFinanceiroPlanosDeVendaPlanos();
 
+            McFunctions.WaitForElementLoad(By.Id("treeView"));
+
             driver.FindElement(By.Id("treeView")).FindElement(By.Name("Título local")).Click();
+
+            McFunctions.WaitForElementLoad(By.Id("listView"), 2);
 
             IWebElement listViewElement = driver.FindElement(By.Id("listView"));
             new Actions(driver).MoveToElement(listViewElement).ContextClick(listViewElement).Build().Perform();
@@ -97,7 +93,7 @@ namespace TestesAutomatizados.Plano_de_Venda
         public void MyTestCleanup()
         {
             CheckTestTrash McClean = new CheckTestTrash();
-            //McClean.CheckTestTrashMethod();
+            McClean.CheckTestTrashMethod();
         }
 
         #endregion
