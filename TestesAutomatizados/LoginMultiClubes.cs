@@ -118,6 +118,11 @@ namespace TestesAutomatizados
                 Thread.Sleep(1000);
             }
             winMC.SetFocus();
+
+            if (driver.FindElements(By.Id("FormLicensing")).Count > 0)
+            {
+                driver.FindElement(By.Id("FormLicensing")).FindElement(By.Id("buttonClose")).Click();
+            }
         }
 
         #region Atributos de teste adicionais
