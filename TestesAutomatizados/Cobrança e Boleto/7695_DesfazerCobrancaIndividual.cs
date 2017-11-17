@@ -4,6 +4,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Remote;
 using System;
+using System.Reflection;
 
 namespace TestesAutomatizados.Cobrança_e_Boleto
 {
@@ -49,26 +50,32 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
                 counter++;
             }
             string billing = listViewDunElements[counter - 3].GetAttribute("Name");
-            Console.WriteLine(billing);
             listViewDunElements[counter - 3].Click();
 
             new Actions(driver).DoubleClick(listViewDunElements[counter - 3]).Build().Perform();
             
             McFunctions.WaitForElementLoad(By.Id("buttonOptions"));
             driver.FindElement(By.Id("buttonOptions")).Click();
-
             driver.FindElement(By.Name("Desfazer cobrança")).Click();
+
             driver.FindElement(By.Name("Sim")).Click();
+
+            if (driver.FindElements(By.Name("Informação")).Count > 0)
+            {
+                driver.FindElement(By.Name("OK")).Click();
+                driver.FindElement(By.Name("Erros")).Click();
+            }
 
             McFunctions.WaitForElementLoad(By.Name("OK"));
             driver.FindElement(By.Name("OK")).Click();
+
+            McFunctions.WaitForElementLoad(By.Id("listViewDun"));
 
             bool undoneBilling = true;
             if (driver.FindElement(By.Id("listViewDun")).FindElements(By.Name(billing)).Count > 0)
             {
                 undoneBilling = false;
             }
-            
             McFunctions.WaitForElementLoad(By.Name("Cobranças ativas"));
             McFunctions.CloseWindow("Cobranças ativas");
             McFunctions.FinalizarAtendimentoTitulo();
