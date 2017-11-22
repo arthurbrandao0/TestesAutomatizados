@@ -1,28 +1,26 @@
 ﻿using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Remote;
 using System;
-using System.Windows.Forms;
 
-namespace TestesAutomatizados.Cobrança_e_Boleto
+namespace TestesAutomatizados.Título
 {
     /// <summary>
-    /// Summary description for CodedUITest5
+    /// Summary description for CodedUITest1
     /// </summary>
     [CodedUITest]
-    public class VisualizacaoDeBoletoIndividualSemImpressoraInstalada
+    public class VenderTituloNoCaixaSemConfirmacao
     {
-        public VisualizacaoDeBoletoIndividualSemImpressoraInstalada()
+        public VenderTituloNoCaixaSemConfirmacao()
         {
         }
 
         [TestMethod]
-        public void VisualizacaoDeBoletoIndividualSemImpressoraInstalada_8942()
+        public void VenderTituloNoCaixaSemConfirmacao_5573()
         {
-            string holder = "A28282";
-
+            string name = "Sócio criado em " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+            
             MultiClubesFunctions McFunctions = new MultiClubesFunctions();
             MultiClubesMenus McMenus = new MultiClubesMenus();
             OpenCash openCash = new OpenCash();
@@ -31,45 +29,50 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             dc.SetCapability("app", @"\\tsidev\Triade\Application\Dev\MultiClubes\System\MultiClubes\MultiClubes.UI.application");
             dc.SetCapability("debugConnectToRunningApp", true);
             RemoteWebDriver driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
+
+            openCash.OpenCashMethod();
+
+            McMenus.AcessarMenuOperacaoTituloCadastroDeTitulo();
+
+            McFunctions.SearchElementByIdAndClick("comboBoxSalePlan");
+            McFunctions.SearchElementByNameAndClick("AGE - AGEPES");
+
+            McFunctions.TreatWaitScreen();
+
+            McFunctions.SearchElementByIdAndSendKeys("maskedTextBoxPostalCode", "01311000");
+
+            McFunctions.SearchElementByIdAndClick("buttonSearch");
+            McFunctions.TreatWaitScreen();
+
+            McFunctions.SearchElementByIdAndSendKeys("textBoxNumber", "100");
+
+            McFunctions.SearchElementByIdAndClick("buttonOK");
+
+            McFunctions.SearchElementByIdAndSendKeys("textBoxName", name);
+            McFunctions.SearchElementByIdAndSendKeys("textBox", "123");
+            McFunctions.SearchElementByIdAndClick("buttonOK");
+
+            McFunctions.SearchElementByIdAndClick("buttonCancel");
+
+            McFunctions.SearchElementByNameAndClick("Sim");
             
             McMenus.AcessarMenuOperacaoTituloCentralDeAtendimento();
-            McFunctions.SearchHolder(holder);
+            McFunctions.SendAndCheckKeys("textBoxKeyword", name);
+            Keyboard.SendKeys("{Enter}");
 
-            McFunctions.AcessarCobrancasAtivas();
+            McFunctions.TreatWaitScreen();
 
-            McFunctions.WaitForElementLoad(By.Id("listViewDun"));
+            Console.WriteLine();
 
-            McFunctions.WaitForElementLoad(By.Id("listViewYear"));
-            driver.FindElement(By.Id("listViewYear")).FindElements(By.Id(""))[0].Click();
+            bool foundHolder = false;
+            if(driver.FindElement(By.Id("listView")).FindElements(By.Name(name)).Count > 0)
+            {
+                foundHolder = true;
+            }
 
-            var listViewDunElements = driver.FindElement(By.Id("listViewDun")).FindElements(By.Id(""));
-            
-            Console.WriteLine("Valor da cobrança: {0}", listViewDunElements[4].GetAttribute("Name"));
+            Assert.IsFalse(foundHolder, "Título foi criado, mesmo com o cadastro sendo cancelado antes de concluído");
 
-            new Actions(driver).MoveToElement(driver.FindElement(By.Id("listViewDun")).FindElements(By.Id(""))[0]).Build().Perform();
-            new Actions(driver).DoubleClick(driver.FindElement(By.Id("listViewDun")).FindElements(By.Id(""))[0]).Build().Perform();
-
-            McFunctions.SearchElementByIdAndClick("buttonOptions");
-            McFunctions.SearchElementByNameAndClick("Boleto");
-            McFunctions.SearchElementByNameAndClick("Imprimir");
-            McFunctions.SearchElementByNameAndClick("Visualizar");
-
-            McFunctions.TreatWaitScreen(5);
-
-            McFunctions.WaitForElementLoad(By.Id("labelMessage"));
-            Assert.AreEqual("Boleto bancário", driver.FindElement(By.Id("labelMessage")).GetAttribute("Name"));
-            Assert.IsTrue(driver.FindElement(By.Id("printPreviewControl")).Enabled);
-
-            Assert.Inconclusive("É necessário validar os dados do boleto manualmente");
-
-            SendKeys.SendWait("(%{F4})");
-            McFunctions.SearchElementByIdAndClick("buttonCancel", true);
-            McFunctions.TreatWaitScreen(5);
-            McFunctions.CloseWindow("Detalhes da cobrança");
-            McFunctions.TreatWaitScreen(5);
-            McFunctions.CloseWindow("Cobranças ativas");
-            McFunctions.FinalizarAtendimentoTitulo();
-            McFunctions.CloseWindow("Central de atendimento");
+            McFunctions.CloseWindow("Central de Atendimento");
         }
 
         #region Additional test attributes

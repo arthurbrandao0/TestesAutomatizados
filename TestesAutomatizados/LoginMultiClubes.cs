@@ -82,10 +82,11 @@ namespace TestesAutomatizados
                             &&
                             driver.FindElements(By.Id("textBoxPassword")).Count > 0)
                         {
-                            this.UIMap.InserirUsuarioESenha();
+                            //this.UIMap.InserirUsuarioESenha();
+                            SendUsernameAndPassword();
                             break;
                         }
-                        Thread.Sleep(1000);
+                        Thread.Sleep(200);
                         counter++;
                     }
                 }
@@ -95,7 +96,8 @@ namespace TestesAutomatizados
                             &&
                             driver.FindElements(By.Id("textBoxPassword")).Count > 0)
                     {
-                        this.UIMap.InserirUsuarioESenha();
+                        //this.UIMap.InserirUsuarioESenha();
+                        SendUsernameAndPassword();
                     }
                 }
 
@@ -115,10 +117,9 @@ namespace TestesAutomatizados
             
             while (!winMC.Exists)
             {
-                Thread.Sleep(1000);
+                Thread.Sleep(200);
             }
             winMC.SetFocus();
-
 
             WinWindow winLincense = new WinWindow();
             winLincense.SearchProperties[WinWindow.PropertyNames.Name] = "Licença";
@@ -128,6 +129,15 @@ namespace TestesAutomatizados
                 
                 driver.FindElement(By.Id("FormLicensing")).FindElement(By.Id("buttonClose")).Click();
             }
+        }
+
+        public void SendUsernameAndPassword()
+        {
+            MultiClubesFunctions mcFunctions = new MultiClubesFunctions();
+
+            mcFunctions.SearchElementByIdAndSendKeys("textBoxUsername", "qualidade");
+            mcFunctions.SearchElementByIdAndSendKeys("textBoxPassword", "DeZer0@100");
+            mcFunctions.SearchElementByIdAndClick("button");
         }
 
         #region Atributos de teste adicionais

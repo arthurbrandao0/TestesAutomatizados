@@ -48,9 +48,10 @@ namespace TestesAutomatizados
         {
             int counter = 0;
             Thread.Sleep(500);
-            while ((driver.FindElements(By.Name("Aguarde...")).Count > 0) && counter < attempts)
+            //while ((driver.FindElements(By.Name("Aguarde...")).Count > 0) && counter < attempts)
+            while ((driver.FindElements(By.Id("labelWait")).Count > 0) && counter < attempts)
             {
-                Thread.Sleep(250);
+                Thread.Sleep(100);
                 counter++;
                 Console.WriteLine("Tela 'Aguardando...' ativa {0}/{1}", counter, attempts);
             }
