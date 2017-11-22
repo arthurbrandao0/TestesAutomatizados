@@ -103,6 +103,7 @@
     <Compile Include="LoginMultiClubes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Título\5573_VenderTituloNoCaixaSemConfirmacao.cs" />
+    <Compile Include="Título\5589_VenderTituloNoCaixaComConfirmacao.cs" />
     <Compile Include="UIMap.cs">
       <DependentUpon>UIMap.uitest</DependentUpon>
     </Compile>

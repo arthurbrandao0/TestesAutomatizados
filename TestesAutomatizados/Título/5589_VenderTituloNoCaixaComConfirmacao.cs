@@ -1,8 +1,15 @@
-﻿using Microsoft.VisualStudio.TestTools.UITesting;
+﻿using System;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using System.Windows.Input;
+using System.Windows.Forms;
+using System.Drawing;
+using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OpenQA.Selenium;
+using Microsoft.VisualStudio.TestTools.UITest.Extension;
+using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
 using OpenQA.Selenium.Remote;
-using System;
+using OpenQA.Selenium;
 
 namespace TestesAutomatizados.Título
 {
@@ -10,17 +17,17 @@ namespace TestesAutomatizados.Título
     /// Summary description for CodedUITest1
     /// </summary>
     [CodedUITest]
-    public class VenderTituloNoCaixaSemConfirmacao
+    public class VenderTituloNoCaixaComConfirmacao
     {
-        public VenderTituloNoCaixaSemConfirmacao()
+        public VenderTituloNoCaixaComConfirmacao()
         {
         }
 
         [TestMethod]
-        public void VenderTituloNoCaixaSemConfirmacao_5573()
+        public void VenderTituloNoCaixaComConfirmacao_5589()
         {
             string name = "Sócio criado em " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
-            
+
             MultiClubesFunctions McFunctions = new MultiClubesFunctions();
             MultiClubesMenus McMenus = new MultiClubesMenus();
             OpenCash openCash = new OpenCash();
@@ -29,6 +36,8 @@ namespace TestesAutomatizados.Título
             dc.SetCapability("app", @"\\tsidev\Triade\Application\Dev\MultiClubes\System\MultiClubes\MultiClubes.UI.application");
             dc.SetCapability("debugConnectToRunningApp", true);
             RemoteWebDriver driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
+
+            openCash.OpenCashMethod();
 
             openCash.OpenCashMethod();
 
@@ -52,10 +61,12 @@ namespace TestesAutomatizados.Título
             McFunctions.SearchElementByIdAndSendKeys("textBox", "123");
             McFunctions.SearchElementByIdAndClick("buttonOK");
 
-            McFunctions.SearchElementByIdAndClick("buttonCancel");
+            McFunctions.SearchElementByIdAndClick("buttonFinalize", true);
+            McFunctions.SearchElementByNameAndClick("Sim", true);
+            McFunctions.TreatWaitScreen();
 
-            McFunctions.SearchElementByNameAndClick("Sim");
-            
+            McFunctions.SearchElementByIdAndClick("buttonClose");
+
             McMenus.AcessarMenuOperacaoTituloCentralDeAtendimento();
             McFunctions.SendAndCheckKeys("textBoxKeyword", name);
             Keyboard.SendKeys("{Enter}");
@@ -63,12 +74,12 @@ namespace TestesAutomatizados.Título
             McFunctions.TreatWaitScreen();
 
             bool foundHolder = false;
-            if(driver.FindElement(By.Id("listView")).FindElements(By.Name(name)).Count > 0)
+            if (driver.FindElement(By.Id("listView")).FindElements(By.Name(name)).Count > 0)
             {
                 foundHolder = true;
             }
 
-            Assert.IsFalse(foundHolder, "Título foi criado, mesmo com o cadastro sendo cancelado antes de concluído");
+            Assert.IsTrue(foundHolder, "Título não foi criado");
 
             McFunctions.CloseWindow("Central de Atendimento");
         }
