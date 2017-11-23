@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UITesting;
+using Microsoft.VisualStudio.TestTools.UITesting.WinControls;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
@@ -44,12 +45,16 @@ namespace TestesAutomatizados
             TreatWaitScreen();
         }
 
-        public void TreatWaitScreen(int attempts = 20)
+        public void TreatWaitScreen(int attempts = 50)
         {
             int counter = 0;
-            Thread.Sleep(500);
-            //while ((driver.FindElements(By.Name("Aguarde...")).Count > 0) && counter < attempts)
-            while ((driver.FindElements(By.Id("labelWait")).Count > 0) && counter < attempts)
+            //Thread.Sleep(500);
+
+            WinText waitText = new WinText();
+            waitText.SearchProperties[WinText.PropertyNames.Name] = "Aguarde...";
+            waitText.WindowTitles.Add("MultiClubes");
+
+            while (waitText.Exists && counter < attempts)
             {
                 Thread.Sleep(100);
                 counter++;
@@ -247,7 +252,7 @@ namespace TestesAutomatizados
             {
                 WaitForElementLoad(By.Id(elementId), attempts);
             }
-            driver.FindElement(By.Id(elementId)).Click();
+            new Actions(driver).MoveToElement(driver.FindElement(By.Id(elementId))).Click(driver.FindElement(By.Id(elementId))).Build().Perform();
         }
 
         public void SearchElementByNameAndClick(string elementName, bool waitForElement = false, int attempts = 20)
@@ -258,10 +263,15 @@ namespace TestesAutomatizados
             }
             driver.FindElement(By.Name(elementName)).Click();
         }
-        public void SearchElementByIdAndSendKeys(string idElement, string keysToSend)
+        public void SearchElementByIdAndSendKeys(string elementId, string keysToSend, bool waitForElement = false, int attempts = 20)
         {
-            SearchElementByIdAndClick(idElement);
-            driver.FindElement(By.Id(idElement)).Clear();
+            if (waitForElement == true)
+            {
+                WaitForElementLoad(By.Id(elementId), attempts);
+            }
+            new Actions(driver).MoveToElement(driver.FindElement(By.Id(elementId))).Click(driver.FindElement(By.Id(elementId))).Build().Perform();
+
+            driver.FindElement(By.Id(elementId)).Clear();
             Keyboard.SendKeys(keysToSend);
         }
 
