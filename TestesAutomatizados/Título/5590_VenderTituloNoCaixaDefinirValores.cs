@@ -17,14 +17,14 @@ namespace TestesAutomatizados.Título
     /// Summary description for CodedUITest1
     /// </summary>
     [CodedUITest]
-    public class VenderTituloNoCaixaComConfirmacao
+    public class VenderTituloNoCaixaDefinirValores
     {
-        public VenderTituloNoCaixaComConfirmacao()
+        public VenderTituloNoCaixaDefinirValores()
         {
         }
 
         [TestMethod]
-        public void VenderTituloNoCaixaComConfirmacao_5589()
+        public void VenderTituloNoCaixaDefinirValores_5590()
         {
             string name = "Sócio criado em " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
 
@@ -41,7 +41,7 @@ namespace TestesAutomatizados.Título
 
             McMenus.AcessarMenuOperacaoTituloCadastroDeTitulo();
 
-            McFunctions.SearchElementByIdAndClick("comboBoxSalePlan");
+            McFunctions.SearchElementByIdAndClick("comboBoxSalePlan", true, 2);
             McFunctions.SearchElementByNameAndClick("AGE - AGEPES");
 
             McFunctions.TreatWaitScreen();
@@ -59,27 +59,17 @@ namespace TestesAutomatizados.Título
             McFunctions.SearchElementByIdAndSendKeys("textBox", "123");
             McFunctions.SearchElementByIdAndClick("buttonOK");
 
-            McFunctions.SearchElementByIdAndClick("buttonFinalize", true);
-            McFunctions.SearchElementByNameAndClick("Sim", true);
-            McFunctions.TreatWaitScreen();
+            McFunctions.SearchElementByIdAndSendKeys("numericUpDownParcelQuantity", "10", true, 2);
+            McFunctions.SearchElementByIdAndSendKeys("numericUpDownEntranceValue", "10,00", true, 2);
+            McFunctions.SearchElementByIdAndClick("radioButtonDiscountPercentage");
+            McFunctions.SearchElementByIdAndSendKeys("numericUpDownDiscountPercentage", "10", true, 2);
+            McFunctions.SearchElementByIdAndClick("numericUpDownParcelQuantity");
 
-            McFunctions.SearchElementByIdAndClick("buttonClose");
-
-            McMenus.AcessarMenuOperacaoTituloCentralDeAtendimento();
-            McFunctions.SendAndCheckKeys("textBoxKeyword", name);
-            Keyboard.SendKeys("{Enter}");
-
-            McFunctions.TreatWaitScreen();
-
-            bool foundHolder = false;
-            if (driver.FindElement(By.Id("listView")).FindElements(By.Name(name)).Count > 0)
-            {
-                foundHolder = true;
-            }
-
-            Assert.IsTrue(foundHolder, "Título não foi criado");
-
-            McFunctions.CloseWindow("Central de Atendimento");
+            //Não consegui obter os valores dos campos
+            Assert.Inconclusive("Verificar se os valores obtidos são: \n" +
+                                "Parcela = R$ 89,00 \n" +
+                                "Total = R$ 900,00 \n" +
+                                "(Valor original do título = R$ 1.000,00)");
         }
 
         #region Additional test attributes
@@ -100,7 +90,7 @@ namespace TestesAutomatizados.Título
         public void MyTestCleanup()
         {
             CheckTestTrash McClean = new CheckTestTrash();
-            McClean.CheckTestTrashMethod();
+            //McClean.CheckTestTrashMethod();
         }
 
         #endregion
