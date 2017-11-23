@@ -104,6 +104,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Título\5573_VenderTituloNoCaixaSemConfirmacao.cs" />
     <Compile Include="Título\5589_VenderTituloNoCaixaComConfirmacao.cs" />
+    <Compile Include="Título\5590_VenderTituloNoCaixaDefinirValores.cs" />
+    <Compile Include="Título\5591_VenderTituloNoCaixaDefinirDesconto.cs" />
     <Compile Include="UIMap.cs">
       <DependentUpon>UIMap.uitest</DependentUpon>
     </Compile>
