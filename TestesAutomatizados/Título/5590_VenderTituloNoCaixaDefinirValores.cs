@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 using System;
 
@@ -47,6 +48,7 @@ namespace TestesAutomatizados.Título
 
             McFunctions.SearchElementByIdAndClick("buttonOK");
 
+            McFunctions.WaitForElementLoad(By.Id("textBoxName"));
             McFunctions.SearchElementByIdAndSendKeys("textBoxName", name);
             McFunctions.SearchElementByIdAndSendKeys("textBox", "123");
             McFunctions.SearchElementByIdAndClick("buttonOK");

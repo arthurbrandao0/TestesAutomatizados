@@ -60,7 +60,6 @@ namespace TestesAutomatizados.Plano_de_Venda
         {
             CheckLoginMulticlubes loginMC = new CheckLoginMulticlubes();
             loginMC.VerificarSeMultiClubesEstaAbertoELogado();
-            loginMC.CheckMCWindow();
         }
 
         ////Use TestCleanup para executar código depois de cada execução de teste

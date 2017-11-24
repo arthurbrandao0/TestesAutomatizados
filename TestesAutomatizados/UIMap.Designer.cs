@@ -1885,6 +1885,19 @@ namespace TestesAutomatizados
             Assert.AreEqual(this.VerificarValorOriginalExpectedValues.UIItem100000TextName, uIItem100000Text.Name, "Valor original diferente do esperado, que é 1.000,00");
         }
         
+        /// <summary>
+        /// VerificarValorDoDesconto - Use 'VerificarValorDoDescontoExpectedValues' to pass parameters into this method.
+        /// </summary>
+        public void VerificarValorDoDesconto()
+        {
+            #region Variable Declarations
+            WinEdit uIItemEdit = this.UICadastrodetítuloWindow.UIItem000Window2.UIItemEdit;
+            #endregion
+
+            // Verify that the 'Text' property of text box equals '10,00'
+            Assert.AreEqual(this.VerificarValorDoDescontoExpectedValues.UIItemEditText, uIItemEdit.Text, "Valor do desconto diferente do esperado, que é 10,00");
+        }
+        
         #region Properties
         public virtual AbrirMultiClubesParams AbrirMultiClubesParams
         {
@@ -3122,6 +3135,18 @@ namespace TestesAutomatizados
             }
         }
         
+        public virtual VerificarValorDoDescontoExpectedValues VerificarValorDoDescontoExpectedValues
+        {
+            get
+            {
+                if ((this.mVerificarValorDoDescontoExpectedValues == null))
+                {
+                    this.mVerificarValorDoDescontoExpectedValues = new VerificarValorDoDescontoExpectedValues();
+                }
+                return this.mVerificarValorDoDescontoExpectedValues;
+            }
+        }
+        
         public UIItemWindow UIItemWindow
         {
             get
@@ -4013,6 +4038,8 @@ namespace TestesAutomatizados
         private VerificarValorTotalExpectedValues mVerificarValorTotalExpectedValues;
         
         private VerificarValorOriginalExpectedValues mVerificarValorOriginalExpectedValues;
+        
+        private VerificarValorDoDescontoExpectedValues mVerificarValorDoDescontoExpectedValues;
         
         private UIItemWindow mUIItemWindow;
         
@@ -5969,6 +5996,21 @@ namespace TestesAutomatizados
         /// Verify that the 'Name' property of '1.000,00' label equals '1.000,00'
         /// </summary>
         public string UIItem100000TextName = "1.000,00";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'VerificarValorDoDesconto'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class VerificarValorDoDescontoExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verify that the 'Text' property of text box equals '10,00'
+        /// </summary>
+        public string UIItemEditText = "10,00";
         #endregion
     }
     
@@ -8047,6 +8089,18 @@ namespace TestesAutomatizados
                 return this.mUIItem100000Window;
             }
         }
+        
+        public UIItem000Window2 UIItem000Window2
+        {
+            get
+            {
+                if ((this.mUIItem000Window2 == null))
+                {
+                    this.mUIItem000Window2 = new UIItem000Window2(this);
+                }
+                return this.mUIItem000Window2;
+            }
+        }
         #endregion
         
         #region Fields
@@ -8067,6 +8121,8 @@ namespace TestesAutomatizados
         private UIItem000Window1 mUIItem000Window1;
         
         private UIItem100000Window mUIItem100000Window;
+        
+        private UIItem000Window2 mUIItem000Window2;
         #endregion
     }
     
@@ -8393,6 +8449,42 @@ namespace TestesAutomatizados
         
         #region Fields
         private WinText mUIItem100000Text;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIItem000Window2 : WinWindow
+    {
+        
+        public UIItem000Window2(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "0,00";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.EDIT", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("Cadastro de título");
+            #endregion
+        }
+        
+        #region Properties
+        public WinEdit UIItemEdit
+        {
+            get
+            {
+                if ((this.mUIItemEdit == null))
+                {
+                    this.mUIItemEdit = new WinEdit(this);
+                    #region Search Criteria
+                    this.mUIItemEdit.WindowTitles.Add("Cadastro de título");
+                    #endregion
+                }
+                return this.mUIItemEdit;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinEdit mUIItemEdit;
         #endregion
     }
     

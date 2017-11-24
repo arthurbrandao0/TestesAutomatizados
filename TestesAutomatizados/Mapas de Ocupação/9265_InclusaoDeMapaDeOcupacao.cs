@@ -64,7 +64,6 @@ namespace TestesAutomatizados.Mapas_de_Ocupação
         {
             CheckLoginMulticlubes loginMC = new CheckLoginMulticlubes();
             loginMC.VerificarSeMultiClubesEstaAbertoELogado();
-            loginMC.CheckMCWindow();
         }
 
         ////Use TestCleanup para executar código depois de cada execução de teste
