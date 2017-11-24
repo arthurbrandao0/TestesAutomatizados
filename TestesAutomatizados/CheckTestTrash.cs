@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using System.Windows.Input;
-using System.Windows.Forms;
-using System.Drawing;
-using Microsoft.VisualStudio.TestTools.UITesting;
+﻿using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Microsoft.VisualStudio.TestTools.UITest.Extension;
-using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
-using OpenQA.Selenium.Remote;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Remote;
+using System;
 using System.Threading;
 
 namespace TestesAutomatizados
@@ -35,22 +28,28 @@ namespace TestesAutomatizados
             RemoteWebDriver driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
 
             while ((driver.FindElement(By.Id("FormMain")).FindElements(By.Name("Cancelar")).Count > 0)
-                    &&
-                    (driver.FindElement(By.Id("FormMain")).FindElements(By.Name("OK")).Count > 0)
-                    &&
-                    (driver.FindElement(By.Id("FormMain")).FindElements(By.Name("Fechar")).Count > 2))
+                  ||
+                  (driver.FindElement(By.Id("FormMain")).FindElements(By.Name("OK")).Count > 0)
+                  ||
+                  (driver.FindElement(By.Id("FormMain")).FindElements(By.Name("Fechar")).Count > 2))
             {
-                if ((driver.FindElement(By.Name("Fechar")).Displayed) && (driver.FindElement(By.Name("Fechar")).Enabled))
+                try
                 {
-                    driver.FindElement(By.Name("Fechar")).Click();
+                    if ((driver.FindElement(By.Name("Fechar")).Displayed))
+                    {
+                        driver.FindElement(By.Name("Fechar")).Click();
+                    }
+                    if ((driver.FindElement(By.Name("Cancelar")).Displayed))
+                    {
+                        driver.FindElement(By.Name("Cancelar")).Click();
+                    }
+                    if ((driver.FindElement(By.Name("OK")).Displayed))
+                    {
+                        driver.FindElement(By.Name("OK")).Click();
+                    }
                 }
-                if  ((driver.FindElement(By.Name("Cancelar")).Displayed) && (driver.FindElement(By.Name("Cancelar")).Enabled))
-                { 
-                    driver.FindElement(By.Name("Cancelar")).Click();
-                }
-                if ((driver.FindElement(By.Name("OK")).Displayed) && (driver.FindElement(By.Name("OK")).Enabled))
+                catch (Exception)
                 {
-                    driver.FindElement(By.Name("OK")).Click();
                 }
             }
             

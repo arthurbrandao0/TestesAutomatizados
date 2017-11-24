@@ -56,7 +56,7 @@ namespace TestesAutomatizados
 
             while (waitText.Exists && counter < attempts)
             {
-                Thread.Sleep(100);
+                Thread.Sleep(200);
                 counter++;
                 Console.WriteLine("Tela 'Aguardando...' ativa {0}/{1}", counter, attempts);
             }
