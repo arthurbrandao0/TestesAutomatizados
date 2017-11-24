@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using System.Windows.Input;
-using System.Windows.Forms;
-using System.Drawing;
-using Microsoft.VisualStudio.TestTools.UITesting;
+﻿using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Microsoft.VisualStudio.TestTools.UITest.Extension;
-using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
 using OpenQA.Selenium.Remote;
-using OpenQA.Selenium;
+using System;
 
 namespace TestesAutomatizados.Título
 {
@@ -65,11 +57,12 @@ namespace TestesAutomatizados.Título
             McFunctions.SearchElementByIdAndSendKeys("numericUpDownDiscountPercentage", "10", true, 2);
             McFunctions.SearchElementByIdAndClick("numericUpDownParcelQuantity");
 
-            //Não consegui obter os valores dos campos
-            Assert.Inconclusive("Verificar se os valores obtidos são: \n" +
-                                "Parcela = R$ 89,00 \n" +
-                                "Total = R$ 900,00 \n" +
-                                "(Valor original do título = R$ 1.000,00)");
+            this.UIMap.VerificarValorDaParcela();
+            this.UIMap.VerificarValorTotal();
+            this.UIMap.VerificarValorOriginal();
+
+            McFunctions.SearchElementByIdAndClick("buttonCancel");
+            McFunctions.SearchElementByNameAndClick("Sim");
         }
 
         #region Additional test attributes
@@ -82,7 +75,6 @@ namespace TestesAutomatizados.Título
         {
             CheckLoginMulticlubes loginMC = new CheckLoginMulticlubes();
             loginMC.VerificarSeMultiClubesEstaAbertoELogado();
-            loginMC.CheckMCWindow();
         }
 
         ////Use TestCleanup para executar código depois de cada execução de teste
@@ -90,7 +82,7 @@ namespace TestesAutomatizados.Título
         public void MyTestCleanup()
         {
             CheckTestTrash McClean = new CheckTestTrash();
-            //McClean.CheckTestTrashMethod();
+            McClean.CheckTestTrashMethod();
         }
 
         #endregion

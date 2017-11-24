@@ -1817,6 +1817,74 @@ namespace TestesAutomatizados
             Mouse.Click(uIYesButton, new Point(32, 7));
         }
         
+        /// <summary>
+        /// VerificarSeFormularioDeLoginExiste - Use 'VerificarSeFormularioDeLoginExisteExpectedValues' to pass parameters into this method.
+        /// </summary>
+        public void VerificarSeFormularioDeLoginExiste()
+        {
+            #region Variable Declarations
+            WinWindow uIMultiClubesWindow12 = this.UIMultiClubesWindow12;
+            #endregion
+
+            // Verify that the 'ControlName' property of 'MultiClubes' window equals 'FormLogin'
+            Assert.AreEqual(this.VerificarSeFormularioDeLoginExisteExpectedValues.UIMultiClubesWindow12ControlName, uIMultiClubesWindow12.ControlName);
+        }
+        
+        /// <summary>
+        /// VerificarSeCampoPasswordExiste - Use 'VerificarSeCampoPasswordExisteExpectedValues' to pass parameters into this method.
+        /// </summary>
+        public void VerificarSeCampoPasswordExiste()
+        {
+            #region Variable Declarations
+            WinEdit uITextBoxUsernameEdit = this.UIMultiClubesWindow.UITextBoxUsernameWindow.UITextBoxUsernameEdit;
+            #endregion
+
+            // Verify that the 'ControlName' property of 'textBoxUsername' text box equals 'textBoxUsername'
+            Assert.AreEqual(this.VerificarSeCampoPasswordExisteExpectedValues.UITextBoxUsernameEditControlName, uITextBoxUsernameEdit.ControlName);
+
+            // Verify that the 'Exists' property of 'textBoxUsername' text box equals 'True'
+            Assert.AreEqual(this.VerificarSeCampoPasswordExisteExpectedValues.UITextBoxUsernameEditExists, uITextBoxUsernameEdit.Exists);
+        }
+        
+        /// <summary>
+        /// VerificarValorDaParcela - Use 'VerificarValorDaParcelaExpectedValues' to pass parameters into this method.
+        /// </summary>
+        public void VerificarValorDaParcela()
+        {
+            #region Variable Declarations
+            WinEdit uIItemEdit = this.UICadastrodetítuloWindow.UIItem000Window.UIItemEdit;
+            #endregion
+
+            // Verify that the 'Text' property of text box equals '89,00'
+            Assert.AreEqual(this.VerificarValorDaParcelaExpectedValues.UIItemEditText, uIItemEdit.Text, "Valor retornado diferente do esperado, que é 89,00");
+        }
+        
+        /// <summary>
+        /// VerificarValorTotal - Use 'VerificarValorTotalExpectedValues' to pass parameters into this method.
+        /// </summary>
+        public void VerificarValorTotal()
+        {
+            #region Variable Declarations
+            WinEdit uIItemEdit = this.UICadastrodetítuloWindow.UIItem000Window1.UIItemEdit;
+            #endregion
+
+            // Verify that the 'Text' property of text box equals '900,00'
+            Assert.AreEqual(this.VerificarValorTotalExpectedValues.UIItemEditText, uIItemEdit.Text, "Valor total diferente do esperado, que é 900,00");
+        }
+        
+        /// <summary>
+        /// VerificarValorOriginal - Use 'VerificarValorOriginalExpectedValues' to pass parameters into this method.
+        /// </summary>
+        public void VerificarValorOriginal()
+        {
+            #region Variable Declarations
+            WinText uIItem100000Text = this.UICadastrodetítuloWindow.UIItem100000Window.UIItem100000Text;
+            #endregion
+
+            // Verify that the 'Name' property of '1.000,00' label equals '1.000,00'
+            Assert.AreEqual(this.VerificarValorOriginalExpectedValues.UIItem100000TextName, uIItem100000Text.Name, "Valor original diferente do esperado, que é 1.000,00");
+        }
+        
         #region Properties
         public virtual AbrirMultiClubesParams AbrirMultiClubesParams
         {
@@ -2994,6 +3062,66 @@ namespace TestesAutomatizados
             }
         }
         
+        public virtual VerificarSeFormularioDeLoginExisteExpectedValues VerificarSeFormularioDeLoginExisteExpectedValues
+        {
+            get
+            {
+                if ((this.mVerificarSeFormularioDeLoginExisteExpectedValues == null))
+                {
+                    this.mVerificarSeFormularioDeLoginExisteExpectedValues = new VerificarSeFormularioDeLoginExisteExpectedValues();
+                }
+                return this.mVerificarSeFormularioDeLoginExisteExpectedValues;
+            }
+        }
+        
+        public virtual VerificarSeCampoPasswordExisteExpectedValues VerificarSeCampoPasswordExisteExpectedValues
+        {
+            get
+            {
+                if ((this.mVerificarSeCampoPasswordExisteExpectedValues == null))
+                {
+                    this.mVerificarSeCampoPasswordExisteExpectedValues = new VerificarSeCampoPasswordExisteExpectedValues();
+                }
+                return this.mVerificarSeCampoPasswordExisteExpectedValues;
+            }
+        }
+        
+        public virtual VerificarValorDaParcelaExpectedValues VerificarValorDaParcelaExpectedValues
+        {
+            get
+            {
+                if ((this.mVerificarValorDaParcelaExpectedValues == null))
+                {
+                    this.mVerificarValorDaParcelaExpectedValues = new VerificarValorDaParcelaExpectedValues();
+                }
+                return this.mVerificarValorDaParcelaExpectedValues;
+            }
+        }
+        
+        public virtual VerificarValorTotalExpectedValues VerificarValorTotalExpectedValues
+        {
+            get
+            {
+                if ((this.mVerificarValorTotalExpectedValues == null))
+                {
+                    this.mVerificarValorTotalExpectedValues = new VerificarValorTotalExpectedValues();
+                }
+                return this.mVerificarValorTotalExpectedValues;
+            }
+        }
+        
+        public virtual VerificarValorOriginalExpectedValues VerificarValorOriginalExpectedValues
+        {
+            get
+            {
+                if ((this.mVerificarValorOriginalExpectedValues == null))
+                {
+                    this.mVerificarValorOriginalExpectedValues = new VerificarValorOriginalExpectedValues();
+                }
+                return this.mVerificarValorOriginalExpectedValues;
+            }
+        }
+        
         public UIItemWindow UIItemWindow
         {
             get
@@ -3665,6 +3793,18 @@ namespace TestesAutomatizados
                 return this.mUIBrowseWindow;
             }
         }
+        
+        public UIMultiClubesWindow12 UIMultiClubesWindow12
+        {
+            get
+            {
+                if ((this.mUIMultiClubesWindow12 == null))
+                {
+                    this.mUIMultiClubesWindow12 = new UIMultiClubesWindow12();
+                }
+                return this.mUIMultiClubesWindow12;
+            }
+        }
         #endregion
         
         #region Fields
@@ -3864,6 +4004,16 @@ namespace TestesAutomatizados
         
         private PrintExtractBillingParams mPrintExtractBillingParams;
         
+        private VerificarSeFormularioDeLoginExisteExpectedValues mVerificarSeFormularioDeLoginExisteExpectedValues;
+        
+        private VerificarSeCampoPasswordExisteExpectedValues mVerificarSeCampoPasswordExisteExpectedValues;
+        
+        private VerificarValorDaParcelaExpectedValues mVerificarValorDaParcelaExpectedValues;
+        
+        private VerificarValorTotalExpectedValues mVerificarValorTotalExpectedValues;
+        
+        private VerificarValorOriginalExpectedValues mVerificarValorOriginalExpectedValues;
+        
         private UIItemWindow mUIItemWindow;
         
         private UIMultiClubesWindow mUIMultiClubesWindow;
@@ -3975,6 +4125,8 @@ namespace TestesAutomatizados
         private UIItemWindow111 mUIItemWindow11;
         
         private UIBrowseWindow1 mUIBrowseWindow;
+        
+        private UIMultiClubesWindow12 mUIMultiClubesWindow12;
         #endregion
     }
     
@@ -5737,6 +5889,86 @@ namespace TestesAutomatizados
         /// Clear '&Open file' check box
         /// </summary>
         public bool UIOpenfileCheckBoxChecked = false;
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'VerificarSeFormularioDeLoginExiste'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class VerificarSeFormularioDeLoginExisteExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verify that the 'ControlName' property of 'MultiClubes' window equals 'FormLogin'
+        /// </summary>
+        public string UIMultiClubesWindow12ControlName = "FormLogin";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'VerificarSeCampoPasswordExiste'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class VerificarSeCampoPasswordExisteExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verify that the 'ControlName' property of 'textBoxUsername' text box equals 'textBoxUsername'
+        /// </summary>
+        public string UITextBoxUsernameEditControlName = "textBoxUsername";
+        
+        /// <summary>
+        /// Verify that the 'Exists' property of 'textBoxUsername' text box equals 'True'
+        /// </summary>
+        public bool UITextBoxUsernameEditExists = true;
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'VerificarValorDaParcela'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class VerificarValorDaParcelaExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verify that the 'Text' property of text box equals '89,00'
+        /// </summary>
+        public string UIItemEditText = "89,00";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'VerificarValorTotal'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class VerificarValorTotalExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verify that the 'Text' property of text box equals '900,00'
+        /// </summary>
+        public string UIItemEditText = "900,00";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'VerificarValorOriginal'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class VerificarValorOriginalExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verify that the 'Name' property of '1.000,00' label equals '1.000,00'
+        /// </summary>
+        public string UIItem100000TextName = "1.000,00";
         #endregion
     }
     
@@ -7779,6 +8011,42 @@ namespace TestesAutomatizados
                 return this.mUICancelarWindow;
             }
         }
+        
+        public UIItem000Window UIItem000Window
+        {
+            get
+            {
+                if ((this.mUIItem000Window == null))
+                {
+                    this.mUIItem000Window = new UIItem000Window(this);
+                }
+                return this.mUIItem000Window;
+            }
+        }
+        
+        public UIItem000Window1 UIItem000Window1
+        {
+            get
+            {
+                if ((this.mUIItem000Window1 == null))
+                {
+                    this.mUIItem000Window1 = new UIItem000Window1(this);
+                }
+                return this.mUIItem000Window1;
+            }
+        }
+        
+        public UIItem100000Window UIItem100000Window
+        {
+            get
+            {
+                if ((this.mUIItem100000Window == null))
+                {
+                    this.mUIItem100000Window = new UIItem100000Window(this);
+                }
+                return this.mUIItem100000Window;
+            }
+        }
         #endregion
         
         #region Fields
@@ -7793,6 +8061,12 @@ namespace TestesAutomatizados
         private UIVendaWindow mUIVendaWindow;
         
         private UICancelarWindow mUICancelarWindow;
+        
+        private UIItem000Window mUIItem000Window;
+        
+        private UIItem000Window1 mUIItem000Window1;
+        
+        private UIItem100000Window mUIItem100000Window;
         #endregion
     }
     
@@ -8009,6 +8283,116 @@ namespace TestesAutomatizados
         
         #region Fields
         private WinButton mUICancelarButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIItem000Window : WinWindow
+    {
+        
+        public UIItem000Window(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "0,00";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.EDIT", PropertyExpressionOperator.Contains));
+            this.SearchProperties[WinWindow.PropertyNames.Instance] = "2";
+            this.WindowTitles.Add("Cadastro de título");
+            #endregion
+        }
+        
+        #region Properties
+        public WinEdit UIItemEdit
+        {
+            get
+            {
+                if ((this.mUIItemEdit == null))
+                {
+                    this.mUIItemEdit = new WinEdit(this);
+                    #region Search Criteria
+                    this.mUIItemEdit.WindowTitles.Add("Cadastro de título");
+                    #endregion
+                }
+                return this.mUIItemEdit;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinEdit mUIItemEdit;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIItem000Window1 : WinWindow
+    {
+        
+        public UIItem000Window1(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "0,00";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.EDIT", PropertyExpressionOperator.Contains));
+            this.SearchProperties[WinWindow.PropertyNames.Instance] = "3";
+            this.WindowTitles.Add("Cadastro de título");
+            #endregion
+        }
+        
+        #region Properties
+        public WinEdit UIItemEdit
+        {
+            get
+            {
+                if ((this.mUIItemEdit == null))
+                {
+                    this.mUIItemEdit = new WinEdit(this);
+                    #region Search Criteria
+                    this.mUIItemEdit.WindowTitles.Add("Cadastro de título");
+                    #endregion
+                }
+                return this.mUIItemEdit;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinEdit mUIItemEdit;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIItem100000Window : WinWindow
+    {
+        
+        public UIItem100000Window(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "labelSourceValue";
+            this.WindowTitles.Add("Cadastro de título");
+            #endregion
+        }
+        
+        #region Properties
+        public WinText UIItem100000Text
+        {
+            get
+            {
+                if ((this.mUIItem100000Text == null))
+                {
+                    this.mUIItem100000Text = new WinText(this);
+                    #region Search Criteria
+                    this.mUIItem100000Text.SearchProperties[WinText.PropertyNames.Name] = "1.000,00";
+                    this.mUIItem100000Text.WindowTitles.Add("Cadastro de título");
+                    #endregion
+                }
+                return this.mUIItem100000Text;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinText mUIItem100000Text;
         #endregion
     }
     
@@ -15326,5 +15710,19 @@ namespace TestesAutomatizados
         #region Fields
         private WinButton mUISalvarButton;
         #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIMultiClubesWindow12 : WinWindow
+    {
+        
+        public UIMultiClubesWindow12()
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "MultiClubes";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("MultiClubes");
+            #endregion
+        }
     }
 }
