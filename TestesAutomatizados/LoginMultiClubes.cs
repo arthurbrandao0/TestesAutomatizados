@@ -54,7 +54,6 @@ namespace TestesAutomatizados
                 {
                     //Console.WriteLine("Winium Driver fechado {0}", OpenedWiniumDriver);
                     Process.Start("C:/TestesAutomatizados/" + "Winium.Desktop.Driver.exe");
-                    Thread.Sleep(3000);
                 }
 
                 var dc = new DesiredCapabilities();
@@ -65,11 +64,7 @@ namespace TestesAutomatizados
                 {
                     dc.SetCapability("debugConnectToRunningApp", true);
                 }
-                else
-                {
-                    Thread.Sleep(3000);
-                }
-
+                
                 driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
 
                 CheckMCWindow();
@@ -78,11 +73,8 @@ namespace TestesAutomatizados
                 if (!openedMultiClubes) { 
                     while (counter < 50)
                     { 
-                        if (driver.FindElements(By.Id("textBoxUsername")).Count > 0 
-                            &&
-                            driver.FindElements(By.Id("textBoxPassword")).Count > 0)
+                        if (driver.FindElements(By.Id("textBoxPassword")).Count > 0)
                         {
-                            //this.UIMap.InserirUsuarioESenha();
                             SendUsernameAndPassword();
                             break;
                         }
@@ -92,9 +84,7 @@ namespace TestesAutomatizados
                 }
                 else
                 {
-                    if (driver.FindElements(By.Id("textBoxUsername")).Count > 0
-                            &&
-                            driver.FindElements(By.Id("textBoxPassword")).Count > 0)
+                    if (driver.FindElements(By.Id("textBoxPassword")).Count > 0)
                     {
                         //this.UIMap.InserirUsuarioESenha();
                         SendUsernameAndPassword();
