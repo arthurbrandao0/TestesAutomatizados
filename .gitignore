@@ -263,3 +263,4 @@ __pycache__/
 *.csproj
 TestesAutomatizados/TesteIsolado.cs
 *.rem
+TestesAutomatizados/TesteIsolado.cs

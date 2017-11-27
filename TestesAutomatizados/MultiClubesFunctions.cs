@@ -45,20 +45,19 @@ namespace TestesAutomatizados
             TreatWaitScreen();
         }
 
-        public void TreatWaitScreen(int attempts = 50)
+        public void TreatWaitScreen(int attempts = 150)
         {
             int counter = 0;
-            //Thread.Sleep(500);
-
+            
             WinText waitText = new WinText();
             waitText.SearchProperties[WinText.PropertyNames.Name] = "Aguarde...";
             waitText.WindowTitles.Add("MultiClubes");
 
             while (waitText.Exists && counter < attempts)
             {
-                Thread.Sleep(200);
+                Thread.Sleep(400);
                 counter++;
-                Console.WriteLine("Tela 'Aguardando...' ativa {0}/{1}", counter, attempts);
+                //Console.WriteLine("Tela 'Aguardando...' ativa {0}/{1}", counter, attempts);
             }
         }
 
