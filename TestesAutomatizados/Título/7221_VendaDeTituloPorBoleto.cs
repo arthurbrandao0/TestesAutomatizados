@@ -17,14 +17,14 @@ namespace TestesAutomatizados.Título
     /// Summary description for CodedUITest1
     /// </summary>
     [CodedUITest]
-    public class VenderProdutoParaTituloCentralDeAtendimento
+    public class VendaDeTituloPorBoleto
     {
-        public VenderProdutoParaTituloCentralDeAtendimento()
+        public VendaDeTituloPorBoleto()
         {
         }
 
         [TestMethod]
-        public void VenderProdutoParaTituloCentralDeAtendimento_6478()
+        public void VendaDeTituloPorBoleto_7221()
         {
             MultiClubesFunctions McFunctions = new MultiClubesFunctions();
             MultiClubesMenus McMenus = new MultiClubesMenus();
@@ -36,59 +36,43 @@ namespace TestesAutomatizados.Título
             dc.SetCapability("debugConnectToRunningApp", true);
             RemoteWebDriver driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
 
-            string productName = " Festa Junina - Venda de Tickets - 2,00";
+            string name = "Sócio criado em " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+            string planName = "Gratuito";
 
-            McMenus.AcessarMenuOperacaoTituloCentralDeAtendimento();
+            McMenus.AcessarMenuOperacaoTituloCadastroDeTitulo();
 
-            McFunctions.SearchHolder("A28282");
+            McFunctions.SearchElementByIdAndClick("comboBoxSalePlan");
+            McFunctions.SearchElementByNameAndClick("AGE - AGEPES");
 
-            McFunctions.SearchElementByNameAndClick("Título");
-            driver.FindElement(By.Id("sideBar")).FindElement(By.Id("LargeIncrement")).Click();
-            McFunctions.SearchElementByNameAndClick("Vender produto");
-            McFunctions.TreatWaitScreen();
+            McFunctions.SearchElementByIdAndSendKeys("maskedTextBoxPostalCode", "01311000", true);
 
-            McFunctions.SearchElementByIdAndClick("buttonSelect");
-            McFunctions.SearchElementByNameAndClick(productName, true, 2);
-            McFunctions.SearchElementByIdAndClick("buttonOK");
+            McFunctions.SearchElementByIdAndClick("buttonSearch");
 
-            string totalValue = driver.FindElementById("labelTotalValue").GetAttribute("Name");
+            McFunctions.SearchElementByIdAndSendKeys("textBoxNumber", "100", true);
 
             McFunctions.SearchElementByIdAndClick("buttonOK");
 
-            McFunctions.SearchElementByNameAndClick("Sim", true, 2);
-            McFunctions.TreatWaitScreen();
-
-            McFunctions.SearchElementByIdAndClick("buttonOK", true, 2);
-
-            McFunctions.SearchElementByIdAndClick("buttonReceive", true, 2);
-            driver.FindElement(By.Name("Receber")).FindElement(By.Name("Receber")).Click();
-
-            bool productFound = false;            
-            if (driver.FindElement(By.Id("listViewParcels")).FindElements(By.Name(productName)).Count > 0)
-            {
-                productFound = true;
-            }
-
-            bool valueFound = false;
-            if (driver.FindElement(By.Id("listViewParcels")).FindElements(By.Name(totalValue)).Count > 0)
-            {
-                valueFound = true;
-            }
-
-            McFunctions.SearchElementByIdAndClick("buttonAdd");
-
+            McFunctions.SearchElementByIdAndSendKeys("textBoxName", name);
+            McFunctions.SearchElementByIdAndSendKeys("textBox", "123");
             McFunctions.SearchElementByIdAndClick("buttonOK");
-            McFunctions.SearchElementByNameAndClick("Sim", true, 2);
-            McFunctions.TreatWaitScreen();
-            McFunctions.TreatWaitScreen();
 
-            McFunctions.SearchElementByIdAndClick("buttonOK", true);
+            McFunctions.SearchElementByIdAndClick("buttonFinalize", true);
+            McFunctions.SearchElementByNameAndClick("Sim", true);
 
+            McFunctions.SearchElementByIdAndClick("buttonService", true);
+
+            McFunctions.AcessarProdutosAReceber();
+
+            McFunctions.WaitForElementLoad(By.Id("listViewParcel"), 2);
+
+            var listViewParcelElements = driver.FindElement(By.Id("listViewParcel")).FindElements(By.Id(""));
+
+            Assert.AreEqual(planName, listViewParcelElements[0].GetAttribute("Name"));
+            Assert.IsNotNull(listViewParcelElements[6].GetAttribute("Name"));
+
+            McFunctions.CloseWindow("Parcelas");
             McFunctions.FinalizarAtendimentoTitulo();
             McFunctions.CloseWindow("Central de atendimento");
-
-            Assert.IsTrue(productFound, "Produto \"" + productName + "\" não encontrado no A Receber");
-            Assert.IsTrue(valueFound, "Cobrança de " + totalValue + " não encontrada no A Receber");
         }
 
         #region Additional test attributes
