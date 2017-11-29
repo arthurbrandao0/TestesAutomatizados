@@ -4,6 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Remote;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Threading;
 
@@ -249,20 +250,20 @@ namespace TestesAutomatizados
 
             TreatWaitScreen();
         }
-        public void SearchElementByIdAndClick(string elementId, bool waitForElement = false, int attempts = 20)
+        public void SearchElementByIdAndClick(string elementId, bool waitForElement = false, int seconds = 20)
         {
-            if (waitForElement == true)
-            {
-                WaitForElementLoad(By.Id(elementId), attempts);
-            }
-            new Actions(driver).MoveToElement(driver.FindElement(By.Id(elementId))).Click(driver.FindElement(By.Id(elementId))).Build().Perform();
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(seconds));
+            wait.Until(ExpectedConditions.ElementToBeClickable(By.Id(elementId)));
+
+            new Actions(driver).MoveToElement(driver.FindElement(By.Id(elementId))).Click(driver.FindElement(By.Id(elementId))).Build().Perform();            
         }
 
-        public void SearchElementByNameAndClick(string elementName, bool waitForElement = false, int attempts = 20)
+        public void SearchElementByNameAndClick(string elementName, bool waitForElement = false, int seconds = 20)
         {
             if (waitForElement == true)
             {
-                WaitForElementLoad(By.Name(elementName), attempts);
+                WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(seconds));
+                wait.Until(ExpectedConditions.ElementToBeClickable(By.Name(elementName)));
             }
             driver.FindElement(By.Name(elementName)).Click();
         }

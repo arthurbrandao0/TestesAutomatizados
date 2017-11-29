@@ -115,8 +115,7 @@ namespace TestesAutomatizados
             winLincense.SearchProperties[WinWindow.PropertyNames.Name] = "Licença";
             winLincense.WindowTitles.Add("Licença");
 
-            if (winLincense.Exists) { 
-                
+            if (winLincense.Exists) {                 
                 driver.FindElement(By.Id("FormLicensing")).FindElement(By.Id("buttonClose")).Click();
             }
         }
