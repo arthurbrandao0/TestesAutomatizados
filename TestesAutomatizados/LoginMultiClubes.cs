@@ -4,8 +4,8 @@ using Microsoft.VisualStudio.TestTools.UITesting.WinControls;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
+using OpenQA.Selenium.Support.UI;
 using System;
-//using OpenQA.Selenium.Remote;
 using System.Diagnostics;
 using System.Threading;
 
@@ -69,33 +69,35 @@ namespace TestesAutomatizados
 
                 CheckMCWindow();
 
-                int counter = 0;
-                if (!openedMultiClubes) { 
-                    while (counter < 50)
-                    { 
-                        if (driver.FindElements(By.Id("textBoxPassword")).Count > 0)
-                        {
-                            SendUsernameAndPassword();
-                            break;
-                        }
-                        Thread.Sleep(200);
-                        counter++;
-                    }
+                //int counter = 0;
+                if (!openedMultiClubes) {
+                    //while (counter < 50)
+                    //{ 
+                    //    if (driver.FindElements(By.Id("textBoxPassword")).Count > 0)
+                    //    {
+                    //        SendUsernameAndPassword();
+                    //        break;
+                    //    }
+                    //    Thread.Sleep(200);
+                    //    counter++;
+                    //}
+                    WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(120));
+                    wait.Until(ExpectedConditions.ElementToBeClickable(By.Id("textBoxPassword")));
+                    SendUsernameAndPassword();
                 }
-                else
-                {
-                    if (driver.FindElements(By.Id("textBoxPassword")).Count > 0)
-                    {
-                        //this.UIMap.InserirUsuarioESenha();
-                        SendUsernameAndPassword();
-                    }
-                }
+                //else
+                //{
+                //    if (driver.FindElements(By.Id("textBoxPassword")).Count > 0)
+                //    {
+                //        //this.UIMap.InserirUsuarioESenha();
+                //        SendUsernameAndPassword();
+                //    }
+                //}
 
             }
             catch (ArgumentException e)
             {
-                //Please log when you're just catching something. Especially if the catch statement has side effects. Trust me.
-                Console.WriteLine("IOException source: {0}", e.Source);
+                Console.WriteLine("Erro: {0}", e.Source);
             }
         }
 
