@@ -37,14 +37,11 @@ namespace TestesAutomatizados.Título
             McFunctions.SearchElementByIdAndClick("comboBoxSalePlan", true, 2);
             McFunctions.SearchElementByNameAndClick("AGE - AGEPES");
 
-            McFunctions.TreatWaitScreen();
-
-            McFunctions.SearchElementByIdAndSendKeys("maskedTextBoxPostalCode", "01311000");
+            McFunctions.SearchElementByIdAndSendKeys("maskedTextBoxPostalCode", "01311000", true);
 
             McFunctions.SearchElementByIdAndClick("buttonSearch");
-            McFunctions.TreatWaitScreen();
 
-            McFunctions.SearchElementByIdAndSendKeys("textBoxNumber", "100");
+            McFunctions.SearchElementByIdAndSendKeys("textBoxNumber", "100",true);
 
             McFunctions.SearchElementByIdAndClick("buttonOK");
 
@@ -63,8 +60,8 @@ namespace TestesAutomatizados.Título
             this.UIMap.VerificarValorTotal();
             this.UIMap.VerificarValorOriginal();
 
-            McFunctions.SearchElementByIdAndClick("buttonCancel");
-            McFunctions.SearchElementByNameAndClick("Sim");
+            McFunctions.SearchElementByIdAndClick("buttonCancel", true);
+            McFunctions.SearchElementByNameAndClick("Sim", true);
         }
 
         #region Additional test attributes
@@ -84,7 +81,7 @@ namespace TestesAutomatizados.Título
         public void MyTestCleanup()
         {
             CheckTestTrash McClean = new CheckTestTrash();
-            McClean.CheckTestTrashMethod();
+            //McClean.CheckTestTrashMethod();
         }
 
         #endregion

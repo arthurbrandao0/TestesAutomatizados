@@ -252,9 +252,11 @@ namespace TestesAutomatizados
         }
         public void SearchElementByIdAndClick(string elementId, bool waitForElement = false, int seconds = 20)
         {
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(seconds));
-            wait.Until(ExpectedConditions.ElementToBeClickable(By.Id(elementId)));
-
+            if (waitForElement == true)
+            {
+                WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(seconds));
+                wait.Until(ExpectedConditions.ElementToBeClickable(By.Id(elementId)));
+            }
             new Actions(driver).MoveToElement(driver.FindElement(By.Id(elementId))).Click(driver.FindElement(By.Id(elementId))).Build().Perform();            
         }
 
@@ -267,11 +269,12 @@ namespace TestesAutomatizados
             }
             driver.FindElement(By.Name(elementName)).Click();
         }
-        public void SearchElementByIdAndSendKeys(string elementId, string keysToSend, bool waitForElement = false, int attempts = 20)
+        public void SearchElementByIdAndSendKeys(string elementId, string keysToSend, bool waitForElement = false, int seconds = 20)
         {
             if (waitForElement == true)
             {
-                WaitForElementLoad(By.Id(elementId), attempts);
+                WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(seconds));
+                wait.Until(ExpectedConditions.ElementToBeClickable(By.Id(elementId)));
             }
             new Actions(driver).MoveToElement(driver.FindElement(By.Id(elementId))).Click(driver.FindElement(By.Id(elementId))).Build().Perform();
 
