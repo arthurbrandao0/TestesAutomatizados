@@ -84,6 +84,15 @@ namespace TestesAutomatizados
                     WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(120));
                     wait.Until(ExpectedConditions.ElementToBeClickable(By.Id("textBoxPassword")));
                     SendUsernameAndPassword();
+
+                    WinWindow winLincense = new WinWindow();
+                    winLincense.SearchProperties[WinWindow.PropertyNames.Name] = "Licença";
+                    winLincense.WindowTitles.Add("Licença");
+
+                    if (winLincense.Exists)
+                    {
+                        driver.FindElement(By.Id("FormLicensing")).FindElement(By.Id("buttonClose")).Click();
+                    }
                 }
                 //else
                 //{
@@ -112,14 +121,7 @@ namespace TestesAutomatizados
                 Thread.Sleep(200);
             }
             winMC.SetFocus();
-
-            WinWindow winLincense = new WinWindow();
-            winLincense.SearchProperties[WinWindow.PropertyNames.Name] = "Licença";
-            winLincense.WindowTitles.Add("Licença");
-
-            if (winLincense.Exists) {                 
-                driver.FindElement(By.Id("FormLicensing")).FindElement(By.Id("buttonClose")).Click();
-            }
+            
         }
 
         public void SendUsernameAndPassword()
