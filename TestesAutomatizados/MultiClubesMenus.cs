@@ -19,13 +19,15 @@ namespace TestesAutomatizados
             dc.SetCapability("debugConnectToRunningApp", true);
 
             Driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
+            mainMenu = Driver.FindElement(By.Id("menuMain"));
         }
 
         #region Acesso aos Menus
 
         public void AcessarMenu(string NomeMenu)
         {
-            Driver.FindElement(By.Name(NomeMenu)).Click();
+            //Driver.FindElement(By.Name(NomeMenu)).Click();
+            mainMenu.FindElement(By.Name(NomeMenu)).Click();
         }
 
         // Arquivo
@@ -173,7 +175,7 @@ namespace TestesAutomatizados
         // Operação - Título - Cadastro de título
         public void AcessarMenuOperacaoTituloCadastroDeTitulo()
         {
-            AcessarMenuOperacaoTitulo();
+            //AcessarMenuOperacaoTitulo();
             AcessarMenu("Cadastro de título");
         }
         // Operação - Título - Carteiras
@@ -404,5 +406,6 @@ namespace TestesAutomatizados
 
         private UIMap map;
         private RemoteWebDriver Driver;
+        private IWebElement mainMenu;
     }
 }

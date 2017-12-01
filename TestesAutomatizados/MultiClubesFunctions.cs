@@ -35,15 +35,17 @@ namespace TestesAutomatizados
         public void CloseWindow(string windowName = "", string windowId = "FormMain")
         {
             // o parametro 'WindowName' nao altera em nada a função, apenas facilita a identificação da tela em que o mesmo atua.
-            Thread.Sleep(500);
+
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            wait.Until(ExpectedConditions.ElementToBeClickable(By.Name("Fechar")));
+
             driver.FindElement(By.Id(windowId)).FindElement(By.Name("Fechar")).Click();
         }
 
         public void FinalizarAtendimentoTitulo()
         {
-            CloseWindow("Central de atendimento");
-            SearchElementByIdAndClick("buttonOK");
-            TreatWaitScreen();
+            CloseWindow("Central de atendimento", "menuMain");
+            SearchElementByIdAndClick("buttonOK", true, 60);
         }
 
         public void TreatWaitScreen(int attempts = 50)
@@ -88,15 +90,19 @@ namespace TestesAutomatizados
             driver.FindElement(By.Name("Editar cobranças")).Click();
         }
 
-        public void WaitForElementLoad(By by, int attempts = 20)
+        public void WaitForElementLoad(By by, int seconds = 20)
         {
-            int counter = 0;
-            while ((driver.FindElement(By.Id("FormMain")).FindElements(by).Count == 0) && counter < attempts)
-            {
-                Thread.Sleep(100);
-                Console.WriteLine("passando pelo loop WaitForElementLoad: {0}", by);
-                counter++;
-            }
+
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(seconds));
+            wait.Until(ExpectedConditions.ElementToBeClickable(by));
+            
+            //int counter = 0;
+            //while ((driver.FindElement(By.Id("FormMain")).FindElements(by).Count == 0) && counter < seconds)
+            //{
+            //    Thread.Sleep(100);
+            //    Console.WriteLine("passando pelo loop WaitForElementLoad: {0}", by);
+            //    counter++;
+            //}
         }
 
         public void CheckBillingForecast()
