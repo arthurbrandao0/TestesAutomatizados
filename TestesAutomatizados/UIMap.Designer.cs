@@ -1898,6 +1898,22 @@ namespace TestesAutomatizados
             Assert.AreEqual(this.VerificarValorDoDescontoExpectedValues.UIItemEditText, uIItemEdit.Text, "Valor do desconto diferente do esperado, que é 10,00");
         }
         
+        /// <summary>
+        /// AlterarValidadeSocio - Use 'AlterarValidadeSocioParams' to pass parameters into this method.
+        /// </summary>
+        public void AlterarValidadeSocio()
+        {
+            #region Variable Declarations
+            WinDateTimePicker uIDateTimePickerEndDatDateTimePicker = this.UIValidadeWindow.UIDateTimePickerEndDatWindow.UIDateTimePickerEndDatDateTimePicker;
+            #endregion
+
+            // Select '01/12/2017' in 'dateTimePickerEndDate' date time picker
+            uIDateTimePickerEndDatDateTimePicker.DateTimeAsString = this.AlterarValidadeSocioParams.UIDateTimePickerEndDatDateTimePickerDateTimeAsString;
+
+            // Select '01/01/2100' in 'dateTimePickerEndDate' date time picker
+            uIDateTimePickerEndDatDateTimePicker.DateTimeAsString = this.AlterarValidadeSocioParams.UIDateTimePickerEndDatDateTimePickerDateTimeAsString1;
+        }
+        
         #region Properties
         public virtual AbrirMultiClubesParams AbrirMultiClubesParams
         {
@@ -3147,6 +3163,18 @@ namespace TestesAutomatizados
             }
         }
         
+        public virtual AlterarValidadeSocioParams AlterarValidadeSocioParams
+        {
+            get
+            {
+                if ((this.mAlterarValidadeSocioParams == null))
+                {
+                    this.mAlterarValidadeSocioParams = new AlterarValidadeSocioParams();
+                }
+                return this.mAlterarValidadeSocioParams;
+            }
+        }
+        
         public UIItemWindow UIItemWindow
         {
             get
@@ -3830,6 +3858,18 @@ namespace TestesAutomatizados
                 return this.mUIMultiClubesWindow12;
             }
         }
+        
+        public UIValidadeWindow UIValidadeWindow
+        {
+            get
+            {
+                if ((this.mUIValidadeWindow == null))
+                {
+                    this.mUIValidadeWindow = new UIValidadeWindow();
+                }
+                return this.mUIValidadeWindow;
+            }
+        }
         #endregion
         
         #region Fields
@@ -4041,6 +4081,8 @@ namespace TestesAutomatizados
         
         private VerificarValorDoDescontoExpectedValues mVerificarValorDoDescontoExpectedValues;
         
+        private AlterarValidadeSocioParams mAlterarValidadeSocioParams;
+        
         private UIItemWindow mUIItemWindow;
         
         private UIMultiClubesWindow mUIMultiClubesWindow;
@@ -4154,6 +4196,8 @@ namespace TestesAutomatizados
         private UIBrowseWindow1 mUIBrowseWindow;
         
         private UIMultiClubesWindow12 mUIMultiClubesWindow12;
+        
+        private UIValidadeWindow mUIValidadeWindow;
         #endregion
     }
     
@@ -6011,6 +6055,26 @@ namespace TestesAutomatizados
         /// Verify that the 'Text' property of text box equals '10,00'
         /// </summary>
         public string UIItemEditText = "10,00";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'AlterarValidadeSocio'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class AlterarValidadeSocioParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Select '01/12/2017' in 'dateTimePickerEndDate' date time picker
+        /// </summary>
+        public string UIDateTimePickerEndDatDateTimePickerDateTimeAsString = "01-Dec-2017";
+        
+        /// <summary>
+        /// Select '01/01/2100' in 'dateTimePickerEndDate' date time picker
+        /// </summary>
+        public string UIDateTimePickerEndDatDateTimePickerDateTimeAsString1 = "01-Jan-2100";
         #endregion
     }
     
@@ -15816,5 +15880,122 @@ namespace TestesAutomatizados
             this.WindowTitles.Add("MultiClubes");
             #endregion
         }
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIValidadeWindow : WinWindow
+    {
+        
+        public UIValidadeWindow()
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "Validade";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("Validade");
+            #endregion
+        }
+        
+        #region Properties
+        public UIDateTimePickerEndDatWindow UIDateTimePickerEndDatWindow
+        {
+            get
+            {
+                if ((this.mUIDateTimePickerEndDatWindow == null))
+                {
+                    this.mUIDateTimePickerEndDatWindow = new UIDateTimePickerEndDatWindow(this);
+                }
+                return this.mUIDateTimePickerEndDatWindow;
+            }
+        }
+        
+        public UIOKWindow14 UIOKWindow
+        {
+            get
+            {
+                if ((this.mUIOKWindow == null))
+                {
+                    this.mUIOKWindow = new UIOKWindow14(this);
+                }
+                return this.mUIOKWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIDateTimePickerEndDatWindow mUIDateTimePickerEndDatWindow;
+        
+        private UIOKWindow14 mUIOKWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIDateTimePickerEndDatWindow : WinWindow
+    {
+        
+        public UIDateTimePickerEndDatWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "dateTimePickerEndDate";
+            this.WindowTitles.Add("Validade");
+            #endregion
+        }
+        
+        #region Properties
+        public WinDateTimePicker UIDateTimePickerEndDatDateTimePicker
+        {
+            get
+            {
+                if ((this.mUIDateTimePickerEndDatDateTimePicker == null))
+                {
+                    this.mUIDateTimePickerEndDatDateTimePicker = new WinDateTimePicker(this);
+                    #region Search Criteria
+                    this.mUIDateTimePickerEndDatDateTimePicker.WindowTitles.Add("Validade");
+                    #endregion
+                }
+                return this.mUIDateTimePickerEndDatDateTimePicker;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinDateTimePicker mUIDateTimePickerEndDatDateTimePicker;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIOKWindow14 : WinWindow
+    {
+        
+        public UIOKWindow14(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "buttonOK";
+            this.WindowTitles.Add("Validade");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIOKButton
+        {
+            get
+            {
+                if ((this.mUIOKButton == null))
+                {
+                    this.mUIOKButton = new WinButton(this);
+                    #region Search Criteria
+                    this.mUIOKButton.SearchProperties[WinButton.PropertyNames.Name] = "OK";
+                    this.mUIOKButton.WindowTitles.Add("Validade");
+                    #endregion
+                }
+                return this.mUIOKButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIOKButton;
+        #endregion
     }
 }

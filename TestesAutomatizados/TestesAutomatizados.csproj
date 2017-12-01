@@ -113,6 +113,7 @@
     <Compile Include="Título\7221_VendaDeTituloPorBoleto.cs" />
     <Compile Include="Título\7875_InclusaoDeDependente_e_7876_ExclusaoDeDependente.cs" />
     <Compile Include="Título\8021_DesativarEAtivarSocio.cs" />
+    <Compile Include="Título\8022_AlterarValidadeDeSocio.cs" />
     <Compile Include="UIMap.cs">
       <DependentUpon>UIMap.uitest</DependentUpon>
     </Compile>
