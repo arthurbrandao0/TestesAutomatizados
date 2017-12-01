@@ -66,8 +66,7 @@ namespace TestesAutomatizados.Título
             McFunctions.SearchElementByIdAndSendKeys("textBox", "123");
             McFunctions.SearchElementByIdAndClick("buttonOK");
 
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(50));
-            wait.Until(ExpectedConditions.ElementToBeClickable(By.Id("listViewMembers")));
+            McFunctions.WaitForElementLoad(By.Id("listViewMembers"));
 
             McFunctions.SearchElementByNameAndClick("Dependente");
             new Actions(driver).MoveToElement(driver.FindElement(By.Name("Dependente"))).ContextClick(driver.FindElement(By.Name("Dependente"))).Build().Perform();
@@ -76,14 +75,13 @@ namespace TestesAutomatizados.Título
             McFunctions.SearchElementByNameAndClick("Desativar");
             McFunctions.SearchElementByIdAndClick("buttonOK");
 
-            McFunctions.TreatWaitScreen();
+            McFunctions.WaitForElementLoad(By.Id("listViewMembers"));
 
             var listViewDunElements = driver.FindElement(By.Id("listViewMembers")).FindElements(By.Id(""));
 
             int dependentNamePosition = 0;
             foreach (IWebElement i in listViewDunElements)
             {
-                Console.WriteLine(dependentNamePosition + ") " + i.GetAttribute("Name"));
                 if (i.GetAttribute("Name") == dependentName)
                 {
                     break;
@@ -100,7 +98,7 @@ namespace TestesAutomatizados.Título
             McFunctions.SearchElementByNameAndClick("Ativar");
             McFunctions.SearchElementByIdAndClick("buttonOK");
 
-            McFunctions.TreatWaitScreen();
+            McFunctions.WaitForElementLoad(By.Id("listViewMembers"));
 
             var newListViewDunElements = driver.FindElement(By.Id("listViewMembers")).FindElements(By.Id(""));
 
