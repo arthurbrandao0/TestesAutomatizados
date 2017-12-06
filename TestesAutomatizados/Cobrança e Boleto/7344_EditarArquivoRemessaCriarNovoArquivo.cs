@@ -41,23 +41,17 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             McFunctions.WaitForElementLoad(By.Id("buttonNew"));
             driver.FindElement(By.Id("buttonNew")).Click();
 
-            //McFunctions.WaitForElementLoad(By.Id("comboBoxRemittanceType"));
-            //driver.FindElement(By.Id("comboBoxRemittanceType")).Click();
             McFunctions.SearchElementByIdAndClick("comboBoxRemittanceType", true);
-            //driver.FindElement(By.Name("Impressão")).Click();
             McFunctions.SearchElementByNameAndClick("Impressão");
 
             string fileName = "TESTE_NOVO_" + DateTime.Now.ToString("dd_MM_yyyy_HH_mm_ss");
-            //driver.FindElement(By.Id("textBoxFileName")).Click();
-            //Keyboard.SendKeys(fileName);
+
             McFunctions.SearchElementByIdAndSendKeys("textBoxFileName", fileName);
 
 
             McFunctions.SearchElementByIdAndClick("buttonOK");
             McFunctions.SearchElementByIdAndClick("buttonOK");
-            //driver.FindElement(By.Id("buttonOK")).Click();
-            //driver.FindElement(By.Id("buttonOK")).Click();
-
+            
             McFunctions.CloseWindow("Detalhes da cobrança");
 
             McFunctions.CloseWindow("Detalhes da parcela e venda");
@@ -71,17 +65,12 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
                 fileNameExists = true;
             }
             
-            //driver.FindElement(By.Id("buttonOK")).Click();
             McFunctions.SearchElementByIdAndClick("buttonOK");
-
-
-            //McFunctions.WaitForElementLoad(By.Name("Detalhes da cobrança"));
+            
             McFunctions.CloseWindow("Detalhes da cobrança");
 
-            //McFunctions.WaitForElementLoad(By.Name("Detalhes da parcela e venda"));
             McFunctions.CloseWindow("Detalhes da parcela e venda");
 
-            //McFunctions.WaitForElementLoad(By.Name("Produtos a receber"));
             McFunctions.CloseWindow("Produtos a receber");
 
             McFunctions.FinalizarAtendimentoTitulo();
