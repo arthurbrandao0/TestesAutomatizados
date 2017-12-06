@@ -32,18 +32,16 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             mcFunctions.SearchHolder("N/S9440-0");
 
             mcFunctions.AcessarCobrancasEditarCobrancas();
-            driver.FindElement(By.Id("linkLabelEdit")).Click();
+            mcFunctions.SearchElementByIdAndClick("linkLabelEdit", true);
 
-            driver.FindElement(By.Id("comboBoxDunType")).Click();
-            driver.FindElement(By.Name("Boleto bancário")).Click();
-            driver.FindElement(By.Id("buttonDetail")).Click();
+            mcFunctions.SearchElementByIdAndClick("comboBoxDunType", true);
+            mcFunctions.SearchElementByNameAndClick("Boleto bancário");
+            mcFunctions.SearchElementByIdAndClick("buttonDetail", true);
             mcFunctions.SearchElementByIdAndClick("comboBoxDunInstitution", true);
             mcFunctions.SearchElementByNameAndClick("BANRISUL BOLETO");
 
-            driver.FindElement(By.Id("buttonOK")).Click();
-            driver.FindElement(By.Id("buttonOK")).Click();
-
-            mcFunctions.TreatWaitScreen();
+            mcFunctions.SearchElementByIdAndClick("buttonOK", true);
+            mcFunctions.SearchElementByIdAndClick("buttonOK", true);
 
             mcFunctions.CloseWindow("Cobranças do título");
             mcFunctions.FinalizarAtendimentoTitulo();
@@ -58,7 +56,6 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
         [TestInitialize()]
         public void MyTestInitialize()
         {
-            // Para gerar código para este teste, selecione "Gerar Código para Teste de Interface do Usuário Codificado" no menu de atalho e selecione um dos itens do menu.
             CheckLoginMulticlubes loginMC = new CheckLoginMulticlubes();
             loginMC.VerificarSeMultiClubesEstaAbertoELogado();
         }
