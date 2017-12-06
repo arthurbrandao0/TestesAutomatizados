@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using System.Windows.Input;
-using System.Windows.Forms;
-using System.Drawing;
-using Microsoft.VisualStudio.TestTools.UITesting;
+﻿using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Microsoft.VisualStudio.TestTools.UITest.Extension;
-using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
 using OpenQA.Selenium.Remote;
+using System;
 
 namespace TestesAutomatizados.Cobrança_e_Boleto
 {
@@ -34,12 +27,24 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             RemoteWebDriver driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
 
             McMenus.AcessarMenuOperacaoFinanceiroCobrancaSimulacaoDeCobranca();
-            //this.UIMap.SelecionarTodasCobrancasEmSimulacaoCobranca();
-            //this.UIMap.InformarQuantidadeMeses1();
-            this.UIMap.ClicarBotaoSimularGeracaoCobrancaEDepoisClicarNao();
-            this.UIMap.VerificarTituloSimulacaoDeCobranca();
-            this.UIMap.VerificarSeBotaoFecharExiste();
-            this.UIMap.FecharTelaSimulacaoCobranca();
+
+            mcFunctions.SearchElementByIdAndClick("buttonSimulate", true);
+            mcFunctions.SearchElementByNameAndClick("Não", true);
+
+            mcFunctions.TreatWaitScreen();
+
+            bool simulationScreenFound = false;
+            if (driver.FindElementsById("FormDunSimulator").Count > 0)
+            {
+                simulationScreenFound = true;
+
+                mcFunctions.SearchElementByNameAndClick("Cancelar", true);
+                mcFunctions.SearchElementByNameAndClick("OK", true);
+            }
+
+            Assert.IsFalse(simulationScreenFound, "Criou a janela de geração de cobrança");
+
+            mcFunctions.CloseWindow("Simulação de cobrança");
         }
 
         #region Atributos de teste adicionais
