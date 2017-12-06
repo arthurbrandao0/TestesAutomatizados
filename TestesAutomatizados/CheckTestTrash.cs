@@ -19,6 +19,8 @@ namespace TestesAutomatizados
 
         public void CheckTestTrashMethod()
         {
+            Console.WriteLine(DateTime.Now.ToString("HH:mm:ss"));
+
             MultiClubesFunctions mcFunctions = new MultiClubesFunctions();
             MultiClubesMenus mcMenus = new MultiClubesMenus();
 
@@ -86,6 +88,7 @@ namespace TestesAutomatizados
                 }
                 Console.WriteLine("MultiClubes fechado pelo CheckTestTrash.cs");
             }
+            Console.WriteLine(DateTime.Now.ToString("HH:mm:ss"));
         }
 
         #region Additional test attributes

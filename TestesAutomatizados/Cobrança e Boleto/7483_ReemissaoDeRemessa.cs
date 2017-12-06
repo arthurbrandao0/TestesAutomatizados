@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using System.Windows.Input;
-using System.Windows.Forms;
-using System.Drawing;
-using Microsoft.VisualStudio.TestTools.UITesting;
+﻿using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Microsoft.VisualStudio.TestTools.UITest.Extension;
-using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
-using OpenQA.Selenium.Remote;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Interactions;
-using System.Threading;
+using OpenQA.Selenium.Remote;
+using System;
 using System.IO;
 
 namespace TestesAutomatizados.Cobrança_e_Boleto
@@ -39,23 +30,24 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
 
             McMenus.AcessarMenuOperacaoFinanceiroTransacoesBancariasRemessasAnteriores();
 
-            McFunctions.WaitForElementLoad(By.Id("listView"));
+            McFunctions.WaitForElementLoad(By.Id("listView"), 15);
             driver.FindElement(By.Id("listView")).FindElements(By.Id(""))[0].Click();
+
             string fileName = driver.FindElement(By.Id("listView")).FindElements(By.Id(""))[0].GetAttribute("Name");
-            
-            driver.FindElement(By.Id("buttonOptions")).Click();
-            driver.FindElement(By.Name("Reemitir")).Click();
+
+            McFunctions.SearchElementByIdAndClick("buttonOptions", true);
+            McFunctions.SearchElementByNameAndClick("Reemitir", true);
 
             McFunctions.WaitForElementLoad(By.Id("textBoxFolder"));
+
             string folderPath = "C:/TestesAutomatizados/TestResults";
-            driver.FindElement(By.Id("textBoxFolder")).Clear();
-            driver.FindElement(By.Id("textBoxFolder")).Click();
-            Keyboard.SendKeys(folderPath);
-            driver.FindElement(By.Id("buttonOK")).Click();
+            McFunctions.SearchElementByIdAndSendKeys("textBoxFolder", folderPath);
+
+            McFunctions.SearchElementByIdAndClick("buttonOK");
 
             McFunctions.WaitForElementLoad(By.Name("Concluído"), 10);
-            driver.FindElement(By.Id("buttonOK")).Click();
-
+            McFunctions.SearchElementByIdAndClick("buttonOK");
+            
             McFunctions.CloseWindow("Diretório Saída Remessa");
             McFunctions.CloseWindow("Remessas anteriores");
 
