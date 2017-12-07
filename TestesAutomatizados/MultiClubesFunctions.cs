@@ -36,7 +36,7 @@ namespace TestesAutomatizados
         {
             // o parametro 'WindowName' nao altera em nada a função, apenas facilita a identificação da tela em que o mesmo atua.
 
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
             wait.Until(ExpectedConditions.ElementToBeClickable(By.Name("Fechar")));
 
             driver.FindElement(By.Id(windowId)).FindElement(By.Name("Fechar")).Click();
@@ -50,20 +50,23 @@ namespace TestesAutomatizados
 
         public void TreatWaitScreen(int attempts = 50)
         {
-            int counter = 0;
-            
-            WinText waitText = new WinText();
-            waitText.SearchProperties[WinText.PropertyNames.Name] = "Aguarde...";
-            waitText.WindowTitles.Add("MultiClubes");
+            //int counter = 0;
 
-            Thread.Sleep(400);
+            //WinText waitText = new WinText();
+            //waitText.SearchProperties[WinText.PropertyNames.Name] = "Aguarde...";
+            //waitText.WindowTitles.Add("MultiClubes");
 
-            while (waitText.Exists && counter < attempts)
-            {
-                Thread.Sleep(200);
-                counter++;
-                Console.WriteLine("Tela 'Aguardando...' ativa {0}/{1}", counter, attempts);
-            }
+            //Thread.Sleep(400);
+
+            //while (waitText.Exists && counter < attempts)
+            //{
+            //    Thread.Sleep(200);
+            //    counter++;
+            //    Console.WriteLine("Tela 'Aguardando...' ativa {0}/{1}", counter, attempts);
+            //}
+            Thread.Sleep(500);
+            new WebDriverWait(driver, TimeSpan.FromSeconds(30)).Until(
+                ExpectedConditions.InvisibilityOfElementLocated(By.Id("labelWait")));
         }
 
         public void AcessarProdutosAReceber()
