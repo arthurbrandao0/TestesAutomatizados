@@ -1,8 +1,10 @@
 ﻿using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Remote;
 using System;
+using System.Threading;
 
 namespace TestesAutomatizados.Cobrança_e_Boleto
 {
@@ -27,32 +29,48 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             dc.SetCapability("debugConnectToRunningApp", true);
             RemoteWebDriver driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
 
+            McMenus.AcessarMenuOperacaoFinanceiroCobrancaGeracaoDeCobranca();
+
+            McFunctions.SearchElementByIdAndClick("checkBoxConsumption", true);
+
+            McFunctions.SearchElementByIdAndClick("buttonGenerate");
+            McFunctions.SearchElementByNameAndClick("Sim", true);
+
+            while (Convert.ToInt32(driver.FindElement(By.Id("labelDunCountValue")).GetAttribute("Name")) < 5){
+            Thread.Sleep(1000);
+            }
+
+            McFunctions.SearchElementByNameAndClick("Cancelar", true);
+            McFunctions.SearchElementByNameAndClick("OK", true);
+            McFunctions.CloseWindow("Geração de cobrança");
+
             McMenus.AcessarMenuOperacaoFinanceiroCobrancaGeracoesAnteriores();
-            
-            //aqui entra o código com o range de datas, se necessário
 
             McFunctions.WaitForElementLoad(By.Id("listView"));
+                        
+            McFunctions.SearchElementByNameAndClick("Data");
+            Thread.Sleep(1000);
+            McFunctions.SearchElementByNameAndClick("Data");
 
-            driver.FindElement(By.Name("Data")).Click();
-            driver.FindElement(By.Name("Data")).Click();
-
+            McFunctions.WaitForElementLoad(By.Id("listView"));
             driver.FindElement(By.Id("listView")).FindElements(By.Id(""))[0].Click();
             string fileName = driver.FindElement(By.Id("listView")).FindElements(By.Id(""))[0].GetAttribute("Name");
 
-            driver.FindElement(By.Id("buttonReport")).Click();
-            driver.FindElement(By.Name("Desfazer")).Click();
+            McFunctions.SearchElementByIdAndClick("buttonReport", true);
 
-            McFunctions.WaitForElementLoad(By.Name("Pergunta"));
-            driver.FindElement(By.Name("Sim")).Click();
+            McFunctions.SearchElementByNameAndClick("Desfazer");
 
-            McFunctions.WaitForElementLoad(By.Name("Concluído"), 30);
+            McFunctions.SearchElementByNameAndClick("Sim", true);
+
+            McFunctions.WaitForElementLoad(By.Name("Concluído"), 120);
 
             if (driver.FindElements(By.Name("Informação")).Count > 0)
             {
                 driver.FindElement(By.Name("OK")).Click();
             }
-            driver.FindElement(By.Name("OK")).Click();
 
+            McFunctions.SearchElementByNameAndClick("OK");
+            
             McFunctions.CloseWindow("Gerações anteriores");
 
             McMenus.AcessarMenuOperacaoFinanceiroCobrancaGeracoesAnteriores();
