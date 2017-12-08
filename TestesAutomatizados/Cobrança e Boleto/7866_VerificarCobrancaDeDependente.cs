@@ -60,7 +60,6 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             }
 
             McFunctions.CloseWindow("Cobranças do título");
-            McFunctions.TreatWaitScreen();
             McFunctions.FinalizarAtendimentoTitulo();
             McFunctions.CloseWindow("Central de atendimento");
 

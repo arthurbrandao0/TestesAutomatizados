@@ -93,7 +93,7 @@ namespace TestesAutomatizados
             driver.FindElement(By.Name("Editar cobranças")).Click();
         }
 
-        public void WaitForElementLoad(By by, int seconds = 20)
+        public void WaitForElementLoad(By by, int seconds = 30)
         {
 
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(seconds));
@@ -184,7 +184,7 @@ namespace TestesAutomatizados
         public void SearchHolder(string HolderId) {
             SendAndCheckKeys("textBoxKeyword", HolderId);
             Keyboard.SendKeys("{Enter}");
-            WaitForElementLoad(By.Name("Titular"));
+            WaitForElementLoad(By.Name("Titular"),60);
             new Actions(driver).DoubleClick(driver.FindElement(By.Name("Titular"))).Build().Perform();
         }
 
