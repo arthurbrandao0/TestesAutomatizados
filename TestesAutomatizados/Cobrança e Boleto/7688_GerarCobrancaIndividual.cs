@@ -38,28 +38,24 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
 
             Console.WriteLine(billingValue);
 
-            driver.FindElement(By.Id("linkLabelGenerate")).Click();
+            McFunctions.SearchElementByIdAndClick("linkLabelGenerate");
 
-            McFunctions.WaitForElementLoad(By.Id("buttonGenerate"));
-            driver.FindElement(By.Id("buttonGenerate")).Click();
+            McFunctions.SearchElementByIdAndClick("buttonGenerate", true);
 
-            McFunctions.WaitForElementLoad(By.Name("Sim"));
-            driver.FindElement(By.Name("Sim")).Click();
+            McFunctions.SearchElementByNameAndClick("Sim", true);
 
-            McFunctions.WaitForElementLoad(By.Name("OK"), 10);
+            McFunctions.WaitForElementLoad(By.Name("OK"));
             
             string generatedBilling = driver.FindElement(By.Id("labelTotalValue")).GetAttribute("Name");
             
-            driver.FindElement(By.Name("OK")).Click();
+            McFunctions.SearchElementByNameAndClick("OK");
 
-            McFunctions.TreatWaitScreen();
             McFunctions.CloseWindow("Cobranças do título");
 
             McFunctions.FinalizarAtendimentoTitulo();
             McFunctions.CloseWindow("Central de Atendimento");
 
             Assert.AreEqual(billingValue, generatedBilling, "Valor previsto foi o valor gerado");
-
         }
 
         #region Atributos de teste adicionais
