@@ -34,7 +34,7 @@ namespace TestesAutomatizados.CobrancaEBoleto
             // 1. Pré-requisito: Acerto de comissão gerada para o promotor @NomePromotor, associado ao título  @IdTitulo 
             McMenus.AcessarMenuOperacaoFinanceiroAcertoDeComissao();
 
-            driver.FindElement(By.Name("Localizar")).Click();
+            McFunctions.SearchElementByNameAndClick("Localizar");
 
             McFunctions.WaitForElementLoad(By.Id("listView"));
             List<IWebElement> elementlist = new List<IWebElement>();
@@ -43,16 +43,10 @@ namespace TestesAutomatizados.CobrancaEBoleto
             if(elementlist.Count > 0)
             {
                 new Actions(driver).ContextClick(elementlist[0]).Perform();
-                driver.FindElement(By.Name("Gerar acerto")).Click();
-                driver.FindElement(By.Name("Sim")).Click();
-                McFunctions.TreatWaitScreen();
-                driver.FindElement(By.Id("buttonCancel")).Click();                
+                McFunctions.SearchElementByNameAndClick("Gerar acerto");
+                McFunctions.SearchElementByNameAndClick("Sim");
+                McFunctions.SearchElementByIdAndClick("buttonCancel", true);
             }
-            else
-            {
-                Console.WriteLine("Acerto gerado anteriormente");
-            }
-
             //3.Logar no MultiClubes
             // Presente no TestInitialize
 
@@ -60,7 +54,8 @@ namespace TestesAutomatizados.CobrancaEBoleto
             McFunctions.AcessarCentralDeAtendimento();
 
             //5.Localizar e Acessar Título
-            this.UIMap.AbrirAtendimentoTitulo008Pro();
+            McFunctions.AcessarCentralDeAtendimento();
+            McFunctions.SearchHolder("008Pro");
 
             //6.Acessar o menu Produtos
             //Serem apresentadas as opções A receber, Recebido, Desativados, Créditos, Resgate, Parcelamento e Mudar promotor
@@ -120,11 +115,15 @@ namespace TestesAutomatizados.CobrancaEBoleto
 
             //12.Clicar no menu Histórico
             //Ser apresentada tela para acessar o histórico de acertos de promotores gerados
-            driver.FindElement(By.Id("sideButtonClassHistoric")).Click();
+            McFunctions.SearchElementByIdAndClick("sideButtonClassHistoric");
+
+            McFunctions.SearchElementByNameAndClick("Promotor", true);
+            Thread.Sleep(500);
+            McFunctions.SearchElementByNameAndClick("Promotor");
 
             //13.Clicar no botão Localizar
             //Ser apresentada lista contendo todos os acertos de promotores gerados
-            driver.FindElement(By.Id("buttonFilter")).Click();
+            McFunctions.SearchElementByIdAndClick("buttonFilter");
             
             //14.Localizar e clicar no acerto de comissão referente aos passos 7 e 10
             //Registro de acerto ser corretamente selecionado e apresentado em destaque
@@ -135,18 +134,15 @@ namespace TestesAutomatizados.CobrancaEBoleto
 
             //16.Clicar no botão Opções
             //Ser apresentado sub - menu contendo as opções disponíveis
-            McFunctions.WaitForElementLoad(By.Name("Opções"));
-            driver.FindElement(By.Name("Opções")).Click();
+            McFunctions.SearchElementByNameAndClick("Opções");
 
             //17.No sub-menu, clicar na opção Desfazer acerto
             //Ser apresentada tela solicitando confirmação para desfazer acerto de comissão para o promotor
-            driver.FindElement(By.Name("Desfazer acerto")).Click();
+            McFunctions.SearchElementByNameAndClick("Desfazer acerto");
 
             //18.Clicar no botão Sim
             //Acerto de comissão de promotor ser corretamente desfeito e ser apresentada tela de histórico de acertos sem constar o acerto de comissão desfeito
-            driver.FindElement(By.Name("Sim")).Click();
-
-            McFunctions.TreatWaitScreen();
+            McFunctions.SearchElementByNameAndClick("Sim");
 
             McFunctions.CloseWindow();
 
@@ -156,7 +152,8 @@ namespace TestesAutomatizados.CobrancaEBoleto
             McFunctions.AcessarCentralDeAtendimento();
 
             //20.Localizar e Acessar Título
-            this.UIMap.AbrirAtendimentoTitulo008Pro();
+            McFunctions.AcessarCentralDeAtendimento();
+            McFunctions.SearchHolder("008Pro");
 
             //21.Repetir os passos 6 e 7
             //Ser apresentada tela contendo as parcelas de produtos a receber, não constando parcela do produto Acerto promotor, desfeita no passo 18
