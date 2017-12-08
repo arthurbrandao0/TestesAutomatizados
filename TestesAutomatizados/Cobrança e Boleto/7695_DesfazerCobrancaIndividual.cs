@@ -4,7 +4,6 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Remote;
 using System;
-using System.Reflection;
 
 namespace TestesAutomatizados.Cobrança_e_Boleto
 {
@@ -54,20 +53,19 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
 
             new Actions(driver).DoubleClick(listViewDunElements[counter - 3]).Build().Perform();
             
-            McFunctions.WaitForElementLoad(By.Id("buttonOptions"));
-            driver.FindElement(By.Id("buttonOptions")).Click();
-            driver.FindElement(By.Name("Desfazer cobrança")).Click();
+            McFunctions.SearchElementByIdAndClick("buttonOptions");
 
-            driver.FindElement(By.Name("Sim")).Click();
+            McFunctions.SearchElementByNameAndClick("Desfazer cobrança");
 
+            McFunctions.SearchElementByNameAndClick("Sim");
+            
             if (driver.FindElements(By.Name("Informação")).Count > 0)
             {
-                driver.FindElement(By.Name("OK")).Click();
-                driver.FindElement(By.Name("Erros")).Click();
+                McFunctions.SearchElementByNameAndClick("OK");
+                McFunctions.SearchElementByNameAndClick("Erros");
             }
 
-            McFunctions.WaitForElementLoad(By.Name("OK"));
-            driver.FindElement(By.Name("OK")).Click();
+            McFunctions.SearchElementByNameAndClick("OK", true);
 
             McFunctions.WaitForElementLoad(By.Id("listViewDun"));
 
@@ -76,7 +74,6 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             {
                 undoneBilling = false;
             }
-            McFunctions.WaitForElementLoad(By.Name("Cobranças ativas"));
             McFunctions.CloseWindow("Cobranças ativas");
             McFunctions.FinalizarAtendimentoTitulo();
             McFunctions.CloseWindow("Central de atendimento");
