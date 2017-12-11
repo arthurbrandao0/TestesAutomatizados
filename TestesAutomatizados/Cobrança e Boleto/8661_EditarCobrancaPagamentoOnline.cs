@@ -42,38 +42,47 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             mcFunctions.SearchHolder(holder);
 
             mcFunctions.AcessarCobrancasEditarCobrancas();
-            driver.FindElement(By.Id("linkLabelEdit")).Click();
+            mcFunctions.SearchElementByIdAndClick("linkLabelEdit", true);
 
-            driver.FindElement(By.Id("comboBoxDunType")).Click();
-            driver.FindElement(By.Name("À vista")).Click();
-            driver.FindElement(By.Id("buttonOK")).Click();
-            mcFunctions.TreatWaitScreen();
+            //driver.FindElement(By.Id("comboBoxDunType")).Click();
+            mcFunctions.SearchElementByIdAndClick("comboBoxDunType");
+            //driver.FindElement(By.Name("À vista")).Click();
+            mcFunctions.SearchElementByNameAndClick("À vista");
+            //driver.FindElement(By.Id("buttonOK")).Click();
+            mcFunctions.SearchElementByIdAndClick("buttonOK");
+            //mcFunctions.TreatWaitScreen();
             mcFunctions.CloseWindow("Cobranças do título");
             //---
             mcFunctions.AcessarCobrancasEditarCobrancas();
-            driver.FindElement(By.Id("linkLabelEdit")).Click();
-            driver.FindElement(By.Id("comboBoxDunType")).Click();
-            driver.FindElement(By.Name("Pagamento online")).Click();
-            driver.FindElement(By.Id("buttonDetail")).Click();
+            //driver.FindElement(By.Id("linkLabelEdit")).Click();
+            mcFunctions.SearchElementByIdAndClick("linkLabelEdit");
+            //driver.FindElement(By.Id("comboBoxDunType")).Click();
+            mcFunctions.SearchElementByIdAndClick("comboBoxDunType");
+            //driver.FindElement(By.Name("Pagamento online")).Click();
+            mcFunctions.SearchElementByNameAndClick("Pagamento online");
+            //driver.FindElement(By.Id("buttonDetail")).Click();
+            mcFunctions.SearchElementByIdAndClick("buttonDetail");
 
-            driver.FindElement(By.Id("buttonCreditCardEdit")).Click();
+            //driver.FindElement(By.Id("buttonCreditCardEdit")).Click();
+            mcFunctions.SearchElementByIdAndClick("buttonCreditCardEdit");
 
-            driver.FindElement(By.Id("comboBoxCardType")).Click();
-            driver.FindElement(By.Name("Visa")).Click();
+            //driver.FindElement(By.Id("comboBoxCardType")).Click();
+            mcFunctions.SearchElementByIdAndClick("comboBoxCardType");
+
+            //driver.FindElement(By.Name("Visa")).Click();
+            mcFunctions.SearchElementByNameAndClick("Visa");
 
             mcFunctions.SearchElementByIdAndSendKeys("textBoxCardHolderName", cardHolderName);
             mcFunctions.SearchElementByIdAndSendKeys("textBoxCardNumber", cardNumber);
             mcFunctions.SearchElementByIdAndSendKeys("maskedTextBoxCardValidity", "{HOME}" + cardValidity);
             mcFunctions.SearchElementByIdAndSendKeys("textBoxSecurityCode", securityCode);
 
-            mcFunctions.WaitForElementLoad(By.Id("buttonOK"));
-            mcFunctions.SearchElementByIdAndClick("buttonOK");
-            mcFunctions.WaitForElementLoad(By.Id("buttonOK"));
-            mcFunctions.SearchElementByIdAndClick("buttonOK");
-            mcFunctions.WaitForElementLoad(By.Id("buttonOK"));
-            mcFunctions.SearchElementByIdAndClick("buttonOK");
-
-            mcFunctions.TreatWaitScreen();
+            //mcFunctions.WaitForElementLoad(By.Id("buttonOK"));
+            mcFunctions.SearchElementByIdAndClick("buttonOK", true);
+            //mcFunctions.WaitForElementLoad(By.Id("buttonOK"));
+            mcFunctions.SearchElementByIdAndClick("buttonOK", true);
+            //mcFunctions.WaitForElementLoad(By.Id("buttonOK"));
+            mcFunctions.SearchElementByIdAndClick("buttonOK", true);
 
             mcFunctions.CloseWindow("Cobranças do título");
             mcFunctions.FinalizarAtendimentoTitulo();
