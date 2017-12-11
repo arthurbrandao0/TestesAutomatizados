@@ -48,12 +48,14 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
 
             McFunctions.AcessarCobrancasAtivas();
 
+            McFunctions.WaitForElementLoad(By.Id("listViewYear"));
+            driver.FindElement(By.Id("listViewYear")).FindElements(By.Id(""))[0].Click();
+
             McFunctions.WaitForElementLoad(By.Id("listViewDun"));
             new Actions(driver).MoveToElement(driver.FindElement(By.Id("listViewDun")).FindElements(By.Id(""))[0]).Build().Perform();
             new Actions(driver).DoubleClick(driver.FindElement(By.Id("listViewDun")).FindElements(By.Id(""))[0]).Build().Perform();
 
-            McFunctions.TreatWaitScreen();
-            McFunctions.SearchElementByIdAndClick("buttonOptions");
+            McFunctions.SearchElementByIdAndClick("buttonOptions", true);
             McFunctions.SearchElementByNameAndClick("Boleto");
             McFunctions.SearchElementByNameAndClick("Alterar mensagem");
 
