@@ -33,14 +33,15 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             RemoteWebDriver driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
 
             mcMenus.AcessarMenuOperacaoFinanceiroTransacoesBancariasRemessasAnteriores();
+
             mcFunctions.WaitForElementLoad(By.Id("listView"));
             driver.FindElement(By.Id("listView")).FindElements(By.Id(""))[0].Click();
             
-            driver.FindElement(By.Id("buttonOptions")).Click();
-            driver.FindElement(By.Name("Desfazer")).Click();
-            mcFunctions.TreatWaitScreen();
-            driver.FindElement(By.Name("Sim")).Click();
-            mcFunctions.WaitForElementLoad(By.Id("OPERATION_FINANCIAL+BANK+REMITTANCE_HISTORY"), 2);
+            mcFunctions.SearchElementByIdAndClick("buttonOptions");
+            mcFunctions.SearchElementByNameAndClick("Desfazer");
+
+            mcFunctions.SearchElementByNameAndClick("Sim", true);
+            mcFunctions.WaitForElementLoad(By.Id("OPERATION_FINANCIAL+BANK+REMITTANCE_HISTORY"));
             mcFunctions.CloseWindow("Remessas anteriores", "OPERATION_FINANCIAL+BANK+REMITTANCE_HISTORY");
 
             mcMenus.AcessarMenuOperacaoFinanceiroTransacoesBancariasEmissaoDeRemessa();
