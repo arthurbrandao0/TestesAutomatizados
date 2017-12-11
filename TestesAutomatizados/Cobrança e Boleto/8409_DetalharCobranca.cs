@@ -45,25 +45,23 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             holderElement.Click();
 
             new Actions(driver).MoveToElement(holderElement).ContextClick(holderElement).Build().Perform();
+
+            new Actions(driver).MoveToElement(driver.FindElement(By.Name("Modalidades"))).Click(driver.FindElement(By.Name("Modalidades"))).Build().Perform();
             
-            driver.FindElement(By.Name("Modalidades")).Click();
             driver.FindElement(By.Name("Modalidades")).FindElement(By.Name("Nova matrícula")).Click();
 
-            McFunctions.WaitForElementLoad(By.Name(modalityName));
-            driver.FindElement(By.Name(modalityName)).Click();
+            McFunctions.SearchElementByNameAndClick(modalityName, true);
 
-            driver.FindElement(By.Name("Avançar")).Click();
+            McFunctions.SearchElementByNameAndClick("Avançar");
             
-            McFunctions.WaitForElementLoad(By.Id("checkBoxFirstMaintenance"));
-            driver.FindElement(By.Id("checkBoxFirstMaintenance")).Click();
-            driver.FindElement(By.Id("radioButtonMain")).Click();
+            McFunctions.SearchElementByIdAndClick("checkBoxFirstMaintenance", true);
 
-            McFunctions.WaitForElementLoad(By.Id("buttonOK"));
-            driver.FindElement(By.Id("buttonOK")).Click();           
-            driver.FindElement(By.Name("Sim")).Click();
+            McFunctions.SearchElementByIdAndClick("radioButtonMain");
 
-            McFunctions.TreatWaitScreen();
+            McFunctions.SearchElementByIdAndClick("buttonOK", true);
 
+            McFunctions.SearchElementByNameAndClick("Sim");
+            
             McFunctions.CashReceiptByBillingGeneration();
             
             McFunctions.AcessarProdutosAReceber();
@@ -71,12 +69,15 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             McFunctions.WaitForElementLoad(By.Id("listViewYear"));
             driver.FindElement(By.Id("listViewYear")).FindElements(By.Id(""))[0].Click();
 
-            new Actions(driver).DoubleClick(driver.FindElement(By.Name(modalityBillingName))).Build().Perform();
+            McFunctions.WaitForElementLoad(By.Id("listViewParcel"), 60);
 
-            McFunctions.TreatWaitScreen();
-            driver.FindElement(By.Id("buttonOptions")).Click();
-            driver.FindElement(By.Name("Detalhar manutenção")).Click();
+            IWebElement billingName = driver.FindElement(By.Name(modalityBillingName));
 
+            new Actions(driver).MoveToElement(billingName).DoubleClick(billingName).Build().Perform();
+
+            McFunctions.SearchElementByIdAndClick("buttonOptions", true);
+            McFunctions.SearchElementByNameAndClick("Detalhar manutenção");
+            
             McFunctions.WaitForElementLoad(By.Id("listViewDiscounts"));
 
             bool discountFound = false;
@@ -100,14 +101,15 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             McFunctions.CloseWindow("Parcelas - Produtos a receber");
 
             new Actions(driver).MoveToElement(holderElement).ContextClick(holderElement).Build().Perform();
-            driver.FindElement(By.Name("Modalidades")).Click();
+            McFunctions.SearchElementByNameAndClick("Modalidades");
 
             driver.FindElement(By.Name(modalityBillingName + " - " + modalityName)).Click();
 
-            McFunctions.WaitForElementLoad(By.Id("buttonOptions"));
-            driver.FindElement(By.Id("buttonOptions")).Click();
-            driver.FindElement(By.Name("Cancelar matrícula")).Click();
+            McFunctions.SearchElementByIdAndClick("buttonOptions");
 
+            McFunctions.SearchElementByNameAndClick("Cancelar matrícula");
+
+            McFunctions.WaitForElementLoad(By.Id("listViewParcel"));
             foreach (IWebElement i in driver.FindElement(By.Id("listViewParcel")).FindElements(By.Id("")))
             {
                 if (i.GetAttribute("ControlType") == "ControlType.CheckBox")
@@ -115,8 +117,8 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
                     i.Click();
                 }
             }
-            driver.FindElement(By.Id("buttonOK")).Click();
-            driver.FindElement(By.Name("Sim")).Click();
+            McFunctions.SearchElementByIdAndClick("buttonOK");
+            McFunctions.SearchElementByNameAndClick("Sim");
             
             McFunctions.TreatWaitScreen();
 
