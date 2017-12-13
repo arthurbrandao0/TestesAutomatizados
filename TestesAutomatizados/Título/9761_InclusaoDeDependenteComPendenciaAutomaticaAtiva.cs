@@ -10,6 +10,7 @@ using Microsoft.VisualStudio.TestTools.UITest.Extension;
 using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 
 namespace TestesAutomatizados.Título
 {
@@ -17,14 +18,14 @@ namespace TestesAutomatizados.Título
     /// Summary description for CodedUITest2
     /// </summary>
     [CodedUITest]
-    public class CadastroDeTituloLocalComPendenciaAutomaticaAtiva
+    public class InclusaoDeDependenteComPendenciaAutomaticaAtiva
     {
-        public CadastroDeTituloLocalComPendenciaAutomaticaAtiva()
+        public InclusaoDeDependenteComPendenciaAutomaticaAtiva()
         {
         }
 
         [TestMethod]
-        public void CadastroDeTituloLocalComPendenciaAutomaticaAtiva_9760()
+        public void InclusaoDeDependenteComPendenciaAutomaticaAtiva_9761()
         {
             MultiClubesFunctions mcFunctions = new MultiClubesFunctions();
             MultiClubesMenus mMcMenus = new MultiClubesMenus();
@@ -36,67 +37,39 @@ namespace TestesAutomatizados.Título
             dc.SetCapability("debugConnectToRunningApp", true);
             RemoteWebDriver driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
 
-            string name = "Sócio criado em " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+            string dependentName = "Dependente criado em " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
 
-            mMcMenus.AcessarMenuOperacaoTituloCadastroDeTitulo();
+            mcFunctions.AcessarCentralDeAtendimento();
+            mcFunctions.SearchHolder("age0399");
 
-            mcFunctions.SearchElementByIdAndClick("comboBoxSalePlan");
-            mcFunctions.SearchElementByNameAndClick("AGE - AGEPES 2");
+            mcFunctions.SearchElementByNameAndClick("Título", true);
 
-            mcFunctions.SearchElementByIdAndSendKeys("maskedTextBoxPostalCode", "01311000");
+            mcFunctions.SearchElementByIdAndClick("sideButtonNewMember", true);
 
-            mcFunctions.SearchElementByIdAndClick("buttonSearch");
-
-            mcFunctions.SearchElementByIdAndSendKeys("textBoxNumber", "100", true);
-
+            mcFunctions.SearchElementByIdAndSendKeys("textBoxName", dependentName, true);
+            mcFunctions.SearchElementByIdAndClick("comboBoxParentage");
+            mcFunctions.SearchElementByNameAndClick("Nora");
+            mcFunctions.SearchElementByIdAndSendKeys("textBox", "123");
             mcFunctions.SearchElementByIdAndClick("buttonOK");
 
-            mcFunctions.SearchElementByIdAndSendKeys("textBoxName", name);
+            mcFunctions.WaitForElementLoad(By.Id("labelWarning"));
 
-            mcFunctions.SearchElementByIdAndClick("buttonChangeDocumentType");
-            mcFunctions.SearchElementByNameAndClick("Outro");
+            bool foundText = driver.FindElement(By.Id("labelWarning")).GetAttribute("Name").Contains("Cadastro de dependente local");
 
-            mcFunctions.SearchElementByIdAndSendKeys("textBox", "123{TAB}321");
-            mcFunctions.SearchElementByIdAndClick("buttonOK");
+            IWebElement holderElement = driver.FindElement(By.Name("Dependente"));
 
-            if (driver.FindElements(By.Name("Duplicidade de sócio")).Count > 0)
-            {
-                mcFunctions.SearchElementByIdAndClick("buttonOK");
-            }
+            holderElement.Click();
+            new Actions(driver).MoveToElement(holderElement).ContextClick(holderElement).Build().Perform();
 
-            mcFunctions.SearchElementByIdAndClick("comboBoxDunType");
-            mcFunctions.SearchElementByNameAndClick("Débito em conta");
-
-            mcFunctions.SearchElementByIdAndClick("buttonDetail");
-
-            // Instituição de cobrança
-            mcFunctions.SearchElementByIdAndClick("comboBoxDunInstitution", true);
-            string instituition = "BANCO DO BRASIL DEBITO AUTOMATICO";
-            mcFunctions.SearchElementByNameAndClick(instituition);
-
-            // Ciclo
-            mcFunctions.SearchElementByIdAndClick("comboBoxCycle", true);
-            string cycle = "Mensal";
-            mcFunctions.SearchElementByNameAndClick(cycle);
-
-            mcFunctions.SearchElementByIdAndSendKeys("comboBoxCycle", "{TAB}123{TAB}1{TAB}321{TAB}2");
-            
-            mcFunctions.SearchElementByIdAndSendKeys("textBoxDueDay", "5");
-
-            mcFunctions.SearchElementByIdAndClick("buttonOK", true);
-            mcFunctions.SearchElementByIdAndClick("buttonFinalize");
+            mcFunctions.SearchElementByNameAndClick("Status", true);
+            mcFunctions.SearchElementByNameAndClick("Excluir", true);
             mcFunctions.SearchElementByNameAndClick("Sim", true);
+            mcFunctions.SearchElementByNameAndClick("OK", true);
 
-            mcFunctions.SearchElementByIdAndClick("buttonService", true);
-
-            mcFunctions.WaitForElementLoad(By.Id("labelWarning"));
-
-            mcFunctions.WaitForElementLoad(By.Id("labelWarning"));
-            Assert.IsTrue(driver.FindElement(By.Id("labelWarning")).GetAttribute("Name").Contains("Cadastro de título local"), "Texto \"Cadastro de título local\" presente na \"labelWarning\"");
-
-            mcFunctions.WaitForElementLoad(By.Name("Fechar"));
             mcFunctions.FinalizarAtendimentoTitulo();
-            mcFunctions.CloseWindow("Central de atendimento");
+            mcFunctions.CloseWindow();
+
+            Assert.IsTrue(foundText, "Texto \"Cadastro de dependente local\" presente na \"labelWarning\"");
         }
 
         #region Additional test attributes
