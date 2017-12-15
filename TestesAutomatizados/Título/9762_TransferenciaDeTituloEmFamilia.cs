@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using System.Windows.Input;
-using System.Windows.Forms;
-using System.Drawing;
-using Microsoft.VisualStudio.TestTools.UITesting;
+﻿using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Microsoft.VisualStudio.TestTools.UITest.Extension;
-using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
-using OpenQA.Selenium.Remote;
-using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Remote;
+using System;
 
 namespace TestesAutomatizados.Título
 {
@@ -28,7 +21,7 @@ namespace TestesAutomatizados.Título
         public void TransferenciaDeTituloEmFamilia_9762()
         {
             MultiClubesFunctions mcFunctions = new MultiClubesFunctions();
-            MultiClubesMenus mMcMenus = new MultiClubesMenus();
+            MultiClubesMenus mcMenus = new MultiClubesMenus();
             OpenCash openCash = new OpenCash();
             openCash.OpenCashMethod();
 
@@ -38,6 +31,18 @@ namespace TestesAutomatizados.Título
             RemoteWebDriver driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
 
             string dependentName = "Sócio criado em " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+
+            mcMenus.AcessarMenuAdministracaoTituloPendencias();
+            mcFunctions.SearchElementByNameAndClick("Título");
+
+            mcFunctions.SearchElementByNameAndRightClick("Transferência de título");
+
+            if (driver.FindElements(By.Name("Desativar")).Count > 0)
+            {
+                mcFunctions.SearchElementByNameAndClick("Desativar");
+            }
+
+            mcFunctions.CloseWindow("Pendências");
 
             mcFunctions.AcessarCentralDeAtendimento();
             mcFunctions.SearchHolder("age0399");
@@ -54,7 +59,7 @@ namespace TestesAutomatizados.Título
 
             mcFunctions.WaitForElementLoad(By.Id("LargeIncrement"));
             driver.FindElement(By.Id("sideBar")).FindElement(By.Id("LargeIncrement")).Click();
-            
+
             mcFunctions.SearchElementByIdAndClick("sideButtonTransferTitle", true);
             mcFunctions.SearchElementByIdAndClick("radioButtonFamily", true);
             mcFunctions.SearchElementByIdAndClick("comboBoxProduct");
