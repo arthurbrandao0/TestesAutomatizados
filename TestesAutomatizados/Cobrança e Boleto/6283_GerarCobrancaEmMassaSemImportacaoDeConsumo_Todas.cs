@@ -30,16 +30,17 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             RemoteWebDriver driver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
 
             McMenus.AcessarMenuOperacaoFinanceiroCobrancaGeracaoDeCobranca();
-            this.UIMap.VerificarTituloGeracaoCobranca();
-            this.UIMap.DesabilitarOpcaoImportarConsumosAte();
-            this.UIMap.SelecionarTodasCobrancas();
-            this.UIMap.DesabilitarGerarComOpcaoPorCiclo();
-            this.UIMap.ClicarBotaoGeracaoCobranca();
-            this.UIMap.VerificarTituloGeracaoCobranca();
+
+            //this.UIMap.DesabilitarOpcaoImportarConsumosAte();
+            McFunctions.SearchElementByIdAndClick("checkBoxConsumption");
+                        
+            //this.UIMap.ClicarBotaoGeracaoCobranca();
+            McFunctions.SearchElementByIdAndClick("buttonGenerate");
+            McFunctions.SearchElementByNameAndClick("Sim");
 
             McFunctions.CheckBillingForecast();
 
-            McFunctions.WaitBillingGeneration();
+            //McFunctions.WaitBillingGeneration();
         }
 
         #region Atributos de teste adicionais
