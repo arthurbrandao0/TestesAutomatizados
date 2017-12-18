@@ -37,6 +37,9 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
 
             McFunctions.AcessarCobrancasAtivas();
 
+            McFunctions.WaitForElementLoad(By.Id("listViewYear"));
+            driver.FindElement(By.Id("listViewYear")).FindElements(By.Id(""))[0].Click();
+
             McFunctions.WaitForElementLoad(By.Id("listViewDun"));
 
             var listViewDunElements = driver.FindElement(By.Id("listViewDun")).FindElements(By.Id(""));
@@ -46,11 +49,10 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             new Actions(driver).MoveToElement(driver.FindElement(By.Id("listViewDun")).FindElements(By.Id(""))[0]).Build().Perform();
             new Actions(driver).DoubleClick(driver.FindElement(By.Id("listViewDun")).FindElements(By.Id(""))[0]).Build().Perform();
 
-            McFunctions.TreatWaitScreen();
-            McFunctions.SearchElementByIdAndClick("buttonOptions");
+            McFunctions.SearchElementByIdAndClick("buttonOptions", true);
             McFunctions.SearchElementByNameAndClick("Imprimir extrato");
 
-            McFunctions.WaitForElementLoad(By.Id("DocumentViewer"), 2);
+            McFunctions.WaitForElementLoad(By.Id("DocumentViewer"));
 
             Assert.Inconclusive("Verificar se a imagem em anexo no relatório de testes consta com os dados corretos");
 
