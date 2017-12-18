@@ -34,30 +34,32 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             mcFunctions.SearchHolder("N/S9440-0");
             
             mcFunctions.AcessarCobrancasEditarCobrancas();
-            driver.FindElement(By.Id("linkLabelEdit")).Click();
+            mcFunctions.SearchElementByIdAndClick("linkLabelEdit", true);
+            //driver.FindElement(By.Id("linkLabelEdit")).Click();
 
-            driver.FindElement(By.Id("comboBoxDunType")).Click();
-            driver.FindElement(By.Name("À vista")).Click();
-            driver.FindElement(By.Id("buttonOK")).Click();
-            mcFunctions.TreatWaitScreen();
+            mcFunctions.SearchElementByIdAndClick("comboBoxDunType", true);
+            mcFunctions.SearchElementByNameAndClick("À vista");
+            mcFunctions.SearchElementByIdAndClick("buttonOK", true);
             mcFunctions.CloseWindow("Cobranças do título");
             //---
             mcFunctions.AcessarCobrancasEditarCobrancas();
-            driver.FindElement(By.Id("linkLabelEdit")).Click();
 
-            driver.FindElement(By.Id("comboBoxDunType")).Click();
-            driver.FindElement(By.Name("Débito em conta")).Click();
-            driver.FindElement(By.Id("buttonDetail")).Click();
+            mcFunctions.SearchElementByIdAndClick("linkLabelEdit", true);
+            //driver.FindElement(By.Id("linkLabelEdkit")).Click();
+
+            mcFunctions.SearchElementByIdAndClick("comboBoxDunType", true);
+            mcFunctions.SearchElementByNameAndClick("Débito em conta");
+            mcFunctions.SearchElementByIdAndClick("buttonDetail");
 
             // Instituição de cobrança
-            driver.FindElement(By.Id("comboBoxDunInstitution")).Click();
+            mcFunctions.SearchElementByIdAndClick("comboBoxDunInstitution", true);
             string instituition = "BANCO DO BRASIL DEBITO AUTOMATICO";
-            driver.FindElement(By.Name(instituition)).Click();
+            mcFunctions.SearchElementByNameAndClick(instituition);
 
             // Ciclo
-            driver.FindElement(By.Id("comboBoxCycle")).Click();
+            mcFunctions.SearchElementByIdAndClick("comboBoxCycle", true);
             string cycle = "Mensal";
-            driver.FindElement(By.Name(cycle)).Click();
+            mcFunctions.SearchElementByNameAndClick(cycle);
 
             // Agencia e dígito
             //textBoxCode
@@ -68,14 +70,15 @@ namespace TestesAutomatizados.Cobrança_e_Boleto
             //textBoxDigit
 
             // Dia vencimento
-            IWebElement boxDueDay = driver.FindElement(By.Id("textBoxDueDay"));
-            boxDueDay.Clear();
-            boxDueDay.Click();
-            Keyboard.SendKeys("5");
+            //IWebElement boxDueDay = driver.FindElement(By.Id("textBoxDueDay"));
+            //boxDueDay.Clear();
+            //boxDueDay.Click();
+            //Keyboard.SendKeys("5");
 
-            driver.FindElement(By.Id("buttonOK")).Click();
-            driver.FindElement(By.Id("buttonOK")).Click();
-            mcFunctions.TreatWaitScreen();
+            mcFunctions.SearchElementByIdAndSendKeys("textBoxDueDay", "5");
+
+            mcFunctions.SearchElementByIdAndClick("buttonOK", true);
+            mcFunctions.SearchElementByIdAndClick("buttonOK", true);
             mcFunctions.CloseWindow("Cobranças do título");
 
             Assert.AreEqual(driver.FindElement(By.Id("labelDunModeValue")).GetAttribute("Name"), instituition + " " + cycle.ToLower(), "Verificando se o campo Cobrança presente no título informa os valores escolhidos.");
