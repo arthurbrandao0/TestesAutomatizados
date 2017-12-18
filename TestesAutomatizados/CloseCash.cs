@@ -48,8 +48,9 @@ namespace TestesAutomatizados
             foreach (string i in textBoxList)
             {
                 Console.WriteLine(i + "/");
-                driver.FindElement(By.Id(i)).Click();
-                Keyboard.SendKeys("0");
+                //driver.FindElement(By.Id(i)).Click();
+                //Keyboard.SendKeys("0");
+                mcFunctions.SearchElementByIdAndSendKeys(i, "0");
             }
 
             driver.FindElement(By.Id("textBoxUserPassword")).Click();
